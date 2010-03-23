@@ -32,6 +32,20 @@ h3 {
 	padding:5px;
 	margin-top:5px;
 }
+table{
+	padding:10px;
+	border-style:none;
+}
+table td{
+		border-style:none;
+}
+table th{
+	border-style:none;
+	background-color:#cccccc;
+}
+table td.project_column_header {
+	color:#df0422;
+}
 .main {
 	margin:50px;
 }
@@ -82,4 +96,8 @@ h3 {
 	padding-top:10px;
 	border-top:5px solid #df0422;
 	text-align:center;
+}
+.project_column_header{
+	width:10em;
+
 }
