@@ -33,15 +33,15 @@ h3 {
 	margin-top:5px;
 }
 .main {
+	margin:50px;
 }
 .content{
-	background: #fff url('/images/n2.gif') 0px 1px repeat-x;
 }
 .nav_bar 
 {
 	border-top:5px solid #df0422;
 	background:#ccc;
-	height:35px;
+	height:39px;
 }
 .nav_bar a
 {
@@ -67,6 +67,7 @@ h3 {
 	margin: 10px;
 	display:inline;
 	padding-left:100px;
+	list-style:none;
 }
 .nav_bar li
 {
