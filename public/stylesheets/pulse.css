@@ -1,0 +1,28 @@
+.main {
+/*	width: 80%;
+margin: 2%;
+*/}
+.nav_bar ul { 
+	margin: 10px;
+	display:inline;
+	padding-left:100px;
+
+}
+.nav_bar li
+{
+	float: left;
+}
+
+.nav_bar li a
+{
+	margin-left: 0.5em;
+	display: block;
+	padding: 1.1em 1.4em 1.0em 1.4em;
+	background: #fff url('/images/n4.gif') repeat-x;
+	border: solid 1px #fff;
+	color: #616161;
+	font-weight: bold;
+	font-size: 1.0em;
+	text-transform: lowercase;
+	text-decoration: none;
+}
