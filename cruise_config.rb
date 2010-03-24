@@ -1,5 +1,5 @@
-onv ARCHFLAGS "-arch i386"
-pecific configuration for CruiseControl.rb
+#onv ARCHFLAGS "-arch i386"
+#pecific configuration for CruiseControl.rb
 
 Project.configure do |project|
 
