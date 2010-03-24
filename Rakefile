@@ -8,3 +8,6 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 require 'tasks/rails'
+
+task :all => ["db:create","db:migrate", "spec"] do
+end
