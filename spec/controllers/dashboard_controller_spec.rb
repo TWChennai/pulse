@@ -6,8 +6,6 @@ describe DashboardController do
   it "should use DashboardController" do
     controller.should be_an_instance_of(DashboardController)
   end
-
-
   describe "GET 'index'" do
     it "should be successful" do
       get 'index'
