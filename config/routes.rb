@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
   map.connect '/', :controller=>'Dashboard', :action=>'index'
+  map.create_project '/project/new', :controller=>'project', :action=>'new'
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action

@@ -1,0 +1,26 @@
+<h3><%=@project["name"]%></h3>
+<br />
+
+<%@project_properties.each do |property|%>
+<%=property[KEY].capitalize%> : <%=property[VALUE]%> <br />
+<%end%>
+
+<h3> Iteration Information </h3>
+<table id="iterations">
+	<thead>
+		<th>Date</th>
+		<%@tracked_properties.each do |metric|%>
+		<th><%=metric%></th>
+		<%end%>	
+	</thead>
+	<tbody>
+	<%@iterations.each do |iteration|%>
+		<tr>
+			<td><%=iteration[KEY]%></td>
+			<%iteration[VALUE].each do |metric|%>
+				<td><%=metric[VALUE]%></td>
+			<%end%>
+		</tr>
+	<%end%>
+	</tbody>
+</table>

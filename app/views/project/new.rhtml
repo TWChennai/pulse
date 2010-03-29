@@ -1,0 +1,16 @@
+<%form_tag '/project/save' do %>
+<%@fields.each do |field|%>
+   	<% if(field[1]["tracked"]=="yes")%>
+	<div>
+		<%=field[1]["name"]%> : 
+		<%if field[1]["type"] == "date"%>
+		<%=date_select("properties[#{field[0]}]", "date", :start_year => 1995,:order => [:day, :month, :year],:prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' })%> <br />
+		<%else%>
+		<%=text_field_tag "properties['#{field[0]}']"%> <br />
+		<%end%>
+		<%=field[1]["description"]%> 	
+	</div>
+ 	<%end%>
+<%end%>
+<%=submit_tag "Create New Project"%>
+<%end%>

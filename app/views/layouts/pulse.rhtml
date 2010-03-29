@@ -1,6 +1,13 @@
 <html>
 <head>
 <%=stylesheet_link_tag :all, :cache => true%>
+<%=javascript_include_tag 'jquery', :cache => true%>
+<%=javascript_include_tag 'jquery.dataTables.min', :cache => true%>
+<script type="text/javascript" charset="utf-8"> 
+$(document).ready(function() {
+	$('#iterations').dataTable();
+});
+</script>
 </head>
 <body>
 	<div class="main">
@@ -8,245 +15,15 @@
 			<div class="logo"> <img src="/images/logo.jpg" width=150 height=100/> </div>
 			<div class="nav_bar"> 
 				<ul>
-					<li><a href="http://google.com" class="selected"> Dashboard </a> </li>
-					<li><a href="http://microsoft.com">  Create New Project</a></li>							
+					<li><a href="/" class="selected"> Dashboard </a> </li>
+					<li><%=link_to "Create New Project", create_project_path%></li>							
 				</ul>
 			</div>
 		</div>
 		<div class="clear">
 			<div class="content">
 				<div class="left_area"> 
-					<table border="1">
-						<theader>
-							<th class="project_column_header">Project Name</th>
-							<th>Property/Metric 2</th>
-							<th>Property/Metric 1</th>
-							<th>Property/Metric 2</th>
-							<th>Property/Metric 1</th>
-							<th>Property/Metric 2</th>
-							<th>Property/Metric 1</th>
-							<th>Property/Metric 2</th>
-							<th>Property/Metric 1</th>
-							<th>Property/Metric 2</th>
-							<th>Property/Metric 2</th>
-						</theader>
-						<tbody>
-							<tr>
-								<td class="project_column_header">Simon & Schuster Content Management System </td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-
-							</tr>
-							<tr>
-									<td class="project_column_header">Simon & Schuster Content Management System </td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-									<td class="project_column_header">Simon & Schuster Content Management System </td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-									<td class="project_column_header">Simon & Schuster Content Management System </td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-									<td class="project_column_header">Simon & Schuster Content Management System </td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-									<td class="project_column_header">Simon & Schuster Content Management System </td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-							<td class="project_column_header">Simon & Schuster Content Management System </td>
-							
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-							<td class="project_column_header">Simon & Schuster Content Management System </td>
-							
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-							<td class="project_column_header">Simon & Schuster Content Management System </td>
-								
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-								<td class="project_column_header">Simon & Schuster Content Management System </td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-						
-								<td class="project_column_header">Simon & Schuster Content Management System </td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-						
-								<td class="project_column_header">Simon & Schuster Content Management System </td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-									<td class="project_column_header">Simon & Schuster Content Management System </td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-									<td class="project_column_header">Simon & Schuster Content Management System </td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-								<td class="project_column_header">Simon & Schuster Content Management System </td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-								<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-							<tr>
-									<td class="project_column_header">Simon & Schuster Content Management System </td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td> 
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/red.png" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-									<td><center><img class="center" src="/images/green.gif" width=20 height=20/></center></td>
-							</tr>
-						</tbody>
-					</table>
+					<%=yield%>
 				</div>
 				<div class="right_area">
 				</div>
