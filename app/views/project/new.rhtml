@@ -1,10 +1,14 @@
 <%form_tag '/project/save' do %>
+<!--Adding hidden properties to tracking-->
+<%@fields.each do |tracked_property|%>
+	<%=hidden_field('tracking[properties]', tracked_property[0])%>
+<%end%>
 <%@fields.each do |field|%>
    	<% if(field[1]["tracked"]=="yes")%>
 	<div>
 		<%=field[1]["name"]%> : 
 		<%if field[1]["type"] == "date"%>
-		<%=date_select("properties[#{field[0]}]", "date", :start_year => 1995,:order => [:day, :month, :year],:prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' })%> <br />
+		<%=date_select("properties[#{field[0]}]", "date", :start_year => 1995,:order => [:day, :month, :year])%> <br />
 		<%else%>
 		<%=text_field_tag "properties['#{field[0]}']"%> <br />
 		<%end%>
