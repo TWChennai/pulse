@@ -20,18 +20,21 @@ $(document).ready(function() {
 				</ul>
 			</div>
 		</div>
-		<div class="clear">
-			<div class="content">
-				<div class="left_area"> 
-					<%=yield%>
-				</div>
-				<div class="right_area">
-				</div>
+		<div class="clear"/>
+		<div class="content">
+			<div class="left_area"> 
+				<%=yield%>
 			</div>
-			<div class="clear" />
-			<div class="footer">
-				&copy; <a href="http://www.thoughtworks.com">Thoughtworks</a>. All Rights Reserved
+			<div class="right_area">
+			</div>
+			<div class="projects_list_pane">
+				<%=render :partial=>'/project/project_list'%>
 			</div>
 		</div>
-	</body>
-	</html>
+		<div class="clear" />
+		<div class="footer">
+			&copy; <a href="http://www.thoughtworks.com">Thoughtworks</a>. All Rights Reserved
+		</div>
+	</div>
+</body>
+</html>
