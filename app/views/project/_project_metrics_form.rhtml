@@ -1,14 +1,9 @@
 <h1>Project Metrics</h1>
-<hr />
 <%@metrics.each do |metric_group|%>
 	<h3><%=metric_group[1]["metadata"]["name"]%></h3>
 	<%metric_group[1]["data"].each do |metric|%>
-		<%if metric[1]["mandatory"] == "yes"%>
-			<%=check_box_tag "metrics[#{metric[0]}]", "yes",true, :disabled =>true%>
-			<%=metric[1]["name"]%>  <br />
-		<%else%>
-			<%=check_box_tag "metrics[#{metric[0]}]", "yes"%><%=metric[1]["name"]%> <br />
-		<%end%>
+                <%=generate_check_box_tag(metric[0], metric[1]["mandatory"])%>
+                <%=metric[1]["name"]%> <br />
 		<h2><%=metric[1]["description"]%></h2>
 	<%end%>
 <%end%>

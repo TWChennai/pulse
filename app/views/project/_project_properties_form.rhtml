@@ -1,16 +1,15 @@
 <h1>Project Properties</h1>
-<hr />
 <%@fields.each do |field|%>
    	<% if(field[1]["tracked"]=="yes")%>
-	<div>
+	<div id=<%="#{field[0]}"%> class="property_field">
+             <div class="left_property_area">
 		<%=field[1]["name"]%> : 
-		<%if field[1]["type"] == "date"%>
-		<% date = convert_to_date(field[1]["value"])%>
-		<%=date_select("properties[#{field[0]}]", "date", :start_year => 1995,:order => [:day, :month, :year],:default=>{:day => date.day, :year=>date.year, :month=>date.month})%> <br />
-		<%else%>
-		<%=text_field_tag "properties[#{field[0]}]", field[1]['value']%> <br />
-		<%end%>
-		<h2><%=field[1]["description"]%></h2>
+                <%= generate_form_tag_for_property(field)%>
+             </div>
+             <div class="right_property_area">
+                <h2><%=field[1]["description"]%></h2>
+             </div>
 	</div>
  	<%end%>
 <%end%>
+<div class="clear" />
