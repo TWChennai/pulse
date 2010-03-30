@@ -2,11 +2,15 @@ require 'spec_helper'
 
 describe "/dashboard/index" do
   before(:each) do
+    @projects_list = DataFactory.list_of_projects
+    assigns[:projects] = @projects_list
     render 'dashboard/index'
   end
-
-  #Delete this example and add some real ones or delete this file
-  it "should tell you where to find the file" do
-    response.should have_tag('p', %r[Find me in app/views/dashboard/index])
+  it "should display the projects list" do
+    response.should be
+    response.should have_tag('h1',/Projects List/)
+    response.should have_tag("div#projects") do
+      
+    end
   end
 end

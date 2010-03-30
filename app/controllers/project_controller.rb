@@ -14,8 +14,12 @@ class ProjectController < ApplicationController
   end
   
   def edit
+    begin
     @project = Project.find(params[:id])
     @fields = @project["properties"].sort{|a,b| a[1]["order"]<=>b[1]["order"]}
+  rescue
+    render :template=>'public/404.html'
+  end
   end
 
   def save

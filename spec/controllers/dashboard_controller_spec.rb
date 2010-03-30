@@ -1,15 +1,12 @@
 require 'spec_helper'
 
 describe DashboardController do
-
-  #Delete these examples and add some real ones
-  it "should use DashboardController" do
-    controller.should be_an_instance_of(DashboardController)
-  end
-  describe "GET 'index'" do
-    it "should be successful" do
-      get 'index'
-      response.should be_success
+  before(:each) do
+    @projects_list =  DataFactory.list_of_projects
+    end
+    it "should display the list of all projects" do
+      Project.should_receive(:all).and_return(@projects_list)
+      get :index
+      response.should be
     end
   end
-end

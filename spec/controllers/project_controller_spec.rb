@@ -205,9 +205,17 @@ describe ProjectController do
   end
   
   describe "edit page" do
-    it "should description" do
-      
+    integrate_views
+    it "should show the project edit page if it exists" do
+      Project.should_receive(:find).with("100").and_return(@project)
+      get :edit, :id=>"100"
+      response.should be
+    end
+    it "should show the error page if project does not exist" do
+      Project.should_receive(:find).with("200").and_raise(RestClient::ResourceNotFound)
+      @controller.should_receive(:render).with(:template=>'public/404.html')
+      get :edit, :id=>"200"
     end
   end
-  
+
 end

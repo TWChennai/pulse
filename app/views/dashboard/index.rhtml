@@ -1,4 +1,6 @@
 <h1> Projects List </h1>
+<div id="projects">
 <%@projects["rows"].each do |project| %>
 	<%=link_to project["value"], show_project_path(:id=>project["key"])%> <br />
 <%end%>
+</div>
