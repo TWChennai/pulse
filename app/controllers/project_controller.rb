@@ -3,6 +3,7 @@ class ProjectController < ApplicationController
     begin
       @project = Project.find(params[:id])
       @project_properties = @project["properties"].sort{|a,b| a[1]["order"]<=>b[1]["order"]}
+      @title = "Showing Project Info for#{@project["properties"]["name"]["value"]}"
     rescue
       render :template=>'public/404.html'
     end
