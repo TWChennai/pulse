@@ -2,6 +2,12 @@
 <%@metrics.each do |metric_group|%>
 	<h3><%=metric_group[1]["metadata"]["name"]%></h3>
 	<%metric_group[1]["data"].each do |metric|%>
-		<h2><%=check_box_tag "metrics[#{metric[0]}]"%><%=metric[1]["name"]%> </h2>
+		<%if metric[1]["mandatory"] == "yes"%>
+			<%=check_box_tag "metrics[#{metric[0]}]", "yes",true, :disabled =>true%>
+			<%=metric[1]["name"]%>  <br />
+		<%else%>
+			<%=check_box_tag "metrics[#{metric[0]}]", "yes"%><%=metric[1]["name"]%> <br />
+		<%end%>
+		<h2><%=metric[1]["description"]%></h2>
 	<%end%>
 <%end%>

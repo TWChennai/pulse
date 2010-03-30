@@ -1,4 +1,5 @@
 class Project < Model
+  attr_accessor :properties, :metrics
   TEMPLATE = "56071a715dc0d9b24c5804f966f179e6"
   DB_NAME = "projects"
   @@db = CouchRest.database!(HOST+":"+PORT+"/"+DB_NAME)
