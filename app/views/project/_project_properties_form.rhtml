@@ -1,15 +1,17 @@
 <h1>Project Properties</h1>
+<br /> <br />
 <%@fields.each do |field|%>
    	<% if(field[1]["tracked"]=="yes")%>
 	<div id=<%="#{field[0]}"%> class="property_field">
              <div class="left_property_area">
-		<%=field[1]["name"]%> : 
-                <%= generate_form_tag_for_property(field)%>
+		<%=field[1]["name"]%>
+                <h2><%=field[1]["description"]%></h2>
              </div>
              <div class="right_property_area">
-                <h2><%=field[1]["description"]%></h2>
+                <%= generate_form_tag_for_property(field)%>
              </div>
 	</div>
  	<%end%>
 <%end%>
 <div class="clear" />
+<br /> <br />

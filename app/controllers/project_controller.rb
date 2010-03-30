@@ -9,15 +9,18 @@ class ProjectController < ApplicationController
   end
 
   def new
+    @title = "New Project Page"
     @project_template = Project.project_template
     @fields = @project_template["tracking"]["properties"].sort{|a,b| a[1]["order"]<=>b[1]["order"]}
-    @metrics = @project_template["tracking"]["metrics"]
+    @metrics = @project_template["tracking"]["metrics"].sort{|a,b| a[1]["metadata"]["order"] <=> b[1]["metadata"]["order"]}
   end
 
   def edit
     begin
       @project = Project.find(params[:id])
       @fields = @project["properties"].sort{|a,b| a[1]["order"]<=>b[1]["order"]}
+      @metrics = @project["metrics"].sort{|a,b| 
+        a[1]["metadata"]["order"] <=> b[1]["metadata"]["order"]}
     rescue
       render :template=>'public/404.html'
     end

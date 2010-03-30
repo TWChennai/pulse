@@ -1,13 +1,9 @@
 <html>
 <head>
+<title>
+Pulse::<%=@title%>
+</title>
 <%=stylesheet_link_tag :all, :cache => true%>
-<%=javascript_include_tag 'jquery', :cache => true%>
-<%=javascript_include_tag 'jquery.dataTables.min', :cache => true%>
-<script type="text/javascript" charset="utf-8"> 
-$(document).ready(function() {
-	$('#iterations').dataTable();
-});
-</script>
 </head>
 <body>
 	<div class="main">

@@ -1,6 +1,8 @@
-<center><h1>Create Project</h1></center>
+<h1>Create Project</h1>
+<br /> <br />
 <%form_tag '/project/save' do %>
 <%=render :partial=>"project_properties_form"%>
 <%=render :partial=>"project_metrics_form"%>
+<br /><br />
 <%=submit_tag "Create New Project"%>
 <%end%>

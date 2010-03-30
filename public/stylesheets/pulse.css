@@ -102,6 +102,21 @@ table td.project_column_header {
 
 }
 .property_field{
-    width:500px;
+    width:50%;
     float:left;
+}
+.metric_group{
+    width:50%;
+    float:left;
+}
+.metric_field{
+    width:50%;
+}
+.left_property_area {
+    width:50%;
+    float:left;
+}
+.right_property_area{
+    width:50%;
+    float:right;
 }
