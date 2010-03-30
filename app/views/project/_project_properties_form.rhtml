@@ -1,4 +1,5 @@
 <h1>Project Properties</h1>
+<hr />
 <%@fields.each do |field|%>
    	<% if(field[1]["tracked"]=="yes")%>
 	<div>
@@ -9,7 +10,7 @@
 		<%else%>
 		<%=text_field_tag "properties[#{field[0]}]", field[1]['value']%> <br />
 		<%end%>
-		<%=field[1]["description"]%> 	
+		<h2><%=field[1]["description"]%></h2>
 	</div>
  	<%end%>
 <%end%>
