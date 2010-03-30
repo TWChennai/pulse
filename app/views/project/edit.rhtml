@@ -1,4 +1,5 @@
-<%form_tag '/project/save' do %>
+<%form_tag '/project/update' do %>
+<%=hidden_field :project, :id, :value=> @project["_id"]%>
 <%=render :partial=>"project_form"%>
 <%=submit_tag "Update Project information"%>
 <%end%>
