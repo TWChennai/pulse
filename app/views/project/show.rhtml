@@ -1,4 +1,5 @@
 <div id="project">
+<%=link_to 'Edit', edit_project_path(:id=>@project["_id"])%>
 <%@project_properties.each do |property| %>
 	<div id = <%="#{property[0]}"%> > 
 		<%=property[1]["name"]%>:<%=property[1]["value"] %> <br />

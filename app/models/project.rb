@@ -5,4 +5,7 @@ class Project < Model
   def self.project_template
     Project.find(TEMPLATE)
   end
+  def self.all
+    @@db.view("list/list_projects")
+  end
 end

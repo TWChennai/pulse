@@ -1,0 +1,14 @@
+<%@fields.each do |field|%>
+   	<% if(field[1]["tracked"]=="yes")%>
+	<div>
+		<%=field[1]["name"]%> : 
+		<%if field[1]["type"] == "date"%>
+		<% date = convert_to_date(field[1]["value"])%>
+		<%=date_select("properties[#{field[0]}]", "date", :start_year => 1995,:order => [:day, :month, :year],:default=>{:day => date.day, :year=>date.year, :month=>date.month})%> <br />
+		<%else%>
+		<%=text_field_tag "properties[#{field[0]}]", field[1]['value']%> <br />
+		<%end%>
+		<%=field[1]["description"]%> 	
+	</div>
+ 	<%end%>
+<%end%>

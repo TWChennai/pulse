@@ -12,6 +12,11 @@ class ProjectController < ApplicationController
     @project_template = Project.project_template
     @fields = @project_template["tracking"]["properties"].sort{|a,b| a[1]["order"]<=>b[1]["order"]}
   end
+  
+  def edit
+    @project = Project.find(params[:id])
+    @fields = @project["properties"].sort{|a,b| a[1]["order"]<=>b[1]["order"]}
+  end
 
   def save
     @project_template = Project.project_template

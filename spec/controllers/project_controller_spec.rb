@@ -185,20 +185,28 @@ describe ProjectController do
        }
     }
   end
-  integrate_views
-  it "should show error page if project does not exist" do
-    Project.should_receive(:find).with("12345").and_raise(RestClient::ResourceNotFound)
-    @controller.should_receive(:render).with(:template=>'public/404.html')
-    get :show, :id=> "12345"
-    response.should be
+  describe "show page" do
+    integrate_views
+    it "should show error page if project does not exist" do
+      Project.should_receive(:find).with("12345").and_raise(RestClient::ResourceNotFound)
+      @controller.should_receive(:render).with(:template=>'public/404.html')
+      get :show, :id=> "12345"
+      response.should be
+    end
+
+    it "should show the project page if the project exists" do
+      Project.should_receive(:find).with("20").and_return(@project)
+      get :show, :id=>"20"
+      response.should be
+      response.should have_tag("div#project") do 
+        with_tag("div#name",/Project Name/)
+      end
+    end
   end
   
-  it "should show the project page if the project exists" do
-    Project.should_receive(:find).with("20").and_return(@project)
-    get :show, :id=>"20"
-    response.should be
-    response.should have_tag("div#project") do 
-      with_tag("div#name",/Project Name/)
+  describe "edit page" do
+    it "should description" do
+      
     end
   end
   
