@@ -11,3 +11,8 @@ test:
   host: localhost
   port: 5984
   <<: *base
+
+production:
+  host: localhost
+  port: 5984
+  <<: *base
