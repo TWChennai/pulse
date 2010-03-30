@@ -120,3 +120,14 @@ table td.project_column_header {
     width:50%;
     float:right;
 }
+.content{
+    width:100%;
+}
+.left_area{
+    width:80%;
+    float:left;
+}
+.right_area{
+    width:20%;
+    float:left;
+}
