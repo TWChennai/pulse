@@ -11,6 +11,7 @@ class ProjectController < ApplicationController
   def new
     @project_template = Project.project_template
     @fields = @project_template["tracking"]["properties"].sort{|a,b| a[1]["order"]<=>b[1]["order"]}
+    @metrics = @project_template["tracking"]["metrics"]
   end
 
   def edit
