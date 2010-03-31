@@ -8,9 +8,6 @@ describe "/dashboard/index" do
   end
   it "should display the projects list" do
     response.should be
-    response.should have_tag('h1',/Projects List/)
-    response.should have_tag("div#projects") do
-      
-    end
+    response.should have_tag('h1',/Portfolio Dashboard/)
   end
 end
