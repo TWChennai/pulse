@@ -1,13 +1,4 @@
 <div id="project">
-<%@project_properties.each do |property| %>
-<div id = <%="#{property[0]}"%> >
-	<div class="left_property_area"> 
-		<%=property[1]["name"]%>
-	</div>
-	<div class = "right_property_area">
-	  <%=property[1]["value"] %>  
-	 </div>
-</div>
-<%end%>
-<%=link_to 'Edit Project', edit_project_path(:id=>@project["_id"])%>
+	<%=render :partial=>"project_properties"%>
+	<%=render :partial=>"project_metrics"%>
 </div>
