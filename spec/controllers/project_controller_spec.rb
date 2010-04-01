@@ -4,6 +4,7 @@ describe ProjectController do
   before(:each) do
     @project = DataFactory.project_properties
   end
+
   describe "show page" do
     integrate_views
     it "should show error page if project does not exist" do
@@ -15,14 +16,14 @@ describe ProjectController do
 
     it "should show the project page if the project exists" do
       Project.should_receive(:find).with("20").and_return(@project)
-      get :show, :id=>"20"
+      get :show, :id => "20"
       response.should be
       response.should have_tag("div#project") do 
-        with_tag("div#name",/Project Name/)
+        with_tag("div#name", /Project Name/)
       end
     end
   end
-  
+
   describe "edit page" do
     integrate_views
     it "should show the project edit page if it exists" do
@@ -36,7 +37,7 @@ describe ProjectController do
       get :edit, :id=>"200"
     end
   end
-  
+
   describe "update page" do
     it "should let you update the project properties" do
       Project.should_receive(:find).with("200").and_return(@project)
