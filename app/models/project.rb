@@ -1,7 +1,5 @@
 class Project < CouchRest::ExtendedDocument
-  SERVER = CouchRest.new
-  SERVER.default_database = 'projects'
-  use_database SERVER.default_database
+  use_database COUCHDB_SERVER
 
   property :metrics
   property :properties

@@ -1,18 +1,21 @@
-base: &base
- database_prefix: 
- database_suffix: _<%= RAILS_ENV %>
+<% database_prefix = nil %>
+<% database_suffix = RAILS_ENV %>
 
+base: &base
+ database: <%= [database_prefix, "project", database_suffix].compact.join("_") %> 
+ host: localhost
+ port: 5984
+ 
 development:
-  host: localhost
-  port: 5984
   <<: *base
+  username: admin
+  password: sel
   
 test:
-  host: localhost
-  port: 5984
   <<: *base
 
 production:
-  host: localhost
-  port: 5984
   <<: *base
+  host: 10.5.3.6
+  database: project
+  
