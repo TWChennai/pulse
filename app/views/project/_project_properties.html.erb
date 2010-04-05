@@ -1,11 +1,15 @@
-<div><h1>Project Properties</h1> <h2><%=link_to 'Edit Project', edit_project_path(:id => @project["_id"])%></h2></div>
-<% @project_properties.each do |property| %>
-<div id = <%="#{property[0]}"%> class="property_field">
+<div>
+	<h1>Project Properties</h1>
+	<h2><%= link_to 'Edit Project', edit_project_path(:id => @project.id)%></h2>
+</div>
+
+<% @properties.each do |property| %>
+<div id=<%="#{property[:key]}"%> class="property_field">
 	<div class="left_property_area"> 
-		<%= property[1]["name"] %>
+		<%= property[:name] %>
 	</div>
-	<div class = "right_property_area">
-	  <%= property[1]["value"] %>  
-	 </div>
+	<div class="right_property_area">
+		<%= property[:value] %>  
+	</div>
 </div>
 <% end %>

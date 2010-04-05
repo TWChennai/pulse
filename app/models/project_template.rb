@@ -19,6 +19,6 @@ class ProjectTemplate < CouchRest::ExtendedDocument
         }"
 
   def self.project_template
-    return ProjectTemplate.get(TEMPLATE)
+    get TEMPLATE
   end
 end

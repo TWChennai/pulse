@@ -1,20 +1,17 @@
 class ProjectController < ApplicationController
   def show 
-    @project = Project.find(params[:id])
+    @project_template = ProjectTemplate.project_template
+    @project = Project.get(params[:id])
     
-    @project_properties = @project["properties"].sort{ |a,b| a[1]["order"] <=> b[1]["order"] }
-    @project_metrics = @project["metrics"].sort{ |a,b| a[1]["metadata"]["order"] <=> b[1]["metadata"]["order"] }
-    @metrics_list = []
-    @project_metrics.each do |group|
-      group[1]["data"].each do |metric|
-        if metric[1]["tracked"] == "yes"
-          @metrics_list << metric
-        end
-      end
+    @properties = @project_template.properties_group.map do |property|
+        {:key => property.key,
+         :name => property.name,
+         :description => property.description, 
+         :value => @project.properties[property.key]}
     end
-    @title = "Showing Project Info for#{@project["properties"]["name"]["value"]}"
-  rescue StandardError => e
-    render :template => 'public/404.html'
+    
+  # rescue StandardError => e
+  #   render :template => 'public/404.html'
   end
 
   def new
