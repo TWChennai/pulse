@@ -30,6 +30,7 @@ describe ProjectController do
       Project.should_receive(:find).with("100").and_return(@project)
       get :edit, :id=>"100"
       response.should be
+      
     end
     it "should show the error page if project does not exist" do
       Project.should_receive(:find).with("200").and_raise(RestClient::ResourceNotFound)

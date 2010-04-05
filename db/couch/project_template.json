@@ -1,6 +1,6 @@
 {
    "_id": "56071a715dc0d9b24c5804f966f179e6",
-   "_rev": "27-8c2fa9b46bf724aac2f1663bdcc360e0",
+   "_rev": "28-84b3d35468c0f122f1ecbfb3f82337d4",
    "properties_group": [
        {
            "key": "project_name",
@@ -208,6 +208,7 @@
            "couchrest-type": "MetricGroup",
            "data": [
                {
+				   "key": "overall_status",
                    "name": "Overall Status",
                    "description": "Status of the Project",
                    "tracked": "yes",
@@ -216,6 +217,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				   "key": "scope",
                    "name": "Scope",
                    "description": "Is the scope well defined?",
                    "tracked": "yes",
@@ -224,6 +226,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				   "key": "schedule",
                    "name": "Schedule",
                    "description": "Is the Project on schedule till date?",
                    "tracked": "yes",
@@ -232,6 +235,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+					"key": "cost",
                    "name": "Cost",
                    "description": "Is the Project spend on track?",
                    "tracked": "yes",
@@ -240,6 +244,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				"key": "iteration_backlog",
                    "name": "Iteration Backlog",
                    "description": "Is there a good iteration backlog?",
                    "tracked": "yes",
@@ -248,6 +253,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+		"key": "agile_practices",
                    "name": "Agile Practices",
                    "description": "Communication Plan, Retros , Showcases ",
                    "tracked": "yes",
@@ -256,6 +262,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+		"key": "commercial_status",
                    "name": "Commercial Status",
                    "description": "Current/Future SOW status",
                    "tracked": "yes",
@@ -264,6 +271,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				"key": "customer_satisfication",
                    "name": "Customer Satisfaction",
                    "description": "Is the customer satisfied about the work?",
                    "tracked": "yes",
@@ -272,6 +280,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				"key": "team_satisfaction",
                    "name": "Team Satisfaction",
                    "description": "Is the team satisfied about the work?",
                    "tracked": "yes",
@@ -280,6 +289,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+		"key": "utilization_factor",
                    "name": "Utilization Factor",
                    "description": "Is the utilization good?",
                    "tracked": "no",
@@ -288,6 +298,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+					"key": "business_value",
                    "name": "Business Value / Production Release",
                    "description": "Business value delivered per production release",
                    "tracked": "no",
@@ -303,6 +314,7 @@
            "couchrest-type": "MetricGroup",
            "data": [
                {
+					"key": "scope_change",
                    "name": "Scope Change",
                    "description": "Stories added or removed due to redundancy / Rewrite",
                    "tracked": "no",
@@ -311,6 +323,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+					"key": "scope_change",
                    "name": "Scope Change - Other Factors",
                    "description": "Scope changes not caused by additional stories",
                    "tracked": "no",
@@ -319,6 +332,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				"key": "percentage_of_scope_by_priority",
                    "name": "Percentage of scope by priority",
                    "description": "What was the breakup of the stories in scope by priority",
                    "tracked": "no",
@@ -334,6 +348,7 @@
            "couchrest-type": "MetricGroup",
            "data": [
                {
+					"key": "story_rate",
                    "name": "Story Rate",
                    "description": "Rate of story completion per developer per iteration",
                    "tracked": "no",
@@ -342,6 +357,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				"key": "stories_carried_over",
                    "name": "Stories carried Over",
                    "description": "User Stories carried forward(hangover)",
                    "tracked": "no",
@@ -350,6 +366,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+					"key": "no_of_stories_in_scope",
                    "name": "No of stories in Scope",
                    "description": "Number of stories held in analysis/testing",
                    "tracked": "no",
@@ -365,6 +382,7 @@
            "couchrest-type": "MetricGroup",
            "data": [
                {
+					"key": "number_of_unit_tests",
                    "name": "Number Of Unit Tests",
                    "description": "Total Number Of Unit Tests",
                    "tracked": "no",
@@ -373,6 +391,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				"key": "number_of_functional_tests",
                    "name": "Number Of Functional Tests",
                    "description": "Total Number Of Functional Tests",
                    "tracked": "no",
@@ -381,6 +400,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				"key": "unit_test_coverage",
                    "name": "Unit Test Coverage",
                    "description": "Percentage Of Unit Test Coverage",
                    "tracked": "no",
@@ -389,6 +409,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+					"key": "number_of_functional_tests",
                    "name": "Number Of Functional Tests",
                    "description": "Total Number Of Functional Tests",
                    "tracked": "no",
@@ -404,6 +425,7 @@
            "couchrest-type": "MetricGroup",
            "data": [
                {
+				"key": "defects_carried_over",
                    "name": "Defects Carried Over",
                    "description": "Total Number Of Defects Carried Over",
                    "tracked": "no",
@@ -412,6 +434,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+					"key": "defects_per_story",
                    "name": "Defects Per Story",
                    "description": "Average Number Of Defects Per Story",
                    "tracked": "no",
@@ -427,6 +450,7 @@
            "couchrest-type": "MetricGroup",
            "data": [
                {
+					"key": "number_of_builds_per_iteration",
                    "name": "Number of Buids Per Iteration",
                    "description": "Total Number Of Builds Per Iteration",
                    "tracked": "no",
@@ -435,6 +459,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				"key": "frequency_of_builds",
                    "name": "Frequency of Builds",
                    "description": "Frequency of Builds Per Iteration",
                    "tracked": "no",
@@ -443,6 +468,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				"key": "average_duration_of_build",
                    "name": "Average Duration Of Build",
                    "description": "Average duration of builds per iteration",
                    "tracked": "no",
@@ -451,6 +477,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				"key": "number_of_broken_builds_per_iteration",
                    "name": "Number of Broken Builds Per Iteration",
                    "description": "Average count of Broken Builds per Iteration",
                    "tracked": "no",
@@ -459,6 +486,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+					"key": "average_duration_of_broken_build",
                    "name": "Average Duration Of Broken Build",
                    "description": "Average Duration of Broken Build Per Iteration",
                    "tracked": "no",
@@ -474,6 +502,7 @@
            "couchrest-type": "MetricGroup",
            "data": [
                {
+					"key": "cyclometric_complexity_measures",
                    "name": "Cyclometric Complexity Measures",
                    "description": "Level Of Cyclometric Complexity Present In The Code",
                    "tracked": "no",
@@ -482,6 +511,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+				"key": "distribution_of_method_and_class_lengths",
                    "name": "Distribution Of Method And Class File Length",
                    "description": "Pattern Of Distribution Of Methods And Classes",
                    "tracked": "no",
@@ -490,6 +520,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+					"key": "rate_of_change_of_source",
                    "name": "Rate Of Change Of Source LOC in/LOC out",
                    "description": "Rate At Which Source Code Is Being Changed",
                    "tracked": "no",
@@ -498,6 +529,7 @@
                    "couchrest-type": "MetricData"
                },
                {
+					"key": "proportion_of_source_code_that_is_test_code",
                    "name": "Propotion Of Source Code That Is Test Code",
                    "description": "What Percent Of Source Code Constitutes The Test Code ",
                    "tracked": "no",

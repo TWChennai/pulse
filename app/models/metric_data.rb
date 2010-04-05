@@ -4,5 +4,6 @@ class MetricData < CouchRest::ExtendedDocument
   property :order
   property :mandatory
   property :description
+  property :key
 end
 
