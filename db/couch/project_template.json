@@ -1,457 +1,490 @@
 {
    "_id": "56071a715dc0d9b24c5804f966f179e6",
-   "_rev": "24-0f1748bce62cb5abd5503ae2d5f9b309",
-	"properties_group": [
-          {
-              "name": "Project Name",
-              "description": "Name of the Project",
-              "tracked": "yes",
-              "order": "1",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Location",
-              "description": "Location of the project",
-              "tracked": "yes",
-              "order": "2",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "SOW Signed",
-              "description": "Date on which SOW was signed",
-              "tracked": "yes",
-              "order": "3",
-              "type": "date",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Project Start Date",
-              "description": "The date on which the project started",
-              "tracked": "yes",
-              "order": "4",
-              "type": "date",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Last DA Review",
-              "description": "Date on which the DA review was done",
-              "tracked": "yes",
-              "order": "5",
-              "type": "date",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Engagement Model",
-              "description": "Fixed Bid or Variable Bid",
-              "tracked": "yes",
-              "order": "6",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Onsite/Offsite Mix",
-              "description": "No of People in Offsite vs Onsite",
-              "tracked": "yes",
-              "order": "7",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "CRI Classification",
-              "description": "CRI classification of the project",
-              "tracked": "yes",
-              "order": "8",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Project Duration",
-              "description": "Duration of the Project",
-              "tracked": "yes",
-              "order": "9",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "No of Discrete Teams in the Project",
-              "description": "No of Discrete Teams in the Project",
-              "tracked": "yes",
-              "order": "10",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Average Team Size",
-              "description": "No of people on the project",
-              "tracked": "yes",
-              "order": "11",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Team Ratio",
-              "description": "Team Ratio in the project",
-              "tracked": "yes",
-              "order": "12",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Unit used for Estimation",
-              "description": "What kind of points are used for estimation?",
-              "tracked": "yes",
-              "order": "13",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "No of Stories",
-              "description": "Number of stories in the project",
-              "tracked": "yes",
-              "order": "14",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Average Estimate Per Story",
-              "description": "Average weight per story",
-              "tracked": "yes",
-              "order": "15",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Languages Used",
-              "description": "Technologies used in project",
-              "tracked": "yes",
-              "order": "16",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Team size",
-              "description": "Number of memebers in the project",
-              "tracked": "yes",
-              "order": "16",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "No of Tenured Thoughtworkers",
-              "description": "Tenured TWers are 1+ experienced",
-              "tracked": "yes",
-              "order": "17",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "No of non Tenured Thoughtworkers",
-              "description": "Non Tenured TWers are <1 year experienced",
-              "tracked": "yes",
-              "order": "18",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "No of Consultant Thoughtworkers",
-              "description": "Consultants are <2 year experienced",
-              "tracked": "yes",
-              "order": "19",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "No of Senior Consultant Thoughtworkers",
-              "description": "Senior Consultants are 2+ year experienced",
-              "tracked": "yes",
-              "order": "20",
-              "type": "string",
-			  "couchrest-type": "Property"
-          },
-          {
-              "name": "Iteration Duration",
-              "description": "Weeks/ Iteration",
-              "tracked": "yes",
-              "order": "21",
-              "type": "string",
-			  "couchrest-type": "Property"
-          }
-      ],
-      "metrics_group": [
-         {
-			"name": "General",
-         	"order": "1",
-            "data": [
-                  		{
-                      		"name": "Overall Status",
-                      		"description": "Status of the Project",
-                      		"tracked": "yes",
-                      		"order": "1",
-                      		"mandatory": "yes"
-                  		},
-						{
-        	 	          	"name": "Scope",
-        	 	          	"description": "Is the scope well defined?",
-        	 	          	"tracked": "yes",
-        	 	          	"order": "2",
-        	 	          	"mandatory": "yes"
-                  		},
-						{
-                      		"name": "Schedule",
-                      		"description": "Is the Project on schedule till date?",
-                      		"tracked": "yes",
-                      		"order": "3",
-                      		"mandatory": "yes"
-                  		},
-						{
-                      		"name": "Cost",
-                      		"description": "Is the Project spend on track?",
-                      		"tracked": "yes",
-                      		"order": "4",
-                      		"mandatory": "yes"
-                  		},
-						{
-                      		"name": "Iteration Backlog",
-                      		"description": "Is there a good iteration backlog?",
-                      		"tracked": "yes",
-                      		"order": "5",
-                      		"mandatory": "yes"
-                  		},
-						{
-                      		"name": "Agile Practices",
-                      		"description": "Communication Plan, Retros , Showcases ",
-                      		"tracked": "yes",
-                      		"order": "6",
-                      		"mandatory": "yes"
-                  		},
-						{
-                      		"name": "Commercial Status",
-                      		"description": "Current/Future SOW status",
-                      		"tracked": "yes",
-                      		"order": "7",
-                      		"mandatory": "yes"
-                  		},
-						{
-                      		"name": "Customer Satisfaction",
-                      		"description": "Is the customer satisfied about the work?",
-                      		"tracked": "yes",
-                      		"order": "8",
-                      		"mandatory": "yes"
-                  		},
-						{
-                      		"name": "Team Satisfaction",
-                      		"description": "Is the team satisfied about the work?",
-                      		"tracked": "yes",
-                      		"order": "9",
-                      		"mandatory": "yes"
-                  		},
-						{
-                      		"name": "Utilization Factor",
-                      		"description": "Is the utilization good?",
-                      		"tracked": "no",
-                      		"order": "10",
-                      		"mandatory": "no"
-                  		},
-						{
-                      		"name": "Business Value / Production Release",
-                      		"description": "Business value delivered per production release",
-                      		"tracked": "no",
-                      		"order": "11",
-                      		"mandatory": "no"
-                  		}
-              ]
-			},
-		{
-			"name": "Scope",
-			"order": "2",
-			"data": [
-						{
-                      		"name": "Scope Change",
-                      		"description": "Stories added or removed due to redundancy / Rewrite",
-                      		"tracked": "no",
-                      		"order": "1",
-                      		"mandatory": "no"
-                  		},
-						{
-                      		"name": "Scope Change - Other Factors",
-                      		"description": "Scope changes not caused by additional stories",
-                      		"tracked": "no",
-                      		"order": "2",
-                      		"mandatory": "no"
-                  		},
-                  		{
-                      		"name": "Percentage of scope by priority",
-                      		"description": "What was the breakup of the stories in scope by priority",
-                      		"tracked": "no",
-                      		"order": "3",
-                      		"mandatory": "no"
-                  		}
-              ]
-        },
-		{
-			"name": "Story Tracking",
-            "order": "3",
-              "data": [
-					{
-                      "name": "Story Rate",
-                      "description": "Rate of story completion per developer per iteration",
-                      "tracked": "no",
-                      "order": "1",
-                      "mandatory": "no"
-                  	},
-                  {
-                      "name": "Stories carried Over",
-                      "description": "User Stories carried forward(hangover)",
-                      "tracked": "no",
-                      "order": "2",
-                      "mandatory": "no"
-                  },
-                  {
-                      "name": "No of stories in Scope",
-                      "description": "Number of stories held in analysis/testing",
-                      "tracked": "no",
-                      "order": "3",
-                      "mandatory": "no"
-                  }
-              ]
-          },
-		{
-        
-                  "name": "Testing",
-                  "order": "4",
-              "data": [
-					{
-                      "name": "Number Of Unit Tests",
-                      "description": "Total Number Of Unit Tests",
-                      "tracked": "no",
-                      "order": "1",
-                      "mandatory": "no"
-                  	},
-                  {
-                      "name": "Number Of Functional Tests",
-                      "description": "Total Number Of Functional Tests",
-                      "tracked": "no",
-                      "order": "2",
-                      "mandatory": "no"
-                  },
-                  {
-                      "name": "Unit Test Coverage",
-                      "description": "Percentage Of Unit Test Coverage",
-                      "tracked": "no",
-                      "order": "3",
-                      "mandatory": "no"
-                  },
-                  {
-                      "name": "Number Of Functional Tests",
-                      "description": "Total Number Of Functional Tests",
-                      "tracked": "no",
-                      "order": "4",
-                      "mandatory": "no"
-                  }
-              ]
-          },
-		{
-        
-                  "name": "Defect Tracking",
-                  "order": "5",
-              "data": [
-					{
-                      "name": "Defects Carried Over",
-                      "description": "Total Number Of Defects Carried Over",
-                      "tracked": "no",
-                      "order": "1",
-                      "mandatory": "no"
-                  },
-                  {
-                      "name": "Defects Per Story",
-                      "description": "Average Number Of Defects Per Story",
-                      "tracked": "no",
-                      "order": "2",
-                      "mandatory": "no"
-                  }
-              ]
-          },
-		{
-        
-                  "name": "Build Stats",
-                  "order": "6",
-        
-              "data": [
-			{
-                      "name": "Number of Buids Per Iteration",
-                      "description": "Total Number Of Builds Per Iteration",
-                      "tracked": "no",
-                      "order": "1",
-                      "mandatory": "no"
-                  },
-            	{
-                      "name": "Frequency of Builds",
-                      "description": "Frequency of Builds Per Iteration",
-                      "tracked": "no",
-                      "order": "2",
-                      "mandatory": "no"
-                  },
-                {
-                      "name": "Average Duration Of Build",
-                      "description": "Average duration of builds per iteration",
-                      "tracked": "no",
-                      "order": "3",
-                      "mandatory": "no"
-                  },
-                {
-                      "name": "Number of Broken Builds Per Iteration",
-                      "description": "Average count of Broken Builds per Iteration",
-                      "tracked": "no",
-                      "order": "4",
-                      "mandatory": "no"
-                  },
-                {
-                      "name": "Average Duration Of Broken Build",
-                      "description": "Average Duration of Broken Build Per Iteration",
-                      "tracked": "no",
-                      "order": "5",
-                      "mandatory": "no"
-                  }
-              ]
-          },
-		{
-
-                  "name": "Technical",
-                  "order": "7",
-
-              "data": [
-					{
-                      "name": "Cyclometric Complexity Measures",
-                      "description": "Level Of Cyclometric Complexity Present In The Code",
-                      "tracked": "no",
-                      "order": "1",
-                      "mandatory": "no"
-                  },
-                  {
-                      "name": "Distribution Of Method And Class File Length",
-                      "description": "Pattern Of Distribution Of Methods And Classes",
-                      "tracked": "no",
-                      "order": "2",
-                      "mandatory": "no"
-                  },
-                  {
-                      "name": "Rate Of Change Of Source LOC in/LOC out",
-                      "description": "Rate At Which Source Code Is Being Changed",
-                      "tracked": "no",
-                      "order": "3",
-                      "mandatory": "no"
-                  },
-                  {
-                      "name": "Propotion Of Source Code That Is Test Code",
-                      "description": "What Percent Of Source Code Constitutes The Test Code ",
-                      "tracked": "no",
-                      "order": "4",
-                      "mandatory": "no"
-                  }
-              ]
-          }
-       ],
+   "_rev": "26-9de71438e69b2496591a77818203543c",
+   "properties_group": [
+       {
+           "name": "Project Name",
+           "description": "Name of the Project",
+           "tracked": "yes",
+           "order": "1",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Location",
+           "description": "Location of the project",
+           "tracked": "yes",
+           "order": "2",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "SOW Signed",
+           "description": "Date on which SOW was signed",
+           "tracked": "yes",
+           "order": "3",
+           "type": "date",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Project Start Date",
+           "description": "The date on which the project started",
+           "tracked": "yes",
+           "order": "4",
+           "type": "date",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Last DA Review",
+           "description": "Date on which the DA review was done",
+           "tracked": "yes",
+           "order": "5",
+           "type": "date",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Engagement Model",
+           "description": "Fixed Bid or Variable Bid",
+           "tracked": "yes",
+           "order": "6",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Onsite/Offsite Mix",
+           "description": "No of People in Offsite vs Onsite",
+           "tracked": "yes",
+           "order": "7",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "CRI Classification",
+           "description": "CRI classification of the project",
+           "tracked": "yes",
+           "order": "8",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Project Duration",
+           "description": "Duration of the Project",
+           "tracked": "yes",
+           "order": "9",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "No of Discrete Teams in the Project",
+           "description": "No of Discrete Teams in the Project",
+           "tracked": "yes",
+           "order": "10",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Average Team Size",
+           "description": "No of people on the project",
+           "tracked": "yes",
+           "order": "11",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Team Ratio",
+           "description": "Team Ratio in the project",
+           "tracked": "yes",
+           "order": "12",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Unit used for Estimation",
+           "description": "What kind of points are used for estimation?",
+           "tracked": "yes",
+           "order": "13",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "No of Stories",
+           "description": "Number of stories in the project",
+           "tracked": "yes",
+           "order": "14",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Average Estimate Per Story",
+           "description": "Average weight per story",
+           "tracked": "yes",
+           "order": "15",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Languages Used",
+           "description": "Technologies used in project",
+           "tracked": "yes",
+           "order": "16",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Team size",
+           "description": "Number of memebers in the project",
+           "tracked": "yes",
+           "order": "16",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "No of Tenured Thoughtworkers",
+           "description": "Tenured TWers are 1+ experienced",
+           "tracked": "yes",
+           "order": "17",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "No of non Tenured Thoughtworkers",
+           "description": "Non Tenured TWers are <1 year experienced",
+           "tracked": "yes",
+           "order": "18",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "No of Consultant Thoughtworkers",
+           "description": "Consultants are <2 year experienced",
+           "tracked": "yes",
+           "order": "19",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "No of Senior Consultant Thoughtworkers",
+           "description": "Senior Consultants are 2+ year experienced",
+           "tracked": "yes",
+           "order": "20",
+           "type": "string",
+           "couchrest-type": "Property"
+       },
+       {
+           "name": "Iteration Duration",
+           "description": "Weeks/ Iteration",
+           "tracked": "yes",
+           "order": "21",
+           "type": "string",
+           "couchrest-type": "Property"
+       }
+   ],
+   "metrics_group": [
+       {
+           "name": "General",
+           "order": "1",
+           "couchrest-type": "MetricGroup",
+           "data": [
+               {
+                   "name": "Overall Status",
+                   "description": "Status of the Project",
+                   "tracked": "yes",
+                   "order": "1",
+                   "mandatory": "yes",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Scope",
+                   "description": "Is the scope well defined?",
+                   "tracked": "yes",
+                   "order": "2",
+                   "mandatory": "yes",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Schedule",
+                   "description": "Is the Project on schedule till date?",
+                   "tracked": "yes",
+                   "order": "3",
+                   "mandatory": "yes",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Cost",
+                   "description": "Is the Project spend on track?",
+                   "tracked": "yes",
+                   "order": "4",
+                   "mandatory": "yes",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Iteration Backlog",
+                   "description": "Is there a good iteration backlog?",
+                   "tracked": "yes",
+                   "order": "5",
+                   "mandatory": "yes",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Agile Practices",
+                   "description": "Communication Plan, Retros , Showcases ",
+                   "tracked": "yes",
+                   "order": "6",
+                   "mandatory": "yes",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Commercial Status",
+                   "description": "Current/Future SOW status",
+                   "tracked": "yes",
+                   "order": "7",
+                   "mandatory": "yes",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Customer Satisfaction",
+                   "description": "Is the customer satisfied about the work?",
+                   "tracked": "yes",
+                   "order": "8",
+                   "mandatory": "yes",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Team Satisfaction",
+                   "description": "Is the team satisfied about the work?",
+                   "tracked": "yes",
+                   "order": "9",
+                   "mandatory": "yes",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Utilization Factor",
+                   "description": "Is the utilization good?",
+                   "tracked": "no",
+                   "order": "10",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Business Value / Production Release",
+                   "description": "Business value delivered per production release",
+                   "tracked": "no",
+                   "order": "11",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               }
+           ]
+       },
+       {
+           "name": "Scope",
+           "order": "2",
+           "couchrest-type": "MetricGroup",
+           "data": [
+               {
+                   "name": "Scope Change",
+                   "description": "Stories added or removed due to redundancy / Rewrite",
+                   "tracked": "no",
+                   "order": "1",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Scope Change - Other Factors",
+                   "description": "Scope changes not caused by additional stories",
+                   "tracked": "no",
+                   "order": "2",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Percentage of scope by priority",
+                   "description": "What was the breakup of the stories in scope by priority",
+                   "tracked": "no",
+                   "order": "3",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               }
+           ]
+       },
+       {
+           "name": "Story Tracking",
+           "order": "3",
+           "couchrest-type": "MetricGroup",
+           "data": [
+               {
+                   "name": "Story Rate",
+                   "description": "Rate of story completion per developer per iteration",
+                   "tracked": "no",
+                   "order": "1",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Stories carried Over",
+                   "description": "User Stories carried forward(hangover)",
+                   "tracked": "no",
+                   "order": "2",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "No of stories in Scope",
+                   "description": "Number of stories held in analysis/testing",
+                   "tracked": "no",
+                   "order": "3",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               }
+           ]
+       },
+       {
+           "name": "Testing",
+           "order": "4",
+           "couchrest-type": "MetricGroup",
+           "data": [
+               {
+                   "name": "Number Of Unit Tests",
+                   "description": "Total Number Of Unit Tests",
+                   "tracked": "no",
+                   "order": "1",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Number Of Functional Tests",
+                   "description": "Total Number Of Functional Tests",
+                   "tracked": "no",
+                   "order": "2",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Unit Test Coverage",
+                   "description": "Percentage Of Unit Test Coverage",
+                   "tracked": "no",
+                   "order": "3",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Number Of Functional Tests",
+                   "description": "Total Number Of Functional Tests",
+                   "tracked": "no",
+                   "order": "4",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               }
+           ]
+       },
+       {
+           "name": "Defect Tracking",
+           "order": "5",
+           "couchrest-type": "MetricGroup",
+           "data": [
+               {
+                   "name": "Defects Carried Over",
+                   "description": "Total Number Of Defects Carried Over",
+                   "tracked": "no",
+                   "order": "1",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Defects Per Story",
+                   "description": "Average Number Of Defects Per Story",
+                   "tracked": "no",
+                   "order": "2",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               }
+           ]
+       },
+       {
+           "name": "Build Stats",
+           "order": "6",
+           "couchrest-type": "MetricGroup",
+           "data": [
+               {
+                   "name": "Number of Buids Per Iteration",
+                   "description": "Total Number Of Builds Per Iteration",
+                   "tracked": "no",
+                   "order": "1",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Frequency of Builds",
+                   "description": "Frequency of Builds Per Iteration",
+                   "tracked": "no",
+                   "order": "2",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Average Duration Of Build",
+                   "description": "Average duration of builds per iteration",
+                   "tracked": "no",
+                   "order": "3",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Number of Broken Builds Per Iteration",
+                   "description": "Average count of Broken Builds per Iteration",
+                   "tracked": "no",
+                   "order": "4",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Average Duration Of Broken Build",
+                   "description": "Average Duration of Broken Build Per Iteration",
+                   "tracked": "no",
+                   "order": "5",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               }
+           ]
+       },
+       {
+           "name": "Technical",
+           "order": "7",
+           "couchrest-type": "MetricGroup",
+           "data": [
+               {
+                   "name": "Cyclometric Complexity Measures",
+                   "description": "Level Of Cyclometric Complexity Present In The Code",
+                   "tracked": "no",
+                   "order": "1",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Distribution Of Method And Class File Length",
+                   "description": "Pattern Of Distribution Of Methods And Classes",
+                   "tracked": "no",
+                   "order": "2",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Rate Of Change Of Source LOC in/LOC out",
+                   "description": "Rate At Which Source Code Is Being Changed",
+                   "tracked": "no",
+                   "order": "3",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               },
+               {
+                   "name": "Propotion Of Source Code That Is Test Code",
+                   "description": "What Percent Of Source Code Constitutes The Test Code ",
+                   "tracked": "no",
+                   "order": "4",
+                   "mandatory": "no",
+                   "couchrest-type": "MetricData"
+               }
+           ]
+       }
+   ],
    "couchrest-type": "Project"
 }
