@@ -5,11 +5,11 @@ module ProjectHelper
     end
       return Date.today
   end
-  def generate_check_box_tag(metric_name, mandatory="yes")
-    if mandatory == "yes"
-      check_box_tag "metrics[#{metric_name}]", "yes",true, :disabled =>true
+  def generate_check_box_tag(metric)
+    if metric.mandatory == "yes"
+      check_box_tag "metrics[#{metric}]", "yes",true, :disabled =>true
     else
-      check_box_tag "metrics[#{metric_name}]", "yes"
+      check_box_tag "metrics[#{metric}]", "yes"
     end
   end
   def generate_form_tag_for_property(field_hash)
