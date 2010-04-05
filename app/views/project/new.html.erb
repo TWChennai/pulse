@@ -1,7 +1,7 @@
 <h1>Create Project</h1>
 <br /> <br />
-<%form_tag '/project/save' do %>
-<%=render :partial=>"project_properties_form"%>
-<%=render :partial=>"project_metrics_form"%>
-<div class="clear"><%=submit_tag "Create New Project"%></div>
-<%end%>
+<% form_for @project, :url => "/project" do |f| %>
+	<%= render :partial => "project_properties_form", :locals => {:form => f} %>
+	<%= render :partial => "project_metrics_form", :locals => {:form => f} %>
+	<div class="clear"><%= f.submit "Create New Project" %></div>
+<% end %>

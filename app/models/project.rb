@@ -15,5 +15,11 @@ class Project < CouchRest::ExtendedDocument
                      emit(doc._id, doc.name);
             }
         }"
+        
+  def initialize(*args)
+    self.properties = {}
+    self.metrics = {}
+    super(*args)
+  end
 
 end
