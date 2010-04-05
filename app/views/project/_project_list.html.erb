@@ -1,6 +1,6 @@
 <h1> Jump To A Project </h1>
 <div id="projects">
 <% Project.view("by_list").each do |project| %>
-	<%= link_to project["value"], show_project_path(:id=>project["key"]) %> <br />
+	<%= link_to project.name, show_project_path(:id=>project.id) %> <br />
 <% end %>
 </div>

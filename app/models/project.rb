@@ -5,23 +5,18 @@ class Project < CouchRest::ExtendedDocument
   SERVER = CouchRest.new
   SERVER.default_database = 'projects'
   use_database SERVER.default_database
+
   property :metrics_group, :cast_as => [MetricGroup]
   property :properties_group, :cast_as => [Property]
+  property :name
+
   view_by :list,
     :map => 
     "function(doc) {
-        if (doc['couchrest-type'] == 'Project') {
-            if(doc.properties) {
-               for(store in doc.properties)
-               {
-                 if(store == 'name') 
-                 {
-                    emit(doc._id, doc.properties[store].value);
-                 }
-               }
-             }
-        }
-    }"
+            if (doc['couchrest-type'] == 'Project') {
+                     emit(doc._id, doc.name);
+            }
+        }"
 
   def self.project_template
     return Project.get(TEMPLATE)

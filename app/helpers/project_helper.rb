@@ -13,12 +13,12 @@ module ProjectHelper
     end
   end
   def generate_form_tag_for_property(field_hash)
-    if field_hash[1]["type"] == "date"
-      date = convert_to_date(field_hash[1]["value"])
-      date_select("properties[#{field_hash[0]}]", "date", :start_year => 1995,:order => [:day, :month, :year],
+    if field_hash.type == "date"
+      date = convert_to_date(field_hash.value)
+      date_select("properties[#{field_hash}]", "date", :start_year => 1995,:order => [:day, :month, :year],
                   :default=>{:day => date.day, :year=>date.year, :month=>date.month})
     else
-      text_field_tag "properties[#{field_hash[0]}]", field_hash[1]['value']
+      text_field_tag "properties[#{field_hash}]", field_hash.value
     end
   end
 end
