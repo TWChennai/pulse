@@ -5,4 +5,5 @@ class Property <CouchRest::ExtendedDocument
   property :type
   property :value
   property :order
+  property :key
 end

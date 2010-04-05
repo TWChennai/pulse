@@ -3,7 +3,7 @@ module ProjectHelper
     unless string_date.nil?
       return Date.parse(string_date)
     end
-      return Date.today
+    return Date.today
   end
   def generate_check_box_tag(metric)
     if metric.mandatory == "yes"
@@ -12,13 +12,12 @@ module ProjectHelper
       check_box_tag "metrics[#{metric}]", "yes"
     end
   end
-  def generate_form_tag_for_property(field_hash)
-    if field_hash.type == "date"
-      date = convert_to_date(field_hash.value)
-      date_select("properties[#{field_hash}]", "date", :start_year => 1995,:order => [:day, :month, :year],
-                  :default=>{:day => date.day, :year=>date.year, :month=>date.month})
+  def generate_form_tag_for_property(property)
+    if property.type == "date"
+      date = convert_to_date(property.value)
+      text_field_tag "properties[#{property.key}]", property.value, :class => "datepicker"
     else
-      text_field_tag "properties[#{field_hash}]", field_hash.value
+      text_field_tag "properties[#{property.key}]", property.value
     end
   end
 end

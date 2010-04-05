@@ -1,8 +1,9 @@
 {
    "_id": "56071a715dc0d9b24c5804f966f179e6",
-   "_rev": "26-9de71438e69b2496591a77818203543c",
+   "_rev": "27-8c2fa9b46bf724aac2f1663bdcc360e0",
    "properties_group": [
        {
+           "key": "project_name",
            "name": "Project Name",
            "description": "Name of the Project",
            "tracked": "yes",
@@ -11,6 +12,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "location",
            "name": "Location",
            "description": "Location of the project",
            "tracked": "yes",
@@ -19,6 +21,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "sow_signed",
            "name": "SOW Signed",
            "description": "Date on which SOW was signed",
            "tracked": "yes",
@@ -27,6 +30,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "project_start_date",
            "name": "Project Start Date",
            "description": "The date on which the project started",
            "tracked": "yes",
@@ -35,6 +39,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "last_da_review",
            "name": "Last DA Review",
            "description": "Date on which the DA review was done",
            "tracked": "yes",
@@ -43,6 +48,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "engagement_model",
            "name": "Engagement Model",
            "description": "Fixed Bid or Variable Bid",
            "tracked": "yes",
@@ -51,6 +57,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "onsite_offsite_mix",
            "name": "Onsite/Offsite Mix",
            "description": "No of People in Offsite vs Onsite",
            "tracked": "yes",
@@ -59,6 +66,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "cri_classification",
            "name": "CRI Classification",
            "description": "CRI classification of the project",
            "tracked": "yes",
@@ -67,6 +75,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "project_duration",
            "name": "Project Duration",
            "description": "Duration of the Project",
            "tracked": "yes",
@@ -75,6 +84,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "discrete_teams_project",
            "name": "No of Discrete Teams in the Project",
            "description": "No of Discrete Teams in the Project",
            "tracked": "yes",
@@ -83,6 +93,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "average_team_size",
            "name": "Average Team Size",
            "description": "No of people on the project",
            "tracked": "yes",
@@ -91,6 +102,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "team_ratio",
            "name": "Team Ratio",
            "description": "Team Ratio in the project",
            "tracked": "yes",
@@ -99,6 +111,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "units_of_estimation",
            "name": "Unit used for Estimation",
            "description": "What kind of points are used for estimation?",
            "tracked": "yes",
@@ -107,6 +120,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "no_of_stories",
            "name": "No of Stories",
            "description": "Number of stories in the project",
            "tracked": "yes",
@@ -115,6 +129,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "averate_estimate_per_story",
            "name": "Average Estimate Per Story",
            "description": "Average weight per story",
            "tracked": "yes",
@@ -123,6 +138,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "development_languages_used",
            "name": "Languages Used",
            "description": "Technologies used in project",
            "tracked": "yes",
@@ -131,6 +147,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "team_size",
            "name": "Team size",
            "description": "Number of memebers in the project",
            "tracked": "yes",
@@ -139,6 +156,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "tenured_twers",
            "name": "No of Tenured Thoughtworkers",
            "description": "Tenured TWers are 1+ experienced",
            "tracked": "yes",
@@ -147,6 +165,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "non_tenured_twers",
            "name": "No of non Tenured Thoughtworkers",
            "description": "Non Tenured TWers are <1 year experienced",
            "tracked": "yes",
@@ -155,6 +174,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "consultants",
            "name": "No of Consultant Thoughtworkers",
            "description": "Consultants are <2 year experienced",
            "tracked": "yes",
@@ -163,6 +183,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "senior_consultants",
            "name": "No of Senior Consultant Thoughtworkers",
            "description": "Senior Consultants are 2+ year experienced",
            "tracked": "yes",
@@ -171,6 +192,7 @@
            "couchrest-type": "Property"
        },
        {
+           "key": "iteration_duration",
            "name": "Iteration Duration",
            "description": "Weeks/ Iteration",
            "tracked": "yes",
