@@ -36,22 +36,23 @@ describe ProjectController do
       Project.should_receive(:get).with("200").and_raise(RestClient::ResourceNotFound)
       @controller.should_receive(:render).with(:template=>'public/404.html')
       get :edit, :id=>"200"
+      response.should be
     end
   end
 
   describe "update page" do
+    after(:each) do
+      post :update, :id=>"200", :project => DataFactory.properties_post_info
+      response.should be
+    end
     it "should let you update the project properties" do
       Project.should_receive(:get).with("200").and_return(@project)
       @project.should_receive(:save).and_return(true)
-      post :update, :project=> {:id=>"200"}, :properties => DataFactory.properties_post_info
-      response.should be
     end
   
-    it "should not let u update if it cannot find the project" do
-      
+    it "should not let u update if it cannot find the project" do      
       Project.should_receive(:get).with("200").and_raise(RestClient::ResourceNotFound)
       @controller.should_receive(:render).with(:template=>'public/404.html')
-      post :update, :project=> {:id=>"200"}, :properties => DataFactory.properties_post_info
     end
   end
 
