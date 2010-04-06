@@ -1,4 +1,3 @@
-require 'metric_data'
 class MetricGroup < CouchRest::ExtendedDocument
   property :name
   property :order

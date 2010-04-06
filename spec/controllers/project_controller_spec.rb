@@ -15,8 +15,8 @@ describe ProjectController do
     end
 
     it "should show the project page if the project exists" do
-      Project.should_receive(:get).with("20").and_return(@project)
-      get :show, :id => "20"
+      Project.should_receive(:get).with(@project.id).and_return(@project)
+      get :show, :id => @project.id
       response.should be
       response.should have_tag("div#project") do 
         with_tag("div#project_name", /Project Name/)
@@ -41,13 +41,14 @@ describe ProjectController do
 
   describe "update page" do
     it "should let you update the project properties" do
-      pending
       Project.should_receive(:get).with("200").and_return(@project)
       @project.should_receive(:save).and_return(true)
       post :update, :project=> {:id=>"200"}, :properties => DataFactory.properties_post_info
       response.should be
     end
+  
     it "should not let u update if it cannot find the project" do
+      
       Project.should_receive(:get).with("200").and_raise(RestClient::ResourceNotFound)
       @controller.should_receive(:render).with(:template=>'public/404.html')
       post :update, :project=> {:id=>"200"}, :properties => DataFactory.properties_post_info
