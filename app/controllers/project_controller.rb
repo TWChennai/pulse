@@ -1,7 +1,7 @@
 class ProjectController < ApplicationController
   def show 
     @project = Project.get(params[:id])
-    @properties = stuff_project_properties(@project)
+    @properties = @project.stuff_properties
   rescue StandardError => e
     render :template => 'public/404.html'
   end
@@ -32,17 +32,5 @@ class ProjectController < ApplicationController
     redirect_to(@project)
   rescue
     render :template=>'public/404.html'
-  end
-  
-  private
-  def stuff_project_properties(project)
-    ProjectTemplate.project_template.properties_group.map do |property|
-      {
-        :key => property.key,
-        :name => property.name,
-        :description => property.description, 
-        :value => project.properties[property.key]
-      }
-    end
   end
 end
