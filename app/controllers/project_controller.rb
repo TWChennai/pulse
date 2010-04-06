@@ -20,7 +20,7 @@ class ProjectController < ApplicationController
   end
 
   def create
-    @project = Project.new(params[:project].merge(:name => "default"))
+    @project = Project.new(params[:project])
     @project.save
     redirect_to(@project)
   end

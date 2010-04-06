@@ -8,9 +8,7 @@ class ProjectTemplate < CouchRest::ExtendedDocument
   property :name  
 
   def self.create
-    COUCHDB_SERVER.save_doc({"_id"=> DESIGN_DOC,"properties_group"=>[{"name"=>"Project Name",
-    "order"=>"1", "tracked"=>"yes", "type"=>"string", "description"=>"Name of the Project",
-    "couchrest-type"=>"Property", "key"=>"project_name"}, {"name"=>"Location", "order"=>"2",
+    COUCHDB_SERVER.save_doc({"_id"=> DESIGN_DOC,"properties_group"=>[{"name"=>"Location", "order"=>"2",
     "tracked"=>"yes", "type"=>"string", "description"=>"Location of the project",
     "couchrest-type"=>"Property", "key"=>"location"}, {"name"=>"SOW Signed", "order"=>"3",
     "tracked"=>"yes", "type"=>"date", "description"=>"Date on which SOW was signed",

@@ -19,7 +19,7 @@ describe ProjectController do
       get :show, :id => @project.id
       response.should be
       response.should have_tag("div#project") do 
-        with_tag("div#project_name", /Project Name/)
+
       end
     end
   end

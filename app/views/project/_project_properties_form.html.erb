@@ -1,5 +1,14 @@
 <h1>Project Properties</h1>
 <br /> <br />
+<div class="property_field">
+	<div class="left_property_area">
+		Project Name
+		<h2>Name of the Project</h2>
+	</div>
+	<div class="right_property_area">
+		<%=    text_field_tag "project[name]", @project.name%>
+	</div>
+</div>
 <% @project_template.properties_group.each do |property| %>
 	<% if property.tracked == "yes" %>
 		<div id ="<%=property.key%>" class="property_field">
