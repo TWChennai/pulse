@@ -1,5 +1,11 @@
 begin
   env = ENV['RAILS_ENV'] || 'development'
+  config_file = Rails.root.join("config", "couchdb.yml")
+
+  unless File.exists?(config_file)
+    puts "Please copy config/couchdb.yml.example to config/couchdb.yml" 
+    exit -1
+  end
 
   couchdb_config = YAML::load(ERB.new(IO.read(RAILS_ROOT + "/config/couchdb.yml")).result)[env]
 
@@ -15,10 +21,9 @@ begin
   ssl      = false        if ssl.blank?
 
   protocol = ssl ? 'https' : 'http'
-  authorized_host = (username.blank? && password.blank?) ? host : "#{CGI.escape(username)}:#{CGI.escape(password)}@#{host}"
+  authorized_host = (username.blank? and password.blank?) ? host : "#{CGI.escape(username)}:#{CGI.escape(password)}@#{host}"
 
-  db_connection_string = "#{protocol}://#{authorized_host}:#{port}/#{database}"
-  COUCHDB_SERVER = CouchRest.database!(db_connection_string)
+  COUCHDB_SERVER = CouchRest.database!("#{protocol}://#{authorized_host}:#{port}/#{database}")
   
 rescue StandardError => e
   raise <<-EOS
