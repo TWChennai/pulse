@@ -25,6 +25,6 @@ class DataFactory
   end
   
   def self.properties_post_info
-    {"sow_signed"=>{"date(1i)"=>"2010", "date(2i)"=>"3", "date(3i)"=>"30"}, "iteration_duration"=>"", "non_tenured_twers"=>"", "tenured_twers"=>"", "averate_estimate_per_story"=>"", "name"=>"Simon & Schuster sdf", "average_team_size"=>"", "senior_consultants"=>"hj", "consultants"=>"", "no_of_stories"=>"", "team_ratio"=>"kj", "discrete_teams_project"=>"khkj", "project_duration"=>"lk", "cri_classification"=>"lj", "development_languages_used"=>"", "last_da_review"=>{"date(1i)"=>"2010", "date(2i)"=>"3", "date(3i)"=>"30"}, "project_start_date"=>{"date(1i)"=>"2010", "date(2i)"=>"3", "date(3i)"=>"30"}, "team_size"=>"", "units_of_estimation"=>"", "onsite_offsite_mix"=>"j", "engagement_model"=>"", "location"=>""}    
+    {"properties"=>{"sow_signed"=>"04/21/2010", "averate_estimate_per_story"=>"hj", "tenured_twers"=>"jh", "non_tenured_twers"=>"hj", "iteration_duration"=>"hj", "average_team_size"=>"jh", "team_ratio"=>"jhjh", "no_of_stories"=>"hj", "consultants"=>"hj", "senior_consultants"=>"jh", "discrete_teams_project"=>"jhj", "cri_classification"=>"jhjh", "project_duration"=>"jhjh", "development_languages_used"=>"jhhj", "project_name"=>"& S&S", "project_start_date"=>"04/22/2010", "last_da_review"=>"04/22/2010", "units_of_estimation"=>"jh", "team_size"=>"hj", "onsite_offsite_mix"=>"jjhjh", "engagement_model"=>"jhj", "location"=>"my rocke"}}
   end
 end
