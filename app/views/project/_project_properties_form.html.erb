@@ -2,7 +2,7 @@
 <br /> <br />
 <% @project_template.properties_group.each do |property| %>
 	<% if property.tracked == "yes" %>
-		<div class="property_field">
+		<div id ="<%=property.key%>" class="property_field">
 			<div class="left_property_area">
 				<%= property.name %>
 				<h2><%= property.description %></h2>
@@ -13,3 +13,4 @@
 		</div>
 	<% end %>
 <% end %>
+<div class="clear"></div>
