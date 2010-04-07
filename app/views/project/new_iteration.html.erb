@@ -1,17 +1,21 @@
-<h3>Add new Iteration Information</h3>
 <% form_tag save_iteration_path(@project) do %>
-	<div class="left_property_area">
-		<h2>Week Ending Date</h2>
-	</div>
-	<div class="right_property_area">
-		<%= text_field "project[iterations]", "date", {:class=>"datepicker"} %>
-	</div>
-	<% @project.stuffed_metrics.each do |metric| %>
-	<div class="left_property_area">
-		<h2><%= metric["name"]%></h2>
-	</div>
-	<div class="right_property_area">
-		<%= select_tag "project[iterations][#{metric['key']}]", options_for_select(["Red", "Green", "Amber"]) %>
-	</div>
-	<% end %>
+<table>
+	<tbody>
+		<tr>
+			<td>Week Ending Date</td>
+			<td><%= text_field "iteration", "date", {:class=>"datepicker"} %></td>
+		</tr>
+		<% @project.stuffed_metrics.each do |metric| %>
+		<tr>
+			<td><%= label metric["key"], metric["name"] %></td>
+			<td><%= select_tag "iteration[metrics][#{metric['key']}]", options_for_select(["Red", "Green", "Amber"]) %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<%= submit_tag "Add Iteration Information"%>
 <% end %>
+
+<script type="text/javascript">
+	$(".datepicker").datepicker();
+</script>

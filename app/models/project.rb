@@ -3,7 +3,7 @@ class Project < CouchRest::ExtendedDocument
 
   property :metrics
   property :properties
-
+  property :iterations, :cast_as => [Iteration]
   property :name
 
   view_by :list,
@@ -17,6 +17,7 @@ class Project < CouchRest::ExtendedDocument
   def initialize(*args)
     self.properties = {}
     self.metrics = {}
+    self.iterations = []
     super(*args)
   end
   

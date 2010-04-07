@@ -1,12 +1,23 @@
 <div>
 	<h1>Project Metrics</h1>
-	<%=link_to "Add New Iteration Information", new_iteration_path(@project)%>
+	<%=link_to "Add New Iteration Information", new_iteration_path(@project, :height => 400, :width => 700), :class => "thickbox", :title => "Add New Iteration Information" %>
 	<table class="iteration_rows">
 		<thead>
-			<th>
-			</th>
+			<th>Date</th>
+			<% @project.stuffed_metrics.each do |metric| %>
+			<th><%= metric["name"] %></th>
+			<% end %>
 		</thead>
 		<tbody>
+			<% @project.iterations.each do |iteration| %>
+			<tr>
+				<td><%= iteration.date %></td>
+				<% iteration.metrics.each do |metric| %>
+					<td><%=metric[1]%></td>
+				<% end %>
+			</tr>
+			<% end %>
+
 		</tbody>
 	</table>
 </div>

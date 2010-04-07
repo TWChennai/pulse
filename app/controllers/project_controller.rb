@@ -37,6 +37,14 @@ class ProjectController < ApplicationController
   def new_iteration
     @project = Project.get(params[:id])
     @project_template = ProjectTemplate.project_template
+    render :template => false
+  end
+  
+  def save_iteration
+    @project = Project.get(params[:id])
+    @project.iterations << Iteration.new(params[:iteration])
+    @project.save!
+    redirect_to(@project)
   end
   
   private
