@@ -14,7 +14,7 @@ describe ProjectController do
     end
     
     it "should create a new iteration information with the metric template" do
-      post :save_iteration, :id => @project.id, :project => {:iterations => }
+      # post :save_iteration, :id => @project.id, :project => {:iterations => }
     end
   end
 
