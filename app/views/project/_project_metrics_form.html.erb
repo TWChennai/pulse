@@ -3,10 +3,10 @@
 <%@project_template.metrics_group.each do |metric_group|%>
 <div id="<%=metric_group.name%>" class="metric_group">
 	<h3><%=metric_group.name%></h3>
-	<%metric_group.data.each do |metric|%>
+	<% metric_group.data.each do |metric| %>
 	<div id="<%=metric.key%>" class="metric_field">
-		<%=generate_check_box_tag(metric)%>
-		<%=metric.name%><h2><%=metric.description%></h2>
+		<%= generate_check_box_tag(metric) %>
+		<%= metric.name %><h2><%= metric.description %></h2>
 	</div>
 	<%end%>
 </div>

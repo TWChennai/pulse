@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe ProjectController do
   before(:each) do
-    @project = DataFactory.project_properties
+    @project = DataFactory.project
   end
   
   

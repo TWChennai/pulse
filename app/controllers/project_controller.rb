@@ -20,14 +20,14 @@ class ProjectController < ApplicationController
   end
 
   def create
-    @project = Project.new(params[:project])
+    @project = Project.new(project_hash_from_params)
     @project.save
     redirect_to(@project)
   end
 
   def update
     @project = Project.get(params[:id])
-    @project.merge!(params[:project])
+    @project.merge!(project_hash_from_params)
     @project.save
     redirect_to(@project)
   rescue
@@ -37,5 +37,12 @@ class ProjectController < ApplicationController
   def new_iteration
     @project = Project.get(params[:id])
     @project_template = ProjectTemplate.project_template
+  end
+  
+  private
+  def project_hash_from_params
+    project_params = params[:project]
+    project_params[:metrics] = project_params[:metrics].keys
+    project_params
   end
 end

@@ -19,7 +19,7 @@ class Project < CouchRest::ExtendedDocument
     self.metrics = {}
     super(*args)
   end
-
+  
   def stuff_properties
     ProjectTemplate.project_template.properties_group.map do |property|
       {
@@ -29,5 +29,14 @@ class Project < CouchRest::ExtendedDocument
         :value => self.properties[property.key]
       }
     end
+  end
+  
+  def stuffed_metrics
+    ProjectTemplate.project_template.metrics_group.map do |metrics_group_from_template|
+      metrics_group = metrics_group_from_template.clone
+      metrics_group.data.select{|metric_hash| 
+        metric_hash["mandatory"] || metrics.include?(metric_hash["key"])
+      }
+    end.flatten
   end
 end
