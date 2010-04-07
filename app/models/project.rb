@@ -30,5 +30,4 @@ class Project < CouchRest::ExtendedDocument
       }
     end
   end
-
 end

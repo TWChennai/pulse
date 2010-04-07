@@ -33,4 +33,9 @@ class ProjectController < ApplicationController
   rescue
     render :template=>'public/404.html'
   end
+  
+  def new_iteration
+    @project = Project.get(params[:id])
+    @project_template = ProjectTemplate.project_template
+  end
 end

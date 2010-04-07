@@ -4,6 +4,19 @@ describe ProjectController do
   before(:each) do
     @project = DataFactory.project_properties
   end
+  
+  
+  describe "add new iteration" do
+    it "should show a form to enter metrics for the new iteration" do
+      get :new_iteration, :id => @project.id
+      assigns[:project].should == @project
+      assigns[:project_template].should == ProjectTemplate.project_template
+    end
+    
+    it "should create a new iteration information with the metric template" do
+      fail
+    end
+  end
 
   describe "show page" do
     integrate_views
