@@ -32,7 +32,10 @@ class DataFactory
     end
 
     def properties_post_info
-      {"properties"=>{"sow_signed"=>"04/21/2010", "averate_estimate_per_story"=>"hj", "tenured_twers"=>"jh", "non_tenured_twers"=>"hj", "iteration_duration"=>"hj", "average_team_size"=>"jh", "team_ratio"=>"jhjh", "no_of_stories"=>"hj", "consultants"=>"hj", "senior_consultants"=>"jh", "discrete_teams_project"=>"jhj", "cri_classification"=>"jhjh", "project_duration"=>"jhjh", "development_languages_used"=>"jhhj", "project_name"=>"& S&S", "project_start_date"=>"04/22/2010", "last_da_review"=>"04/22/2010", "units_of_estimation"=>"jh", "team_size"=>"hj", "onsite_offsite_mix"=>"jjhjh", "engagement_model"=>"jhj", "location"=>"my rocke"}}
+      {
+        "properties"=>{"sow_signed"=>"04/21/2010", "averate_estimate_per_story"=>"hj", "tenured_twers"=>"jh", "non_tenured_twers"=>"hj", "iteration_duration"=>"hj", "average_team_size"=>"jh", "team_ratio"=>"jhjh", "no_of_stories"=>"hj", "consultants"=>"hj", "senior_consultants"=>"jh", "discrete_teams_project"=>"jhj", "cri_classification"=>"jhjh", "project_duration"=>"jhjh", "development_languages_used"=>"jhhj", "project_name"=>"& S&S", "project_start_date"=>"04/22/2010", "last_da_review"=>"04/22/2010", "units_of_estimation"=>"jh", "team_size"=>"hj", "onsite_offsite_mix"=>"jjhjh", "engagement_model"=>"jhj", "location"=>"my rocke"},
+        "metrics" => mandatory_metrics.inject({}){|hash, metric| hash[metric] = true; hash}
+        }
     end
     
     def properties
