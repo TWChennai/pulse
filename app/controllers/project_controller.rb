@@ -1,5 +1,5 @@
 class ProjectController < ApplicationController
-  def show 
+  def show
     @project = Project.get(params[:id])
     @properties = @project.stuff_properties
   rescue StandardError => e
@@ -37,6 +37,7 @@ class ProjectController < ApplicationController
   def new_iteration
     @project = Project.get(params[:id])
     @project_template = ProjectTemplate.project_template
+    @iteration = Iteration.new
     render :template => false
   end
   
@@ -49,11 +50,17 @@ class ProjectController < ApplicationController
 
   def edit_iteration
     @project = Project.get(params[:id])
-    @project_template = ProjectTemplate.project_template
-    @iteration=@project.iterations
-    puts @iteration.inspect
+    iteration_index = params[:index].to_i
+    @iteration = @project.iterations[iteration_index]
     render :template => false
-
+  end
+  
+  def update_iteration
+    @project = Project.get(params[:id])
+    iteration_index = params[:index].to_i
+    @project.iterations[iteration_index] = params[:iteration]
+    @project.save!
+    redirect_to(@project)
   end
   
   private
