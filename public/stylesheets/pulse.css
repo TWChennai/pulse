@@ -130,3 +130,42 @@ table td.project_column_header {
     width:20%;
     float:left;
 }
+
+
+.circle {
+  display: block;
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #333;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  
+}
+
+.green{
+  background-color:green;
+}
+
+.red{
+  background-color:red;
+}
+
+.amber{
+  background-color:orange;
+}
+
+/*.green span.comment, .red span.comment,.amber span.comment {
+  text-indent:-999px;
+  display:block;
+}*/
+
+
+
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	border: 1px solid #111;
+	background-color: #eee;
+	opacity: 0.85;
+}

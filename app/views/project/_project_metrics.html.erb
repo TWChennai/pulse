@@ -18,7 +18,9 @@
 			<tr>
 				<td><%= iteration.date %></td>
 				<% iteration.metrics.each do |metric| %>
-					<td><%= metric.value %></td>
+					<td>
+						<div class="indicator circle <%= metric.value.downcase %>" title="<%= metric.comment %>"></div>
+					</td>
 				<% end %>
 				<td><%= link_to "Edit", edit_iteration_path(@project, index, :height => 400, :width => 700), :class => :thickbox, :title => "Edit Iteration Information" %>  </td>
 			</tr>
