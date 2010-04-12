@@ -2,8 +2,11 @@ class ProjectController < ApplicationController
   def show
     @project = Project.get(params[:id])
     @properties = @project.stuff_properties
-  rescue StandardError => e
-    render :template => 'public/404.html'
+  end
+  
+  def export_as_csv
+    @project = Project.get(params[:id])
+    send_data CSVAdapter::Project.new(@project).to_csv, :filename => "#{@project.name}.csv"
   end
 
   def new
@@ -15,8 +18,6 @@ class ProjectController < ApplicationController
   def edit
     @project_template = ProjectTemplate.project_template
     @project = Project.get(params[:id])
-  rescue
-    render :template=>'public/404.html'
   end
 
   def create
@@ -30,8 +31,6 @@ class ProjectController < ApplicationController
     @project.merge!(project_hash_from_params)
     @project.save
     redirect_to(@project)
-  rescue
-    render :template=>'public/404.html'
   end
   
   private

@@ -1,5 +1,6 @@
 <div id="project">
 	<h1><%= @project.name %></h1>
+	<%= link_to "Export as Excel", export_project_as_csv_path(@project) %>
 	<%= render :partial => "project_properties" %>
 	<%= render :partial => "project_metrics" %>
 </div>
