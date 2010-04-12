@@ -1,5 +1,4 @@
-<% form_tag save_iteration_path(@project) do %>
-  <%= @iteration.initialize %>
+<% form_tag edit_iteration_path(@project) do %>
 <table>
 	<tbody>
 		<tr>
@@ -11,6 +10,7 @@
 			<td><%= label metric["key"], metric["name"] %></td>
 			<td><%= select_tag "iteration[metrics][#{metric['key']}][value]", options_for_select(["Red", "Green", "Amber"]) %></td>
                         <td><%= text_field_tag "iteration[metrics][#{metric['key']}][comment]" %> </td>
+                        <td> <%=@iteration.inspect%>  </td>
 		</tr>
 		<% end %>
 	</tbody>

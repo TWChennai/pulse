@@ -1,4 +1,4 @@
 class Iteration < CouchRest::ExtendedDocument
   property :date
-  property :metrics
+  property :metrics, :cast_as => [Metric]
 end

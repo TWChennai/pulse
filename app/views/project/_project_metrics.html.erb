@@ -15,10 +15,15 @@
 			<% @project.iterations.each do |iteration| %>
 			<tr>
 				<td><%= iteration.date %></td>
-				<% iteration.metrics.each do |metric_name, value| %>
-					<td><%= value %></td>
+				<% iteration.metrics.each do |metric| %>
+                                  <%  metric.each do|value| %>
+                                    <td><%=value[1]["value"]%></td>
+                                 <%  end %>
+                                 <td>  <%= link_to "Edit", edit_iteration_path(@project) %>  </td>
+                                 
 				<% end %>
 			</tr>
+                        
 			<% end %>
 
 		</tbody>

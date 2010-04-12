@@ -46,6 +46,15 @@ class ProjectController < ApplicationController
     @project.save!
     redirect_to(@project)
   end
+
+  def edit_iteration
+    @project = Project.get(params[:id])
+    @project_template = ProjectTemplate.project_template
+    @iteration=@project.iterations
+    puts @iteration.inspect
+    render :template => false
+
+  end
   
   private
   def project_hash_from_params
