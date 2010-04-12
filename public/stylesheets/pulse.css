@@ -155,13 +155,6 @@ table td.project_column_header {
   background-color:orange;
 }
 
-/*.green span.comment, .red span.comment,.amber span.comment {
-  text-indent:-999px;
-  display:block;
-}*/
-
-
-
 #tooltip {
 	position: absolute;
 	z-index: 3000;

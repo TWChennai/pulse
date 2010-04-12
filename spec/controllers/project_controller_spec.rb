@@ -5,63 +5,7 @@ describe ProjectController do
     @project = DataFactory.project
   end
   
-  
-  describe "add new iteration" do
-    it "should show a form to enter metrics for the new iteration" do
-      get :new_iteration, :id => @project.id
-      assigns[:project].should == @project
-      assigns[:project_template].should == ProjectTemplate.project_template
-    end
-    
-    it "should create a new iteration information with the metric template" do
-      @project.iterations.size.should == 0
-      post :save_iteration, :id => @project.id, 
-                            :iteration => {
-                              :date => 10.days.ago.to_date,
-                              :metrics => [
-                                {:name => "Metric1", :value => Metric::Value::RED, :comment => "This is a comment"},
-                                {:name => "Metric2", :value => Metric::Value::GREEN, :comment => "This is also a comment"}
-                              ]
-                            }
-                            
-      @project = Project.get(@project.id)
-      @project.iterations.size.should == 1
-      
-      iteration = @project.iterations[0]
-      iteration.date.should == 10.days.ago.to_date.to_s
-      iteration.metrics.size.should == 2
-      metric1 = iteration.metrics[0]
-      metric1.name.should == "Metric1"
-      metric1.value.should == Metric::Value::RED
-      metric1.comment.should == "This is a comment"
-    end
-  end
-  
-  describe "update iteration" do
-    it "should update the iteration information" do
-      iteration = Iteration.new(:date => 10.days.ago, :metrics => [Metric.new(:name => "Metric1", :value => Metric::Value::GREEN, :comment => "Comment")])
-      @project.iterations << iteration
-      @project.save!
-      
-      post :update_iteration, :id => @project.id, 
-                              :index => 0,
-                              :iteration => {
-                                :date => 10.days.ago.to_date,
-                                :metrics => [
-                                  {:name => "Metric1", :value => Metric::Value::RED, :comment => "This is the comment"},
-                                ]
-                              }
-                            
-      @project = Project.get(@project.id)
-      
-      iteration = @project.iterations[0]
-      metric1 = iteration.metrics[0]
-      metric1.value.should == Metric::Value::RED
-      metric1.comment.should == "This is the comment"
-    end  
-  end
-
-  describe "show page" do
+  describe "show" do
     integrate_views
     it "should show error page if project does not exist" do
       Project.should_receive(:get).with("12345").and_raise(RestClient::ResourceNotFound)
@@ -80,7 +24,7 @@ describe ProjectController do
     end
   end
 
-  describe "edit page" do
+  describe "edit" do
     integrate_views
     it "should show the project edit page if it exists" do
       Project.should_receive(:get).with("100").and_return(@project)
@@ -96,7 +40,7 @@ describe ProjectController do
     end
   end
 
-  describe "update page" do
+  describe "update" do
     after(:each) do
       post :update, :id=>"200", :project => DataFactory.properties_post_info
       response.should be

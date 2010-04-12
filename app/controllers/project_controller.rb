@@ -34,35 +34,6 @@ class ProjectController < ApplicationController
     render :template=>'public/404.html'
   end
   
-  def new_iteration
-    @project = Project.get(params[:id])
-    @project_template = ProjectTemplate.project_template
-    @iteration = Iteration.new
-    render :template => false
-  end
-  
-  def save_iteration
-    @project = Project.get(params[:id])
-    @project.iterations << Iteration.new(params[:iteration])
-    @project.save!
-    redirect_to(@project)
-  end
-
-  def edit_iteration
-    @project = Project.get(params[:id])
-    iteration_index = params[:index].to_i
-    @iteration = @project.iterations[iteration_index]
-    render :template => false
-  end
-  
-  def update_iteration
-    @project = Project.get(params[:id])
-    iteration_index = params[:index].to_i
-    @project.iterations[iteration_index] = params[:iteration]
-    @project.save!
-    redirect_to(@project)
-  end
-  
   private
   def project_hash_from_params
     project_params = params[:project]
