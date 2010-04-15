@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.save_iteration '/project/:project_id/save_iteration', :controller => :iteration, :action => :save
   map.edit_iteration '/project/:project_id/edit_iteration/:index', :controller => :iteration, :action => :edit
   map.update_iteration '/project/:project_id/update_iteration/:index', :controller => :iteration, :action => :update
+  map.dashboard_for_a_date '/dashboard/week_ending', :controller => :dashboard, :action => :index
 
   map.root :controller => :dashboard, :action => :index
   

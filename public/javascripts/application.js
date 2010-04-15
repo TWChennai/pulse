@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	$('.iteration').dataTable();
-	$(".datepicker").datepicker();
-	
+	$(".datepicker").datepicker();	
 	$(".indicator").tooltip();
 });
