@@ -2,8 +2,18 @@
 <table>
 	<thead>
 		<th>Project Name</th>
-		<% @projects_template.mandatory_metrics.each do |metric| %>
-		<th><%=metric.name%></th>
-		<% end%>
+		<% @projects_dashboard.first.iterations.first.mandatory_metrics.each do |metric| %>
+		<th><%= metric.name %></th>
+		<% end %>
 	</thead>
+	<tbody>
+		<% @projects_dashboard.each do |project| %>
+		<tr>
+			<td><%=project.name%></td>
+			<% project.iterations.first.mandatory_metrics.each do |metric| %>
+				<td><%= metric.value %></td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
 </table>

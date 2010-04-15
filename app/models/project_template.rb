@@ -16,7 +16,7 @@ class ProjectTemplate < CouchRest::ExtendedDocument
       })
     end
 
-    def mandatory_metrics
+    def self.mandatory_metrics
       ProjectTemplate.project_template.metrics_group.map do |metrics_group_from_template|
         metrics_group = metrics_group_from_template.clone
         metrics_group.data.select{|metric_hash| 
