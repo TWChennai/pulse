@@ -1,1 +1,9 @@
 <h1> Portfolio Dashboard </h1>
+<table>
+	<thead>
+		<th>Project Name</th>
+		<% @projects_template.mandatory_metrics.each do |metric| %>
+		<th><%=metric.name%></th>
+		<% end%>
+	</thead>
+</table>

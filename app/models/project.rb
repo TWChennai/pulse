@@ -14,13 +14,26 @@ class Project < CouchRest::ExtendedDocument
   }
   }"
 
+  view_by :dashboard, 
+  :map => 
+  "function(doc) {
+        if (doc['couchrest-type'] == 'Project') {
+          if(doc.iterations) {
+            for(store in doc.iterations) {
+                emit(doc.iterations[store].date,doc.iterations[store]);
+            }
+          }
+    }
+    }
+  "
+
   def initialize(*args)
     self.properties = {}
     self.metrics = {}
     self.iterations = []
     super(*args)
   end
-  
+
   def stuff_properties
     ProjectTemplate.project_template.properties_group.map do |property|
       {
@@ -31,7 +44,7 @@ class Project < CouchRest::ExtendedDocument
       }
     end
   end
-  
+
   def stuffed_metrics
     ProjectTemplate.project_template.metrics_group.map do |metrics_group_from_template|
       metrics_group = metrics_group_from_template.clone

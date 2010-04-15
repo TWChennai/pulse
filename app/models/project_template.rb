@@ -13,24 +13,42 @@ class ProjectTemplate < CouchRest::ExtendedDocument
       "properties_group" => properties_group_from_json,
       "metrics_group" => metrics_group_from_json,
       "couchrest-type" => name
-    })
-  end
+      })
+    end
 
-  def self.project_template
-    get DESIGN_DOC
-  end
+    def mandatory_metrics
+      ProjectTemplate.project_template.metrics_group.map do |metrics_group_from_template|
+        metrics_group = metrics_group_from_template.clone
+        metrics_group.data.select{|metric_hash| 
+          metric_hash["mandatory"]
+        }
+      end.flatten
+    end
+    
+    def optional_metrics
+      ProjectTemplate.project_template.metrics_group.map do |metrics_group_from_template|
+        metrics_group = metrics_group_from_template.clone
+        metrics_group.data.select{|metric_hash| 
+          metric_hash["mandatory"] == false
+        }
+      end.flatten
+    end
+    
+    def self.project_template
+      get DESIGN_DOC
+    end
 
-  def self.metrics_group_from_json
-    hash_from_json["metrics_group"]
+    def self.metrics_group_from_json
+      hash_from_json["metrics_group"]
+    end
+
+    def self.properties_group_from_json
+      hash_from_json["properties_group"]
+    end
+
+    def self.hash_from_json
+      @@hash ||= JSON.parse(File.read(TEMPLATE_JSON_FILE))
+    end
+
+    private_class_method :hash_from_json
   end
-  
-  def self.properties_group_from_json
-    hash_from_json["properties_group"]
-  end
-  
-  def self.hash_from_json
-    @@hash ||= JSON.parse(File.read(TEMPLATE_JSON_FILE))
-  end
-  
-  private_class_method :hash_from_json
-end
