@@ -1,4 +1,4 @@
-<h1> Portfolio Dashboard </h1>
+<h1> Portfolio Dashboard for <%= @projects_dashboard.first.iterations.first.date%></h1>
 <table>
 	<thead>
 		<th>Project Name</th>
@@ -9,9 +9,9 @@
 	<tbody>
 		<% @projects_dashboard.each do |project| %>
 		<tr>
-			<td><%=project.name%></td>
+			<td><%=link_to project.name, project%></td>
 			<% project.iterations.first.mandatory_metrics.each do |metric| %>
-				<td><%= metric.value %></td>
+				<td><div class="indicator circle <%= metric.value.downcase %>" title="<%= metric.comment %>"></div></td>
 			<% end %>
 		</tr>
 		<% end %>
