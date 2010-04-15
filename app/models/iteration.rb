@@ -4,6 +4,16 @@ class Iteration < CouchRest::ExtendedDocument
   property :date
   property :metrics, :cast_as => [Metric]
   
+  def mandatory_metrics
+    @mandatory_metrics = []
+    ProjectTemplate.mandatory_metrics.each do |mandatory|
+      metrics.each do |metric|
+        @mandatory_metrics << metric if mandatory.name == metric.name
+      end
+    end
+    @mandatory_metrics
+  end
+  
   def file_attachments=(attachment_files)
     self[:attachments] ||= []
     self[:attachments] +=
@@ -31,4 +41,5 @@ class Iteration < CouchRest::ExtendedDocument
     end
     file.path
   end
+
 end

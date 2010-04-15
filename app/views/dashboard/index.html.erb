@@ -1,1 +1,33 @@
-<h1> Portfolio Dashboard </h1>
+<h1>Portfolio Dashboard </h1>
+<div class="left_property_area">
+	<h2>Week ending on  <%= @week_ending_date %></h2>
+</div>
+<div class="right_property_area">
+	<% form_tag '/dashboard/week_ending', :method => :get do %>
+		<%= text_field_tag "date", @week_ending_date ,:class=>"datepicker"%>
+		<%= submit_tag "Go"%>
+	<% end %>
+</div>
+<div class="clear"> </div>
+<% if @projects_dashboard.size > 0 %>
+<table>
+	<thead>
+		<th>Project Name</th>
+		<% @projects_dashboard.first.iterations.first.mandatory_metrics.each do |metric| %>
+		<th><%= metric.name %></th>
+		<% end %>
+	</thead>
+	<tbody>
+		<% @projects_dashboard.each do |project| %>
+		<tr>
+			<td><%=link_to project.name, project%></td>
+			<% project.iterations.first.mandatory_metrics.each do |metric| %>
+			<td><div class="indicator circle <%= metric.value.downcase %>" title="<%= metric.comment %>"></div></td>
+			<% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<%else%>
+<h1>No Records found</h1>
+<% end %>
