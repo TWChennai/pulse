@@ -1,4 +1,4 @@
-<% form_tag save_iteration_path(@project) do %>
+<% form_tag save_iteration_path(@project), :multipart => true do %>
 <table>
 	<tbody>
 		<tr>
@@ -17,9 +17,18 @@
 		<% end %>
 	</tbody>
 </table>
+
+<div id="attachments">
+	<ul></ul>
+	<a class="add" href="#">Add attachment</a>	
+</div>
+
+
+
 <%= submit_tag "Add Iteration Information"%>
 <% end %>
 
 <script type="text/javascript">
-$(".datepicker").datepicker();
+		Attachment.init();
+		$(".datepicker").datepicker();
 </script>
