@@ -26,9 +26,11 @@ end
 
 namespace :deploy do  
   task :symlink_configs, :roles => :app, :except => { :no_symlink => true } do
+    run "mkdir -p #{shared_path}/system/attachments"
     run <<-CMD
       cd #{release_path} &&
-      ln -nfs #{shared_path}/config/couchdb.yml #{release_path}/config/couchdb.yml
+      ln -nfs #{shared_path}/config/couchdb.yml #{release_path}/config/couchdb.yml &&
+      ln -nfs #{shared_path}/system/attachments #{release_path}/public/attachments
     CMD
   end
 end
