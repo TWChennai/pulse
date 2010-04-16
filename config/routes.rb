@@ -7,7 +7,8 @@ ActionController::Routing::Routes.draw do |map|
   map.edit_iteration '/project/:project_id/edit_iteration/:index', :controller => :iteration, :action => :edit
   map.update_iteration '/project/:project_id/update_iteration/:index', :controller => :iteration, :action => :update
   map.dashboard_for_a_date '/dashboard/week_ending', :controller => :dashboard, :action => :index
-
+  map.metric_view '/metric', :controller => :metrics, :action => :index 
+  
   map.root :controller => :dashboard, :action => :index
   
   map.connect ':controller/:action/:id'
