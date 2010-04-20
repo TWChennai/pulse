@@ -162,3 +162,7 @@ table td.project_column_header {
 	background-color: #eee;
 	opacity: 0.85;
 }
+
+#project_properties_title {
+  cursor:pointer;
+}
