@@ -10,9 +10,8 @@ class MetricsController < ApplicationController
     @week_range = week_range(@from_date,@to_date).reverse
     @title= "Metrics View"
 
-    @projects_metric_view = Project.view("by_metric", :startkey=>[@metric, @from_date.to_time.to_i], :endkey=>[@metric, @to_date.to_time.to_i] , :include_docs => false, :reduce => false)
+    @projects_metric_view = Project.view("by_metric", :startkey=>[@metric, @from_date.to_time.to_i], :endkey=>[@metric, @to_date.to_time.to_i] , :include_docs => false)
     
-    puts @projects_metric_view.inspect
     @projects_template = ProjectTemplate.project_template
     @projects_list = Project.all
 

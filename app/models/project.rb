@@ -52,17 +52,7 @@ function(doc) {
       }
     }
   }
-  }", 
-  :reduce => "
-  function(keys, values )
-  {
-    var data = {};
-    for(value in values){
-      data[values[value][0]] = values[value][1];
-    }
-    return data;
-    }"
-
+  }"
     def initialize(*args)
       self.properties = {}
       self.metrics = {}
@@ -94,6 +84,7 @@ function(doc) {
       projects_metric_view["rows"].each do |metric_view|
         if metric_view["key"] == [metric, week.to_time.to_i]
           if metric_view["id"] == self.id
+            puts metric_view["value"][1]["comment"].downcase 
             return {
               :comment => metric_view["value"][1]["comment"].downcase,
               :value => metric_view["value"][1]["value"].downcase
