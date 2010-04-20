@@ -5,5 +5,4 @@ module ArrayExtension
     self
   end
 end
-
 Array.send :include, ArrayExtension

@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   def index
     @title = "Project Dashboard"
-    @projects = Project.all
+    # @projects = Project.all
     @week_ending_date = (params[:date].nil? ? week_ending_date : params[:date])
     @projects_dashboard = Project.view("by_dashboard",{:key => @week_ending_date })
     @projects_template = ProjectTemplate.project_template

@@ -1,10 +1,10 @@
 <html>
 <head>
-<title>
-Pulse:: <%=@title%>
-</title>
-<%= stylesheet_link_tag :all, :cache => true %>
-<%= javascript_include_tag ["jquery", "jquery.dataTables.min", "jquery-ui-1.8.custom.min", "jquery.tooltip", "thickbox", "application"], :cache => true %>
+	<title>
+		Pulse:: <%=@title%>
+	</title>
+	<%= stylesheet_link_tag :all, :cache => true %>
+	<%= javascript_include_tag ["jquery", "jquery.dataTables.min", "jquery-ui-1.8.custom.min", "jquery.tooltip", "thickbox", "application"], :cache => true %>
 </head>
 <body>
 	<div class="main">
@@ -12,8 +12,9 @@ Pulse:: <%=@title%>
 			<div class="logo"> <img src="/images/logo.jpg" width=150 height=100/> </div>
 			<div class="nav_bar"> 
 				<ul>
-					<li><a href="/" class="selected"> Dashboard </a> </li>
-					<li><%=link_to "Create New Project", new_project_path%></li>							
+					<li> <%= link_to "Project Dashboard",root_path %> </li>
+					<li> <%= link_to "Metrics View", metric_view_path  %> </li>
+					<li> <%= link_to "Create New Project", new_project_path%> </li>							
 				</ul>
 			</div>
 		</div>

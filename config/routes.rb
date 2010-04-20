@@ -11,7 +11,8 @@ ActionController::Routing::Routes.draw do |map|
   map.remove_iteration_attachment '/project/:project_id/iteration/:index/remove/:name.:format', :controller => :iteration, :action => :remove_attachment
 
   map.dashboard_for_a_date '/dashboard/week_ending', :controller => :dashboard, :action => :index
-
+  map.metric_view '/metric', :controller => :metrics, :action => :index 
+  
   map.root :controller => :dashboard, :action => :index
   
   map.connect ':controller/:action/:id'

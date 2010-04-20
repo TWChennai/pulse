@@ -10,12 +10,14 @@
 </div>
 <div class="clear"> </div>
 <% if @projects_dashboard.size > 0 %>
-<table>
+<table class="iteration">
 	<thead>
+		<tr>
 		<th>Project Name</th>
 		<% @projects_dashboard.first.iterations.first.mandatory_metrics.each do |metric| %>
 		<th><%= metric.name %></th>
 		<% end %>
+		</tr>
 	</thead>
 	<tbody>
 		<% @projects_dashboard.each do |project| %>
