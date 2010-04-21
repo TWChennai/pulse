@@ -63,5 +63,6 @@ class DataFactory
     def mandatory_metrics_hash
       all_metrics_hash.select{|metric| metric["mandatory"]}
     end
+
   end
 end

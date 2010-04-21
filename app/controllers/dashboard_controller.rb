@@ -1,10 +1,14 @@
 class DashboardController < ApplicationController
   def index
     @title = "Project Dashboard"
-    # @projects = Project.all
     @week_ending_date = (params[:date].nil? ? week_ending_date : params[:date])
     @projects_dashboard = Project.view("by_dashboard",{:key => @week_ending_date })
-    @projects_template = ProjectTemplate.project_template
+    puts @projects_dashboard.inspect
+  end
+  def export_to_csv
+    @week_ending_date = (params[:date].nil? ? week_ending_date : params[:date])
+    @projects_dashboard = Project.view("by_dashboard",{:key => @week_ending_date })
+    send_data CSVAdapter::ProjectDashboard.new(@projects_dashboard,@week_ending_date).to_csv, :filename => "#{@week_ending_date}.csv"
   end
   private
   def week_ending_date

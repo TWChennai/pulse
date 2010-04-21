@@ -6,8 +6,4 @@ describe "/dashboard/index" do
     assigns[:projects] = @projects_list
     render 'dashboard/index'
   end
-  it "should display the projects list" do
-    response.should be
-    response.should have_tag('h1',/Portfolio Dashboard/)
-  end
 end
