@@ -19,45 +19,55 @@ class Project < CouchRest::ExtendedDocument
   function(doc) {
     if (doc['couchrest-type'] == 'Project') {
       if(doc.properties) { 
-        emit(doc.properties.location, doc._id);
+        emit(doc.properties.location,  [doc._id, doc.name]);
       }
     }
   }
-  "
+  ", :reduce => "function(keys,values){ 
+    return values;
+    }"
 
-  view_by :dashboard, 
-  :map => 
-  "function(doc) {
-  if (doc['couchrest-type'] == 'Project') {
-    if(doc.iterations) {
-      for(store in doc.iterations) {
-        emit(doc.iterations[store].date,doc.iterations[store]);
-      }
-    }
-  }
-}
-"
-view_by :metric, 
-:map => "
-
-function(doc) { 
-  if (doc['couchrest-type'] == 'Project') {
-    if(doc.iterations){
-      for(store in doc.iterations) {
-        if(doc.iterations[store].metrics) {
-          for(metric in doc.iterations[store].metrics) {
-            emit([doc.iterations[store].metrics[metric].name,Date.parse(doc.iterations[store].date)/1000],[doc._id, doc.iterations[store].metrics[metric]])
-          }
+    view_by :dashboard, 
+    :map => 
+    "function(doc) {
+    if (doc['couchrest-type'] == 'Project') {
+      if(doc.iterations) {
+        for(store in doc.iterations) {
+          emit(doc.iterations[store].date,doc.iterations[store]);
         }
       }
     }
   }
-  }"
+  "
+  view_by :metric, 
+  :map => "
+
+  function(doc) { 
+    if (doc['couchrest-type'] == 'Project') {
+      if(doc.iterations){
+        for(store in doc.iterations) {
+          if(doc.iterations[store].metrics) {
+            for(metric in doc.iterations[store].metrics) {
+              emit([doc.iterations[store].metrics[metric].name,Date.parse(doc.iterations[store].date)/1000],[doc._id, doc.iterations[store].metrics[metric]])
+            }
+          }
+        }
+      }
+    }
+    }"
     def initialize(*args)
       self.properties = {}
       self.metrics = []
       self.iterations = []
       super(*args)
+    end
+
+    def self.projects_grouped_by_location
+      projects_group = []
+      Project.view("by_location", :reduce => true, :group => true, :group_level => 2)["rows"].each do |location_group|
+        projects_group << DAL::ProjectsGroup.new(location_group["key"], location_group["value"].map{|project| Project.new(:_id => project[0], :name => project[1])}.flatten)
+      end
+      return projects_group
     end
 
     def stuff_properties

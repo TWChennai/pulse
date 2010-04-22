@@ -1,6 +1,9 @@
 <h1> Jump To A Project </h1>
 <div id="projects">
-<% Project.view("by_location").each do |project| %>
-	<%= link_to project.name, project %> <br />
-<% end %>
+	<% Project.projects_grouped_by_location.each do |location_group| %>
+		<h2><%= location_group.location%></h2> <br />
+		<% location_group.projects.each do |project| %>
+			<%= link_to project.name, project_path(project.id)%> <br />
+		<% end %>
+	<% end %>
 </div>
