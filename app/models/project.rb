@@ -15,30 +15,27 @@ class Project < CouchRest::ExtendedDocument
   }"
 
   view_by :location,
-  :map => "
-
-
-  function(doc) {
+  :map => 
+  "function(doc) {
     if (doc['couchrest-type'] == 'Project') {
       if(doc.properties) { 
-        emit(doc.properties.location.toLowerCase(),  [doc._id,doc.name]);
+        emit(doc.properties.location.toLowerCase(),  doc);
       }
     }
-  }
-
-
-
-  ", :reduce => "function(keys,values){ 
-      var returnDocs = [];
-      for(value in values)
-        {
-          var returnDoc = [];
-          var valueInUse = values[value];
-          returnDoc.push(valueInUse['0'],valueInUse['1']);
-          returnDocs.push(returnDoc);
-        }
+  }", 
+  :reduce => 
+  "function(keys,values){ 
+        var returnDocs = [];
+        for(value in values)
+          {
+            var returnDoc = [];
+            var valueInUse = values[value];
+            if(valueInUse['_id'] && valueInUse['name']) {
+            returnDoc.push(valueInUse['_id'],valueInUse['name']);
+            returnDocs.push(returnDoc);}
+          }
         return returnDocs;
-        }"
+    }"
 
       view_by :dashboard, 
       :map => 
