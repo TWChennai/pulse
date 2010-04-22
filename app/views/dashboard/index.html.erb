@@ -4,8 +4,8 @@
 </div>
 <div class="right_property_area">
 	<% form_tag '/dashboard/week_ending', :method => :get do %>
-		<%= text_field_tag "date", @week_ending_date ,:class=>"datepicker"%>
-		<%= submit_tag "Go"%>
+	<%= text_field_tag "date", @week_ending_date ,:class=>"datepicker"%>
+	<%= submit_tag "Go"%>
 	<% end %>
 </div>
 <div class="clear"> </div>
@@ -14,10 +14,10 @@
 <table class="iteration">
 	<thead>
 		<tr>
-		<th>Project Name</th>
-		<% @projects_dashboard.first.iterations.first.mandatory_metrics.each do |metric| %>
-		<th><%= metric.name %></th>
-		<% end %>
+			<th>Project Name</th>
+			<% @mandatory_metrics.each do |metric| %>
+			<th><%= metric.name %></th>
+			<% end %>
 		</tr>
 	</thead>
 	<tbody>

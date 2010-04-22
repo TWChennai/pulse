@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
     @title = "Project Dashboard"
     @week_ending_date = (params[:date].nil? ? week_ending_date : params[:date])
     @projects_dashboard = Project.view("by_dashboard",{:key => @week_ending_date })
-    puts @projects_dashboard.inspect
+    @project_template = ProjectTemplate.mandatory_metrics
   end
   def export_to_csv
     @week_ending_date = (params[:date].nil? ? week_ending_date : Time.at(params[:date].to_i).to_date.strftime("%m/%d/%Y"))
