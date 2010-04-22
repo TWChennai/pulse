@@ -271,11 +271,11 @@
                    "couchrest-type": "MetricData"
                },
                {
-                   "name": "Team\n    Satisfaction",
+                   "name": "Team Satisfaction",
                    "tracked": "yes",
                    "order": "9",
                    "mandatory": true,
-                   "description": "Is the team\n    satisfied about the work?",
+                   "description": "Is the team satisfied about the work?",
                    "key": "team_satisfaction",
                    "couchrest-type": "MetricData"
                },
@@ -327,7 +327,7 @@
                    "tracked": "no",
                    "order": "3",
                    "mandatory": false,
-                   "description": "What was the breakup of the stories\n    in scope by priority",
+                   "description": "What was the breakup of the stories in scope by priority",
                    "key": "percentage_of_scope_by_priority",
                    "couchrest-type": "MetricData"
                }
@@ -339,29 +339,29 @@
            "couchrest-type": "MetricGroup",
            "data": [
                {
-                   "name": "Story\n    Rate",
+                   "name": "Story Rate",
                    "tracked": "no",
                    "order": "1",
                    "mandatory": false,
-                   "description": "Rate of story completion per\n    developer per iteration",
+                   "description": "Rate of story completion per developer per iteration",
                    "key": "story_rate",
                    "couchrest-type": "MetricData"
                },
                {
-                   "name": "Stories\n    carried Over",
+                   "name": "Stories carried Over",
                    "tracked": "no",
                    "order": "2",
                    "mandatory": false,
-                   "description": "User Stories carried\n    forward(hangover)",
+                   "description": "User Stories carried forward(hangover)",
                    "key": "stories_carried_over",
                    "couchrest-type": "MetricData"
                },
                {
-                   "name": "No of\n    stories in Scope",
+                   "name": "No of stories in Scope",
                    "tracked": "no",
                    "order": "3",
                    "mandatory": false,
-                   "description": "Number of stories\n    held in analysis/testing",
+                   "description": "Number of stories held in analysis/testing",
                    "key": "no_of_stories_in_scope",
                    "couchrest-type": "MetricData"
                }
@@ -373,7 +373,7 @@
            "couchrest-type": "MetricGroup",
            "data": [
                {
-                   "name": "Number Of Unit\n    Tests",
+                   "name": "Number Of Unit Tests",
                    "tracked": "no",
                    "order": "1",
                    "mandatory": false,
@@ -420,7 +420,7 @@
                    "tracked": "no",
                    "order": "1",
                    "mandatory": false,
-                   "description": "Total Number Of Defects Carried\n    Over",
+                   "description": "Total Number Of Defects Carried Over",
                    "key": "defects_carried_over",
                    "couchrest-type": "MetricData"
                },
@@ -429,7 +429,7 @@
                    "tracked": "no",
                    "order": "2",
                    "mandatory": false,
-                   "description": "Average Number Of Defects Per\n    Story",
+                   "description": "Average Number Of Defects Per Story",
                    "key": "defects_per_story",
                    "couchrest-type": "MetricData"
                }
@@ -445,7 +445,7 @@
                    "tracked": "no",
                    "order": "1",
                    "mandatory": false,
-                   "description": "Total Number Of Builds Per\n    Iteration",
+                   "description": "Total Number Of Builds Per Iteration",
                    "key": "number_of_builds_per_iteration",
                    "couchrest-type": "MetricData"
                },
@@ -468,11 +468,11 @@
                    "couchrest-type": "MetricData"
                },
                {
-                   "name": "Number of Broken Builds\n    Per Iteration",
+                   "name": "Number of Broken Builds Per Iteration",
                    "tracked": "no",
                    "order": "4",
                    "mandatory": false,
-                   "description": "Average count of\n    Broken Builds per Iteration",
+                   "description": "Average count of Broken Builds per Iteration",
                    "key": "number_of_broken_builds_per_iteration",
                    "couchrest-type": "MetricData"
                },
@@ -481,7 +481,7 @@
                    "tracked": "no",
                    "order": "5",
                    "mandatory": false,
-                   "description": "Average Duration of Broken Build Per\n    Iteration",
+                   "description": "Average Duration of Broken Build Per Iteration",
                    "key": "average_duration_of_broken_build",
                    "couchrest-type": "MetricData"
                }
@@ -493,11 +493,11 @@
            "couchrest-type": "MetricGroup",
            "data": [
                {
-                   "name": "Cyclometric\n    Complexity Measures",
+                   "name": "Cyclometric Complexity Measures",
                    "tracked": "no",
                    "order": "1",
                    "mandatory": false,
-                   "description": "Level Of\n    Cyclometric Complexity Present In The Code",
+                   "description": "Level Of Cyclometric Complexity Present In The Code",
                    "key": "cyclometric_complexity_measures",
                    "couchrest-type": "MetricData"
                },
@@ -506,7 +506,7 @@
                    "tracked": "no",
                    "order": "2",
                    "mandatory": false,
-                   "description": "Pattern Of Distribution Of Methods\n    And Classes",
+                   "description": "Pattern Of Distribution Of Methods And Classes",
                    "key": "distribution_of_method_and_class_lengths",
                    "couchrest-type": "MetricData"
                },
@@ -524,7 +524,7 @@
                    "tracked": "no",
                    "order": "4",
                    "mandatory": false,
-                   "description": "What Percent Of Source Code\n    Constitutes The Test Code ",
+                   "description": "What Percent Of Source Code Constitutes The Test Code ",
                    "key": "proportion_of_source_code_that_is_test_code",
                    "couchrest-type": "MetricData"
                }

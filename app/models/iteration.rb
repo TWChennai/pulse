@@ -1,19 +1,32 @@
 class Iteration < CouchRest::ExtendedDocument
   ATTACHMENTS_DIR = Rails.root.join("public", "attachments")
-  
+
   property :date
   property :metrics, :cast_as => [Metric]
-  
+
   def mandatory_metrics
     @mandatory_metrics = []
-    ProjectTemplate.mandatory_metrics.each do |mandatory|
-      metrics.each do |metric|
-        @mandatory_metrics << metric if mandatory.name == metric.name
+    ProjectTemplate.mandatory_metrics.each do |mandatory_metric|
+      metric= has_metric(mandatory_metric)
+      unless metric.nil?
+        @mandatory_metrics << metric
+      else 
+        @mandatory_metrics << Metric.new(:name => mandatory_metric.name, :value => "undefined",:comment => "undefined")
       end
     end
-    @mandatory_metrics
+    puts @mandatory_metrics.inspect
+    return @mandatory_metrics
   end
-  
+
+  def has_metric(mandatory_metric)
+    puts mandatory_metric.name
+    metrics.each do |metric|   
+      puts metric.name
+      return metric if metric.name == mandatory_metric.name 
+    end
+    return nil
+  end
+
   def file_attachments=(attachment_files)
     self[:attachments] ||= []
     self[:attachments] +=
@@ -29,11 +42,11 @@ class Iteration < CouchRest::ExtendedDocument
       }
     end
   end
-  
+
   def file_attachments
     self[:attachments] || []
   end
-  
+
   private
   def attachment_file_name(name, contents)
     file = File.open("#{ATTACHMENTS_DIR}/#{name}-#{Time.now.to_i}", "w+") do |f|
