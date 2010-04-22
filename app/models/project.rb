@@ -34,7 +34,7 @@ class Project < CouchRest::ExtendedDocument
         {
           var returnDoc = [];
           var valueInUse = values[value];
-          returnDoc.push(valueInUse["0"],valueInUse["1"]);
+          returnDoc.push(valueInUse['0'],valueInUse['1']);
           returnDocs.push(returnDoc);
         }
         return returnDocs;
