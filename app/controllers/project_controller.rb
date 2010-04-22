@@ -1,6 +1,7 @@
 class ProjectController < ApplicationController
   def show
     @project = Project.get(params[:id])
+    @title = @project.name
     @properties = @project.stuff_properties
   end
   
