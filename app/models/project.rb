@@ -16,13 +16,15 @@ class Project < CouchRest::ExtendedDocument
 
   view_by :location,
   :map => "
+  
   function(doc) {
     if (doc['couchrest-type'] == 'Project') {
       if(doc.properties) { 
-        emit(doc.properties.location,  [doc._id, doc.name]);
+        emit(doc.properties.location.toLowerCase(),  [doc._id, doc.name]);
       }
     }
   }
+
   ", :reduce => "function(keys,values){ 
     return values;
     }"
