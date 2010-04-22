@@ -55,7 +55,7 @@ function(doc) {
   }"
     def initialize(*args)
       self.properties = {}
-      self.metrics = {}
+      self.metrics = []
       self.iterations = []
       super(*args)
     end

@@ -36,7 +36,7 @@ class ProjectController < ApplicationController
   private
   def project_hash_from_params
     project_params = params[:project]
-    project_params[:metrics] = project_params[:metrics].keys
+    project_params[:metrics] = project_params[:metrics].keys unless project_params[:metrics].nil?
     project_params
   end
 end

@@ -283,7 +283,7 @@
                    "name": "Utilization Factor",
                    "tracked": "no",
                    "order": "10",
-                   "mandatory": false,
+                   "mandatory": true,
                    "description": "Is\n    the utilization good?",
                    "key": "utilization_factor",
                    "couchrest-type": "MetricData"
