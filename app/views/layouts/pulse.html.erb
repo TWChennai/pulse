@@ -24,7 +24,8 @@
 					<%=yield%>
 				</div>
 				<div class="right_area">
-					<%=render :partial=>'/project/project_list'%>
+					<%= render :partial => '/layouts/legend' %>
+					<%= render :partial => '/project/project_list'%>
 				</div>
 			</div>
 			<div class="clear" />
