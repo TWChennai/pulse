@@ -86,7 +86,20 @@ table td.project_column_header {
 .nav_bar li
 {
 	float: left;
+	padding-left:10px;
 }
+
+.right_area ul { 
+	margin: 10px;
+	display:inline;
+	padding-left:100px;
+	list-style:none;
+}
+.right_area li
+{
+	float: left;
+}
+
 
 .clear { 
 	clear:both;
@@ -123,7 +136,8 @@ table td.project_column_header {
     width:100%;
 }
 .left_area{
-    width:80%;
+    width:75%;
+	padding-right:5%;
     float:left;
 }
 .right_area{
