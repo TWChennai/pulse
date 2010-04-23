@@ -166,3 +166,7 @@ table td.project_column_header {
 #project_properties_title {
   cursor:pointer;
 }
+
+.add_new_metric {
+  padding: 10px 0 10px 0;
+}

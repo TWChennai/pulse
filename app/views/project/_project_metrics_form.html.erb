@@ -1,14 +1,37 @@
 <h1>Project Metrics</h1>
 <br /> <br />
-<%@project_template.metrics_group.each do |metric_group|%>
-<div id="<%=metric_group.name%>" class="metric_group">
-	<h3><%=metric_group.name%></h3>
+<% @project_template.metrics_group.each do |metric_group| %>
+<div id="<%= metric_group.name %>" class="metric_group">
+	<h3><%= metric_group.name %></h3>
 	<% metric_group.data.each do |metric| %>
-	<div id="<%=metric.key%>" class="metric_field">
+	<div id="<%= metric.key %>" class="metric_field">
 		<%= generate_check_box_tag(metric) %>
 		<%= metric.name %><h2><%= metric.description %></h2>
 	</div>
-	<%end%>
+	<% end %>
 </div>
-<%end%>
+<% end %>
+
+<div id="additional_metrics" class="metric_group">
+	<h3>Additional Metrics</h3>
+	<% @project.additional_metrics.each do |metric_data| %>
+		<div id="<%= metric_data.key %>" class="metric_field">
+			<%= generate_check_box_tag(metric_data) %>
+			<%= metric_data.name %><h2><%= metric_data.description %></h2>
+			<%= hidden_field_tag "project[additional_metrics[#{metric_data.name}]]", metric_data.description %>
+		</div>
+	<% end %>
+</div>
+	
 <div class="clear"></div>
+
+<div id="add_new_metric">
+	<div>Add New Metric:</div>
+	<div>
+		<%= label_tag "metric_name", "Metric Name" %>
+		<%= text_field_tag "Name:", nil, :id => "add_metric_name", :name => "addtional_metrics[name]" %>
+		<%= label_tag "metric_description", "Description" %>
+		<%= text_field_tag "Description:", nil, :id => "add_metric_desc", :name => "addtional_metrics[desc]" %>
+		<%= button_tag "Add", :id => "add_metric" %>
+	</div>
+</div>

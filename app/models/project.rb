@@ -3,6 +3,9 @@ class Project < CouchRest::ExtendedDocument
 
   property :metrics
   property :properties
+  
+  property :additional_metrics, :cast_as => [MetricData]
+  
   property :iterations, :cast_as => [Iteration]
   property :name
 
@@ -71,7 +74,7 @@ class Project < CouchRest::ExtendedDocument
         self.iterations = []
         super(*args)
       end
-
+      
       def self.projects_grouped_by_location
         projects_group = []
         Project.view("by_location", :reduce => true, :group => true, :group_level => 2)["rows"].each do |location_group|
@@ -79,7 +82,11 @@ class Project < CouchRest::ExtendedDocument
         end
         return projects_group
       end
-
+      
+      def additional_metrics
+        self["additional_metrics"] || []
+      end
+      
       def stuff_properties
         ProjectTemplate.project_template.properties_group.map do |property|
           {
@@ -97,7 +104,7 @@ class Project < CouchRest::ExtendedDocument
           metrics_group.data.select{|metric_hash| 
             metric_hash["mandatory"] || metrics.include?(metric_hash["key"])
           }
-        end.flatten
+        end.flatten + additional_metrics
       end
 
       def metric_for_week(projects_metric_view,metric,week)

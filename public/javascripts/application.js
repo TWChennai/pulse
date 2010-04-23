@@ -7,6 +7,18 @@ $(document).ready(function(){
     $('#project_properties').toggle(400);
     return false;
   });
+  
+  $("#add_metric").click(function(){
+		var metricName = $("#add_metric_name").attr("value");
+		var metricDescription = $("#add_metric_desc").attr("value");
+		var newMetric = $('<div />').attr('id', metricName).attr('class', 'metric_field').append($('<input />').attr('type', 'checkbox').attr('name', 'project[metrics[' + metricName + ']]').attr('value', 'yes')).append(metricName).append($('<h2 />').append(metricDescription));
+		
+		var newMetricData = $('<input />').attr('type', 'hidden').attr('name', 'project[additional_metrics[' + metricName + ']]').attr('value', metricDescription)
+		$("#additional_metrics").append(newMetric);
+		$("#additional_metrics").append(newMetricData);
+		return false;
+	});
+	
 });
 
 var Attachment = {
