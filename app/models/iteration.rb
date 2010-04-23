@@ -14,14 +14,11 @@ class Iteration < CouchRest::ExtendedDocument
         @mandatory_metrics << Metric.new(:name => mandatory_metric.name, :value => "undefined",:comment => "undefined")
       end
     end
-    puts @mandatory_metrics.inspect
     return @mandatory_metrics
   end
 
   def has_metric(mandatory_metric)
-    puts mandatory_metric.name
     metrics.each do |metric|   
-      puts metric.name
       return metric if metric.name == mandatory_metric.name 
     end
     return nil

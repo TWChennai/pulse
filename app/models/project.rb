@@ -111,7 +111,6 @@ class Project < CouchRest::ExtendedDocument
         projects_metric_view["rows"].each do |metric_view|
           if metric_view["key"] == [metric, week.to_time.to_i]
             if metric_view["id"] == self.id
-              puts metric_view["value"][1]["comment"].downcase 
               return {
                 :comment => metric_view["value"][1]["comment"].downcase,
                 :value => metric_view["value"][1]["value"].downcase

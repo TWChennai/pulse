@@ -37,7 +37,7 @@ table{
 	border-style:none;
 }
 table td{
-		border-style:none;
+	border-style:none;
 }
 table th{
 	border-style:none;
@@ -86,7 +86,20 @@ table td.project_column_header {
 .nav_bar li
 {
 	float: left;
+	padding-left:10px;
 }
+
+.right_area ul { 
+	margin: 10px;
+	display:inline;
+	padding-left:100px;
+	list-style:none;
+}
+.right_area li
+{
+	float: left;
+}
+
 
 .clear { 
 	clear:both;
@@ -101,58 +114,63 @@ table td.project_column_header {
 	width:10em;
 }
 .property_field{
-    width:50%;
-    float:left;
+	width:50%;
+	float:left;
 }
 .metric_group{
-    width:50%;
-    float:left;
+	width:50%;
+	float:left;
 }
 .metric_field{
-    width:50%;
+	width:50%;
 }
 .left_property_area {
-    width:50%;
-    float:left;
+	width:50%;
+	float:left;
 }
 .right_property_area{
-    width:50%;
-    float:right;
+	width:50%;
+	float:right;
 }
 .content{
-    width:100%;
+	width:100%;
 }
 .left_area{
-    width:80%;
-    float:left;
+	width:75%;
+	padding-right:5%;
+	float:left;
 }
 .right_area{
-    width:20%;
-    float:left;
+	width:20%;
+	float:left;
 }
 
 
 .circle {
-  display: block;
-  display: block;
-  width: 30px;
-  height: 30px;
-  background: #333;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  
+	display: block;
+	display: block;
+	width: 30px;
+	height: 30px;
+	background: #333;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+
 }
 
 .green{
-  background-color:green;
+	background-color:green;
 }
 
 .red{
-  background-color:red;
+	background-color:red;
 }
 
 .amber{
-  background-color:orange;
+	background-color:orange;
+}
+
+.undefined{
+	background-color:grey;
 }
 
 #tooltip {
@@ -164,7 +182,13 @@ table td.project_column_header {
 }
 
 #project_properties_title {
+<<<<<<< HEAD
   cursor:pointer;
+}
+
+.legend td { 
+	padding-left:5px;
+	cursor:pointer;
 }
 
 .add_new_metric {
