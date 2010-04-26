@@ -4,7 +4,7 @@
 		<h3><%= location_group.location.titlecase%></h3>
 		<ul>
 		<% location_group.projects.each do |project| %>
-			<li><%= link_to project.name, project_path(project.id)%></li>
+			<li><%= link_to project.name, project_path(project.id)%></li> <br />
 		<% end %>
 		</ul>
 		<br />
