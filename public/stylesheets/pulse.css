@@ -1,37 +1,26 @@
-* {
-	margin: 0px;
-	padding: 0px;
-	text-decoration: none;
+html, body, div, span, a, h1, h2, h3, table, td, tr, th, tbody, thead, fieldset, label, input, textarea, img, ul, li {
+  margin:0;
+  padding:0
 }
+h1, h2, h3 { font-weight:300; color:#c00 }
+a img { border:0 }
 
+body {
+  font:13px "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Verdana,sans-serif;
+  color:#000;
+  cursor:default
+}
+input, textarea { font:13px "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Verdana,sans-serif }
+h1 { font-size:28px }
+h2 { font-size:24px; margin:0 0 15px }
+h3 { font-size:15px }
 
-a img
-{
-	border:none;
-	margin-top:0px;
-}
-h1 {
-	font-size:28px;
-	color:#cc0000;
-	background-color:#FFFFFF;
-	font-family:Arial, Verdana, Helvetica, sans-serif;
-	font-weight:300;
-}
-h2 {
-	font-size:15px;
-	color:gray;
-	font-family:Arial, Verdana, Helvetica, sans-serif;
-	font-weight:300;
-	background-color:#FFFFFF;
-}
-h3 {
-	color:#cc0000;
-	font-size:15px;
-	text-align:left;
-	font-weight:300;
-	padding:5px;
-	margin-top:5px;
-}
+#wrapper { min-width:918px; margin:0 15px }
+#left_area {	width:75%; float:left; padding:20px }
+#right_area { width:20%; float:left; padding:20px 0 }
+
+.hasError { border:1px solid #c00 }
+
 table{
 	padding:10px;
 	border-style:none;
@@ -46,65 +35,50 @@ table th{
 table td.project_column_header {
 	color:#df0422;
 }
-.main {
-	margin:50px;
-}
-.content{
-}
-.nav_bar 
-{
+
+#nav_bar {
 	border-top:5px solid #df0422;
 	background:#ccc;
 	height:39px;
 }
-.nav_bar a
-{
+#nav_bar a {
 	display:block;
 	float:left;
 	padding:10px;
 	color:#333;
 	background:#ccc;
 }
-.nav_bar a:hover
-{
+#nav_bar a:hover {
 	background:url('/images/nav_hover.png') no-repeat center top #ddd;
 	text-decoration:none;
 	color:#000;
 }
-.nav_bar a.selected
-{
+#nav_bar a.selected {
 	background:#df0422;
 	color:#fff;
 }
 
-.nav_bar ul { 
+#nav_bar ul {
 	margin: 10px;
 	display:inline;
 	padding-left:100px;
 	list-style:none;
 }
-.nav_bar li
-{
+#nav_bar li {
 	float: left;
 	padding-left:10px;
 }
 
-.right_area ul { 
+#right_area ul {
 	margin: 10px;
 	display:inline;
 	padding-left:100px;
 	list-style:none;
 }
-.right_area li
-{
-	float: left;
-}
+#right_area li { float:left }
 
-
-.clear { 
-	clear:both;
-}
-.footer{
+.clear { clear:both }
+#footer {
 	clear:both;
 	padding-top:10px;
 	border-top:5px solid #df0422;
@@ -113,38 +87,6 @@ table td.project_column_header {
 .project_column_header{
 	width:10em;
 }
-.property_field{
-	width:50%;
-	float:left;
-}
-.metric_group{
-	width:50%;
-	float:left;
-}
-.metric_field{
-	width:50%;
-}
-.left_property_area {
-	width:50%;
-	float:left;
-}
-.right_property_area{
-	width:50%;
-	float:right;
-}
-.content{
-	width:100%;
-}
-.left_area{
-	width:75%;
-	padding-right:5%;
-	float:left;
-}
-.right_area{
-	width:20%;
-	float:left;
-}
-
 
 .circle {
 	display: block;
@@ -182,7 +124,6 @@ table td.project_column_header {
 }
 
 #project_properties_title {
-<<<<<<< HEAD
   cursor:pointer;
 }
 
@@ -191,6 +132,21 @@ table td.project_column_header {
 	cursor:pointer;
 }
 
-.add_new_metric {
-  padding: 10px 0 10px 0;
-}
+#additional_metrics, #add_new_metric { overflow:hidden }
+
+.property_field { width:50%; float:left; min-height:50px }
+.property_field label { float:left; width:53% }
+.property_field input[type=text] { padding:5px 10px; margin:5px 0 0 5px; width:35% }
+.property_field label span, .metric_field label span { display:block; color:#aaa }
+
+.metric_group { margin:10px; border:0; border-top:1px solid #aaa; padding:0 15px 5px; overflow:hidden }
+.metric_group legend { padding:0 7px; color:#c00 }
+.metric_group legend + .metric_field,
+.metric_group legend + .metric_field + .metric_field { padding:15px 0 0 }
+
+.metric_field { width:50%; float:left; margin:0 0 10px }
+.metric_field input { float:left }
+.metric_field label { margin:-2px 0 0 7px; width:90%; float:left }
+
+#add_new_metric .property_field label { width:38%; margin:10px 0 0 }
+#add_metric { width:15%; margin:0 0 0 10px; padding:3px 0 }

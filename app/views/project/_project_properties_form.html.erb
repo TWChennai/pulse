@@ -1,24 +1,14 @@
-<h1>Project Properties</h1>
-<br /> <br />
-<div class="property_field">
-	<div class="left_property_area">
-		Project Name
-		<h2>Name of the Project</h2>
-	</div>
-	<div class="right_property_area">
-		<%=    text_field_tag "project[name]", @project.name%>
-	</div>
+<h2>Project Properties</h2>
+
+<div class='property_field'>
+	<label for='project_name'>Project Name <span>Name of the Project</span></label>
+  <%= text_field_tag "project[name]", @project.name %>
 </div>
 <% @project_template.properties_group.each do |property| %>
 	<% if property.tracked == "yes" %>
-		<div id ="<%=property.key%>" class="property_field">
-			<div class="left_property_area">
-				<%= property.name %>
-				<h2><%= property.description %></h2>
-			</div>
-			<div class="right_property_area">
-				<%= generate_form_tag_for_property(property, form) %>
-			</div>
+		<div id ="<%=property.key.gsub(/ +/,'_')%>" class="property_field">
+				<label for='project_properties_<%=property.key.gsub(/ +/,'_')%>'><%= property.name %> <span><%= property.description %></span></label>
+        <%= generate_form_tag_for_property(property, form) %>
 		</div>
 	<% end %>
 <% end %>

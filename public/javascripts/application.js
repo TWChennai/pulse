@@ -7,15 +7,28 @@ $(document).ready(function(){
     $('#project_properties').toggle(400);
     return false;
   });
-  
+
+  var addMetricNameField = $("#add_metric_name"),
+      addMetricDescField = $("#add_metric_desc"),
+      additionalMetricsField = $("#additional_metrics"),
+      addMetricFields = $(addMetricNameField).add(addMetricDescField);
   $("#add_metric").click(function(){
-		var metricName = $("#add_metric_name").attr("value");
-		var metricDescription = $("#add_metric_desc").attr("value");
-		var newMetric = $('<div />').attr('id', metricName).attr('class', 'metric_field').append($('<input />').attr('type', 'checkbox').attr('name', 'project[metrics[' + metricName + ']]').attr('value', 'yes')).append(metricName).append($('<h2 />').append(metricDescription));
-		
-		var newMetricData = $('<input />').attr('type', 'hidden').attr('name', 'project[additional_metrics[' + metricName + ']]').attr('value', metricDescription)
-		$("#additional_metrics").append(newMetric);
-		$("#additional_metrics").append(newMetricData);
+		var metricName = addMetricNameField.attr("value"),
+        metricDescription = addMetricDescField.attr("value"),
+        newMetric;
+
+    if(!metricName && !metricDescription) {
+      addMetricFields.addClass('hasError').end().focus();
+      return;
+    }
+
+    addMetricFields.removeClass('hasError').attr('value', '');
+
+    newMetric = '<div id="'+metricName+'" class="metric_field"><input type="checkbox" id="metricName_'+metricName+'" name="project[metrics[' + metricName + ']]" value="yes" />'
+                   +'<label for="metricName_'+metricName+'">'+metricName+' <span>' +metricDescription+'</span></label>'
+                   +'<input type="hidden" name="project[additional_metrics[' + metricName + ']]" value="'+metricDescription+'" /></div>';
+		additionalMetricsField.append(newMetric);
+    
 		return false;
 	});
 	

@@ -5,3 +5,4 @@ config/couchdb.yml
 nbproject
 *.orig
 public/attachments
+.idea/*
