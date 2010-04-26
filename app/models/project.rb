@@ -22,7 +22,7 @@ class Project < CouchRest::ExtendedDocument
   "function(doc) {
     if (doc['couchrest-type'] == 'Project') {
       if(doc.properties) { 
-        emit(doc.properties.location.toLowerCase(),  doc);
+        emit(doc.properties.location,  doc);
       }
     }
   }", 
