@@ -37,6 +37,7 @@ class ProjectController < ApplicationController
   private
   def project_hash_from_params
     project_params = params[:project]
+    project_params[:properties][:location] = project_params[:properties][:location].titlecase
     project_params[:metrics] = project_params[:metrics].keys unless project_params[:metrics].nil?
     project_params[:additional_metrics] = project_params[:additional_metrics].map{|k,v| {"name" => k, "key" => k, "description" => v}} if project_params[:additional_metrics]
     project_params
