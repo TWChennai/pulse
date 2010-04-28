@@ -63,6 +63,13 @@ class DataFactory
     def mandatory_metrics_hash
       all_metrics_hash.select{|metric| metric["mandatory"]}
     end
+    
+    def create_projects_with_status
+      projects = []
+      projects << DataFactory.project(:isAlive => false)
+      projects << DataFactory.project(:isAlive => true)
+      return projects
+    end
 
   end
 end

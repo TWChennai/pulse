@@ -15,8 +15,7 @@ describe Project do
   end
   describe "project list" do
     it "should display only the list of inactive projects" do
-      DataFactory.project(:isAlive => false)
-      DataFactory.project(:isAlive => true)
+      DataFactory.create_projects_with_status 
       projects = Project.view("by_list", :key => false)
       projects.size.should == 1
       projects.each do |project|

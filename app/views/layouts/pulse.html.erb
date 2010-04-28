@@ -12,9 +12,10 @@
       <div id="logo"> <a href="/"><img src="/images/logo.png" width='284' height='120' /></a></div>
       <div id="nav_bar">
         <ul>
-          <li><%= link_to "Project Dashboard",root_path %></li>
+          <li><%= link_to "Project Dashboard",root_path , {:id=>'my_id'}%></li>
           <li><%= link_to "Metrics View", metric_view_path  %></li>
           <li><%= link_to "Create New Project", new_project_path%></li>
+		  <li><%= link_to "View Closed Projects", list_closed_projects_path %></li>	
         </ul>
       </div>
     </div>
