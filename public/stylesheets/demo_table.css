@@ -36,6 +36,7 @@
 	clear: both;
 	_height: 302px;
 	zoom: 1; /* Feeling sorry for IE */
+	margin-top: 15px;
 }
 
 .dataTables_processing {
@@ -53,22 +54,46 @@
 	font-size: 14px;
 	background-color: white;
 }
+
+.dataTables_wrapper .dataTables_length {
+	float: left;
+	height:20px;
+	line-height:20px;
+}
 .dataTables_filter {
-	width: 50%;
 	float: right;
-	text-align: right;
+	height:20px;
+	line-height:20px;
+}
+
+.dataTables_wrapper .iteration {
+	clear: both;
+	width: 100%;
+	margin-top: 10px;
+}
+
+.dataTables_wrapper table.iteration thead tr {
+}
+.dataTables_wrapper table.iteration thead tr th {
+	background-color: #999933;
+	padding: 5px 20px 5px 5px;
+}
+.dataTables_wrapper table.iteration tbody tr td {
+	padding: 5px;
 }
 
 .dataTables_info {
-	width: 60%;
 	float: left;
+	height: 20px;
+	line-height: 20px;
+	margin-top: 10px;
 }
 
 .dataTables_paginate {
-	width: 44px;
-	* width: 50px;
 	float: right;
-	text-align: right;
+	height: 20px;
+	line-height: 20px;
+	margin-top: 10px;
 }
 
 /* Pagination nested */

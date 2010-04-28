@@ -2,27 +2,109 @@ html, body, div, span, a, h1, h2, h3, table, td, tr, th, tbody, thead, fieldset,
   margin:0;
   padding:0
 }
-h1, h2, h3 { font-weight:300; color:#c00 }
-a img { border:0 }
-
+h1, h2, h3, h4 { 
+	font-weight:300;
+	color:#c00;
+	font-family: Georgia;
+}
+a img { 
+	border:0 
+}
+a, a:link, a:visited {
+	color: #993300;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
 body {
   font:13px "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Verdana,sans-serif;
   color:#000;
   cursor:default
 }
-input, textarea { font:13px "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Verdana,sans-serif }
-h1 { font-size:28px }
-h2 { font-size:24px; margin:0 0 15px }
-h3 { font-size:15px }
-
-#wrapper { min-width:918px; margin:0 15px }
-#left_area {	width:75%; float:left; padding:20px }
-#right_area { width:20%; float:left; padding:20px 0 }
-
-.hasError { border:1px solid #c00 }
-
+input, textarea { 
+	font:13px "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Verdana,sans-serif;
+}
+input[type=text] { 
+	border: 1px solid #999;
+	background:url('/images/textbox_bg.jpg') repeat-x center top #fff;
+	height: 20px;
+}
+h1, h2, h3 { 
+	font-weight:300; 
+	color:#c00;
+}
+h1 { 
+	border-bottom:1px inset #999933;
+	font-size:28px;
+	margin-bottom: 10px;
+}
+h2 {
+	background-color:#CCCCCC;
+	border-bottom:2px solid #999999;
+	color:#333333;
+	font-size:24px;
+	margin:0;
+	padding:5px;
+}
+h3 { 
+	background-color:#fff2ec;
+	font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode",Verdana,sans-serif;
+	font-size:15px;
+	margin:15px 0 3px;
+	padding:5px;
+	text-transform:uppercase;
+}
+h4 { 
+	color: #999966;
+	font-size: 18px;
+}
+#wrapper { 
+	min-width:918px; margin:0 10px;
+}
+#left_area {	
+	border:1px solid #999933;
+	margin:10px 260px 10px 0;
+	background-color: #FAFFE7;
+}
+#left_area .content_wrapper {
+	margin: 10px;
+}
+#left_area .left_property_area {
+	float: left;
+}
+#left_area .right_property_area {
+	float: right;
+}
+#right_area {
+	padding:0;
+	position:absolute;
+	right:10px;
+	top:177px;
+	width:250px;
+}
+#right_area .section {
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border:1px solid #CCCCCC;
+	margin-bottom:10px;
+}
+#right_area .section  .content {
+	margin: 10px;
+}
+.hasError {
+	border:1px solid #c00;
+}
+a#export_excel {
+	border-left:1px dotted #CCCCCC;
+	left:164px;
+	padding-left:20px;
+	position:absolute;
+	top:271px;
+	z-index:1;
+}
 table{
-	padding:10px;
+	padding:0px;
 	border-style:none;
 }
 table td{
@@ -70,51 +152,48 @@ table td.project_column_header {
 }
 
 #right_area ul {
-	margin: 10px;
 	display:inline;
-	padding-left:100px;
 	list-style:none;
+	line-height:20px;
 }
-#right_area li { float:left }
-
-.clear { clear:both }
+#right_area ul li {
+	margin-left: 5px;
+}
+.clear { 
+	clear:both 
+}
 #footer {
 	clear:both;
 	padding-top:10px;
-	border-top:5px solid #df0422;
+	border-top:1px dotted #999933;
 	text-align:center;
 }
 .project_column_header{
 	width:10em;
 }
-
 .circle {
 	display: block;
 	display: block;
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 10px;
 	background: #333;
 	-moz-border-radius: 15px;
 	-webkit-border-radius: 15px;
-
+	cursor: pointer;
+	margin: auto;
 }
-
 .green{
 	background-color:green;
 }
-
 .red{
 	background-color:red;
 }
-
 .amber{
 	background-color:orange;
 }
-
 .undefined{
 	background-color:grey;
 }
-
 #tooltip {
 	position: absolute;
 	z-index: 3000;
@@ -122,18 +201,14 @@ table td.project_column_header {
 	background-color: #eee;
 	opacity: 0.85;
 }
-
 #project_properties_title {
   cursor:pointer;
 }
-
 .legend td { 
 	padding-left:5px;
 	cursor:pointer;
 }
-
 #additional_metrics, #add_new_metric { overflow:hidden }
-
 .property_field { width:50%; float:left; min-height:50px }
 .property_field label { float:left; width:53% }
 .property_field input[type=text] { padding:5px 10px; margin:5px 0 0 5px; width:35% }
