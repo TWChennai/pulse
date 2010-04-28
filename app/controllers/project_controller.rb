@@ -19,6 +19,9 @@ class ProjectController < ApplicationController
   def edit
     @project_template = ProjectTemplate.project_template
     @project = Project.get(params[:id])
+    unless @project.isAlive
+      render :template  => 'public/404.html'
+    end
   end
 
   def create
@@ -29,9 +32,13 @@ class ProjectController < ApplicationController
 
   def update
     @project = Project.get(params[:id])
-    @project.merge!(project_hash_from_params)
-    @project.save
-    redirect_to(@project)
+    unless @project.isAlive
+      render :template  => 'public/404.html'
+    else
+      @project.merge!(project_hash_from_params)
+      @project.save
+      redirect_to(@project)
+    end
   end
 
   def close

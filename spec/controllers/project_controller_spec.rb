@@ -25,17 +25,29 @@ describe ProjectController do
       get :edit, :id=>"100"
       response.should be
     end
+    it "should throw an error on editing a project that is not alive" do
+      @project.isAlive = false
+      Project.should_receive(:get).with("100").and_return(@project)
+      get :edit, :id=>"100"
+      response.should render_template('public/404.html')
+    end
   end
 
   describe "update" do
-    after(:each) do
-      post :update, :id=>"200", :project => DataFactory.properties_post_info
-      response.should be
-    end
-
     it "should let you update the project properties" do
       Project.should_receive(:get).with("200").and_return(@project)
       @project.should_receive(:save).and_return(true)
+      post :update, :id=>"200", :project => DataFactory.properties_post_info
+      response.should be
+      
+    end
+    it "should not let you update if the project is not alive" do
+      @project.isAlive = false
+      Project.should_receive(:get).with("200").and_return(@project)
+      post :update, :id=>"200", :project => DataFactory.properties_post_info
+      response.should be
+      
+      response.should render_template('public/404.html')
     end
   end
 
