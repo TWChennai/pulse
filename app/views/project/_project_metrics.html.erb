@@ -1,6 +1,6 @@
 <div>
 	<h1>Project Metrics</h1>
-	<%= link_to "Add New Iteration Information", new_iteration_path(@project, :height => 400, :width => 700),
+	<%= link_to_if @project.isAlive, "Add New Iteration Information", new_iteration_path(@project, :height => 400, :width => 700),
 	:class => "thickbox", :title => "Add New Iteration Information" %>
 	<% unless @project.iterations.empty? %>
 	<table class="iteration">
@@ -22,7 +22,7 @@
 						<div class="indicator circle <%= metric.value.downcase %>" title="<%= metric.comment %>"></div>
 					</td>
 				<% end %>
-				<td><%= link_to "Edit", edit_iteration_path(@project, index, :height => 400, :width => 700), :class => :thickbox, :title => "Edit Iteration Information" %>  </td>
+				<td><%= link_to_if @project.isAlive, "Edit", edit_iteration_path(@project, index, :height => 400, :width => 700), :class => :thickbox, :title => "Edit Iteration Information" %>  </td>
 			</tr>
 			<% end %>
 		</tbody>

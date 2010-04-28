@@ -1,44 +1,51 @@
 class Project < CouchRest::ExtendedDocument
   use_database COUCHDB_SERVER
+  module ISAlive
+    OPEN = "Open"
+    CLOSED = "Closed"
+  end
+
+  TYPES = [[Project::ISAlive::OPEN , true], [Project::ISAlive::CLOSED,false]]
 
   property :metrics
   property :properties
-  
+
   property :additional_metrics, :cast_as => [MetricData]
-  
+
   property :iterations, :cast_as => [Iteration]
   property :name
+  property :isAlive
 
   view_by :list,
   :map => 
   "function(doc) {
   if (doc['couchrest-type'] == 'Project') {
-    emit(doc._id, doc.name);
+    emit(doc.isAlive, doc.name);
   }
   }"
 
   view_by :location,
   :map => 
   "function(doc) {
-    if (doc['couchrest-type'] == 'Project') {
-      if(doc.properties) { 
-        emit(doc.properties.location,  doc);
-      }
+  if (doc['couchrest-type'] == 'Project') {
+    if(doc.properties) { 
+      emit([doc.isAlive, doc.properties.location],  doc);
     }
+  }
   }", 
   :reduce => 
   "function(keys,values){ 
-        var returnDocs = [];
-        for(value in values)
-          {
-            var returnDoc = [];
-            var valueInUse = values[value];
-            if(valueInUse['_id'] && valueInUse['name']) {
-            returnDoc.push(valueInUse['_id'],valueInUse['name']);
-            returnDocs.push(returnDoc);}
-          }
-        return returnDocs;
-    }"
+  var returnDocs = [];
+  for(value in values)
+    {
+      var returnDoc = [];
+      var valueInUse = values[value];
+      if(valueInUse['_id'] && valueInUse['name']) {
+        returnDoc.push(valueInUse['_id'],valueInUse['name']);
+        returnDocs.push(returnDoc);}
+      }
+      return returnDocs;
+      }"
 
       view_by :dashboard, 
       :map => 
@@ -46,7 +53,7 @@ class Project < CouchRest::ExtendedDocument
       if (doc['couchrest-type'] == 'Project') {
         if(doc.iterations) {
           for(store in doc.iterations) {
-            emit(doc.iterations[store].date,doc.iterations[store]);
+            emit([doc.isAlive, doc.iterations[store].date],doc.iterations[store]);
           }
         }
       }
@@ -68,25 +75,27 @@ class Project < CouchRest::ExtendedDocument
         }
       }
       }"
+
       def initialize(*args)
         self.properties = {}
         self.metrics = []
         self.iterations = []
+        self.isAlive = true
         super(*args)
       end
-      
+
       def self.projects_grouped_by_location
         projects_group = []
-        Project.view("by_location", :reduce => true, :group => true, :group_level => 2)["rows"].each do |location_group|
-          projects_group << DAL::ProjectsGroup.new(location_group["key"], location_group["value"].map{|project| Project.new(:_id => project[0], :name => project[1])}.flatten)
+        Project.view("by_location", :startkey => [true,""], :endkey => [true,{}], :reduce => true, :group => true, :group_level => 2)["rows"].each do |location_group|
+          projects_group << DAL::ProjectsGroup.new(location_group["key"][1], location_group["value"].map{|project| Project.new(:_id => project[0], :name => project[1])}.flatten)
         end
         return projects_group
       end
-      
+
       def additional_metrics
         self["additional_metrics"] || []
       end
-      
+
       def stuff_properties
         ProjectTemplate.project_template.properties_group.map do |property|
           {

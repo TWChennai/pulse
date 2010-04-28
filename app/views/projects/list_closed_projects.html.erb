@@ -1,0 +1,6 @@
+<h1>Closed Projects</h1>
+<ul>
+<% @projects.each do |project| %>
+	<li><%= link_to project.name, project %></li>
+<% end %>
+</ul>

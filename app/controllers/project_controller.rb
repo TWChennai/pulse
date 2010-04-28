@@ -4,7 +4,7 @@ class ProjectController < ApplicationController
     @title = @project.name
     @properties = @project.stuff_properties
   end
-  
+
   def export_as_csv
     @project = Project.get(params[:id])
     send_data CSVAdapter::Project.new(@project).to_csv, :filename => "#{@project.name}.csv"
@@ -19,6 +19,9 @@ class ProjectController < ApplicationController
   def edit
     @project_template = ProjectTemplate.project_template
     @project = Project.get(params[:id])
+    unless @project.isAlive
+      render :template  => 'public/404.html'
+    end
   end
 
   def create
@@ -29,11 +32,39 @@ class ProjectController < ApplicationController
 
   def update
     @project = Project.get(params[:id])
-    @project.merge!(project_hash_from_params)
-    @project.save
+    unless @project.isAlive
+      render :template  => 'public/404.html'
+    else
+      @project.merge!(project_hash_from_params)
+      @project.save
+      redirect_to(@project)
+    end
+  end
+
+  def close
+    @project = Project.get(params[:id])
+    if @project.isAlive == false
+      flash[:error] = "Attempting to close a project which is already closed"
+    else
+      flash[:notice] = "Project has been successfully closed."
+      @project.isAlive = false
+      @project.save
+    end
     redirect_to(@project)
   end
-  
+
+  def reopen
+    @project = Project.get(params[:id])
+    if @project.isAlive
+      flash[:error] = "Attempting to reopen a project which is already open."
+    else
+      @project.isAlive = true
+      @project.save
+      flash[:notice] = "Project has been successfully reopened."
+    end
+    redirect_to(@project)
+  end
+
   private
   def project_hash_from_params
     project_params = params[:project]
