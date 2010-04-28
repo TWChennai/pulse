@@ -1,5 +1,5 @@
 class MetricsController < ApplicationController
-  
+
   #TODO pull out by filter by
   def index
 
@@ -9,9 +9,9 @@ class MetricsController < ApplicationController
     @to_date = params[:to_date].nil? ? Date.today : Date.parse(params[:to_date])
     @metric = params[:metric].nil? ? @metrics_list.first : params[:metric] 
     @week_range = week_range(@from_date,@to_date).reverse
-    @projects_metric_view = Project.view("by_metric", :startkey=>[@metric, @from_date.to_time.to_i], :endkey=>[@metric, @to_date.to_time.to_i] , :include_docs => false)
-    @projects_list = Project.all
-
+    @project_status = (params[:status].nil? ? true : params[:status].to_bool)
+    @projects_metric_view = Project.view("by_metric", :startkey=>[@project_status,@metric, @from_date.to_time.to_i], :endkey=>[@project_status,@metric, @to_date.to_time.to_i] , :include_docs => false)
+    @projects_list = @project_status ? Project.open_projects : Project.closed_projects
   end
 
   def export_to_csv
@@ -20,8 +20,9 @@ class MetricsController < ApplicationController
     @to_date = params[:to_date].nil? ? Date.today : Date.parse(params[:to_date])
     @metric = params[:metric].nil? ? @metrics_list.first : params[:metric] 
     @week_range = week_range(@from_date,@to_date).reverse
-    @projects_list = Project.all
-    @projects_metric_view = Project.view("by_metric", :startkey=>[@metric, @from_date.to_time.to_i], :endkey=>[@metric, @to_date.to_time.to_i] , :include_docs => false)
+    @project_status = (params[:status].nil? ? true : params[:status].to_bool)
+    @projects_list = @project_status ? Project.open_projects : Project.closed_projects 
+    @projects_metric_view = Project.view("by_metric", :startkey=>[@project_status,@metric, @from_date.to_time.to_i], :endkey=>[@project_status,@metric, @to_date.to_time.to_i] , :include_docs => false)
     send_data CSVAdapter::MetricsView.new(@metric, @projects_metric_view,@week_range,@projects_list).to_csv, :filename => "metric.csv"
   end
 

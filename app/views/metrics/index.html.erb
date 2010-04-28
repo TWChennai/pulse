@@ -8,6 +8,7 @@
 		<td><%= text_field_tag 'from_date', @from_date.to_s, {:class=>"datepicker"} %></td>
 		<td><h2>To Date</h2></td>
 		<td><%= text_field_tag 'to_date', @to_date.to_s, {:class=>"datepicker"} %></td>
+		<td>Project Status:<%= select_tag "status" , options_for_select(Project::TYPES, :selected => @project_status)%></td>
 		<td><%= submit_tag "Fetch" %></td>
 	</tr>
 </table>

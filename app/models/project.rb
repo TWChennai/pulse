@@ -68,7 +68,7 @@ class Project < CouchRest::ExtendedDocument
           for(store in doc.iterations) {
             if(doc.iterations[store].metrics) {
               for(metric in doc.iterations[store].metrics) {
-                emit([doc.iterations[store].metrics[metric].name,Date.parse(doc.iterations[store].date)/1000],[doc._id, doc.iterations[store].metrics[metric]])
+                emit([doc.isAlive, doc.iterations[store].metrics[metric].name,Date.parse(doc.iterations[store].date)/1000],[doc._id, doc.iterations[store].metrics[metric]])
               }
             }
           }
@@ -131,5 +131,11 @@ class Project < CouchRest::ExtendedDocument
           :comment => "No data found.",
           :value => "undefined"
         }
+      end
+      def self.closed_projects
+        @projects = Project.view("by_list", :key => false)
+      end
+      def self.open_projects
+       @projects = Project.view("by_list", :key => true) 
       end
     end
