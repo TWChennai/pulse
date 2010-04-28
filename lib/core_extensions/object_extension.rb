@@ -8,6 +8,17 @@ module ObjectExtension
       end
     end.new
   end
+  
+  def to_bool
+    if self == "true"
+      return true
+    elsif self == "false"
+      return false
+    else
+      raise ArgumentError
+    end
+    
+  end
 
 end
 

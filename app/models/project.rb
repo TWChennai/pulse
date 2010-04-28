@@ -1,5 +1,11 @@
 class Project < CouchRest::ExtendedDocument
   use_database COUCHDB_SERVER
+  module ISAlive
+    OPEN = "Open"
+    CLOSED = "Closed"
+  end
+
+  TYPES = [[Project::ISAlive::OPEN , true], [Project::ISAlive::CLOSED,false]]
 
   property :metrics
   property :properties
@@ -23,7 +29,7 @@ class Project < CouchRest::ExtendedDocument
   "function(doc) {
   if (doc['couchrest-type'] == 'Project') {
     if(doc.properties) { 
-      emit(doc.properties.location,  doc);
+      emit([doc.isAlive, doc.properties.location],  doc);
     }
   }
   }", 
@@ -41,13 +47,13 @@ class Project < CouchRest::ExtendedDocument
       return returnDocs;
       }"
 
-    view_by :dashboard, 
+      view_by :dashboard, 
       :map => 
       "function(doc) {
       if (doc['couchrest-type'] == 'Project') {
         if(doc.iterations) {
           for(store in doc.iterations) {
-            emit(doc.iterations[store].date,doc.iterations[store]);
+            emit([doc.isAlive, doc.iterations[store].date],doc.iterations[store]);
           }
         }
       }
@@ -80,8 +86,8 @@ class Project < CouchRest::ExtendedDocument
 
       def self.projects_grouped_by_location
         projects_group = []
-        Project.view("by_location", :reduce => true, :group => true, :group_level => 2)["rows"].each do |location_group|
-          projects_group << DAL::ProjectsGroup.new(location_group["key"], location_group["value"].map{|project| Project.new(:_id => project[0], :name => project[1])}.flatten)
+        Project.view("by_location", :startkey => [true,""], :endkey => [true,{}], :reduce => true, :group => true, :group_level => 2)["rows"].each do |location_group|
+          projects_group << DAL::ProjectsGroup.new(location_group["key"][1], location_group["value"].map{|project| Project.new(:_id => project[0], :name => project[1])}.flatten)
         end
         return projects_group
       end
