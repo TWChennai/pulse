@@ -13,7 +13,7 @@
 	</tr>
 </table>
 <%end%>
-<%= link_to "Export to Excel", export_metrics_view_to_csv_path(:metric => @metric, :from_date => @from_date.to_s, :to_date => @to_date.to_s)%>
+<%= link_to "Export to Excel", export_metrics_view_to_csv_path(:metric => @metric, :from_date => @from_date.to_s, :to_date => @to_date.to_s, :status => @project_status)%>
 <table class="iteration">
 	<thead>
 		<tr>

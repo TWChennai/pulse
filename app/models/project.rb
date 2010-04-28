@@ -138,4 +138,7 @@ class Project < CouchRest::ExtendedDocument
       def self.open_projects
        @projects = Project.view("by_list", :key => true) 
       end
+      def self.project_dashboard(project_status,week_ending_date)
+        Project.view("by_dashboard",{:startkey => [project_status, week_ending_date], :endkey => [project_status,week_ending_date]})
+      end
     end
