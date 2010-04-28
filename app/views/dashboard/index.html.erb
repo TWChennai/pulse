@@ -4,8 +4,8 @@
 </div>
 <div class="right_property_area">
 	<% form_tag '/dashboard/week_ending', :method => :get do %>
-	<%= text_field_tag "date", @week_ending_date ,:class=>"datepicker"%>
-	<%= select_tag "status" , options_for_select(Project::TYPES, :selected => @project_status)%>
+	Week Ending: <%= text_field_tag "date", @week_ending_date ,:class=>"datepicker"%>
+	Project Status:<%= select_tag "status" , options_for_select(Project::TYPES, :selected => @project_status)%>
 	<%= submit_tag "Go"%>
 	<% end %>
 </div>
