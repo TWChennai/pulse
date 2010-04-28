@@ -8,6 +8,7 @@ class Project < CouchRest::ExtendedDocument
   
   property :iterations, :cast_as => [Iteration]
   property :name
+  property :isAlive
 
   view_by :list,
   :map => 
@@ -40,17 +41,17 @@ class Project < CouchRest::ExtendedDocument
         return returnDocs;
     }"
 
-      view_by :dashboard, 
-      :map => 
-      "function(doc) {
-      if (doc['couchrest-type'] == 'Project') {
-        if(doc.iterations) {
-          for(store in doc.iterations) {
-            emit(doc.iterations[store].date,doc.iterations[store]);
-          }
+    view_by :dashboard, 
+    :map => 
+    "function(doc) {
+    if (doc['couchrest-type'] == 'Project') {
+      if(doc.iterations) {
+        for(store in doc.iterations) {
+          emit(doc.iterations[store].date,doc.iterations[store]);
         }
       }
     }
+  }
     "
     view_by :metric, 
     :map => "
@@ -68,13 +69,15 @@ class Project < CouchRest::ExtendedDocument
         }
       }
       }"
+      
       def initialize(*args)
         self.properties = {}
         self.metrics = []
         self.iterations = []
+        self.isAlive = true
         super(*args)
       end
-      
+
       def self.projects_grouped_by_location
         projects_group = []
         Project.view("by_location", :reduce => true, :group => true, :group_level => 2)["rows"].each do |location_group|

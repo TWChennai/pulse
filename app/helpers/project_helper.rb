@@ -12,4 +12,15 @@ module ProjectHelper
     options[:class] = "datepicker" if property.type == "date"
     text_field_tag "project[properties[#{property.key}]]", @project.properties[property.key], options
   end  
+  
+  def show_project_status
+    @project.isAlive ? "Open": "Closed"
+  end
+  def change_status_link
+    if @project.isAlive
+      link_to "Close Project", close_project_path(@project.id), :confirm => "Are you Sure?"
+    else
+      link_to "Reopen Project", reopen_project_path(@project.id), :confirm => "Are you Sure?"
+    end
+  end
 end
