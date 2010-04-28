@@ -1,7 +1,7 @@
 <div id="project_properties_title"><h1>Project Properties</h1><%=show_project_status%><h2>(click to expand)</h2></div>
 <div id="project_properties" style="display:none">
-	<h3><%= link_to 'Edit Project', edit_project_path(:id => @project.id)%></h3> <br />
-	<h3><%= link_to 'Close Project', close_project_path(:id => @project.id), :confirm => "Are you sure you want to close the project?"%></h3>
+	<h3><%= link_to_if @project.isAlive, 'Edit Project', edit_project_path(:id => @project.id)%></h3> <br />
+	<h3><%=change_status_link%></h3>
 	<% @properties.each do |property| %>
 	<div id=<%="#{property[:key]}"%> class="property_field">
 		<div class="left_property_area"> 

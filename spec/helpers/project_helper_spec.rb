@@ -27,4 +27,14 @@ describe ProjectHelper do
       change_status_link.should == link_to("Reopen Project", reopen_project_path(@project.id), :confirm => "Are you Sure?")
     end
   end
+  describe "edit link of a project" do
+    it "should be displayed if the project is alive " do
+      @project.isAlive=true
+      edit_project.should==link_to("Edit Project",edit_project_path(@project.id))
+    end
+    it "should not be displayed if the project is not alive " do
+      @project.isAlive=true
+      edit_project.should be
+    end
+  end
 end
