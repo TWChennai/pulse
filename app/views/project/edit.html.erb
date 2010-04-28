@@ -1,5 +1,7 @@
-<% form_for @project do |f| %>
-	<%= render :partial => "project_properties_form", :locals => {:form => f} %>
-	<%= render :partial => "project_metrics_form", :locals => {:form => f} %>
-	<%= f.submit "Update Project information" %>
-<% end %>
+<div class="content_wrapper">
+	<% form_for @project do |f| %>
+		<%= render :partial => "project_properties_form", :locals => {:form => f} %>
+		<%= render :partial => "project_metrics_form", :locals => {:form => f} %>
+		<%= f.submit "Update Project information" %>
+	<% end %>
+</div>

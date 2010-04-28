@@ -12,7 +12,7 @@
 	</div>
 	<div class="clear"> </div>
 	<% if @projects_dashboard.size > 0 %>
-	<%= link_to "Export as Excel", export_project_dashboard_as_csv_path(Time.parse(@week_ending_date).to_i, :status => @project_status), {:id => 'export_excel'} %>
+	<%= link_to "Export as Excel", export_project_dashboard_as_csv_path(Time.parse(@week_ending_date).to_i, :status => @project_status)%>
 	<table class="iteration">
 		<thead>
 			<tr>

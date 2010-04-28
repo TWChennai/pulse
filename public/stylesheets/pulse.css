@@ -94,15 +94,19 @@ h4 {
 	border:1px solid #999933;
 	margin:10px 260px 10px 0;
 	background-color: #FAFFE7;
+	overflow-x: auto;
 }
 #left_area .content_wrapper {
 	margin: 10px;
+	min-height: 200px;
 }
 #left_area .left_property_area {
 	float: left;
+	width: 260px;
 }
 #left_area .right_property_area {
-	float: right;
+	float: left;
+	font-weight: bold;
 }
 #right_area {
 	padding:0;
@@ -123,14 +127,6 @@ h4 {
 .hasError {
 	border:1px solid #c00;
 }
-a#export_excel {
-	border-left:1px dotted #CCCCCC;
-	left:164px;
-	padding-left:20px;
-	position:absolute;
-	top:231px;
-	z-index:1;
-}
 table{
 	padding:0px;
 	border-style:none;
@@ -150,6 +146,7 @@ table td.project_column_header {
 	height:39px;
 	position:absolute;
 	top:80px;
+	z-index:3;
 }
 #nav_bar a {
 	background:url("/images/header_link_bg.jpg") repeat-x scroll left top #FFFFFF;
@@ -208,7 +205,6 @@ table td.project_column_header {
 	background: #333;
 	-moz-border-radius: 15px;
 	-webkit-border-radius: 15px;
-	cursor: pointer;
 	margin: auto;
 }
 .green{
