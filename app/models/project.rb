@@ -3,9 +3,9 @@ class Project < CouchRest::ExtendedDocument
 
   property :metrics
   property :properties
-  
+
   property :additional_metrics, :cast_as => [MetricData]
-  
+
   property :iterations, :cast_as => [Iteration]
   property :name
   property :isAlive
@@ -14,44 +14,44 @@ class Project < CouchRest::ExtendedDocument
   :map => 
   "function(doc) {
   if (doc['couchrest-type'] == 'Project') {
-    emit(doc._id, doc.name);
+    emit(doc.isAlive, doc.name);
   }
   }"
 
   view_by :location,
   :map => 
   "function(doc) {
-    if (doc['couchrest-type'] == 'Project') {
-      if(doc.properties) { 
-        emit(doc.properties.location,  doc);
-      }
+  if (doc['couchrest-type'] == 'Project') {
+    if(doc.properties) { 
+      emit(doc.properties.location,  doc);
     }
+  }
   }", 
   :reduce => 
   "function(keys,values){ 
-        var returnDocs = [];
-        for(value in values)
-          {
-            var returnDoc = [];
-            var valueInUse = values[value];
-            if(valueInUse['_id'] && valueInUse['name']) {
-            returnDoc.push(valueInUse['_id'],valueInUse['name']);
-            returnDocs.push(returnDoc);}
-          }
-        return returnDocs;
-    }"
+  var returnDocs = [];
+  for(value in values)
+    {
+      var returnDoc = [];
+      var valueInUse = values[value];
+      if(valueInUse['_id'] && valueInUse['name']) {
+        returnDoc.push(valueInUse['_id'],valueInUse['name']);
+        returnDocs.push(returnDoc);}
+      }
+      return returnDocs;
+      }"
 
     view_by :dashboard, 
-    :map => 
-    "function(doc) {
-    if (doc['couchrest-type'] == 'Project') {
-      if(doc.iterations) {
-        for(store in doc.iterations) {
-          emit(doc.iterations[store].date,doc.iterations[store]);
+      :map => 
+      "function(doc) {
+      if (doc['couchrest-type'] == 'Project') {
+        if(doc.iterations) {
+          for(store in doc.iterations) {
+            emit(doc.iterations[store].date,doc.iterations[store]);
+          }
         }
       }
     }
-  }
     "
     view_by :metric, 
     :map => "
@@ -69,7 +69,7 @@ class Project < CouchRest::ExtendedDocument
         }
       }
       }"
-      
+
       def initialize(*args)
         self.properties = {}
         self.metrics = []
@@ -85,11 +85,11 @@ class Project < CouchRest::ExtendedDocument
         end
         return projects_group
       end
-      
+
       def additional_metrics
         self["additional_metrics"] || []
       end
-      
+
       def stuff_properties
         ProjectTemplate.project_template.properties_group.map do |property|
           {

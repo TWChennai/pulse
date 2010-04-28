@@ -23,12 +23,4 @@ module ProjectHelper
       link_to "Reopen Project", reopen_project_path(@project.id), :confirm => "Are you Sure?"
     end
   end
-
-  def edit_project_link
-    if @project.isAlive
-      link_to "Edit Project",edit_project_path(@project.id)
-    else
-      link_to "Edit Project",edit_project_path(@project.id), :disabled => true
-    end
-  end
 end
