@@ -1,4 +1,4 @@
-<h2>Project Metrics</h2>
+<h3>Project Metrics</h3>
 
 <% @project_template.metrics_group.each do |metric_group| %>
   <fieldset class="metric_group">
@@ -13,7 +13,7 @@
 <% end %>
 
 <div id="additional_metrics">
-	<h2>Additional Metrics</h2>
+	<h3>Additional Metrics</h3>
 	<% @project.additional_metrics.each do |metric_data| %>
 		<div id="<%= metric_data.key.gsub(/ +/,'_') %>" class="metric_field">
 			<%= generate_check_box_tag(metric_data) %>
@@ -24,7 +24,8 @@
 </div>
 	
 <div id="add_new_metric">
-	<h3>Add New Metric:</h3>
+	<br/>
+	<h4>Add New Metric:</h4>
 	<div class='property_field'>
 		<label for='add_metric_name'>Metric Name</label>
 		<%= text_field_tag "Name:", nil, :id => "add_metric_name", :name => "addtional_metrics[name]" %>

@@ -1,7 +1,8 @@
-<h1>Create Project</h1>
-<br /> <br />
-<% form_for @project, :url => "/project" do |f| %>
-	<%= render :partial => "project_properties_form", :locals => {:form => f} %>
-	<%= render :partial => "project_metrics_form", :locals => {:form => f} %>
-	<div class="clear"><%= f.submit "Create New Project" %></div>
-<% end %>
+<div class="content_wrapper">
+	<h1>Create Project</h1>
+	<% form_for @project, :url => "/project" do |f| %>
+		<%= render :partial => "project_properties_form", :locals => {:form => f} %>
+		<%= render :partial => "project_metrics_form", :locals => {:form => f} %>
+		<div class="clear"><%= f.submit "Create New Project" %></div>
+	<% end %>
+</div>

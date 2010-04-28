@@ -54,12 +54,13 @@ h2 {
 	padding:5px;
 }
 h3 { 
-	background-color:#fff2ec;
+	border-bottom:1px inset #999933;
 	font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode",Verdana,sans-serif;
 	font-size:15px;
 	margin:15px 0 3px;
 	padding:5px;
 	text-transform:uppercase;
+	text-align: center;
 }
 h4 { 
 	color: #999966;
@@ -67,6 +68,27 @@ h4 {
 }
 #wrapper { 
 	min-width:918px; margin:0 10px;
+}
+#logo {
+	height:125px;
+}
+#logo .img {
+	background:url("/images/logo.jpg") no-repeat scroll right top #FFFFFF;
+	height:125px;
+	position:absolute;
+	right:0;
+	top:0;
+	width:856px;
+	z-index:2;
+}
+#logo hr {
+	background:none repeat scroll 0 0 #47240B;
+	color:#47240B;
+	height:2px;
+	left:0;
+	position:absolute;
+	top:70px;
+	width:100%;
 }
 #left_area {	
 	border:1px solid #999933;
@@ -86,7 +108,7 @@ h4 {
 	padding:0;
 	position:absolute;
 	right:10px;
-	top:177px;
+	top:135px;
 	width:250px;
 }
 #right_area .section {
@@ -106,7 +128,7 @@ a#export_excel {
 	left:164px;
 	padding-left:20px;
 	position:absolute;
-	top:271px;
+	top:231px;
 	z-index:1;
 }
 table{
@@ -125,19 +147,20 @@ table td.project_column_header {
 }
 
 #nav_bar {
-	border-top:5px solid #df0422;
-	background:#ccc;
 	height:39px;
+	position:absolute;
+	top:80px;
 }
 #nav_bar a {
+	background:url("/images/header_link_bg.jpg") repeat-x scroll left top #FFFFFF;
+	border:1px solid #EEE;
+	color:#333333;
 	display:block;
 	float:left;
-	padding:10px;
-	color:#333;
-	background:#ccc;
+	height:16px;
+	padding:7px;
 }
 #nav_bar a:hover {
-	background:url('/images/nav_hover.png') no-repeat center top #ddd;
 	text-decoration:none;
 	color:#000;
 }
@@ -147,14 +170,13 @@ table td.project_column_header {
 }
 
 #nav_bar ul {
-	margin: 10px;
 	display:inline;
-	padding-left:100px;
 	list-style:none;
 }
 #nav_bar li {
 	float: left;
-	padding-left:10px;
+	padding-right:10px;
+	font-weight: bold;
 }
 
 #right_area ul {
