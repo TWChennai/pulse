@@ -1,17 +1,18 @@
-<h1>Portfolio Dashboard </h1>
-<div class="left_property_area">
-	<h2>Week ending on  <%= @week_ending_date %></h2>
-</div>
-<div class="right_property_area">
-	<% form_tag '/dashboard/week_ending', :method => :get do %>
-	Week Ending: <%= text_field_tag "date", @week_ending_date ,:class=>"datepicker"%>
-	Project Status:<%= select_tag "status" , options_for_select(Project::TYPES, :selected => @project_status)%>
-	<%= submit_tag "Go"%>
-	<% end %>
-</div>
-<div class="clear"> </div>
-<% if @projects_dashboard.size > 0 %>
-	<%= link_to "Export as Excel", export_project_dashboard_as_csv_path(Time.parse(@week_ending_date).to_i)%>
+<div class="content_wrapper">
+	<h1>Portfolio Dashboard </h1>
+	<div class="left_property_area">
+		<h4>Week ending on  <%= @week_ending_date %></h4>
+	</div>
+	<div class="right_property_area">
+		<% form_tag '/dashboard/week_ending', :method => :get do %>
+		Week Ending: <%= text_field_tag "date", @week_ending_date ,:class=>"datepicker"%>
+		Project Status:<%= select_tag "status" , options_for_select(Project::TYPES, :selected => @project_status)%>
+		<%= submit_tag "Go"%>
+		<% end %>
+	</div>
+	<div class="clear"> </div>
+	<% if @projects_dashboard.size > 0 %>
+	<%= link_to "Export as Excel", export_project_dashboard_as_csv_path(Time.parse(@week_ending_date).to_i), {:id => 'export_excel'} %>
 	<table class="iteration">
 		<thead>
 			<tr>
@@ -35,3 +36,4 @@
 	<%else%>
 	<h1>No Records found</h1>
 	<% end %>
+</div>
