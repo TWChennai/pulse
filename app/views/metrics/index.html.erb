@@ -1,37 +1,35 @@
-<h1>Metrics View for <%= @metric %></h1>
-<% form_tag 'metric', :method => :get  do%>
-<table>
-	<tr>
-		<td><h2>Metric</h2></td>
-		<td><%= select_tag 'metric',options_for_select(@metrics_list, :selected => @metric) %></td>
-		<td><h2>From Date</h2></td>
-		<td><%= text_field_tag 'from_date', @from_date.to_s, {:class=>"datepicker"} %></td>
-		<td><h2>To Date</h2></td>
-		<td><%= text_field_tag 'to_date', @to_date.to_s, {:class=>"datepicker"} %></td>
-		<td>Project Status:<%= select_tag "status" , options_for_select(Project::TYPES, :selected => @project_status)%></td>
-		<td><%= submit_tag "Fetch" %></td>
-	</tr>
-</table>
-<%end%>
-<%= link_to "Export to Excel", export_metrics_view_to_csv_path(:metric => @metric, :from_date => @from_date.to_s, :to_date => @to_date.to_s, :status => @project_status)%>
-<table class="iteration">
-	<thead>
-		<tr>
-			<th>Week Ending</th>
-			<% @projects_list.each do |project|%>
-			<th><%= project.name %></th>
+<div class="content_wrapper">
+	<h1>Metrics View for <%= @metric %></h1>
+	<% form_tag 'metric', :method => :get  do%>
+	<ul class="metrics_options">
+		<li>Metric: <%= select_tag 'metric',options_for_select(@metrics_list, :selected => @metric) %></li>
+		<li>From Date: <%= text_field_tag 'from_date', @from_date.to_s, {:class=>"datepicker"} %></li>
+		<li>To Date: <%= text_field_tag 'to_date', @to_date.to_s, {:class=>"datepicker"} %></li>
+		<li>Project Status:<%= select_tag "status" , options_for_select(Project::TYPES, :selected => @project_status)%></li>
+		<li><%= submit_tag "Fetch" %></li>
+		<li><%= link_to "Export to Excel", export_metrics_view_to_csv_path(:metric => @metric, :from_date => @from_date.to_s, :to_date => @to_date.to_s, :status => @project_status)%></li>
+	</ul>
+	<%end%>
+	<table class="iteration">
+		<thead>
+			<tr>
+				<th>Week Ending</th>
+				<% @projects_list.each do |project|%>
+				<th><%= project.name %></th>
+				<% end %>
+			</tr>
+		</thead>
+		<tbody>
+			<% @week_range.each do |week| %>
+			<tr>
+				<td><%= week %></td>
+				<% @projects_list.each do |project| %>
+					<%metric_value = project.metric_for_week(@projects_metric_view,@metric, week)%>
+					<td><div class="indicator circle <%= metric_value[:value]%> %>%>" title="<%= metric_value[:comment] %>"></div></td>
+				<% end %>
+			</tr>
 			<% end %>
-		</tr>
-	</thead>
-	<tbody>
-		<% @week_range.each do |week| %>
-		<tr>
-			<td><%= week %></td>
-			<% @projects_list.each do |project| %>
-				<%metric_value = project.metric_for_week(@projects_metric_view,@metric, week)%>
-				<td><div class="indicator circle <%= metric_value[:value]%> %>%>" title="<%= metric_value[:comment] %>"></div></td>
-			<% end %>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+		</tbody>
+	</table>
+	<div class="clear"></div>
+</div>

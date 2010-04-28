@@ -32,9 +32,9 @@
 
 .dataTables_wrapper {
 	position: relative;
-	min-height: 302px;
+	min-height: 300px;
 	clear: both;
-	_height: 302px;
+	_height: 300px;
 	zoom: 1; /* Feeling sorry for IE */
 	margin-top: 15px;
 }
@@ -187,11 +187,11 @@ table.display td.center {
 
 
 tr.odd {
-	background-color: #E2E4FF;
+	background-color: #e7edcf;
 }
 
 tr.even {
-	background-color: white;
+	background-color: #f1f6dd;
 }
 
 

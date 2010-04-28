@@ -10,6 +10,12 @@ h1, h2, h3, h4 {
 a img { 
 	border:0 
 }
+ul {
+	list-style: none outside none;
+}
+ul li {
+	float: left;
+}
 a, a:link, a:visited {
 	color: #993300;
 	text-decoration: none;
@@ -158,6 +164,7 @@ table td.project_column_header {
 }
 #right_area ul li {
 	margin-left: 5px;
+	float: none;
 }
 .clear { 
 	clear:both 
@@ -186,7 +193,7 @@ table td.project_column_header {
 	background-color:green;
 }
 .red{
-	background-color:red;
+	background-color:#cc0000;
 }
 .amber{
 	background-color:orange;
@@ -208,20 +215,66 @@ table td.project_column_header {
 	padding-left:5px;
 	cursor:pointer;
 }
-#additional_metrics, #add_new_metric { overflow:hidden }
-.property_field { width:50%; float:left; min-height:50px }
-.property_field label { float:left; width:53% }
-.property_field input[type=text] { padding:5px 10px; margin:5px 0 0 5px; width:35% }
-.property_field label span, .metric_field label span { display:block; color:#aaa }
-
-.metric_group { margin:10px; border:0; border-top:1px solid #aaa; padding:0 15px 5px; overflow:hidden }
-.metric_group legend { padding:0 7px; color:#c00 }
-.metric_group legend + .metric_field,
-.metric_group legend + .metric_field + .metric_field { padding:15px 0 0 }
-
-.metric_field { width:50%; float:left; margin:0 0 10px }
-.metric_field input { float:left }
-.metric_field label { margin:-2px 0 0 7px; width:90%; float:left }
-
-#add_new_metric .property_field label { width:38%; margin:10px 0 0 }
-#add_metric { width:15%; margin:0 0 0 10px; padding:3px 0 }
+#additional_metrics, #add_new_metric { 
+	overflow:hidden 
+}
+.property_field { 
+	width:50%; 
+	float:left; 
+	min-height:50px 
+}
+.property_field label { 
+	float:left; 
+	width:53% 
+}
+.property_field input[type=text] { 
+	padding:5px 10px; 
+	margin:5px 0 0 5px; 
+	width:35% 
+}
+.property_field label span, .metric_field label span { 
+	display:block; 
+	color:#aaa 
+}
+.metric_group { 
+	margin:10px; 
+	border:0; 
+	border-top:1px solid #aaa; 
+	padding:0 15px 5px; 
+	overflow:hidden 
+}
+.metric_group legend { 
+	padding:0 7px; 
+	color:#c00 
+}
+.metric_group legend + .metric_field, .metric_group legend + .metric_field + .metric_field { 
+	padding:15px 0 0 
+}
+.metric_field { 
+	width:50%; 
+	float:left; 
+	margin:0 0 10px 
+}
+.metric_field input { 
+	float:left 
+}
+.metric_field label { 
+	margin:-2px 0 0 7px; 
+	width:90%; 
+	float:left 
+}
+#add_new_metric .property_field label { 
+	width:38%; margin:10px 0 0 
+}
+#add_metric { 
+	width:15%; 
+	margin:0 0 0 10px; 
+	padding:3px 0 
+}
+ul.metrics_options {
+	height:25px;
+	margin:20px 0 0;
+}
+ul.metrics_options li {
+	margin-right: 20px;
+}
