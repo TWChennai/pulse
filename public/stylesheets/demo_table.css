@@ -32,11 +32,11 @@
 
 .dataTables_wrapper {
 	position: relative;
-	min-height: 300px;
 	clear: both;
 	_height: 300px;
 	zoom: 1; /* Feeling sorry for IE */
 	margin-top: 15px;
+	overflow-x: auto;
 }
 
 .dataTables_processing {
@@ -57,13 +57,13 @@
 
 .dataTables_wrapper .dataTables_length {
 	float: left;
-	height:20px;
-	line-height:20px;
+	height:30px;
+	line-height:30px;
 }
 .dataTables_filter {
 	float: right;
-	height:20px;
-	line-height:20px;
+	height:30px;
+	line-height:30px;
 }
 
 .dataTables_wrapper .iteration {

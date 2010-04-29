@@ -94,11 +94,10 @@ h4 {
 	border:1px solid #999933;
 	margin:10px 260px 10px 0;
 	background-color: #FAFFE7;
-	overflow-x: auto;
 }
 #left_area .content_wrapper {
 	margin: 10px;
-	min-height: 200px;
+	min-height: 300px;
 }
 #left_area .left_property_area {
 	float: left;
@@ -225,6 +224,16 @@ table td.project_column_header {
 	border: 1px solid #111;
 	background-color: #eee;
 	opacity: 0.85;
+	padding: 0;
+}
+#tooltip h3 {
+	color:#333333;
+	font-family:Trebuchet MS;
+	font-size:12px;
+	margin:1px 3px;
+	text-transform: none;
+	padding: 0;
+	border: 0;
 }
 #project_properties_title {
   cursor:pointer;
@@ -237,9 +246,9 @@ table td.project_column_header {
 	overflow:hidden 
 }
 .property_field { 
-	width:50%; 
+	width:49%; 
 	float:left; 
-	min-height:50px 
+	min-height:20px 
 }
 .property_field label { 
 	float:left; 
