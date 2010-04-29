@@ -1,0 +1,16 @@
+<% database_prefix = nil %>
+<% database_suffix = RAILS_ENV %>
+
+base: &base
+ database: <%= [database_prefix, "projects", database_suffix].compact.join("_") %> 
+ host: pulse.corporate.thoughtworks.com
+ port: 5984
+ 
+development:
+  <<: *base
+  
+test:
+  <<: *base
+  
+production:
+  <<: *base
