@@ -15,6 +15,7 @@ class Project < CouchRest::ExtendedDocument
   property :iterations, :cast_as => [Iteration]
   property :name
   property :isAlive
+  property :location
 
   view_by :list,
   :map => 

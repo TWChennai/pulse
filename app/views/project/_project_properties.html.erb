@@ -5,6 +5,14 @@
 	<%= link_to_if @project.isAlive, 'Edit Project', edit_project_path(:id => @project.id)%>
 	<%=change_status_link%>
 	<div>
+		<div id='location' class='property_field'>
+			<div class="left_property_area">
+				Location
+			</div>
+			<div class="right_property_area">
+				<%=@project.location%>
+			</div>
+		</div>
 		<% @properties.each do |property| %>
 		<div id=<%="#{property[:key]}"%> class="property_field">
 			<div class="left_property_area"> 

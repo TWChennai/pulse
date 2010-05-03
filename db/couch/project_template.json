@@ -3,15 +3,6 @@
    "_rev": "1-29532e8c5424e9f2cfff3e71f4097afc",
    "properties_group": [
        {
-           "name": "Location",
-           "tracked": "yes",
-           "order": "2",
-           "type": "string",
-           "description": "Location of the project",
-           "key": "location",
-           "couchrest-type": "Property"
-       },
-       {
            "name": "SOW Signed",
            "tracked": "yes",
            "order": "3",
