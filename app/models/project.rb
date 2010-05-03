@@ -29,7 +29,7 @@ class Project < CouchRest::ExtendedDocument
   :map => 
   "function(doc) {
   if (doc['couchrest-type'] == 'Project') {
-      emit([doc.isAlive, doc.location],  doc);
+    emit([doc.isAlive, doc.location],  doc);
   }
   }", 
   :reduce => 
@@ -84,11 +84,19 @@ class Project < CouchRest::ExtendedDocument
       end
 
       def self.projects_grouped_by_location
+        @all_active_projects = Project.view("by_list",:key => true,:include_docs => true)
+        grouped_projects = @all_active_projects.group_by(&:location)
         projects_group = []
-        Project.view("by_location", :startkey => [true,""], :endkey => [true,{}], :reduce => true, :group => true, :group_level => 2)["rows"].each do |location_group|
-          projects_group << DAL::ProjectsGroup.new(location_group["key"][1], location_group["value"].map{|project| Project.new(:_id => project[0], :name => project[1])}.flatten)
+        grouped_projects.each do |location,value|
+          projects_group << DAL::ProjectsGroup.new(location, value.map{|project| Project.new(:_id => project['_id'], :name => project['name'])}.flatten)
         end
         return projects_group
+
+        # projects_group = []
+        # Project.view("by_location", :startkey => [true,""], :endkey => [true,{}], :reduce => true, :group => true, :group_level => 2)["rows"].each do |location_group|
+        #   projects_group << DAL::ProjectsGroup.new(location_group["key"][1], location_group["value"].map{|project| Project.new(:_id => project[0], :name => project[1])}.flatten)
+        # end
+        # return projects_group
       end
 
       def additional_metrics
@@ -135,7 +143,7 @@ class Project < CouchRest::ExtendedDocument
         @projects = Project.view("by_list", :key => false)
       end
       def self.open_projects
-       @projects = Project.view("by_list", :key => true) 
+        @projects = Project.view("by_list", :key => true) 
       end
       def self.project_dashboard(project_status,week_ending_date)
         Project.view("by_dashboard",{:startkey => [project_status, week_ending_date], :endkey => [project_status,week_ending_date]})
