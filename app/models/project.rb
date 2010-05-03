@@ -29,9 +29,7 @@ class Project < CouchRest::ExtendedDocument
   :map => 
   "function(doc) {
   if (doc['couchrest-type'] == 'Project') {
-    if(doc.properties) { 
-      emit([doc.isAlive, doc.properties.location],  doc);
-    }
+      emit([doc.isAlive, doc.location],  doc);
   }
   }", 
   :reduce => 
