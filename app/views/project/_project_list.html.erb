@@ -2,12 +2,9 @@
 	<div id="projects">
 		<h2>Project List</h2>
 		<div class="content">
-			<% Project.projects_grouped_by_location.each do |location_group| %>
-				<h3><%= location_group.location%></h3>
+			<% Project.all.each do |project| %>
 				<ul>
-				<% location_group.projects.each do |project| %>
-					<li><%= link_to project.name, project_path(project.id)%></li>
-				<% end %>
+				  <li><%= link_to project.name, project_path(project.id)%></li>
 				</ul>
 			<% end %>
 		</div>
