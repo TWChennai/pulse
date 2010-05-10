@@ -2,7 +2,6 @@ class MetricsController < ApplicationController
 
   #TODO pull out by filter by
   def index
-
     @title= "Metrics View"
     @metrics_list = ProjectTemplate.mandatory_metrics.collect{|metric| metric.name}
     @from_date = params[:from_date].nil? ? Date.today - 100.days : Date.parse(params[:from_date])
@@ -11,9 +10,6 @@ class MetricsController < ApplicationController
     @week_range = week_range(@from_date,@to_date).reverse
     @project_status = (params[:status].nil? ? true : params[:status].to_bool)
     @projects_metric_view = Project.view("by_metric", :startkey=>[@project_status,@metric, @from_date.to_time.to_i], :endkey=>[@project_status,@metric, @to_date.to_time.to_i] , :include_docs => false)
-    puts @from_date.to_time.to_i
-    puts @to_date.to_time.to_i
-    puts @projects_metric_view.inspect
     @projects_list = @project_status ? Project.open_projects : Project.closed_projects
   end
 
