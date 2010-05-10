@@ -7,7 +7,7 @@
 		<thead>
 			<tr>
 				<th>Date</th>
-				<% @project.iterations.first.metrics.each do |metric| %>
+				<% @project.iterations.last.metrics.each do |metric| %>
 					<th><%= metric.name %></th>
 				<% end %>
 				<th>Edit</th>
