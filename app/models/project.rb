@@ -123,9 +123,9 @@ class Project < CouchRest::ExtendedDocument
         end.flatten + additional_metrics
       end
 
-      def metric_for_week(projects_metric_view,metric,week)
+      def metric_for_week(project_status, projects_metric_view,metric,week)
         projects_metric_view["rows"].each do |metric_view|
-          if metric_view["key"] == [metric, week.to_time.to_i]
+          if metric_view["key"] == [project_status, metric, week.to_time.to_i]
             if metric_view["id"] == self.id
               return {
                 :comment => metric_view["value"][1]["comment"].downcase,

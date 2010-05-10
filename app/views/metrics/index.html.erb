@@ -24,8 +24,8 @@
 			<tr>
 				<td><%= week %></td>
 				<% @projects_list.each do |project| %>
-					<%metric_value = project.metric_for_week(@projects_metric_view,@metric, week)%>
-					<td><div class="indicator circle <%= metric_value[:value]%> %>%>" title="<%= metric_value[:comment] %>"></div></td>
+					<%metric_value = project.metric_for_week(@project_status,@projects_metric_view,@metric, week)%>
+					<td><div class="indicator circle <%= metric_value[:value] %>" title="<%= metric_value[:comment] %>"></div></td>
 				<% end %>
 			</tr>
 			<% end %>
