@@ -18,10 +18,18 @@
 			<tr>
 				<td><%= iteration.date %></td>
 				<% iteration.metrics.each do |metric| %>
+                                  
+                                  
 					<td>
 						<div class="indicator circle <%= metric.value.downcase %>" title="<%= metric.comment %>"></div>
 					</td>
+                                  
 				<% end %>
+                                <% for excess_count in 1..(@project.stuffed_metrics.count-iteration.metrics.count)%>
+                                        <td>
+						<div class="indicator circle undefined" title="No Data Found"></div>
+					</td>
+                                        <%end%>
 				<td><%= link_to_if @project.isAlive, "Edit", edit_iteration_path(@project, index, :height => 400, :width => 700), :class => :thickbox, :title => "Edit Iteration Information" %>  </td>
 			</tr>
 			<% end %>
