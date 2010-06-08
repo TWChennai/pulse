@@ -1,9 +1,9 @@
 <div id="project_properties_title">
-	<h3>Project Properties (click to expand/collapse)</h3>
+  <h3>Project Properties (click to expand/collapse)</h3> <h5> <%= link_to_if @project.isAlive, 'Edit Project', edit_project_path(:id => @project.id)%>
+	<%=change_status_link%></h5>
 </div>
 <div id="project_properties" style="display:none">
-	<%= link_to_if @project.isAlive, 'Edit Project', edit_project_path(:id => @project.id)%>
-	<%=change_status_link%>
+	
 	<div>
 		<div id='location' class='property_field'>
 			<div class="left_property_area">
