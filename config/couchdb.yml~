@@ -3,7 +3,7 @@
 
 base: &base
  database: <%= [database_prefix, "projects", database_suffix].compact.join("_") %> 
- host: pulse.corporate.thoughtworks.com
+ host: localhost
  port: 5984
  
 development:

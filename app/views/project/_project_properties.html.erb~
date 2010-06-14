@@ -1,7 +1,7 @@
 <div id="project_properties_title">
   <h3>Project Properties (click to expand/collapse)</h3>
 </div>
-  <h5> <%= link_to_if @project.isAlive, 'Edit Projects', edit_project_path(:id => @project.id)%>
+  <h5> <%= link_to_if @project.isAlive, 'Edit Project', edit_project_path(:id => @project.id)%>
 	<%=change_status_link%></h5>
 
 <div id="project_properties" style="display:none">
