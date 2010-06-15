@@ -3,6 +3,7 @@ class ProjectController < ApplicationController
     @project = Project.get(params[:id])
     @title = @project.name
     @properties = @project.stuff_properties
+    @all_metrics=@project.all_metrics
   end
 
   def export_as_csv

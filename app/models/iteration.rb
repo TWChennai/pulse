@@ -17,6 +17,14 @@ class Iteration < CouchRest::ExtendedDocument
     return @mandatory_metrics
   end
 
+  def metrics_as_hash
+    metric_hash=Hash.new("nil")
+    metrics.each do |metric|
+      metric_hash["#{metric.name}"]=metric
+    end
+    metric_hash
+  end
+
   def has_metric(mandatory_metric)
     metrics.each do |metric|   
       return metric if metric.name == mandatory_metric.name 

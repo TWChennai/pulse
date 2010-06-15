@@ -103,6 +103,18 @@ class Project < CouchRest::ExtendedDocument
         self["additional_metrics"] || []
       end
 
+      def all_metrics
+        metric_list=[]
+        iterations.each do |iteration|
+          iteration.metrics.each do |metric|
+            if !metric_list.include?(metric.name)
+              metric_list<<metric.name
+            end
+          end
+        end
+        metric_list
+      end
+
       def stuff_properties
         ProjectTemplate.project_template.properties_group.map do |property|
           {
