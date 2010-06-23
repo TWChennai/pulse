@@ -132,7 +132,7 @@ class Project < CouchRest::ExtendedDocument
           metrics_group.data.select{|metric_hash| 
             metric_hash["mandatory"] || metrics.include?(metric_hash["key"])
           }
-        end.flatten + additional_metrics
+        end.flatten + self.additional_metrics.select{|a_m| a_m if self.metrics.include?(a_m.key)}
       end
 
       def metric_for_week(project_status, projects_metric_view,metric,week)
