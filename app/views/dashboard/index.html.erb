@@ -7,7 +7,7 @@
     <% form_tag '/dashboard/week_ending', :method => :get do %>
     Week Ending: <%= text_field_tag "date", @week_ending_date ,:class=>"datepicker"%>
     Project Status:<%= select_tag "status" , options_for_select(Project::TYPES, :selected => @project_status)%>
-    Location Filter:<%= select_tag "location" , options_for_select(Project.location_present)%>
+    Location Filter:<%= select_tag "location" , options_for_select(Project.location_present, :selected =>@location_filter)%>
     <%= submit_tag "Go"%>
     <% end %>
     </div>
