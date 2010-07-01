@@ -2,6 +2,11 @@ require File.dirname(__FILE__) + '/../spec_helper'
 require 'tempfile'
 
 describe Iteration do
+  describe "create hash" do
+    it "should return nil if key is not present" do
+      
+    end
+  end
   describe "take attachments" do
     it "should store files" do
       files = [temp_file_for_attachment("file_name.txt", "content")]

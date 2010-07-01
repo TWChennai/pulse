@@ -160,4 +160,12 @@ class Project < CouchRest::ExtendedDocument
       def self.project_dashboard(project_status,week_ending_date)
         Project.view("by_dashboard",{:startkey => [project_status, week_ending_date], :endkey => [project_status,week_ending_date]})
       end
+      def self.location_present
+        locations=[]
+        locations<<["All","all"]
+        Project.projects_grouped_by_location.each do |location_group|
+          locations<<[location_group.location,location_group.location]
+        end
+        locations
+      end
     end

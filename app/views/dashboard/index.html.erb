@@ -7,6 +7,7 @@
     <% form_tag '/dashboard/week_ending', :method => :get do %>
     Week Ending: <%= text_field_tag "date", @week_ending_date ,:class=>"datepicker"%>
     Project Status:<%= select_tag "status" , options_for_select(Project::TYPES, :selected => @project_status)%>
+    Location Filter:<%= select_tag "location" , options_for_select(Project.location_present)%>
     <%= submit_tag "Go"%>
     <% end %>
     </div>
@@ -24,8 +25,12 @@
       </thead>
     <tbody>
       <% @projects_dashboard.each do |project| %>
+
+    <%if @location_filter==project.location ||@location_filter=="all"%>
+
       <tr>
-	<td><%=link_to project.name, project%></td>
+        <td><%=link_to project.name, project%></td>
+
                                 <%project.iterations.each do |iter| %>
                                   <%if iter.date==@week_ending_date%>
                                     <% iter.mandatory_metrics.each do |metric| %>
@@ -33,7 +38,8 @@
                                     <% end %>
                                   <%end%>
                                  <%end%>
-				 </tr>
+      </tr>
+        <%end%>
       <% end %>
       </tbody>
     </table>
