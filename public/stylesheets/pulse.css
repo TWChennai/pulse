@@ -305,3 +305,13 @@ ul.metrics_options {
 ul.metrics_options li {
 	margin-right: 20px;
 }
+
+.metrics_form {
+    display: inline-block;
+    margin-left: 25px;
+    color: #993300;
+}
+
+.ui-dropdownchecklist-wrapper {
+    margin-left: 5px;
+}

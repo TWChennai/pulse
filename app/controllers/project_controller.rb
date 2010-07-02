@@ -4,7 +4,13 @@ class ProjectController < ApplicationController
     @title = @project.name
     @properties = @project.stuff_properties
     @all_metrics=@project.all_metrics
+    @metrics_selected=params[:metric_filter]
+    unless @metrics_selected ==nil
+      @all_metrics=@metrics_selected
+    end
+    puts @metrics_selected.inspect
   end
+
 
   def export_as_csv
     @project = Project.get(params[:id])

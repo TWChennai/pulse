@@ -18,20 +18,23 @@ $(document).ready(function(){
         metricDescription = addMetricDescField.attr("value"),
         newMetric;
 
-    if(!metricName && !metricDescription) {
-      addMetricFields.addClass('hasError').end().focus();
-      return;
-    }
+        if(!metricName && !metricDescription) {
+          addMetricFields.addClass('hasError').end().focus();
+          return;
+        }
 
-    addMetricFields.removeClass('hasError').attr('value', '');
+        addMetricFields.removeClass('hasError').attr('value', '');
 
-    newMetric = '<div id="'+metricName+'" class="metric_field"><input type="checkbox" id="metricName_'+metricName+'" name="project[metrics[' + metricName + ']]" value="yes" />'
-                   +'<label for="metricName_'+metricName+'">'+metricName+' <span>' +metricDescription+'</span></label>'
-                   +'<input type="hidden" name="project[additional_metrics[' + metricName + ']]" value="'+metricDescription+'" /></div>';
-		additionalMetricsField.append(newMetric);
+        newMetric = '<div id="'+metricName+'" class="metric_field"><input type="checkbox" id="metricName_'+metricName+'" name="project[metrics[' + metricName + ']]" value="yes" />'
+                       +'<label for="metricName_'+metricName+'">'+metricName+' <span>' +metricDescription+'</span></label>'
+                       +'<input type="hidden" name="project[additional_metrics[' + metricName + ']]" value="'+metricDescription+'" /></div>';
+                    additionalMetricsField.append(newMetric);
     
-		return false;
-	});
+        return false;
+    });
+
+   
+    $('#metric_filter').dropdownchecklist();
 	
 });
 
