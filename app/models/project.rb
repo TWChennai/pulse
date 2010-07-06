@@ -16,7 +16,7 @@ class Project < CouchRest::ExtendedDocument
   property :name
   property :isAlive
   property :location
-
+  property :filtered_metrics
   view_by :list,
   :map => 
   "function(doc) {
@@ -74,6 +74,8 @@ class Project < CouchRest::ExtendedDocument
         }
       }
       }"
+  
+      
 
       def initialize(*args)
         self.properties = {}
@@ -97,6 +99,21 @@ class Project < CouchRest::ExtendedDocument
         #   projects_group << DAL::ProjectsGroup.new(location_group["key"][1], location_group["value"].map{|project| Project.new(:_id => project[0], :name => project[1])}.flatten)
         # end
         # return projects_group
+      end
+      
+      def mandatory_metrics
+        mandatory_metrics =[]
+        ProjectTemplate.project_template.metrics_group.map do |metrics_group_from_template|
+          metrics_group = metrics_group_from_template.clone
+          metrics_group.data.each do |metric_hash|
+            if metric_hash["mandatory"]==true
+              mandatory_metrics << metric_hash["name"]
+            end
+          end
+
+
+      end
+      mandatory_metrics
       end
 
       def additional_metrics
@@ -168,4 +185,6 @@ class Project < CouchRest::ExtendedDocument
         end
         locations
       end
-    end
+      
+end
+    

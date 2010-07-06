@@ -4,7 +4,7 @@
 	:class => "thickbox", :title => "Add New Iteration Information" %>
         <div class="metrics_form">
         <% form_tag filter_metrics_path(@project.id), :method => :post do %>
-        <span>Metric Filter:</span><%= select_tag "metric_filter" , options_for_select(@project.all_metrics,:selected=>@all_metrics), :multiple=>true%>
+        <span>Metric Filter:</span><%= select_tag "metric_filter" , options_for_select(@all_metrics,:selected=>@filtered_metrics), :multiple=>true%>
         <%= submit_tag "Go"%>
         <%end%>
         </div>
@@ -13,7 +13,7 @@
 		<thead>
 			<tr>
 				<th>Date</th>
-				<% @all_metrics.each do |metric| %>
+				<% @filtered_metrics.each do |metric| %>
 					<th><%= metric %></th>
 				<% end %>
 				<th>Edit</th>
@@ -24,7 +24,7 @@
 			<tr>
 				<td><%= iteration.date %></td>
                                 <%hash=iteration.metrics_as_hash  %>
-				<% @all_metrics.each do |metric| %>
+				<% @filtered_metrics.each do |metric| %>
                                 <%current_metric=hash[metric]%>
                                 <% if current_metric == "nil" %>
                                 <td>

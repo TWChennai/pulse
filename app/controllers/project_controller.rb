@@ -4,12 +4,15 @@ class ProjectController < ApplicationController
     @title = @project.name
     @properties = @project.stuff_properties
     @all_metrics=@project.all_metrics
-    @metrics_selected=params[:metric_filter]
-    unless @metrics_selected ==nil
-      @all_metrics=@metrics_selected
+    @filtered_metrics=@all_metrics
+    unless params[:metric_filter] == nil
+      @filtered_metrics=params[:metric_filter]
     end
-    puts @metrics_selected.inspect
+    @project.filtered_metrics=@filtered_metrics
+    @project.save
   end
+
+
 
 
   def export_as_csv
@@ -80,4 +83,6 @@ class ProjectController < ApplicationController
     project_params[:additional_metrics] = project_params[:additional_metrics].map{|k,v| {"name" => k, "key" => k, "description" => v}} if project_params[:additional_metrics]
     project_params
   end
+
+ 
 end
