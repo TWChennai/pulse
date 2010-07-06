@@ -7,9 +7,10 @@ class ProjectController < ApplicationController
     @filtered_metrics=@all_metrics
     unless params[:metric_filter] == nil
       @filtered_metrics=params[:metric_filter]
+      @project.filtered_metrics=@filtered_metrics
+      @project.save
     end
-    @project.filtered_metrics=@filtered_metrics
-    @project.save
+    
   end
 
 
