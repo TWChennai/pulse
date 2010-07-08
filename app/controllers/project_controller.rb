@@ -3,18 +3,14 @@ class ProjectController < ApplicationController
     @project = Project.get(params[:id])
     @title = @project.name
     @properties = @project.stuff_properties
-    @all_metrics=@project.all_metrics
-    @filtered_metrics=@all_metrics
+    if @project.filtered_metrics == nil
+      @project.filtered_metrics=@project.all_metrics
+    end
     unless params[:metric_filter] == nil
-      @filtered_metrics=params[:metric_filter]
-      @project.filtered_metrics=@filtered_metrics
+      @project.filtered_metrics=params[:metric_filter]
       @project.save
     end
-    
   end
-
-
-
 
   def export_as_csv
     @project = Project.get(params[:id])
@@ -87,3 +83,4 @@ class ProjectController < ApplicationController
 
  
 end
+9

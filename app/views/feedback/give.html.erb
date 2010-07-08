@@ -1,0 +1,29 @@
+<div class="content_wrapper feedback_form">
+<h1> <%=@title%> </h1>
+
+<br/>
+
+<% if flash[:success] %><div class="success"> <%= flash[:success] %> </div<%end%>
+<% if flash[:error] %> <div class="error"> <%= flash[:error] %> </div> <%end%>
+
+
+<% form_tag submit_feedback_path, :method => :post do %>
+
+<div class="property_field">
+  <label for="email">Thoughtworks Email ID:</label>
+  <%=text_field_tag "email"%>
+</div>
+<div class="property_field">
+  <label for="changes">What feature/change would you like to suggest?</label>
+  <%=text_area_tag "changes" ,nil, :rows => 10, :cols => 40%>
+</div>
+<div class="property_field">
+  <label for="reasons">How would this help you?</label>
+  <%=text_area_tag "reasons" , nil, :rows => 10, :cols => 40%>
+</div>
+<div class="clear">
+  <%= submit_tag "Submit Feedback"%>
+</div>
+<%end%>
+
+</div>

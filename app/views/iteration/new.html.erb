@@ -14,7 +14,12 @@
 			</td>
 			<td><%= text_field_tag "iteration[metrics][][comment]" %> </td>
 		</tr>
+
 		<% end %>
+                <tr>
+                  <td>Notes</td>
+                  <td> <%=text_area_tag "notes" ,nil, :rows => 10, :cols => 40%> </td>
+                </tr>
 	</tbody>
 </table>
 

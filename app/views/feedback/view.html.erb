@@ -1,0 +1,20 @@
+<table class="iteration">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Changes Suggested</th>
+      <th>Reasons For Changes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@feedbacks.each do |feedback|%>
+    <tr>
+      <td><%=feedback.email %> </td>
+      <td><%=feedback.changes_required %> </td>
+      <td><%=feedback.reason_for_changes %> </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+

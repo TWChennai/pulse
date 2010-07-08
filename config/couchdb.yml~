@@ -1,5 +1,5 @@
 <% database_prefix = nil %>
-<% database_suffix = "development" %>
+<% database_suffix = "test" %>
 
 base: &base
  database: <%= [database_prefix, "projects", database_suffix].compact.join("_") %> 

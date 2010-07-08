@@ -3,6 +3,9 @@ ActionController::Routing::Routes.draw do |map|
   map.close_project '/project/close/:id', :controller => :project, :action => :close
   map.reopen_project '/project/reopen/:id', :controller => :project, :action => :reopen
   map.list_closed_projects 'projects/all/closed', :controller => :projects, :action => :list_closed_projects
+  map.feedback '/feedback/index', :controller => :feedback , :action=> :view
+  map.give_feedback '/feedback/give', :controller=> :feedback , :action => :give
+  map.submit_feedback '/feedback/submit', :controller =>:feedback , :action => :submit
   map.export_project_as_csv '/project/:id/export', :controller => :project, :action => :export_as_csv
   map.export_project_dashboard_as_csv '/dashboard/:date/export', :controller => :dashboard, :action => :export_to_csv
   map.export_metrics_view_to_csv '/metrics_view/:metric/:from_date/:to_date', :controller => :metrics, :action => :export_to_csv

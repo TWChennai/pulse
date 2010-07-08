@@ -100,21 +100,6 @@ class Project < CouchRest::ExtendedDocument
         # end
         # return projects_group
       end
-      
-      def mandatory_metrics
-        mandatory_metrics =[]
-        ProjectTemplate.project_template.metrics_group.map do |metrics_group_from_template|
-          metrics_group = metrics_group_from_template.clone
-          metrics_group.data.each do |metric_hash|
-            if metric_hash["mandatory"]==true
-              mandatory_metrics << metric_hash["name"]
-            end
-          end
-
-
-      end
-      mandatory_metrics
-      end
 
       def additional_metrics
         self["additional_metrics"] || []

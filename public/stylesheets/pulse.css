@@ -218,6 +218,9 @@ table td.project_column_header {
 .undefined{
 	background-color:grey;
 }
+.notes{
+    background:url("/images/notes.png");
+}
 #tooltip {
 	position: absolute;
 	z-index: 3000;
@@ -314,4 +317,37 @@ ul.metrics_options li {
 
 .ui-dropdownchecklist-wrapper {
     margin-left: 5px;
+}
+.feedback_form {
+    font-size:1.2em;
+}
+
+
+.feedback_form .property_field {
+    width: 51%;
+    margin: 5px auto;
+}
+
+.feedback_form textarea {
+    width: 91%;
+}
+
+.feedback_form .property_field label {
+    margin:5px auto;
+}
+
+.feedback_form .error {
+    border:1px solid #CC0000;
+    color:#CC0000;
+    margin:0 53% 20px 0;
+    padding:2px 5px;
+    background-color: #FFE5E5;
+}
+
+.feedback_form .success {
+    background-color:#E6FFCC;
+    border:1px solid #009933;
+    color:#009933;
+    margin:0 53% 20px 0;
+    padding:2px 5px;
 }
