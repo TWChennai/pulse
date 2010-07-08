@@ -6,6 +6,7 @@ describe FeedbackController do
     it "should show a form that shows all the feedbacks" do
       get :view
       assigns[:feedbacks].should==Feedback.all_feedback
+      response.should be
       
     end
   end
@@ -13,6 +14,7 @@ describe FeedbackController do
     it "should show a page to give feedback" do
       get :give
       assigns[:title].should=="Please Give Us Your Feedback"
+      response.should be
     end
 
   end
