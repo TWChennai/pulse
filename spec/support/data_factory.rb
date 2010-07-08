@@ -31,6 +31,14 @@ class DataFactory
       Project.create! options
     end
 
+    def feedbacks
+      {
+        "email" => "someone@thoughtworks.com",
+        "changes" => "clone weekly status",
+        "reason"=> "easy work"
+      }
+    end
+
     def properties_post_info
       {
         "name" => "simon",
