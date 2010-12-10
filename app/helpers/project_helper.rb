@@ -10,11 +10,15 @@ module ProjectHelper
   def generate_form_tag_for_property(property, form)
     options = {}
     options[:class] = "datepicker" if property.type == "date"
-    text_field_tag "project[properties[#{property.key}]]", @project.properties[property.key], options
-  end  
+    if (property.type == "comment_string")
+      text_area_tag "project[properties[#{property.key}]]", @project.properties[property.key], :rows => "4", :cols => "20"
+    else
+      text_field_tag "project[properties[#{property.key}]]", @project.properties[property.key], options
+    end
+  end
 
   def show_project_status
-    @project.isAlive ? "Open": "Closed"
+    @project.isAlive ? "Open" : "Closed"
   end
   def change_status_link
     if @project.isAlive

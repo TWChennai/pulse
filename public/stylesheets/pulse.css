@@ -1,313 +1,375 @@
 html, body, div, span, a, h1, h2, h3, table, td, tr, th, tbody, thead, fieldset, label, input, textarea, img, ul, li {
-  margin:0;
-  padding:0
+    margin: 0;
+    padding: 0
 }
-h1, h2, h3, h4 { 
-	font-weight:300;
-	color:#c00;
-	font-family: Georgia;
+
+h1, h2, h3, h4 {
+    font-weight: 300;
+    color: #c00;
+    font-family: Georgia;
 }
-a img { 
-	border:0 
+
+a img {
+    border: 0
 }
+
 ul {
-	list-style: none outside none;
+    list-style: none outside none;
 }
+
 ul li {
-	float: left;
+    float: left;
 }
+
 a, a:link, a:visited {
-	color: #993300;
-	text-decoration: none;
+    color: #993300;
+    text-decoration: none;
 }
+
 a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
+
 body {
-  font:13px "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Verdana,sans-serif;
-  color:#000;
-  cursor:default
+    font: 13px "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Verdana, sans-serif;
+    color: #000;
+    cursor: default
 }
-input, textarea { 
-	font:13px "Lucida Grande","Lucida Sans","Lucida Sans Unicode",Verdana,sans-serif;
+
+input, textarea {
+    font: 13px "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Verdana, sans-serif;
 }
-input[type=text] { 
-	border: 1px solid #999;
-	background:url('/images/textbox_bg.jpg') repeat-x center top #fff;
-	height: 20px;
+
+input[type=text] {
+    border: 1px solid #999;
+    background: url('/images/textbox_bg.jpg') repeat-x center top #fff;
+    height: 20px;
 }
-h1, h2, h3 { 
-	font-weight:300; 
-	color:#c00;
+
+h1, h2, h3 {
+    font-weight: 300;
+    color: #c00;
 }
-h1 { 
-	border-bottom:1px inset #999933;
-	font-size:28px;
-	margin-bottom: 10px;
+
+h1 {
+    border-bottom: 1px inset #999933;
+    font-size: 28px;
+    margin-bottom: 10px;
 }
+
 h2 {
-	background-color:#CCCCCC;
-	border-bottom:2px solid #999999;
-	color:#333333;
-	font-size:24px;
-	margin:0;
-	padding:5px;
+    background-color: #CCCCCC;
+    border-bottom: 2px solid #999999;
+    color: #333333;
+    font-size: 24px;
+    margin: 0;
+    padding: 5px;
 }
-h3 { 
-	border-bottom:1px inset #999933;
-	font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode",Verdana,sans-serif;
-	font-size:15px;
-	margin:15px 0 3px;
-	padding:5px;
-	text-transform:uppercase;
-	text-align: center;
+
+h3 {
+    border-bottom: 1px inset #999933;
+    font-family: "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Verdana, sans-serif;
+    font-size: 15px;
+    margin: 15px 0 3px;
+    padding: 5px;
+    text-transform: uppercase;
+    text-align: center;
 }
-h4 { 
-	color: #999966;
-	font-size: 18px;
+
+h4 {
+    color: #999966;
+    font-size: 18px;
 }
-#wrapper { 
-	min-width:918px; margin:0 10px;
+
+#wrapper {
+    min-width: 918px;
+    margin: 0 10px;
 }
+
 #logo {
-	height:125px;
+    height: 125px;
 }
+
 #logo .img {
-	background:url("/images/logo.jpg") no-repeat scroll right top #FFFFFF;
-	height:125px;
-	position:absolute;
-	right:0;
-	top:0;
-	width:856px;
-	z-index:2;
+    background: url("/images/logo.jpg") no-repeat scroll right top #FFFFFF;
+    height: 125px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 856px;
+    z-index: 2;
 }
+
 #logo hr {
-	background:none repeat scroll 0 0 #47240B;
-	color:#47240B;
-	height:2px;
-	left:0;
-	position:absolute;
-	top:70px;
-	width:100%;
+    background: none repeat scroll 0 0 #47240B;
+    color: #47240B;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    top: 70px;
+    width: 100%;
 }
-#left_area {	
-	border:1px solid #999933;
-	margin:10px 260px 10px 0;
-	background-color: #FAFFE7;
+
+#left_area {
+    border: 1px solid #999933;
+    margin: 10px 260px 10px 0;
+    background-color: #FAFFE7;
 }
+
 #left_area .content_wrapper {
-	margin: 10px;
-	min-height: 300px;
+    margin: 10px;
+    min-height: 300px;
 }
+
 #left_area .left_property_area {
-	float: left;
-	width: 260px;
+    float: left;
+    width: 260px;
 }
+
 #left_area .right_property_area {
-	float: left;
-	font-weight: bold;
+    float: left;
+    font-weight: bold;
 }
+
 #right_area {
-	padding:0;
-	position:absolute;
-	right:10px;
-	top:135px;
-	width:250px;
+    padding: 0;
+    position: absolute;
+    right: 10px;
+    top: 135px;
+    width: 250px;
 }
+
 #right_area .section {
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	border:1px solid #CCCCCC;
-	margin-bottom:10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    margin-bottom: 10px;
 }
+
 #right_area .section  .content {
-	margin: 10px;
+    margin: 10px;
 }
+
 .hasError {
-	border:1px solid #c00;
+    border: 1px solid #c00;
 }
-table{
-	padding:0px;
-	border-style:none;
+
+table {
+    padding: 0px;
+    border-style: none;
 }
-table td{
-	border-style:none;
+
+table td {
+    border-style: none;
 }
-table th{
-	border-style:none;
-	background-color:#cccccc;
+
+table th {
+    border-style: none;
+    background-color: #cccccc;
 }
+
 table td.project_column_header {
-	color:#df0422;
+    color: #df0422;
 }
 
 #nav_bar {
-	height:39px;
-	position:absolute;
-	top:80px;
-	z-index:3;
+    height: 39px;
+    position: absolute;
+    top: 80px;
+    z-index: 3;
 }
+
 #nav_bar a {
-	background:url("/images/header_link_bg.jpg") repeat-x scroll left top #FFFFFF;
-	border:1px solid #EEE;
-	color:#333333;
-	display:block;
-	float:left;
-	height:16px;
-	padding:7px;
+    background: url("/images/header_link_bg.jpg") repeat-x scroll left top #FFFFFF;
+    border: 1px solid #EEE;
+    color: #333333;
+    display: block;
+    float: left;
+    height: 16px;
+    padding: 7px;
 }
+
 #nav_bar a:hover {
-	text-decoration:none;
-	color:#000;
+    text-decoration: none;
+    color: #000;
 }
+
 #nav_bar a.selected {
-	background:#df0422;
-	color:#fff;
+    background: #df0422;
+    color: #fff;
 }
 
 #nav_bar ul {
-	display:inline;
-	list-style:none;
+    display: inline;
+    list-style: none;
 }
+
 #nav_bar li {
-	float: left;
-	padding-right:10px;
-	font-weight: bold;
+    float: left;
+    padding-right: 10px;
+    font-weight: bold;
 }
 
 #right_area ul {
-	display:inline;
-	list-style:none;
-	line-height:20px;
+    display: inline;
+    list-style: none;
+    line-height: 20px;
 }
+
 #right_area ul li {
-	margin-left: 5px;
-	float: none;
+    margin-left: 5px;
+    float: none;
 }
-.clear { 
-	clear:both 
+
+.clear {
+    clear: both
 }
+
 #footer {
-	clear:both;
-	padding-top:10px;
-	border-top:1px dotted #999933;
-	text-align:center;
+    clear: both;
+    padding-top: 10px;
+    border-top: 1px dotted #999933;
+    text-align: center;
 }
-.project_column_header{
-	width:10em;
+
+.project_column_header {
+    width: 10em;
 }
+
 .circle {
-	display: block;
-	display: block;
-	width: 25px;
-	height: 10px;
-	background: #333;
-	-moz-border-radius: 15px;
-	-webkit-border-radius: 15px;
-	margin: auto;
+    display: block;
+    display: block;
+    width: 25px;
+    height: 10px;
+    background: #333;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    margin: auto;
 }
-.green{
-	background-color:green;
+
+.green {
+    background-color: green;
 }
-.red{
-	background-color:#cc0000;
+
+.red {
+    background-color: #cc0000;
 }
-.amber{
-	background-color:orange;
+
+.amber {
+    background-color: orange;
 }
-.undefined{
-	background-color:grey;
-}
-.notes{
-    background:url("/images/notes.png");
-    height: 22px;
-    width: 22px;
-    margin: 0 auto;
+
+.undefined {
+    background-color: grey;
 }
 #tooltip {
-	position: absolute;
-	z-index: 3000;
-	border: 1px solid #111;
-	background-color: #eee;
-	opacity: 0.85;
-	padding: 0;
+    position: absolute;
+    z-index: 3000;
+    border: 1px solid #111;
+    background-color: #eee;
+    opacity: 0.85;
+    padding: 0;
 }
+
 #tooltip h3 {
-	color:#333333;
-	font-family:Trebuchet MS;
-	font-size:12px;
-	margin:1px 3px;
-	text-transform: none;
-	padding: 0;
-	border: 0;
+    color: #333333;
+    font-family: Trebuchet MS;
+    font-size: 12px;
+    margin: 1px 3px;
+    text-transform: none;
+    padding: 0;
+    border: 0;
 }
+
 #project_properties_title {
-  cursor:pointer;
+    cursor: pointer;
 }
-.legend td { 
-	padding-left:5px;
-	cursor:pointer;
+
+.legend td {
+    padding-left: 5px;
+    cursor: pointer;
 }
-#additional_metrics, #add_new_metric { 
-	overflow:hidden 
+
+#additional_metrics, #add_new_metric {
+    overflow: hidden
 }
-.property_field { 
-	width:49%; 
-	float:left; 
-	min-height:20px 
+
+.property_field {
+    float: left;
+    margin: 5px 0px;
+    min-height: 65px;
+    width: 49%;
 }
-.property_field label { 
-	float:left; 
-	width:53% 
+
+#project_read_only_view .property_field {
+   min-height: 20px; 
 }
-.property_field input[type=text] { 
-	padding:5px 10px; 
-	margin:5px 0 0 5px; 
-	width:35% 
+
+.property_field label {
+    float: left;
+    width: 53%
 }
-.property_field label span, .metric_field label span { 
-	display:block; 
-	color:#aaa 
+
+.property_field input[type=text] {
+    padding: 5px 10px;
+    margin: 5px 0 0 5px;
+    width: 35%
 }
-.metric_group { 
-	margin:10px; 
-	border:0; 
-	border-top:1px solid #aaa; 
-	padding:0 15px 5px; 
-	overflow:hidden 
+
+.property_field label span, .metric_field label span {
+    display: block;
+    color: #aaa
 }
-.metric_group legend { 
-	padding:0 7px; 
-	color:#c00 
+
+.metric_group {
+    margin: 10px;
+    border: 0;
+    border-top: 1px solid #aaa;
+    padding: 0 15px 5px;
+    overflow: hidden
 }
-.metric_group legend + .metric_field, .metric_group legend + .metric_field + .metric_field { 
-	padding:15px 0 0 
+
+.metric_group legend {
+    padding: 0 7px;
+    color: #c00
 }
-.metric_field { 
-	width:50%; 
-	float:left; 
-	margin:0 0 10px 
+
+.metric_group legend + .metric_field, .metric_group legend + .metric_field + .metric_field {
+    padding: 15px 0 0
 }
-.metric_field input { 
-	float:left 
+
+.metric_field {
+    width: 50%;
+    float: left;
+    margin: 0 0 10px
 }
-.metric_field label { 
-	margin:-2px 0 0 7px; 
-	width:90%; 
-	float:left 
+
+.metric_field input {
+    float: left
 }
-#add_new_metric .property_field label { 
-	width:38%; margin:10px 0 0 
+
+.metric_field label {
+    margin: -2px 0 0 7px;
+    width: 90%;
+    float: left
 }
-#add_metric { 
-	width:15%; 
-	margin:0 0 0 10px; 
-	padding:3px 0 
+
+#add_new_metric .property_field label {
+    width: 38%;
+    margin: 10px 0 0
 }
+
+#add_metric {
+    width: 15%;
+    margin: 0 0 0 10px;
+    padding: 3px 0
+}
+
 ul.metrics_options {
-	height:25px;
-	margin:20px 0 0;
+    height: 25px;
+    margin: 20px 0 0;
 }
+
 ul.metrics_options li {
 	margin-right: 20px;
 }
@@ -353,4 +415,24 @@ ul.metrics_options li {
     color:#009933;
     margin:0 53% 20px 0;
     padding:2px 5px;
+}
+
+table#iteration_detail .comment {
+    padding: 0px 10px;
+}
+
+.float_left {
+     float: left;
+}
+
+.margin_left_22px {
+  margin-left: 22px;  
+}
+
+.margin_bottom_10px {
+  margin-bottom: 10px;  
+}
+
+.clear_both {
+    clear: both;
 }

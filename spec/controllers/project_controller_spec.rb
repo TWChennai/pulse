@@ -11,11 +11,19 @@ describe ProjectController do
       Project.should_receive(:get).with(@project.id).and_return(@project)
       get :show, :id => @project.id
       response.should be
-      response.should have_tag("div#project") do 
-
+      response.should have_tag("div#project") do
       end
     end
-    
+
+  end
+
+  describe "create" do
+    integrate_views
+    it "should save notes when a new project is created" do
+      Project.count() == 0
+      post :create, :project => {"location" => "chennai", "properties" => {"notes" => "new note"}}
+      Project.count() == 1
+    end
   end
 
   describe "edit" do
@@ -40,14 +48,14 @@ describe ProjectController do
       @project.should_receive(:save).and_return(true)
       post :update, :id=>"200", :project => DataFactory.properties_post_info
       response.should be
-      
+
     end
     it "should not let you update if the project is not alive" do
       @project.isAlive = false
       Project.should_receive(:get).with("200").and_return(@project)
       post :update, :id=>"200", :project => DataFactory.properties_post_info
       response.should be
-      
+
       response.should render_template('public/404.html')
     end
   end

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('.iteration').dataTable({"bAutoWidth": false});	
+  $('.iteration').dataTable({"bAutoWidth": false, "aaSorting": [[ 0, "desc" ]]});
   
   $(".datepicker").datepicker();	
   $(".indicator").tooltip();

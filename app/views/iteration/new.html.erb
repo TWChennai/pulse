@@ -1,10 +1,12 @@
 <% form_tag save_iteration_path(@project), :multipart => true do %>
-<table>
+    <div>
+        <div class="float_left">Week Ending Date</div>
+        <div class="float_left margin_left_22px"><%= text_field :iteration, :date, {:class => :datepicker} %></div>
+    </div>
+    <div class="clear_both margin_bottom_10px"/>
+
+    <table>
 	<tbody>
-		<tr>
-			<td>Week Ending Date</td>
-			<td><%= text_field :iteration, :date, {:class => :datepicker} %></td>
-		</tr>
 		<% @project.stuffed_metrics.each_with_index do |metric, index| %>
 		<tr>
 			<td><%= label metric["key"], metric["name"] %></td>
@@ -12,9 +14,8 @@
 				<%= hidden_field_tag "iteration[metrics][][name]", metric["name"] %>
 				<%= select_tag "iteration[metrics][][value]", options_for_select(Metric::VALUES) %>
 			</td>
-			<td><%= text_field_tag "iteration[metrics][][comment]" %> </td>
+            <td class="comment"><%= text_area_tag "iteration[metrics][][comment]", "", :rows => "2", :cols => "30"%></td>
 		</tr>
-
 		<% end %>
                 <tr>
                   <td>Notes</td>
@@ -25,7 +26,7 @@
 
 <div id="attachments">
 	<ul></ul>
-	<a class="add" href="#">Add attachment</a>	
+	<a class="add" href="#">Add attachment</a>
 </div>
 
 

@@ -27,5 +27,14 @@ describe ProjectHelper do
       change_status_link.should == link_to("Reopen Project", reopen_project_path(@project.id), :confirm => "Are you Sure?")
     end
   end
-  
+  describe "should generate appropriate form tags" do
+    it "should generate text area if property type is comment_string" do
+      generate_form_tag_for_property(Property.new(:key => "124", :type => "comment_string"), nil).should ==
+              text_area_tag("project[properties[124]]", nil, :rows => "4", :cols => "20")
+    end
+    it "should generate text field if property type is string" do
+      generate_form_tag_for_property(Property.new(:key => "124", :type => "string"), nil).should ==
+              text_field_tag("project[properties[124]]", nil)
+    end
+  end
 end
