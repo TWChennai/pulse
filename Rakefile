@@ -9,5 +9,10 @@ require 'rake/rdoctask'
 
 require 'tasks/rails'
 
-task :all => ["db:create","db:migrate", "spec"] do
+task :all => ["db:create", "db:migrate", "spec"] do
 end
+
+task :populate_metadata => :environment do
+   ProjectTemplate.create
+end
+
