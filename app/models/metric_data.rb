@@ -5,5 +5,10 @@ class MetricData < CouchRest::ExtendedDocument
   property :mandatory
   property :description
   property :key
+
+  def method_missing(sym, *args, &block)
+    return nil if (sym == :comment || sym == :value)
+    super(sym, *args, &block)
+  end
 end
 

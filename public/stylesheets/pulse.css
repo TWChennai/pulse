@@ -436,3 +436,14 @@ table#iteration_detail .comment {
 .clear_both {
     clear: both;
 }
+
+.notes{
+    background:url("/images/notes.png");
+    height: 22px;
+    width: 22px;
+    margin: 0 auto;
+}
+
+.margin_left_20px {
+    margin-left: 20px;
+}

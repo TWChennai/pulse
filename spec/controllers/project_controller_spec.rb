@@ -14,15 +14,16 @@ describe ProjectController do
       response.should have_tag("div#project") do
       end
     end
-
   end
 
   describe "create" do
     integrate_views
     it "should save notes when a new project is created" do
-      Project.count() == 0
+      0 == Project.count()
       post :create, :project => {"location" => "chennai", "properties" => {"notes" => "new note"}}
-      Project.count() == 1
+      1 == Project.count()
+      "new note" == Project.first.properties["notes"]
+
     end
   end
 
