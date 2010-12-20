@@ -1,0 +1,22 @@
+<div class="project_risks">
+  <h3>Project Risks</h3>
+  <%= link_to_if @project.isAlive, "Add New Risk", new_risk_path(@project, :height => 400, :width => 700),:class => "thickbox", :title => "Add New Risk" %>
+  <table class="iteration">
+    <thead>
+    <tr>
+      <% ProjectTemplate.risk_types_from_json.each do |risk|%>
+        <th><%= risk["name"]%></th>
+      <% end %>
+    </tr>
+    <thead>
+      <tbody>
+    <% @project.risks.each do |risk| %>
+      <tr>
+        <% ProjectTemplate.risk_types_from_json.each do |risk_type| %>
+          <td><%= risk[risk_type["key"]] %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+</div>

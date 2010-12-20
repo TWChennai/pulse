@@ -13,6 +13,7 @@ class Project < CouchRest::ExtendedDocument
   property :additional_metrics, :cast_as => [MetricData]
 
   property :iterations, :cast_as => [Iteration]
+  property :risks, :cast_as => [RiskData]
   property :name
   property :isAlive
   property :location
@@ -81,6 +82,7 @@ class Project < CouchRest::ExtendedDocument
         self.properties = {}
         self.metrics = []
         self.iterations = []
+        self.risks = []
         self.isAlive = true
         super(*args)
       end

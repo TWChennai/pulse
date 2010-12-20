@@ -517,7 +517,60 @@
             }
         ]
     }
-],"couchrest-type":"ProjectTemplate","_revs_info":[
+],
+"risk_types": [
+  {
+    "name":"Start Date",
+    "order":1,
+    "key": "start_date"
+  },
+  {
+    "name":"Risk Description",
+    "order":2,
+    "key":"risk_description"
+  },
+  {
+    "name":"Mitigation",
+    "order":3,
+    "key":"mitigation"
+  },
+  {
+    "name":"State",
+    "order":4,
+    "key":"state"
+  },
+  {
+    "name":"# of days open",
+    "order":5,
+    "key":"no_of_days_open"
+  },
+  {
+    "name":"Impact",
+    "order":6,
+    "key":"impact"
+  },
+  {
+    "name":"Type of Risk",
+    "order":7,
+    "key": "type_of_risk"
+  },
+  {
+    "name":"Owner",
+    "order":8,
+    "key": "owner"
+  },
+  {
+    "name":"Probability Of Occurence",
+    "order":9,
+    "key": "probability_of_occurrence"
+  },
+  {
+    "name":"Risk to Problem Indicator",
+    "order":10,
+    "key": "risk_to_problem_indicator"
+  }
+],
+"couchrest-type":"ProjectTemplate","_revs_info":[
     {
         "rev":"13-cf6faa05dcc3ecea4451a9e6162dca4d",
         "status":"available"

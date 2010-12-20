@@ -5,6 +5,7 @@ class ProjectTemplate < CouchRest::ExtendedDocument
 
   property :metrics_group, :cast_as => [MetricGroup]
   property :properties_group, :cast_as => [Property]
+  property :risk_types, :cast_as => [Metric]
   property :name
 
   def self.create
@@ -46,6 +47,10 @@ class ProjectTemplate < CouchRest::ExtendedDocument
 
   def self.properties_group_from_json
     hash_from_json["properties_group"]
+  end
+
+  def self.risk_types_from_json
+    hash_from_json["risk_types"]
   end
 
   def self.hash_from_json
