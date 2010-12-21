@@ -13,7 +13,7 @@ class Project < CouchRest::ExtendedDocument
   property :additional_metrics, :cast_as => [MetricData]
 
   property :iterations, :cast_as => [Iteration]
-  property :risks, :cast_as => [RiskData]
+  property :risks, :cast_as => [Risk]
   property :name
   property :isAlive
   property :location

@@ -1,0 +1,11 @@
+<table>
+    <tbody>
+      <% ProjectTemplate.risk_types_from_json.each_with_index do |risk,index|%>
+        <tr>
+          <td><%= label risk["key"], risk["name"]%></td>
+          <td><%= construct_widget(risk,@risk[risk["key"]]) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= submit_tag "Add Risk" %>

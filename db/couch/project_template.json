@@ -518,69 +518,83 @@
         ]
     }
 ],
-"risk_types": [
-  {
-    "name":"Start Date",
-    "order":1,
-    "key": "start_date",
-    "type": "date"
-  },
-  {
-    "name":"Risk Description",
-    "order":2,
-    "key":"risk_description",
-    "type": "text_area"
-  },
-  {
-    "name":"Mitigation",
-    "order":3,
-    "key":"mitigation",
-    "type": "text_area"
-  },
-  {
-    "name":"State",
-    "order":4,
-    "key":"state",
-    "type": "drop_down"
-  },
-  {
-    "name":"# of days open",
-    "order":5,
-    "key":"no_of_days_open",
-    "type":"text_field"
-  },
-  {
-    "name":"Impact",
-    "order":6,
-    "key":"impact",
-    "type": "drop_down"
-  },
-  {
-    "name":"Type of Risk",
-    "order":7,
-    "key": "type_of_risk",
-    "type": "drop_down"
-  },
-  {
-    "name":"Owner",
-    "order":8,
-    "key": "owner",
-    "type": "text_field"
-  },
-  {
-    "name":"Probability Of Occurence",
-    "order":9,
-    "key": "probability_of_occurrence",
-    "type": "drop_down"
-  },
-  {
-    "name":"Risk to Problem Indicator",
-    "order":10,
-    "key": "risk_to_problem_indicator",
-    "type": "text_field"
-  }
-],
-"couchrest-type":"ProjectTemplate","_revs_info":[
+    "risk_types": [
+        {
+            "name":"Start Date",
+            "order":1,
+            "key": "start_date",
+            "type": "text_field",
+            "couchrest-type":"RiskData"
+        },
+        {
+            "name":"Risk Description",
+            "order":2,
+            "key":"risk_description",
+            "type": "text_area",
+            "couchrest-type":"RiskData"
+        },
+        {
+            "name":"Mitigation",
+            "order":3,
+            "key":"mitigation",
+            "type": "text_area",
+            "couchrest-type":"RiskData"
+        },
+        {
+            "name":"State",
+            "order":4,
+            "key":"state",
+            "type": "select",
+            "probable_values": ["Open", "Closed"],
+            "couchrest-type":"RiskData"
+        },
+        {
+            "name":"No of days open",
+            "order":5,
+            "key":"no_of_days_open",
+            "type":"text_area",
+            "couchrest-type":"RiskData"
+        },
+        {
+            "name":"Impact",
+            "order":6,
+            "key":"impact",
+            "type": "select",
+            "probable_values": ["High", "Very High", "Medium", "Low"],
+            "couchrest-type":"RiskData"
+        },
+        {
+            "name":"Type of Risk",
+            "order":7,
+            "key": "type_of_risk",
+            "type": "select",
+            "probable_values": ["Technical", "Functional", "Process"],
+            "couchrest-type":"RiskData"
+        },
+        {
+            "name":"Owner",
+            "order":8,
+            "key": "owner",
+            "type": "text_field",
+            "couchrest-type":"RiskData"
+        },
+        {
+            "name":"Probability Of Occurence",
+            "order":9,
+            "key": "probability_of_occurrence",
+            "type": "select",
+            "probable_values": ["High", "Very High", "Medium", "Low"],
+            "couchrest-type":"RiskData"
+        },
+        {
+            "name":"Risk to Problem Indicator",
+            "order":10,
+            "key": "risk_to_problem_indicator",
+            "type": "text_field",
+            "couchrest-type":"RiskData"
+        }
+    ],
+    "couchrest-type":"ProjectTemplate","_revs_info":[
     {
         "rev":"13-cf6faa05dcc3ecea4451a9e6162dca4d",
         "status":"available"
