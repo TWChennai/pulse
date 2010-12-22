@@ -1,0 +1,25 @@
+<table>
+    <thead>
+    <% ProjectTemplate.risk_types_from_json.each do |risk_type| %>
+        <th>
+            <%= risk_type['key'] %>
+        </th>
+    <% end %>
+    </thead>
+    <tbody>
+    <tr>
+        <% ProjectTemplate.risk_types_from_json.each do |risk_type| %>
+            <td>
+                <% @risk_variations.each do |risk_variation| %>
+                    <% if risk_variation[risk_type['key']] %>
+                        <div>
+                            <%= risk_variation[risk_type['key']] %>
+                        </div>
+                    <% end %>
+                <% end %>
+            </td>
+        <% end %>
+    </tr>
+    </tbody>
+</table>
+
