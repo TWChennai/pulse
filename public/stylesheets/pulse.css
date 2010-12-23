@@ -262,6 +262,7 @@ table td.project_column_header {
 .undefined {
     background-color: grey;
 }
+
 #tooltip {
     position: absolute;
     z-index: 3000;
@@ -302,7 +303,7 @@ table td.project_column_header {
 }
 
 #project_read_only_view .property_field {
-   min-height: 20px; 
+    min-height: 20px;
 }
 
 .property_field label {
@@ -371,7 +372,7 @@ ul.metrics_options {
 }
 
 ul.metrics_options li {
-	margin-right: 20px;
+    margin-right: 20px;
 }
 
 .metrics_form {
@@ -383,10 +384,10 @@ ul.metrics_options li {
 .ui-dropdownchecklist-wrapper {
     margin-left: 5px;
 }
-.feedback_form {
-    font-size:1.2em;
-}
 
+.feedback_form {
+    font-size: 1.2em;
+}
 
 .feedback_form .property_field {
     width: 51%;
@@ -398,23 +399,23 @@ ul.metrics_options li {
 }
 
 .feedback_form .property_field label {
-    margin:5px auto;
+    margin: 5px auto;
 }
 
 .feedback_form .error {
-    border:1px solid #CC0000;
-    color:#CC0000;
-    margin:0 53% 20px 0;
-    padding:2px 5px;
+    border: 1px solid #CC0000;
+    color: #CC0000;
+    margin: 0 53% 20px 0;
+    padding: 2px 5px;
     background-color: #FFE5E5;
 }
 
 .feedback_form .success {
-    background-color:#E6FFCC;
-    border:1px solid #009933;
-    color:#009933;
-    margin:0 53% 20px 0;
-    padding:2px 5px;
+    background-color: #E6FFCC;
+    border: 1px solid #009933;
+    color: #009933;
+    margin: 0 53% 20px 0;
+    padding: 2px 5px;
 }
 
 table#iteration_detail .comment {
@@ -422,23 +423,23 @@ table#iteration_detail .comment {
 }
 
 .float_left {
-     float: left;
+    float: left;
 }
 
 .margin_left_22px {
-  margin-left: 22px;  
+    margin-left: 22px;
 }
 
 .margin_bottom_10px {
-  margin-bottom: 10px;  
+    margin-bottom: 10px;
 }
 
 .clear_both {
     clear: both;
 }
 
-.notes{
-    background:url("/images/notes.png");
+.notes {
+    background: url("/images/notes.png");
     height: 22px;
     width: 22px;
     margin: 0 auto;
@@ -446,4 +447,8 @@ table#iteration_detail .comment {
 
 .margin_left_20px {
     margin-left: 20px;
+}
+
+.align_top {
+    vertical-align: top;
 }

@@ -8,8 +8,13 @@ module ApplicationHelper
   def construct_widget(object, value)
     if object['type'] == 'select'
       send(object['type'] + "_tag", "risk[#{object['key']}]", (object['probable_values'] ? options_for_select(object['probable_values'], :selected => value) : Hash.new))
+    elsif object['type'] == 'date'
+      text_field_tag "risk[#{object['key']}]", value ? value : '', {:class => "datepicker"}
     else
       send(object['type'] + "_tag", "risk[#{object['key']}]", value ? value :'', (object['probable_values'] ? options_for_select(object['probable_values'], :selected => value) : Hash.new))
     end
+  end
+  def risk_data_with_date(object,object_type)
+    "#{object[object_type]} (#{object['date_modified']})"
   end
 end

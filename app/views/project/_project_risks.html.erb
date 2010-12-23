@@ -4,9 +4,10 @@
     <table class="iteration">
         <thead>
         <tr>
-            <% ProjectTemplate.risk_types_from_json.each do |risk| %>
+            <% ProjectTemplate.user_input_risk_types_from_json.each do |risk| %>
                 <th><%= risk["name"] %></th>
             <% end %>
+            <th>No of Days open</th>
             <th>Actions</th>
             <th>History</th>
         </tr>
@@ -14,9 +15,10 @@
         <tbody>
         <% @project.risks.each_with_index do |risk,index| %>
             <tr>
-                <% ProjectTemplate.risk_types_from_json.each do |risk_type| %>
+                <% ProjectTemplate.user_input_risk_types_from_json.each do |risk_type| %>
                     <td><%= risk[risk_type["key"]] %></td>
                 <% end %>
+                <td><%= risk.days_open %></td>
                 <td><%= link_to_if @project.isAlive, "Edit", edit_risk_path(:project_id => @project.id, :index => index), :class => "thickbox", :title => "Edit Risk"%></td>
                 <td><%= link_to_if @project.isAlive, "Show History", show_risk_path(:project_id => @project.id, :index => index), :class => "thickbox", :title => "Show  Risk"%></td>
             </tr>

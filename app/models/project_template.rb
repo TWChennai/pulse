@@ -53,6 +53,14 @@ class ProjectTemplate < CouchRest::ExtendedDocument
     hash_from_json["risk_types"]
   end
 
+  def self.user_input_risk_types_from_json
+    user_input_risk_types = []
+    risk_types_from_json().each_with_index { |risk_type, index|
+      user_input_risk_types << risk_type if (risk_type['user-input'])
+    }
+    user_input_risk_types
+  end
+
   def self.hash_from_json
     @@hash ||= JSON.parse(File.read(TEMPLATE_JSON_FILE))
   end

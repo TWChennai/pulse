@@ -23,18 +23,19 @@ class RiskController < ApplicationController
   def update
     @project = Project.get(params[:project_id])
     risk = @project.risks[params[:index].to_i]
-    risk_variation = params[:risk].diff(risk)
-    risk_variation.delete("histories")
+    risk_history = params[:risk].diff(risk)
+    risk_history.delete("histories")
+    risk_history.merge!({'date_modified' => DateTime.now.strftime("%d-%b-%Y")})
     risk = risk.merge!(params[:risk])
-    risk.histories << risk_variation
+    risk.histories << risk_history
     @project.save!
     redirect_to(@project)
   end
 
   def show
     @project = Project.get(params[:project_id])
-    risk = @project.risks[params[:index].to_i]
-    @risk_variations = risk.histories ? risk.histories : []
+    @risk = @project.risks[params[:index].to_i]
+    @risk_variations = @risk.histories ? @risk.histories : []
     render :template => false
   end
 end
