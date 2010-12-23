@@ -10,6 +10,7 @@ class ProjectTemplate < CouchRest::ExtendedDocument
 
   def self.create
     document =  COUCHDB_SERVER.get(DESIGN_DOC)
+  rescue
     COUCHDB_SERVER.delete_doc(document) if (document)
     COUCHDB_SERVER.save_doc({
             "_id" => DESIGN_DOC,
