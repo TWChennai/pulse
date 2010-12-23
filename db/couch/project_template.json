@@ -573,7 +573,7 @@
             "name":"Type of Risk",
             "order":7,
             "key": "type_of_risk",
-            "type": "select",
+            "type": "editable select",
             "probable_values": ["Technical", "Functional", "Process"],
             "user-input": true,
             "couchrest-type":"RiskData"
