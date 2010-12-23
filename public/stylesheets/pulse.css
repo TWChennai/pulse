@@ -452,3 +452,21 @@ table#iteration_detail .comment {
 .align_top {
     vertical-align: top;
 }
+
+#risk_history_table thead th {
+    background-color: #999933;
+    padding: 5px 20px 5px 5px;
+}
+
+div.odd {
+    background-color: #E7EDCF;
+}
+
+div.even {
+    background-color: #F1F6DD;
+}
+
+.margin_bottom_5px {
+    margin-bottom: 5px;
+}
+

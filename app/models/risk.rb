@@ -14,6 +14,6 @@ class Risk < CouchRest::ExtendedDocument
 
   def add_history(risk_history) 
     risk_history.merge!({'date_modified' => DateTime.now.strftime("%d-%b-%Y")})
-    risk.histories << risk_history
+    self.histories << risk_history
   end
 end
