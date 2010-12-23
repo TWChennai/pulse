@@ -1,4 +1,3 @@
-hello
 <table>
     <thead>
     <% ProjectTemplate.user_input_risk_types_from_json.each do |risk_type| %>
@@ -8,13 +7,6 @@ hello
     <% end %>
     </thead>
     <tbody>
-    <tr>
-        <% ProjectTemplate.user_input_risk_types_from_json.each do |risk_type| %>
-            <td>
-                <%= risk_data_with_date(@risk, risk_type['key'])%>
-            </td>
-        <% end %>
-    </tr>
     <tr>
         <% ProjectTemplate.user_input_risk_types_from_json.each do |risk_type| %>
             <td class="align_top">

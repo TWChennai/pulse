@@ -15,6 +15,7 @@ class RiskController < ApplicationController
   def save
     @project = Project.get(params[:project_id])
     risk = Risk.new(params[:risk])
+    risk.add_history(params[:risk].dup)
     @project.risks << risk
     @project.save!
     redirect_to(@project)
@@ -25,9 +26,8 @@ class RiskController < ApplicationController
     risk = @project.risks[params[:index].to_i]
     risk_history = params[:risk].diff(risk)
     risk_history.delete("histories")
-    risk_history.merge!({'date_modified' => DateTime.now.strftime("%d-%b-%Y")})
     risk = risk.merge!(params[:risk])
-    risk.histories << risk_history
+    risk.add_history(risk_history)
     @project.save!
     redirect_to(@project)
   end
