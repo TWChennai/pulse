@@ -4,7 +4,7 @@ class Risk < CouchRest::ExtendedDocument
 
   def initialize(*args)
     self.histories = []
-    self.date_modified = Date.today
+    self.date_modified = DateTime.now.strftime("%d-%b-%Y")
     super(*args)
   end
 

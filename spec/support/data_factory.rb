@@ -13,10 +13,10 @@ class DataFactory
           {"id"=>"8e52fbeba20c8857941ad04cd2dedfd6", "value"=>"hsjgdfkhasd", "key"=>"8e52fbeba20c8857941ad04cd2dedfd6"}, 
           {"id"=>"9a9d8ffecec500261b3725ad27be2bb0", "value"=>"hsjgdfkhasd", "key"=>"9a9d8ffecec500261b3725ad27be2bb0"}, 
           {"id"=>"b468620c69b34208e219a3f366adbfd1", "value"=>"hjkjhh", "key"=>"b468620c69b34208e219a3f366adbfd1"}
-          ], 
+      ], 
           "offset"=>0, 
           "total_rows"=>10
-        }
+      }
     end
 
     def project(options = {})
@@ -26,7 +26,7 @@ class DataFactory
         "properties" => properties,
         "couchrest-type" => "Project"
       }
-      
+
       options.reverse_merge!(default_options)
       Project.create! options
     end
@@ -39,19 +39,32 @@ class DataFactory
       }
     end
 
+    def risk
+      {
+        "risk_to_problem_indicator"=>"Simple",
+        "start_date"=>"12/01/2010", 
+        "mitigation"=>"I am trying to solve the problem",
+        "risk_description"=>"Super Risk",
+        "probability_of_occurrence"=>"High", 
+        "impact"=>"High", "type_of_risk"=>"", 
+        "owner"=>"Arvind Kunday",
+        "couchrest-type" => "Risk",
+        "state"=>"Open"}
+    end
+
     def properties_post_info
       {
         "name" => "simon",
         "location" => "chennai",
         "properties"=>{"sow_signed"=>"04/21/2010", "averate_estimate_per_story"=>"hj", "tenured_twers"=>"jh", "non_tenured_twers"=>"hj", "iteration_duration"=>"hj", "average_team_size"=>"jh", "team_ratio"=>"jhjh", "no_of_stories"=>"hj", "consultants"=>"hj", "senior_consultants"=>"jh", "discrete_teams_project"=>"jhj", "cri_classification"=>"jhjh", "project_duration"=>"jhjh", "development_languages_used"=>"jhhj", "project_name"=>"& S&S", "project_start_date"=>"04/22/2010", "last_da_review"=>"04/22/2010", "units_of_estimation"=>"jh", "team_size"=>"hj", "onsite_offsite_mix"=>"jjhjh", "engagement_model"=>"jhj", "location"=>"my rocke"},
         "metrics" => mandatory_metrics.inject({}){|hash, metric| hash[metric] = true; hash}
-        }
+      }
     end
-    
+
     def properties
       {"iteration_duration"=>"hj", "non_tenured_twers"=>"hj", "tenured_twers"=>"jh", "averate_estimate_per_story"=>"hj", "sow_signed"=>"04/21/2010", "average_team_size"=>"jh", "senior_consultants"=>"jh", "consultants"=>"hj", "no_of_stories"=>"hj", "team_ratio"=>"jhjh", "discrete_teams_project"=>"jhj", "project_duration"=>"jhjh", "cri_classification"=>"jhjh", "development_languages_used"=>"jhhj", "last_da_review"=>"04/22/2010", "project_start_date"=>"04/22/2010", "project_name"=>"& S&S", "team_size"=>"hj", "units_of_estimation"=>"jh", "onsite_offsite_mix"=>"jjhjh", "engagement_model"=>"jhj", "location"=>"jdsa"}
     end
-    
+
     def all_metrics
       all_metrics_hash.map {|hash| hash["key"]}
     end
@@ -59,7 +72,7 @@ class DataFactory
     def mandatory_metrics
       mandatory_metrics_hash.map {|hash| hash["key"]}
     end
-    
+
     def non_mandatory_metrics
       all_metrics - mandatory_metrics
     end
@@ -69,11 +82,11 @@ class DataFactory
         group["data"]
       end.flatten
     end
-    
+
     def mandatory_metrics_hash
       all_metrics_hash.select{|metric| metric["mandatory"]}
     end
-    
+
     def create_projects_with_status
       projects = []
       projects << DataFactory.project(:isAlive => false)
