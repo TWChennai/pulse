@@ -1,23 +1,23 @@
 require 'spec_helper'
 
 describe FeedbackController do
-   
+
   describe "view" do
     it "should show a form that shows all the feedbacks" do
       get :view
       assigns[:feedbacks].should==Feedback.all_feedback
       response.should be
-      
     end
   end
+
   describe "give" do
     it "should show a page to give feedback" do
       get :give
       assigns[:title].should=="Please Give Us Your Feedback"
       response.should be
     end
-
   end
+
   describe "submit" do
     it "should save a feedback with email,changes and reasons" do
       post :submit, :email=>"someone@thoughtworks.com",:changes=> "easter egg", :reasons=>"lazy"
@@ -34,7 +34,6 @@ describe FeedbackController do
       flash[:error].should=="Please Fill In All the Details"
       response.should redirect_to(:action => 'give')
     end
-
-
   end
-  end
+
+end
