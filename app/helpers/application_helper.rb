@@ -9,7 +9,7 @@ module ApplicationHelper
     if object['type'] == 'select'
       send(object['type'] + "_tag", "risk[#{object['key']}]", (options_for_select(object['probable_values'], :selected => value)))
     elsif object['type'] == 'date'
-      text_field_tag "risk[#{object['key']}]", value ? value : '', {:class => "datepicker"}
+      text_field_tag "risk[#{object['key']}]", value ? value : Date.today.strftime("%m/%d/%Y"), {:class => "datepicker"}
     elsif object['type'] == 'editable select'
       options = (object['probable_values'] << value).uniq
       select_tag("risk[#{object['key']}]", options_for_select(options, :selected => value), :onKeyPress=>"edit(event)")
