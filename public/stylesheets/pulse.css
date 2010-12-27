@@ -449,6 +449,10 @@ table#iteration_detail .comment {
     margin-left: 20px;
 }
 
+.margin_left_10px {
+    margin-left: 10px;
+}
+
 .align_top {
     vertical-align: top;
 }
@@ -482,4 +486,3 @@ div.label {
 .margin_top_10px{
  margin-top:10px;
 }
-
