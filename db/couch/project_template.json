@@ -525,6 +525,7 @@
             "key": "start_date",
             "type": "date",
             "user-input": true,
+            "track-history": false,
             "couchrest-type":"RiskData"
         },
         {
@@ -533,6 +534,7 @@
             "key":"risk_description",
             "type": "text_area",
             "user-input": true,
+            "track-history": false,
             "couchrest-type":"RiskData"
         },
         {
@@ -541,6 +543,7 @@
             "key":"mitigation",
             "type": "text_area",
             "user-input": true,
+            "track-history": true,
             "couchrest-type":"RiskData"
         },
         {
@@ -550,6 +553,7 @@
             "type": "select",
             "probable_values": ["Open", "Closed"],
             "user-input": true,
+            "track-history": true,
             "couchrest-type":"RiskData"
         },
         {
@@ -558,6 +562,7 @@
             "key":"no_of_days_open",
             "type":"text_area",
             "user-input": false,
+            "track-history": false,
             "couchrest-type":"RiskData"
         },
         {
@@ -567,6 +572,7 @@
             "type": "select",
             "probable_values": ["High", "Very High", "Medium", "Low"],
             "user-input": true,
+            "track-history": true,
             "couchrest-type":"RiskData"
         },
         {
@@ -576,6 +582,7 @@
             "type": "editable select",
             "probable_values": ["Technical", "Functional", "Process"],
             "user-input": true,
+            "track-history": true,
             "couchrest-type":"RiskData"
         },
         {
@@ -584,6 +591,7 @@
             "key": "owner",
             "type": "text_field",
             "user-input": true,
+            "track-history": true,
             "couchrest-type":"RiskData"
         },
         {
@@ -593,6 +601,7 @@
             "type": "select",
             "probable_values": ["High", "Very High", "Medium", "Low"],
             "user-input": true,
+            "track-history": true,
             "couchrest-type":"RiskData"
         },
         {
@@ -601,6 +610,7 @@
             "key": "risk_to_problem_indicator",
             "type": "text_field",
             "user-input": true,
+            "track-history": false,
             "couchrest-type":"RiskData"
         }
     ],
