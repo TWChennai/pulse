@@ -570,7 +570,7 @@
             "order":6,
             "key":"impact",
             "type": "select",
-            "probable_values": ["High", "Very High", "Medium", "Low"],
+            "probable_values": ["Critical", "High","Medium", "Low"],
             "user-input": true,
             "track-history": true,
             "couchrest-type":"RiskData"
