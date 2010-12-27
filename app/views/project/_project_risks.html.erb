@@ -20,7 +20,7 @@
                 <% end %>
                 <td><%= risk.days_open %></td>
                 <td><%= link_to_if @project.isAlive, "Edit", edit_risk_path(:project_id => @project.id, :index => index), :class => "thickbox", :title => "Edit Risk"%></td>
-                <td><%= link_to_if @project.isAlive, "Show History", show_risk_path(:project_id => @project.id, :index => index), :class => "thickbox", :title => "Show  Risk"%></td>
+                <td><%= link_to_if @project.isAlive, "Show History", show_risk_path(:project_id => @project.id, :index => index), :class => "thickbox", :title => "Risk History"%></td>
             </tr>
         <% end %>
         </tbody>

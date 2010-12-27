@@ -470,3 +470,16 @@ div.even {
     margin-bottom: 5px;
 }
 
+.clear_left {
+    clear: left;
+}
+
+div.label {
+    width: 180px;
+    font-weight: bold;
+}
+
+.margin_top_10px{
+ margin-top:10px;
+}
+

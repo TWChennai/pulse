@@ -56,10 +56,18 @@ class ProjectTemplate < CouchRest::ExtendedDocument
 
   def self.user_input_risk_types_from_json
     user_input_risk_types = []
-    risk_types_from_json().each_with_index { |risk_type, index|
+    risk_types_from_json().each{ |risk_type|
       user_input_risk_types << risk_type if (risk_type['user-input'])
     }
     user_input_risk_types
+  end
+
+  def self.tracked_risks_from_json
+    tracked_risk_types = []
+    risk_types_from_json().each { |risk_type|
+      tracked_risk_types << risk_type if (risk_type['track-history'])
+    }
+    tracked_risk_types
   end
 
   def self.hash_from_json

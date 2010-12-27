@@ -1,6 +1,13 @@
+<div>
+<div class="margin_top_10px"> <div class="label float_left clear_left">Risk Description</div> <div class="float_left"> <%= @risk["risk_description"] %> </div> 
+<div class="clear" /></div>
+<div class="margin_top_10px"> <div class="label float_left clear_left">Start Date</div> <div class="float_left"> <%= @risk["start_date"] %> </div> <div class="clear" /></div>
+<div class="margin_top_10px"> <div class="label float_left clear_left">Risk to problem indicator</div> <div class="float_left"> <%= @risk["risk_to_problem_indicator"] %> </div> <div class="clear" /></div>
+</div>
+
 <table cellspacing="8" id="risk_history_table">
     <thead>
-    <% ProjectTemplate.user_input_risk_types_from_json.each do |risk_type| %>
+    <% ProjectTemplate.tracked_risks_from_json.each do |risk_type| %>
         <th>
             <%= risk_type['key'] %>
         </th>
@@ -8,7 +15,7 @@
     </thead>
     <tbody>
     <tr>
-        <% ProjectTemplate.user_input_risk_types_from_json.each do |risk_type| %>
+        <% ProjectTemplate.tracked_risks_from_json.each do |risk_type| %>
             <td class="align_top">
                 <% @risk_variations.each do |risk_variation| %>
                     <% if risk_variation[risk_type['key']] %>
