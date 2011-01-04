@@ -32,11 +32,4 @@ class RiskController < ApplicationController
     @project.save!
     redirect_to(@project)
   end
-
-  #def show
-    #@project = Project.get(params[:project_id])
-    #@risk = @project.risks[params[:index].to_i]
-    #@risk_variations = @risk.histories ? @risk.histories : []
-    #render :template => false
-  #end
 end

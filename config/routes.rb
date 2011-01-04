@@ -21,7 +21,6 @@ ActionController::Routing::Routes.draw do |map|
   map.save_risk '/project/:project_id/save_risk', :controller => :risk, :action => :save
   map.edit_risk '/project/:project_id/edit_risk/:index', :controller => :risk, :action => :edit
   map.update_risk '/project/:project_id/update_risk/:index', :controller => :risk, :action => :update
-  map.show_risk '/project/:project_id/show_risk/:index', :controller => :risk, :action => :show
 
   map.dashboard_for_a_date '/dashboard/week_ending', :controller => :dashboard, :action => :index
   map.metric_view '/metric', :controller => :metrics, :action => :index 
