@@ -34,14 +34,14 @@ describe RiskController do
   #end
   describe "#edit" do
     it "should edit the existing risk information" do
-      raise "should fix the risk_variations"
       project = DataFactory.project
       risk = Risk.new(DataFactory.risk)
+      risk.histories << {"abc" => "High", "couchrest-type" => "RiskHistory"}
       project.risks << risk
       project.save!
       get :edit, :project_id => project.id, :index => 0
       assigns[:project].risks[0].should == risk
-      assigns[:risk_variations].should == []
+      assigns[:risk_variations].first["abc"].should == "High"
       response.should render_template(:edit)
     end
   end
