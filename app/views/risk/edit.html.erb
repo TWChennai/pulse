@@ -1,7 +1,10 @@
 <% form_tag update_risk_path(@project), :multipart => true do %>
-  <%= render :partial => 'risk/form' %>
+  <%= render :partial => 'risk/form', :locals => {:title => "Edit Risk (Click to Expand/Collapse)"} %>
 <% end %>
 <%= render :partial => 'risk/history' %>
 <script type="text/javascript">
   $('.risk_table').dataTable({"bAutoWidth": false, "aaSorting": [[ 0, "desc" ]]});
+  $('.toggle_next_div').click(function(){
+    $('.togglable_div').toggle(400);
+  });
 </script>

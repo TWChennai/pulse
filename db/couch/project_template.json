@@ -612,6 +612,15 @@
             "user-input": true,
             "track-history": false,
             "couchrest-type":"RiskData"
+        },
+        {
+            "name":"Notes",
+            "order":11,
+            "key": "notes",
+            "type": "text_area",
+            "user-input": true,
+            "track-history": false,
+            "couchrest-type":"RiskData"
         }
     ],
     "couchrest-type":"ProjectTemplate","_revs_info":[

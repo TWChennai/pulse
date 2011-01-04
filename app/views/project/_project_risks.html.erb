@@ -1,6 +1,6 @@
 <div class="project_risks">
     <h3>Project Risks</h3>
-    <%= link_to_if @project.isAlive, "Add New Risk", new_risk_path(@project, :height => 400, :width => 700), :class => "thickbox", :title => "Add New Risk" %>
+    <%= link_to_if @project.isAlive, "Add New Risk", new_risk_path(@project, :height => "400", :width => "800"), :class => "thickbox", :title => "Add New Risk" %>
     <table class="iteration">
         <thead>
         <tr>
@@ -9,18 +9,16 @@
             <% end %>
             <th>No of Days open</th>
             <th>Actions</th>
-            <th>History</th>
         </tr>
         <thead>
         <tbody>
         <% @project.risks.each_with_index do |risk,index| %>
-            <tr>
+          <tr class="<%= risk["impact"].downcase %>">
                 <% ProjectTemplate.user_input_risk_types_from_json.each do |risk_type| %>
                     <td><%= risk[risk_type["key"]] %></td>
                 <% end %>
                 <td><%= risk.days_open %></td>
                 <td><%= link_to_if @project.isAlive, "Edit", edit_risk_path(:project_id => @project.id, :index => index, :width => "1000", :height => "600"), :class => "thickbox", :title => "Edit Risk and Show History"%></td>
-                <td><%= link_to_if @project.isAlive, "Show History", show_risk_path(:project_id => @project.id, :index => index, :width=>"800", :height => "400"), :class => "thickbox", :title => "Risk History"%></td>
             </tr>
         <% end %>
         </tbody>

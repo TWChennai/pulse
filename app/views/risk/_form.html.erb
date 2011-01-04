@@ -1,12 +1,17 @@
-<h3> Edit Risk </h3>
+<div class="toggle_next_div">
+  <h3> <%= title %></h3>
+</div>
+<div class="togglable_div">
+
 <% ProjectTemplate.user_input_risk_types_from_json().each_with_index do |risk, index| %>
   <div id="risk_field" class="property_field">
     <div><%= label risk["key"], risk["name"] %></div>
     <div><%= construct_widget(risk, @risk[risk["key"]]) %></div>
   </div>
 <% end %>
+<div class="clear"></div>
 <%= submit_tag "Save Risk" %>
-
+</div>
 <script type="text/javascript">
   Attachment.init();
   $(".datepicker").datepicker();

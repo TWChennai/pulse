@@ -247,16 +247,16 @@ table td.project_column_header {
     margin: auto;
 }
 
-.green {
-    background-color: green;
+.green, .low {
+    background-color: green !important;
 }
 
-.red {
-    background-color: #cc0000;
+.red, .critical, .high  {
+    background-color: #cc0000 !important;
 }
 
-.amber {
-    background-color: orange;
+.amber, .medium {
+    background-color: orange !important;
 }
 
 .undefined {

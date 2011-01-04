@@ -8,6 +8,10 @@ $(document).ready(function(){
     return false;
   });
 
+  $('.toggle_next_div').click(function(){
+    $('togglable_div').toggle(400);
+  });
+
   var addMetricNameField = $("#add_metric_name"),
       addMetricDescField = $("#add_metric_desc"),
       additionalMetricsField = $("#additional_metrics"),
