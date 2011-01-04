@@ -301,6 +301,11 @@ table td.project_column_header {
     min-height: 65px;
     width: 49%;
 }
+#risk_field.property_field {
+    float: left;
+    min-height: 35px;
+}
+
 
 #project_read_only_view .property_field {
     min-height: 20px;

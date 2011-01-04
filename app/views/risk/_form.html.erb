@@ -1,16 +1,13 @@
-<table>
-    <tbody>
-    <% ProjectTemplate.user_input_risk_types_from_json().each_with_index do |risk, index| %>
-        <tr>
-            <td><%= label risk["key"], risk["name"] %></td>
-            <td><%= construct_widget(risk, @risk[risk["key"]]) %></td>
-        </tr>
-    <% end %>
-    </tbody>
-</table>
+<h3> Edit Risk </h3>
+<% ProjectTemplate.user_input_risk_types_from_json().each_with_index do |risk, index| %>
+  <div id="risk_field" class="property_field">
+    <div><%= label risk["key"], risk["name"] %></div>
+    <div><%= construct_widget(risk, @risk[risk["key"]]) %></div>
+  </div>
+<% end %>
 <%= submit_tag "Save Risk" %>
 
 <script type="text/javascript">
-    Attachment.init();
-    $(".datepicker").datepicker();
+  Attachment.init();
+  $(".datepicker").datepicker();
 </script>

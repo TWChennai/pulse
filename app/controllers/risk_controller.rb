@@ -9,6 +9,7 @@ class RiskController < ApplicationController
   def edit
     @project = Project.get(params[:project_id])
     @risk = @project.risks[params[:index].to_i]
+    @risk_variations = @risk.histories ? @risk.histories : []
     render :template => false
   end
 
@@ -32,10 +33,10 @@ class RiskController < ApplicationController
     redirect_to(@project)
   end
 
-  def show
-    @project = Project.get(params[:project_id])
-    @risk = @project.risks[params[:index].to_i]
-    @risk_variations = @risk.histories ? @risk.histories : []
-    render :template => false
-  end
+  #def show
+    #@project = Project.get(params[:project_id])
+    #@risk = @project.risks[params[:index].to_i]
+    #@risk_variations = @risk.histories ? @risk.histories : []
+    #render :template => false
+  #end
 end

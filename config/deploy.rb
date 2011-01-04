@@ -25,7 +25,7 @@ task :production do
   role :web,          "10.5.3.6"
 end
 
-namespace :deploy do  
+namespace :deploy do
   task :symlink_configs, :roles => :app, :except => { :no_symlink => true } do
     run "mkdir -p #{shared_path}/system/attachments"
     run <<-CMD
@@ -61,7 +61,6 @@ namespace :deploy do
   namespace :notify do
     task :start do
     end
-    
     task :stop do
     end
   end
@@ -69,11 +68,9 @@ namespace :deploy do
   task :start, :roles => :app do
     run "touch #{current_release}/tmp/restart.txt"
   end
- 
   task :stop, :roles => :app do
     # Do nothing.
   end
- 
   task :restart, :roles => :app do
     run "touch #{current_release}/tmp/restart.txt"
   end
