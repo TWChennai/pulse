@@ -1,6 +1,6 @@
 <h3> Risk History </h3>
 <div class="margin_left_10px">
-  <table cellspacing="8" id="risk_history_table">
+  <table cellspacing="8" id="risk_history_table" class="risk_table">
     <thead>
       <% ProjectTemplate.tracked_risks_from_json.each do |risk_type| %>
         <th>
@@ -9,19 +9,17 @@
       <% end %>
     </thead>
     <tbody>
-      <tr>
-        <% ProjectTemplate.tracked_risks_from_json.each do |risk_type| %>
-          <td class="align_top">
-            <% @risk_variations.each do |risk_variation| %>
+      <% @risk_variations.each do |risk_variation| %>
+        <tr>
+          <% ProjectTemplate.tracked_risks_from_json.each do |risk_type| %>
+            <td class="align_top" style="min-width:120px">
               <% if risk_variation[risk_type['key']] %>
-                <div class="<%= cycle("even", "odd")%>  margin_bottom_5px">
                   <%= risk_data_with_date(risk_variation,risk_type['key'])%>
-                </div>
               <% end %>
-            <% end %>
-          </td>
-        <% end %>
-      </tr>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

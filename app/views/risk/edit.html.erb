@@ -1,4 +1,7 @@
 <% form_tag update_risk_path(@project), :multipart => true do %>
   <%= render :partial => 'risk/form' %>
-  <%= render :partial => 'risk/history' %>
 <% end %>
+<%= render :partial => 'risk/history' %>
+<script type="text/javascript">
+  $('.risk_table').dataTable({"bAutoWidth": false, "aaSorting": [[ 0, "desc" ]]});
+</script>

@@ -19,6 +19,6 @@ module ApplicationHelper
   end
 
   def risk_data_with_date(object, object_type)
-    "#{object[object_type]} (#{object['date_modified']})"
+    "#{object[object_type]} <b>(#{object['date_modified']})</b>"
   end
 end
