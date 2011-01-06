@@ -4,21 +4,21 @@
     <table class="iteration">
         <thead>
         <tr>
-            <% ProjectTemplate.user_input_risk_types_from_json.each do |risk| %>
-                <th><%= risk["name"] %></th>
-            <% end %>
-            <th>No of Days open</th>
-            <th>Actions</th>
+          <th>Risk Description</th>
+          <th>State</th>
+          <th>Impact</th>
+          <th># of days</th>
+          <th>Probability of occurrence</th>
         </tr>
         <thead>
         <tbody>
         <% @project.risks.each_with_index do |risk,index| %>
           <tr class="<%= risk["impact"].downcase %>">
-                <% ProjectTemplate.user_input_risk_types_from_json.each do |risk_type| %>
-                    <td><%= risk[risk_type["key"]] %></td>
-                <% end %>
+                <td><%= link_to_if @project.isAlive, risk["risk_description"], edit_risk_path(:project_id => @project.id, :index => index, :width => "1000", :height => "600"), :class => "thickbox", :title => "Edit Risk and Show History"%></td>
+                <td><%= risk["state"] %></td>
+                <td><%= risk["impact"] %></td>
                 <td><%= risk.days_open %></td>
-                <td><%= link_to_if @project.isAlive, "Edit", edit_risk_path(:project_id => @project.id, :index => index, :width => "1000", :height => "600"), :class => "thickbox", :title => "Edit Risk and Show History"%></td>
+                <td><%= risk["probability_of_occurrence"] %></td>
             </tr>
         <% end %>
         </tbody>
