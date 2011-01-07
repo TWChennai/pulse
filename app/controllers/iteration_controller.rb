@@ -37,7 +37,8 @@ class IterationController < ApplicationController
     @project = Project.get(params[:project_id])
     iteration = @project.iterations[params[:index].to_i]
     attachment = iteration.file_attachments.find{|attachment| attachment["name"] == "#{params[:name]}.#{params[:format]}"}
-    send_data File.read(attachment["location"]), :filename => attachment[:name], :type => attachment["mime_type"]
+    loc = Rails.root.join("public", "attachments") + attachment["location"].split('/').last; 
+    send_data File.read(loc), :filename => attachment[:name], :type => attachment["mime_type"]
   end
 
   def remove_attachment
