@@ -14,7 +14,7 @@ module ProjectHelper
     value = @project.properties[property.key]
 
     return text_area_tag name, value, :rows => "4", :cols => "20" if (property.type == "comment_string")
-    return select_tag name, options_for_select(property.allowed_values, value) if(property.type == "list")
+    return select_tag name, options_for_select([""] + property.allowed_values, value) if(property.type == "list")
     text_field_tag name, value, options
   end
 
