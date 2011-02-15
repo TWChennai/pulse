@@ -43,4 +43,10 @@ describe ProjectHelper do
               select_tag("project[project_properties[124]]", options_for_select([""] + allowed_values, "B"))
     end
   end
+  describe "errors" do
+    it "should concatenate error messages" do
+      errors = ["error 1", "error 2", "error 3"]
+      concatenate_errors(errors).should == "error 1,<br>error 2,<br>error 3"
+    end
+  end
 end

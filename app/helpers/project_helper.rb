@@ -28,4 +28,8 @@ module ProjectHelper
       link_to "Reopen Project", reopen_project_path(@project.id), :confirm => "Are you Sure?"
     end
   end
+
+  def concatenate_errors(errors)
+    errors.join(",<br>")
+  end
 end

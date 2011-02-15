@@ -7,6 +7,7 @@ class Project < CouchRest::ExtendedDocument
   end
 
   TYPES = [[Project::ISAlive::OPEN, true], [Project::ISAlive::CLOSED, false]]
+  MANDATORY_PROJECT_PROPERTIES = ["engagement_model", "development_languages_used", "client", "pm", "dm", "cp", "dp", "region", "delivery_status", "client_category", "engagement_status"]
 
   property :metrics
   property :project_properties
@@ -83,7 +84,7 @@ class Project < CouchRest::ExtendedDocument
 
   def check_project_properties
     errors = []
-    ["engagement_model", "development_languages_used", "client", "pm", "dm", "cp", "dp", "region", "delivery_status", "client_category", "engagement_status"].each do |prop|
+    MANDATORY_PROJECT_PROPERTIES.each do |prop|
       errors << "#{prop.humanize} must not be blank" if self.project_properties[prop].blank?
     end
     errors.empty? ? true : [false, errors]

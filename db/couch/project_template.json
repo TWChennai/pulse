@@ -202,7 +202,7 @@
         "tracked":"yes",
         "order":"25",
         "type":"string",
-        "description":"PM",
+        "description":"Project Manager",
         "key":"pm",
         "couchrest-type":"ProjectProperty"
     },
@@ -211,7 +211,7 @@
         "tracked":"yes",
         "order":"26",
         "type":"string",
-        "description":"DM",
+        "description":"Delivery Manager",
         "key":"dm",
         "couchrest-type":"ProjectProperty"
     },
@@ -220,7 +220,7 @@
         "tracked":"yes",
         "order":"27",
         "type":"string",
-        "description":"CP",
+        "description":"Client Principal",
         "key":"cp",
         "couchrest-type":"ProjectProperty"
     },
@@ -229,7 +229,7 @@
         "tracked":"yes",
         "order":"28",
         "type":"string",
-        "description":"DP",
+        "description":"Delivery Principal",
         "key":"dp",
         "couchrest-type":"ProjectProperty"
     },
@@ -238,7 +238,7 @@
         "tracked":"yes",
         "order":"29",
         "type":"list",
-        "description":"Region",
+        "description":"Sales Region",
         "key":"region",
         "allowed_values": ["Am E", "Am W", "Eu", "Oz"],
         "couchrest-type":"ProjectProperty"

@@ -1,19 +1,26 @@
 <h3>Project Properties</h3>
 <br/>
 <div class='property_field'>
-	<label for='project_name'>Project Name <span></span></label>
-  <%= text_field_tag "project[name]", @project.name %>
+    <label for='project_name'>Project Name<span class="mandatory_field">*</span></label>
+    <%= text_field_tag "project[name]", @project.name %>
 </div>
 <div class='property_field'>
-	<label for="project_location">Project Location <span>Location or Account as applicable</span></label>
-	<%= text_field_tag "project[location]",@project.location%>
+    <label for="project_location">Project Location
+        <span class="description">Location or Account as applicable</span>
+    </label>
+    <%= text_field_tag "project[location]", @project.location %>
 </div>
 <% @project_template.properties_group.each do |property| %>
-	<% if property.tracked == "yes" %>
-		<div id ="<%=property.key.gsub(/ +/,'_')%>" class="property_field">
-				<label for='project_project_properties_<%=property.key.gsub(/ +/,'_')%>'><%= property.name %> <span><%= property.description %></span></label>
-        <%= generate_form_tag_for_property(property, form) %>
-		</div>
-	<% end %>
+    <% if property.tracked == "yes" %>
+        <div id="<%= property.key.gsub(/ +/, '_') %>" class="property_field">
+            <label for='project_project_properties_<%= property.key.gsub(/ +/, '_') %>'><%= property.name %>
+                <% if Project::MANDATORY_PROJECT_PROPERTIES.include?(property.key) %>
+                    <span class="mandatory_field">*</span>
+                <% end %>
+                <span class="description"><%= property.description %></span>
+            </label>
+            <%= generate_form_tag_for_property(property, form) %>
+        </div>
+    <% end %>
 <% end %>
 <div class="clear"></div>

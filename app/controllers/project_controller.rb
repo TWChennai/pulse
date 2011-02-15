@@ -37,7 +37,7 @@ class ProjectController < ApplicationController
         @project.save
         redirect_to(@project)
     else
-        flash[:errors] = @project.errors
+        flash[:errors] = @project.errors.full_messages
         redirect_to(:action => "new")
     end
   end

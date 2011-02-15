@@ -325,9 +325,14 @@ table td.project_column_header {
     width: 35%
 }
 
-.property_field label span, .metric_field label span {
+.property_field label span.description, .metric_field label span {
     display: block;
     color: #aaa
+}
+
+.property_field label span.mandatory_field {
+    color: #CC0000;
+    padding: 0 0 5px 5px;
 }
 
 .metric_group {
@@ -417,6 +422,10 @@ ul.metrics_options li {
     margin: 0 53% 20px 0;
     padding: 2px 5px;
     background-color: #FFE5E5;
+}
+
+.content_wrapper .error {
+    margin: 0;    
 }
 
 .feedback_form .success {
