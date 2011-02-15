@@ -62,7 +62,14 @@ class DataFactory
     end
 
     def properties
-      {"iteration_duration"=>"hj", "non_tenured_twers"=>"hj", "tenured_twers"=>"jh", "averate_estimate_per_story"=>"hj", "sow_signed"=>"04/21/2010", "average_team_size"=>"jh", "senior_consultants"=>"jh", "consultants"=>"hj", "no_of_stories"=>"hj", "team_ratio"=>"jhjh", "discrete_teams_project"=>"jhj", "project_duration"=>"jhjh", "cri_classification"=>"jhjh", "development_languages_used"=>"jhhj", "last_da_review"=>"04/22/2010", "project_start_date"=>"04/22/2010", "project_name"=>"& S&S", "team_size"=>"hj", "units_of_estimation"=>"jh", "onsite_offsite_mix"=>"jjhjh", "engagement_model"=>"jhj", "location"=>"jdsa"}
+      {"iteration_duration"=>"hj", "non_tenured_twers"=>"hj", "tenured_twers"=>"jh", "averate_estimate_per_story"=>"hj",
+        "sow_signed"=>"04/21/2010", "average_team_size"=>"jh", "senior_consultants"=>"jh", "consultants"=>"hj",
+         "no_of_stories"=>"hj", "team_ratio"=>"jhjh", "discrete_teams_project"=>"jhj", "project_duration"=>"jhjh",
+          "cri_classification"=>"jhjh", "development_languages_used"=>"jhhj", "last_da_review"=>"04/22/2010",
+           "project_start_date"=>"04/22/2010", "project_name"=>"& S&S", "team_size"=>"hj", "units_of_estimation"=>"jh",
+            "onsite_offsite_mix"=>"jjhjh", "engagement_model"=>"jhj", "location"=>"jdsa", "delivery_status" => "Better",
+             "engagement_status" => "Steady", "cp" => "Julia", "dp" => "Don", "pm" => "Dan", "dm" => "hu", "client" => "Zee",
+              "client_category" => "Harvest", "region" => "Oz"}
     end
 
     def all_metrics

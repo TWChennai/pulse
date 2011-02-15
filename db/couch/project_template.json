@@ -254,9 +254,19 @@
         "couchrest-type":"ProjectProperty"
     },
     {
-        "name":"Client Category",
+        "name":"Engagement Status",
         "tracked":"yes",
         "order":"31",
+        "type":"list",
+        "description":"Trend",
+        "key":"engagement_status",
+        "allowed_values": ["Better", "Steady", "Worse"],
+        "couchrest-type":"ProjectProperty"
+    },
+    {
+        "name":"Client Category",
+        "tracked":"yes",
+        "order":"32",
         "type":"list",
         "description":"Category",
         "key":"client_category",
@@ -266,7 +276,7 @@
     {
         "name": "Notes",
         "tracked": "yes",
-        "order": "32",
+        "order": "33",
         "type": "comment_string",
         "description": "Notes",
         "key": "notes",
