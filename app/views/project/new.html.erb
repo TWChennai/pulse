@@ -1,8 +1,13 @@
 <div class="content_wrapper">
-	<h1>Create Project</h1>
-	<% form_for @project, :url => "/project" do |f| %>
-		<%= render :partial => "project_properties_form", :locals => {:form => f} %>
-		<%= render :partial => "project_metrics_form", :locals => {:form => f} %>
-		<div class="clear"><%= f.submit "Create New Project" %></div>
-	<% end %>
+    <h1>Create Project</h1>
+    <% if not flash[:errors].blank? %>
+        <% flash[:errors].each do |error| %>
+            <div class="error"><%= error %></div>
+        <% end %>
+    <% end %>
+    <% form_for @project, :url => "/project" do |f| %>
+        <%= render :partial => "project_properties_form", :locals => {:form => f} %>
+        <%= render :partial => "project_metrics_form", :locals => {:form => f} %>
+        <div class="clear"><%= f.submit "Create New Project" %></div>
+    <% end %>
 </div>

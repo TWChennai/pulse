@@ -33,8 +33,13 @@ class ProjectController < ApplicationController
 
   def create
     @project = Project.new(project_hash_from_params)
-    @project.save
-    redirect_to(@project)
+    if @project.valid?
+        @project.save
+        redirect_to(@project)
+    else
+        flash[:errors] = @project.errors
+        redirect_to(:action => "new")
+    end
   end
 
   def update

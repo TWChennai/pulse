@@ -410,7 +410,8 @@ ul.metrics_options li {
     margin: 5px auto;
 }
 
-.feedback_form .error {
+.feedback_form .error,
+.content_wrapper .error {
     border: 1px solid #CC0000;
     color: #CC0000;
     margin: 0 53% 20px 0;

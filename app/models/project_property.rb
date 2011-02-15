@@ -1,4 +1,4 @@
-class Property <CouchRest::ExtendedDocument
+class ProjectProperty <CouchRest::ExtendedDocument
   property :name
   property :tracked
   property :description

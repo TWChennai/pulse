@@ -1,4 +1,5 @@
 class Project < CouchRest::ExtendedDocument
+  include CouchRest::Validation
   use_database COUCHDB_SERVER
   module ISAlive
     OPEN = "Open"
@@ -8,7 +9,7 @@ class Project < CouchRest::ExtendedDocument
   TYPES = [[Project::ISAlive::OPEN , true], [Project::ISAlive::CLOSED,false]]
 
   property :metrics
-  property :properties
+  property :project_properties
 
   property :additional_metrics, :cast_as => [MetricData]
 
@@ -77,9 +78,10 @@ class Project < CouchRest::ExtendedDocument
       }"
   
       
+      validates_presence_of :name
 
       def initialize(*args)
-        self.properties = {}
+        self.project_properties = {}
         self.metrics = []
         self.iterations = []
         self.risks = []
@@ -125,7 +127,7 @@ class Project < CouchRest::ExtendedDocument
             :key => property.key,
             :name => property.name,
             :description => property.description, 
-            :value => self.properties[property.key]
+            :value => self.project_properties[property.key]
           }
         end
       end

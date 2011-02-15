@@ -20,9 +20,9 @@ describe ProjectController do
     integrate_views
     it "should save notes when a new project is created" do
       0 == Project.count()
-      post :create, :project => {"location" => "chennai", "properties" => {"notes" => "new note"}}
+      post :create, :project => {"location" => "chennai", "project_properties" => {"notes" => "new note"}}
       1 == Project.count()
-      "new note" == Project.first.properties["notes"]
+      "new note" == Project.first.project_properties["notes"]
 
     end
   end

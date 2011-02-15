@@ -13,7 +13,7 @@ module CSVAdapter
         csv << [@project.name]
         csv << []
         csv << []
-        properties(csv)
+        project_properties(csv)
         csv << []
         csv << []
         iterations(csv)
@@ -22,7 +22,7 @@ module CSVAdapter
     
     private
     def properties(csv)
-      @project.properties.each do |key, value|
+      @project.project_properties.each do |key, value|
         csv << [key, value]
       end
     end

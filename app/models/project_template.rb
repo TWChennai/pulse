@@ -4,7 +4,7 @@ class ProjectTemplate < CouchRest::ExtendedDocument
   DESIGN_DOC = "_design/template"
 
   property :metrics_group, :cast_as => [MetricGroup]
-  property :properties_group, :cast_as => [Property]
+  property :properties_group, :cast_as => [ProjectProperty]
   property :risk_types, :cast_as => [Metric]
   property :name
 

@@ -6,7 +6,7 @@
         "type":"text",
         "description":"\tYes / No - Add description if applicable",
         "key":"sow_signed",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Project Start Date",
@@ -15,7 +15,7 @@
         "type":"date",
         "description":"",
         "key":"project_start_date",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Last DA Review",
@@ -24,7 +24,7 @@
         "type":"date",
         "description":"Date of the last Delivery Assurance Review ",
         "key":"last_da_review",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Engagement Model",
@@ -33,7 +33,7 @@
         "type":"string",
         "description":"\tT&M, Fixed Bid, Capped T&M, Risk & Reward",
         "key":"engagement_model",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Onsite/Offshore Mix",
@@ -42,7 +42,7 @@
         "type":"string",
         "description":"\tRatio of team members onsite to offshore ",
         "key":"onsite_offsite_mix",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"CRI Classification",
@@ -51,7 +51,7 @@
         "type":"string",
         "description":"\tTactical / Target / Harvest / Best / Grow ",
         "key":"cri_classification",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Project Duration",
@@ -60,7 +60,7 @@
         "type":"string",
         "description":"\tPeriod of Project in weeks",
         "key":"project_duration",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Discrete Teams/Project ",
@@ -69,7 +69,7 @@
         "type":"string",
         "description":"No of Discrete Teams in the Project",
         "key":"discrete_teams_project",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Average Team\n    Size",
@@ -78,7 +78,7 @@
         "type":"string",
         "description":"\tTeam size for most part of the project ",
         "key":"average_team_size",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Units Of Estimation",
@@ -87,7 +87,7 @@
         "type":"string",
         "description":"\t(eg. Points, T-shirt sizes) ",
         "key":"units_of_estimation",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"No of Stories",
@@ -96,7 +96,7 @@
         "type":"string",
         "description":"Total Number of stories identified",
         "key":"no_of_stories",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Average Estimate Per Story",
@@ -105,7 +105,7 @@
         "type":"string",
         "description":"Average of all the estimates per story",
         "key":"averate_estimate_per_story",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Development Languages Used",
@@ -114,7 +114,7 @@
         "type":"string",
         "description":"Languages / Platform / Technology",
         "key":"development_languages_used",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Team size",
@@ -123,7 +123,7 @@
         "type":"string",
         "description":"Total Size Of The Team",
         "key":"team_size",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"No of Tenured Thoughtworkers",
@@ -132,7 +132,7 @@
         "type":"string",
         "description":"\tNo of people with TW Experience of atleast 1 year ",
         "key":"tenured_twers",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"No of non Tenured Thoughtworkers",
@@ -141,7 +141,7 @@
         "type":"string",
         "description":"\tNo of people with TW Experience less than a year ",
         "key":"non_tenured_twers",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Grade Composition",
@@ -150,7 +150,7 @@
         "type":"string",
         "description":"Number of consultants/senior/lead in the team",
         "key":"senior_consultants",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Iteration Duration",
@@ -159,7 +159,7 @@
         "type":"string",
         "description":"Length Of iteration in weeks",
         "key":"iteration_duration",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Last TA review ",
@@ -168,7 +168,7 @@
         "type":"date",
         "description":"Date of last Technical Assurance review",
         "key":"last_ta_review",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Business Value / Production Release",
@@ -177,7 +177,7 @@
         "type":"string",
         "description":"Business Value Delivered Per Production Release",
         "key":"business_value",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"No. Of Non-Billable People In The Project",
@@ -186,7 +186,7 @@
         "type":"string",
         "description":"Number Of Non Billable People In The Project",
         "key":"non_billable_people",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Client",
@@ -195,7 +195,7 @@
         "type":"string",
         "description":"Client name",
         "key":"client",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"PM",
@@ -204,7 +204,7 @@
         "type":"string",
         "description":"PM",
         "key":"pm",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"DM",
@@ -213,7 +213,7 @@
         "type":"string",
         "description":"DM",
         "key":"dm",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"CP",
@@ -222,7 +222,7 @@
         "type":"string",
         "description":"CP",
         "key":"cp",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"DP",
@@ -231,7 +231,7 @@
         "type":"string",
         "description":"DP",
         "key":"dp",
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Region",
@@ -241,7 +241,7 @@
         "description":"Region",
         "key":"region",
         "allowed_values": ["Am E", "Am W", "Eu", "Oz"],
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Delivery Status",
@@ -251,7 +251,7 @@
         "description":"Trend",
         "key":"delivery_status",
         "allowed_values": ["Better", "Steady", "Worse"],
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name":"Client Category",
@@ -261,7 +261,7 @@
         "description":"Category",
         "key":"client_category",
         "allowed_values": ["Best", "Grow", "Harvest", "SIP tactical", "Tactical", "Target"],
-        "couchrest-type":"Property"
+        "couchrest-type":"ProjectProperty"
     },
     {
         "name": "Notes",
@@ -270,7 +270,7 @@
         "type": "comment_string",
         "description": "Notes",
         "key": "notes",
-        "couchrest-type": "Property"
+        "couchrest-type": "ProjectProperty"
     }
 ],"metrics_group":[
     {

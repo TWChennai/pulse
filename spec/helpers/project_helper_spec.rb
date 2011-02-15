@@ -29,18 +29,18 @@ describe ProjectHelper do
   end
   describe "should generate appropriate form tags" do
     it "should generate text area if property type is comment_string" do
-      generate_form_tag_for_property(Property.new(:key => "124", :type => "comment_string"), nil).should ==
-              text_area_tag("project[properties[124]]", nil, :rows => "4", :cols => "20")
+      generate_form_tag_for_property(ProjectProperty.new(:key => "124", :type => "comment_string"), nil).should ==
+              text_area_tag("project[project_properties[124]]", nil, :rows => "4", :cols => "20")
     end
     it "should generate text field if property type is string" do
-      generate_form_tag_for_property(Property.new(:key => "124", :type => "string"), nil).should ==
-              text_field_tag("project[properties[124]]", nil)
+      generate_form_tag_for_property(ProjectProperty.new(:key => "124", :type => "string"), nil).should ==
+              text_field_tag("project[project_properties[124]]", nil)
     end
     it "should generate combo with values if property type is list" do
       allowed_values = ["A", "B"]
-      @project.properties["124"] = "B"
-      generate_form_tag_for_property(Property.new(:key => "124", :type => "list", :allowed_values => allowed_values), nil).should ==
-              select_tag("project[properties[124]]", options_for_select([""] + allowed_values, "B"))
+      @project.project_properties["124"] = "B"
+      generate_form_tag_for_property(ProjectProperty.new(:key => "124", :type => "list", :allowed_values => allowed_values), nil).should ==
+              select_tag("project[project_properties[124]]", options_for_select([""] + allowed_values, "B"))
     end
   end
 end
