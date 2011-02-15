@@ -36,5 +36,11 @@ describe ProjectHelper do
       generate_form_tag_for_property(Property.new(:key => "124", :type => "string"), nil).should ==
               text_field_tag("project[properties[124]]", nil)
     end
+    it "should generate combo with values if property type is list" do
+      allowed_values = ["A", "B"]
+      @project.properties["124"] = "B"
+      generate_form_tag_for_property(Property.new(:key => "124", :type => "list", :allowed_values => allowed_values), nil).should ==
+              select_tag("project[properties[124]]", options_for_select(allowed_values, "B"))
+    end
   end
 end

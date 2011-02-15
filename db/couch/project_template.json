@@ -189,9 +189,84 @@
         "couchrest-type":"Property"
     },
     {
+        "name":"Client",
+        "tracked":"yes",
+        "order":"24",
+        "type":"string",
+        "description":"Client name",
+        "key":"client",
+        "couchrest-type":"Property"
+    },
+    {
+        "name":"PM",
+        "tracked":"yes",
+        "order":"25",
+        "type":"string",
+        "description":"PM",
+        "key":"pm",
+        "couchrest-type":"Property"
+    },
+    {
+        "name":"DM",
+        "tracked":"yes",
+        "order":"26",
+        "type":"string",
+        "description":"DM",
+        "key":"dm",
+        "couchrest-type":"Property"
+    },
+    {
+        "name":"CP",
+        "tracked":"yes",
+        "order":"27",
+        "type":"string",
+        "description":"CP",
+        "key":"cp",
+        "couchrest-type":"Property"
+    },
+    {
+        "name":"DP",
+        "tracked":"yes",
+        "order":"28",
+        "type":"string",
+        "description":"DP",
+        "key":"dp",
+        "couchrest-type":"Property"
+    },
+    {
+        "name":"Region",
+        "tracked":"yes",
+        "order":"29",
+        "type":"list",
+        "description":"Region",
+        "key":"region",
+        "allowed_values": ["Am E", "Am W", "Eu", "Oz"],
+        "couchrest-type":"Property"
+    },
+    {
+        "name":"Delivery Status",
+        "tracked":"yes",
+        "order":"30",
+        "type":"list",
+        "description":"Trend",
+        "key":"delivery_status",
+        "allowed_values": ["Better", "Steady", "Worse"],
+        "couchrest-type":"Property"
+    },
+    {
+        "name":"Client Category",
+        "tracked":"yes",
+        "order":"31",
+        "type":"list",
+        "description":"Category",
+        "key":"client_category",
+        "allowed_values": ["Best", "Grow", "Harvest", "SIP tactical", "Tactical", "Target"],
+        "couchrest-type":"Property"
+    },
+    {
         "name": "Notes",
         "tracked": "yes",
-        "order": "22",
+        "order": "32",
         "type": "comment_string",
         "description": "Notes",
         "key": "notes",

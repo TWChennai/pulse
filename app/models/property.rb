@@ -6,4 +6,5 @@ class Property <CouchRest::ExtendedDocument
   property :value
   property :order
   property :key
+  property :allowed_values
 end

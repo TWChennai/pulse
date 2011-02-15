@@ -10,11 +10,12 @@ module ProjectHelper
   def generate_form_tag_for_property(property, form)
     options = {}
     options[:class] = "datepicker" if property.type == "date"
-    if (property.type == "comment_string")
-      text_area_tag "project[properties[#{property.key}]]", @project.properties[property.key], :rows => "4", :cols => "20"
-    else
-      text_field_tag "project[properties[#{property.key}]]", @project.properties[property.key], options
-    end
+    name = "project[properties[#{property.key}]]"
+    value = @project.properties[property.key]
+
+    return text_area_tag name, value, :rows => "4", :cols => "20" if (property.type == "comment_string")
+    return select_tag name, options_for_select(property.allowed_values, value) if(property.type == "list")
+    text_field_tag name, value, options
   end
 
   def show_project_status
