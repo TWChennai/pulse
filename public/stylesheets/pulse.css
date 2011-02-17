@@ -476,6 +476,10 @@ table#iteration_detail .comment {
     margin: 15px 0 0 15px;    
 }
 
+#dm_notes_form select {
+    margin: 0 0 5px 15px;    
+}
+
 .margin_left_20px {
     margin-left: 20px;
 }
@@ -518,5 +522,5 @@ div.label {
 }
 
 .date_filter {
-    padding: 15px 0 5px;
+    padding: 20px 0 5px;
 }

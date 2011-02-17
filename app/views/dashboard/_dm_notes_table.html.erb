@@ -1,4 +1,4 @@
-<table id="dm_notes_view "class="dm_notes_view">
+<table id="dm_notes_view" class="dm_notes_view">
     <thead>
     <tr>
         <th>Notes</th>
@@ -7,20 +7,17 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>This is a sample note from Chennai DM</td>
-        <td>Chennai</td>
-        <td>01-01-2011</td>
-    </tr>
-    <tr>
-        <td>This is a sample note from Pune DM</td>
-        <td>Pune</td>
-        <td>21-01-2011</td>
-    </tr>
-    <tr>
-        <td>This is a sample note from Delhi DM</td>
-        <td>Delhi</td>
-        <td>13-02-2011</td>
-    </tr>
+    <% @dm_notes.each do |dm_note| %>
+        <tr>
+            <td><%= dm_note.note %></td>
+            <td><%= dm_note.location %></td>
+            <td><%= dm_note.created_at %></td>
+        </tr>
+    <% end %>
     </tbody>
 </table>
+<script type="text/javascript">
+    $('#dm_notes_view').dataTable({"bAutoWidth": false, "aaSorting": [
+        [ 0, "desc" ]
+    ]});    
+</script>

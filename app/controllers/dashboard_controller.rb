@@ -19,10 +19,13 @@ class DashboardController < ApplicationController
   end
 
   def dm_notes
-    render :template => false  
+    @dm_notes = DMNote.view("by_created_at")
+    render :template => false
   end
 
   def add_dm_note
+    DMNote.create(:note => params["dm_notes"], :location => params["dm_notes_location"])
+    @dm_notes = DMNote.view("by_created_at")
     render :partial => 'dm_notes_table'
   end
 
