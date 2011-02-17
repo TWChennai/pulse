@@ -444,6 +444,10 @@ table#iteration_detail .comment {
     float: left;
 }
 
+.float_right {
+    float: right;
+}
+
 .margin_left_22px {
     margin-left: 22px;
 }
@@ -461,6 +465,15 @@ table#iteration_detail .comment {
     height: 22px;
     width: 22px;
     margin: 0 auto;
+}
+
+.dm_notes {
+    margin: 5px 15px;    
+}
+
+.dm_notes_label {
+    display: block;
+    margin: 15px 0 0 15px;    
 }
 
 .margin_left_20px {
@@ -502,4 +515,8 @@ div.label {
 
 .margin_top_10px{
  margin-top:10px;
+}
+
+.date_filter {
+    padding: 15px 0 5px;
 }

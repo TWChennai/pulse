@@ -1,0 +1,22 @@
+<% form_tag '/add_dm_note', :id => 'dm_notes_form' do %>
+    <%= label_tag 'dm_notes_label', 'Notes :', :class => 'dm_notes_label' %>
+    <%= text_area_tag 'dm_notes', nil, :class => 'dm_notes', :rows => 10, :cols => 100 %>
+    <%= submit_tag 'Add Notes', :class => 'dm_notes_label', :id=> "frm_btn" %>
+<% end %>
+<div class="date_filter">
+    View Notes from <%= text_field_tag "from_date", Date.today, :class=>"datepicker" %>
+    till <%= text_field_tag "to_date", Date.today, :class=>"datepicker" %>
+</div>
+<%= render :partial => 'dm_notes_table' %>
+<script type="text/javascript">
+    $('#dm_notes_form').submit(function(){
+        $(this).ajaxSubmit({
+            target: '#dm_notes_view'
+        });
+        return false;
+    });
+    $('.dm_notes_view').dataTable({"bAutoWidth": false, "aaSorting": [
+        [ 0, "desc" ]
+    ]});
+    $(".datepicker").datepicker();
+</script>

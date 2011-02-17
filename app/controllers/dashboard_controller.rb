@@ -17,6 +17,15 @@ class DashboardController < ApplicationController
 
     send_data CSVAdapter::ProjectDashboard.new(@projects_dashboard,@week_ending_date).to_csv, :filename => "#{@week_ending_date}.csv"
   end
+
+  def dm_notes
+    render :template => false  
+  end
+
+  def add_dm_note
+    render :partial => 'dm_notes_table'
+  end
+
   private
   def week_ending_date
     (Date.today.end_of_week - 9.days).strftime("%m/%d/%Y")

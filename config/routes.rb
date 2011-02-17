@@ -24,7 +24,9 @@ ActionController::Routing::Routes.draw do |map|
 
   map.dashboard_for_a_date '/dashboard/week_ending', :controller => :dashboard, :action => :index
   map.metric_view '/metric', :controller => :metrics, :action => :index 
-  
+  map.dm_notes '/dashboard/dm_notes', :controller => :dashboard, :action => :dm_notes
+  map.add_dm_note '/add_dm_note', :controller => :dashboard, :action => :add_dm_note
+
   map.root :controller => :dashboard, :action => :index
   
   map.connect ':controller/:action/:id'
