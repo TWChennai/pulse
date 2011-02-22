@@ -17,7 +17,7 @@ module CSVAdapter
         get_metrics_view_header(csv)
         get_metrics_view_data(csv)
       end
-    end
+    end                                   
     
     private
     

@@ -7,11 +7,13 @@
 <% end %>
 <div class="date_filter">
     <% form_tag '/filter_notes_by_date', :id => 'date_filter_form' do %>
-        View Notes from <%= text_field_tag "from_date", nil, :class=>"datepicker"%>
-        till <%= text_field_tag "to_date", nil, :class=>"datepicker"%>
+        View Notes from <%= text_field_tag "from_date", nil, :class=>"datepicker", :id => "from_date" %>
+        till <%= text_field_tag "to_date", nil, :class=>"datepicker", :id => "to_date" %>
         <%= submit_tag "Go" %>
     <% end %>
 </div>
+<%= link_to "Export as Excel", "#", :id => "export_dm_notes_to_excel" %>
+
 <div id="dm_notes_table"><%= render :partial => 'dm_notes_table' %></div>
 <script type="text/javascript">
     $('#dm_notes_form').submit(function() {
@@ -21,11 +23,16 @@
         $("#dm_notes").value = "";
         return false;
     });
-    $(".datepicker").datepicker();
+    $(".datepicker").datepicker({dateFormat: "dd-mm-yy"});
     $("#date_filter_form").submit(function() {
+
         $(this).ajaxSubmit({
             target: '#dm_notes_table'
         });
         return false;
+    });
+    $("#export_dm_notes_to_excel").click(function(e) {
+        e.preventDefault();
+        window.location.href = "dashboard/export_dm_notes/" + $("#from_date").val() + "/" + $("#to_date").val();
     });
 </script>

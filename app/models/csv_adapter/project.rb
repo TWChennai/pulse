@@ -9,17 +9,29 @@ module CSVAdapter
     end
     
     def to_csv
-      csv_stream do |csv|
+      Project.csv_stream do |csv|
         csv << [@project.name]
         csv << []
         csv << []
-        project_properties(csv)
+        properties(csv)
         csv << []
         csv << []
         iterations(csv)
       end
     end
-    
+
+    def self.csv_stream
+      stream = out_stream
+      CSV::Writer.generate(stream) do |csv|
+        yield(csv)
+      end
+      stream
+    end
+
+    def self.out_stream
+      ""
+    end
+
     private
     def properties(csv)
       @project.project_properties.each do |key, value|
@@ -34,18 +46,6 @@ module CSVAdapter
         csv << (["Comment"] + iteration.metrics.collect(&:comment))
         csv << []
       end
-    end
-
-    def csv_stream
-      stream = out_stream
-      CSV::Writer.generate(stream) do |csv|
-        yield(csv)
-      end
-      stream
-    end
-
-    def out_stream
-      String.new
     end
 
   end

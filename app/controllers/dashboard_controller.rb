@@ -19,6 +19,17 @@ class DashboardController < ApplicationController
     send_data CSVAdapter::ProjectDashboard.new(@projects_dashboard,@week_ending_date).to_csv, :filename => "#{@week_ending_date}.csv"
   end
 
+  def export_dm_notes_to_csv
+    notes = DMNote.filter_by_date(Date.parse(params["to_date"]), Date.parse(params["from_date"]))
+    csv = CSVAdapter::Project.csv_stream do |csv|
+      csv << ["DM Notes"]
+      notes.each do |note|
+        csv << [note.note, note.location]
+      end
+    end
+    send_data csv , :filename => "dm_notes_from_#{params["from_date"]}_to_#{params["to_date"]}.csv"
+  end
+
   def dm_notes
     @dm_notes = DMNote.view("by_created_at")
     render :template => false
