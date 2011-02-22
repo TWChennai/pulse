@@ -26,6 +26,7 @@ ActionController::Routing::Routes.draw do |map|
   map.metric_view '/metric', :controller => :metrics, :action => :index 
   map.dm_notes '/dashboard/dm_notes', :controller => :dashboard, :action => :dm_notes
   map.add_dm_note '/add_dm_note', :controller => :dashboard, :action => :add_dm_note
+  map.filter_notes_by_date '/filter_notes_by_date', :controller => :dashboard, :action => :filter_notes_by_date
 
   map.root :controller => :dashboard, :action => :index
   

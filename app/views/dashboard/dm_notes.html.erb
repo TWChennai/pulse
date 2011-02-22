@@ -3,15 +3,18 @@
     <%= text_area_tag 'dm_notes', nil, :class => 'dm_notes', :rows => 10, :cols => 100 %>
     <%= label_tag 'dm_notes_label', 'Location :', :class => 'dm_notes_label' %>
     <%= select_tag 'dm_notes_location', options_for_select(["Chennai", "Pune", "Gurgaon", "Bangalore 1", "Bangalore 2"]) %>
-    <%= submit_tag 'Add Notes', :class => 'dm_notes_label', :id=> "frm_btn" %>
+    <%= submit_tag 'Add Notes', :class => 'dm_notes_label' %>
 <% end %>
 <div class="date_filter">
-    View Notes from <%= text_field_tag "from_date", Date.today, :class=>"datepicker" %>
-    till <%= text_field_tag "to_date", Date.today, :class=>"datepicker" %>
+    <% form_tag '/filter_notes_by_date', :id => 'date_filter_form' do %>
+        View Notes from <%= text_field_tag "from_date", nil, :class=>"datepicker"%>
+        till <%= text_field_tag "to_date", nil, :class=>"datepicker"%>
+        <%= submit_tag "Go" %>
+    <% end %>
 </div>
-<div id ="dm_notes_table"><%= render :partial => 'dm_notes_table' %></div>
+<div id="dm_notes_table"><%= render :partial => 'dm_notes_table' %></div>
 <script type="text/javascript">
-    $('#dm_notes_form').submit(function(){
+    $('#dm_notes_form').submit(function() {
         $(this).ajaxSubmit({
             target: '#dm_notes_table'
         });
@@ -19,4 +22,10 @@
         return false;
     });
     $(".datepicker").datepicker();
+    $("#date_filter_form").submit(function() {
+        $(this).ajaxSubmit({
+            target: '#dm_notes_table'
+        });
+        return false;
+    });
 </script>
