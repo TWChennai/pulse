@@ -4,6 +4,7 @@ class Iteration < CouchRest::ExtendedDocument
   property :date
   property :metrics, :cast_as => [Metric]
   property :notes
+  property :dm_notes
 
   def mandatory_metrics
     @mandatory_metrics = []

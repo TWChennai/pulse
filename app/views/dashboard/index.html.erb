@@ -13,7 +13,6 @@
             <%= submit_tag "Go" %>
         <% end %>
     </div>
-    <div class="float_right"><%= link_to "Add DM Notes", dm_notes_path(:height => 700, :width => 1000), :class => :thickbox %></div>
     <div class="clear"></div>
     <% if  @projects_dashboard.size > 0 %>
         <%= link_to "Export as Excel", export_project_dashboard_as_csv_path(Time.parse(@week_ending_date).to_i, :status => @project_status) %>

@@ -2,32 +2,31 @@
 
     <%= render :partial => "iteration_details", :locals => {:iteration => @iteration, :metrics => @iteration.metrics} %>
     <div id="attachments">
-	<ul>
-		<% @iteration.file_attachments.each do |attachment| %>
-			<li>
-				<%= link_to attachment["name"], iteration_attachment_url(@project.id, params[:index], attachment["name"])%>
-				--
-				<%= link_to "Remove Attachment", remove_iteration_attachment_url(@project.id, params[:index], attachment["name"]), :class => "remove_attachment" %>
-			</li>
-		<% end %>
-	</ul>
-	<a class="add" href="#">Add attachment</a>	
-</div>
+        <ul>
+            <% @iteration.file_attachments.each do |attachment| %>
+                <li>
+                    <%= link_to attachment["name"], iteration_attachment_url(@project.id, params[:index], attachment["name"]) %>
+                    --
+                    <%= link_to "Remove Attachment", remove_iteration_attachment_url(@project.id, params[:index], attachment["name"]), :class => "remove_attachment" %>
+                </li>
+            <% end %>
+        </ul>
+        <a class="add" href="#">Add attachment</a>
+    </div>
 
-
-<%= submit_tag "Update Iteration Information"%>
+    <%= submit_tag "Update Iteration Information" %>
 <% end %>
 
 <script type="text/javascript">
-	Attachment.init();
-	$(".datepicker").datepicker();
-	$(".remove_attachment").click(function(){
-		var link = this;
-		$.get(link.href, function(data){
-			if("success" == data){
-				$(link).parent().remove();
-			}
-		});
-		return false;
-	});
+    Attachment.init();
+    $(".datepicker").datepicker();
+    $(".remove_attachment").click(function() {
+        var link = this;
+        $.get(link.href, function(data) {
+            if ("success" == data) {
+                $(link).parent().remove();
+            }
+        });
+        return false;
+    });
 </script>

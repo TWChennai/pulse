@@ -8,7 +8,6 @@ ActionController::Routing::Routes.draw do |map|
   map.submit_feedback '/feedback/submit', :controller =>:feedback , :action => :submit
   map.export_project_as_csv '/project/:id/export', :controller => :project, :action => :export_as_csv
   map.export_project_dashboard_as_csv '/dashboard/:date/export', :controller => :dashboard, :action => :export_to_csv
-  map.export_dm_notes_as_csv '/dashboard/export_dm_notes/:from_date/:to_date', :controller => :dashboard, :action => :export_dm_notes_to_csv
   map.export_metrics_view_to_csv '/metrics_view/:metric/:from_date/:to_date', :controller => :metrics, :action => :export_to_csv
   map.new_iteration '/project/:project_id/new_iteration', :controller  => :iteration, :action  => :new
   map.save_iteration '/project/:project_id/save_iteration', :controller => :iteration, :action => :save
@@ -25,9 +24,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.dashboard_for_a_date '/dashboard/week_ending', :controller => :dashboard, :action => :index
   map.metric_view '/metric', :controller => :metrics, :action => :index 
-  map.dm_notes '/dashboard/dm_notes', :controller => :dashboard, :action => :dm_notes
-  map.add_dm_note '/add_dm_note', :controller => :dashboard, :action => :add_dm_note
-  map.filter_notes_by_date '/filter_notes_by_date', :controller => :dashboard, :action => :filter_notes_by_date
+  map.filter_notes_by_date '/project/:project_id/filter_notes_by_date', :controller => :iteration, :action => :filter_notes_by_date
 
   map.root :controller => :dashboard, :action => :index
   

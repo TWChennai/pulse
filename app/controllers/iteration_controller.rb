@@ -11,6 +11,7 @@ class IterationController < ApplicationController
     iteration = Iteration.new(params[:iteration])
     iteration.file_attachments = params[:attachments] if params[:attachments]
     iteration.notes=params[:notes]
+    iteration.dm_notes=params[:dm_notes]
     @project.iterations << iteration
     @project.save!
     redirect_to(@project)
@@ -27,6 +28,7 @@ class IterationController < ApplicationController
     iteration = @project.iterations[params[:index].to_i]
     iteration.file_attachments = params[:attachments] if params[:attachments]
     iteration.notes=params[:notes]
+    iteration.dm_notes=params[:dm_notes]
     iteration.merge!(params[:iteration])
 
     @project.save!
