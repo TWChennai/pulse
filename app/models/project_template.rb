@@ -21,21 +21,11 @@ class ProjectTemplate < CouchRest::ExtendedDocument
   end
 
   def self.mandatory_metrics
-    ProjectTemplate.project_template.metrics_group.map do |metrics_group_from_template|
-      metrics_group = metrics_group_from_template.clone
-      metrics_group.data.select { |metric_hash|
-        metric_hash["mandatory"]
-      }
-    end.flatten
+   filter_metrics_by("mandatory", true)
   end
 
   def optional_metrics
-    ProjectTemplate.project_template.metrics_group.map do |metrics_group_from_template|
-      metrics_group = metrics_group_from_template.clone
-      metrics_group.data.select { |metric_hash|
-        metric_hash["mandatory"] == false
-      }
-    end.flatten
+    filter_metrics_by("mandatory", false)
   end
 
   def self.project_template
@@ -56,7 +46,7 @@ class ProjectTemplate < CouchRest::ExtendedDocument
 
   def self.user_input_risk_types_from_json
     user_input_risk_types = []
-    risk_types_from_json().each{ |risk_type|
+    risk_types_from_json().each { |risk_type|
       user_input_risk_types << risk_type if (risk_type['user-input'])
     }
     user_input_risk_types
@@ -75,4 +65,16 @@ class ProjectTemplate < CouchRest::ExtendedDocument
   end
 
   private_class_method :hash_from_json
+
+  private
+
+  def self.filter_metrics_by(attribute, value)
+    ProjectTemplate.project_template.metrics_group.map do |metrics_group_from_template|
+      metrics_group = metrics_group_from_template.clone
+      metrics_group.data.select { |metric_hash|
+        metric_hash[attribute] == value
+      }
+    end.flatten
+  end
+  
 end

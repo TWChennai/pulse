@@ -2,11 +2,12 @@ require 'csv'
 module CSVAdapter
   class MetricsView
 
-    def initialize(metric, project_metrics_data, week_range, projects_list)
+    def initialize(metric, project_metrics_data, week_range, projects_list, project_status)
       @metric = metric
       @metrics_data = project_metrics_data
       @week_range = week_range
       @all_projects = projects_list
+      @project_status = project_status
     end
     
     def to_csv
@@ -35,12 +36,16 @@ module CSVAdapter
         week_comment_data = []
         week_data << week
         week_comment_data = ["Comment"]
-        @all_projects.each do |project| 
-          week_data << project.metric_for_week(@metrics_data,@metric, week)[:value]
-          week_comment_data << project.metric_for_week(@metrics_data,@metric,week)[:comment]
+        dm_notes = ["DM Notes"]
+        @all_projects.each do |project|
+          project_metric_for_week = project.metric_for_week(@project_status, @metrics_data, @metric, week)
+          week_data << project_metric_for_week[:value]
+          week_comment_data << project_metric_for_week[:comment]
+          dm_notes << project_metric_for_week[:dm_notes]
         end
         csv << week_data
         csv << week_comment_data
+        csv << dm_notes
         csv << []
         csv << []
       end

@@ -9,7 +9,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2009-10-18 00:00:00 +05:30
+date: 2009-10-17 00:00:00 +05:30
 default_executable: rackup
 dependencies: 
 - !ruby/object:Gem::Dependency 

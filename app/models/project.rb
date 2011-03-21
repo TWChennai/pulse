@@ -7,7 +7,7 @@ class Project < CouchRest::ExtendedDocument
   end
 
   TYPES = [[Project::ISAlive::OPEN, true], [Project::ISAlive::CLOSED, false]]
-  MANDATORY_PROJECT_PROPERTIES = ["engagement_model", "development_languages_used", "client", "pm", "dm", "cp", "dp", "region", "delivery_status", "client_category", "engagement_status"]
+  MANDATORY_PROJECT_PROPERTIES = ["engagement_model", "development_languages_used", "client", "pm", "dm", "cp", "dp", "region", "delivery_status", "client_category"]
 
   property :metrics
   property :project_properties
@@ -70,7 +70,11 @@ class Project < CouchRest::ExtendedDocument
           for(store in doc.iterations) {
             if(doc.iterations[store].metrics) {
               for(metric in doc.iterations[store].metrics) {
-                emit([doc.isAlive, doc.iterations[store].metrics[metric].name,Date.parse(doc.iterations[store].date)/1000],[doc._id, doc.iterations[store].metrics[metric]])
+                var returnValue = [];
+                returnValue['comment'] = doc.iterations[store].metrics[metric].comment;
+                returnValue['value'] = doc.iterations[store].metrics[metric].value;
+                returnValue['dm_notes'] = doc.iterations[store].dm_notes;
+                emit([doc.isAlive, doc.iterations[store].metrics[metric].name,Date.parse(doc.iterations[store].date)/1000],[doc._id, returnValue])
               }
             }
           }
@@ -157,7 +161,8 @@ class Project < CouchRest::ExtendedDocument
         if metric_view["id"] == self.id
           return {
                   :comment => metric_view["value"][1]["comment"].downcase,
-                  :value => metric_view["value"][1]["value"].downcase
+                  :value => metric_view["value"][1]["value"].downcase,
+                  :dm_notes => metric_view["value"][1]["dm_notes"].downcase
           }
         end
       end

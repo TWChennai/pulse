@@ -22,7 +22,7 @@ class MetricsController < ApplicationController
     @project_status = (params[:status].nil? ? true : params[:status].to_bool)
     @projects_list = @project_status ? Project.open_projects : Project.closed_projects 
     @projects_metric_view = Project.view("by_metric", :startkey=>[@project_status,@metric, @from_date.to_time.to_i], :endkey=>[@project_status,@metric, @to_date.to_time.to_i] , :include_docs => false)
-    send_data CSVAdapter::MetricsView.new(@metric, @projects_metric_view,@week_range,@projects_list).to_csv, :filename => "metric.csv"
+    send_data CSVAdapter::MetricsView.new(@metric, @projects_metric_view,@week_range,@projects_list, @project_status).to_csv, :filename => "metric.csv"
   end
 
   private

@@ -14,7 +14,6 @@ class DashboardController < ApplicationController
     @project_status = (params[:status].nil? ? true : params[:status].to_bool) 
     @projects_dashboard = Project.project_dashboard(@project_status,@week_ending_date)
     @location_filter=(params[:location].nil? ? "all": params[:location] )
-    puts Project.project_dashboard(@project_status,@week_ending_date).inspect
 
     send_data CSVAdapter::ProjectDashboard.new(@projects_dashboard,@week_ending_date).to_csv, :filename => "#{@week_ending_date}.csv"
   end

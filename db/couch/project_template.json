@@ -254,16 +254,6 @@
         "couchrest-type":"ProjectProperty"
     },
     {
-        "name":"Engagement Status",
-        "tracked":"yes",
-        "order":"31",
-        "type":"list",
-        "description":"Trend",
-        "key":"engagement_status",
-        "allowed_values": ["Better", "Steady", "Worse"],
-        "couchrest-type":"ProjectProperty"
-    },
-    {
         "name":"Client Category",
         "tracked":"yes",
         "order":"32",
@@ -355,7 +345,7 @@
                 "name":"Customer Satisfaction",
                 "tracked":"yes",
                 "order":"8",
-                "mandatory":true,
+                "mandatory":false,
                 "description":"Is the customer satisfied about\n    the work?",
                 "key":"customer_satisfication",
                 "couchrest-type":"MetricData"
@@ -364,7 +354,7 @@
                 "name":"Team Satisfaction",
                 "tracked":"yes",
                 "order":"9",
-                "mandatory":true,
+                "mandatory":false,
                 "description":"Is the team satisfied about the work?",
                 "key":"team_satisfaction",
                 "couchrest-type":"MetricData"
@@ -377,6 +367,15 @@
                 "description":"Actual billed hours vs billable hours as percentage",
                 "key":"utilization_factor",
                 "couchrest-type":"MetricData"
+            },
+            {
+                "name":"Engagement Status",
+                "tracked":"yes",
+                "order":"11",
+                "mandatory":true,
+                "description":"Trend",
+                "key":"engagement_status",
+                "couchrest-type":"ProjectProperty"
             }
         ]
     },
