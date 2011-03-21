@@ -9,8 +9,10 @@ describe Project do
 
     it "should return mandatory metrics from template and metrics assigned for project" do
       this_project_metrics = DataFactory.non_mandatory_metrics[0..2]
-      project = DataFactory.project("metrics" => this_project_metrics)      
-      project.stuffed_metrics.map{|hash| hash["key"]}.should == DataFactory.mandatory_metrics + this_project_metrics
+      project = DataFactory.project("metrics" => this_project_metrics)
+      expected = project.stuffed_metrics.map { |hash| hash["key"]}
+      (DataFactory.mandatory_metrics + this_project_metrics).each{ |metric| expected.should include(metric) }
+      (DataFactory.mandatory_metrics + this_project_metrics).size.should == expected.size
     end
   end
   describe "project list" do
@@ -30,7 +32,7 @@ describe Project do
       project.errors.full_messages.flatten.should include("Name must not be blank", "Engagement model must not be blank","Development languages used must not be blank",
                                                           "Client must not be blank","Pm must not be blank","Dm must not be blank","Cp must not be blank",
                                                           "Dp must not be blank","Region must not be blank","Delivery status must not be blank",
-                                                          "Client category must not be blank","Engagement status must not be blank")
+                                                          "Client category must not be blank")
     end
   end
 end

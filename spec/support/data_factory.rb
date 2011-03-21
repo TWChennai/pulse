@@ -56,7 +56,13 @@ class DataFactory
       {
         "name" => "simon",
         "location" => "chennai",
-        "project_properties"=>{"sow_signed"=>"04/21/2010", "averate_estimate_per_story"=>"hj", "tenured_twers"=>"jh", "non_tenured_twers"=>"hj", "iteration_duration"=>"hj", "average_team_size"=>"jh", "team_ratio"=>"jhjh", "no_of_stories"=>"hj", "consultants"=>"hj", "senior_consultants"=>"jh", "discrete_teams_project"=>"jhj", "cri_classification"=>"jhjh", "project_duration"=>"jhjh", "development_languages_used"=>"jhhj", "project_name"=>"& S&S", "project_start_date"=>"04/22/2010", "last_da_review"=>"04/22/2010", "units_of_estimation"=>"jh", "team_size"=>"hj", "onsite_offsite_mix"=>"jjhjh", "engagement_model"=>"jhj", "location"=>"my rocke"},
+        "project_properties"=>{"sow_signed"=>"04/21/2010", "averate_estimate_per_story"=>"hj", "tenured_twers"=>"jh",
+                               "non_tenured_twers"=>"hj", "iteration_duration"=>"hj", "average_team_size"=>"jh", "team_ratio"=>"jhjh",
+                                "no_of_stories"=>"hj", "consultants"=>"hj", "senior_consultants"=>"jh", "discrete_teams_project"=>"jhj",
+                                 "cri_classification"=>"jhjh", "project_duration"=>"jhjh", "development_languages_used"=>"jhhj",
+                                 "project_name"=>"& S&S", "project_start_date"=>"04/22/2010", "last_da_review"=>"04/22/2010",
+                                  "units_of_estimation"=>"jh", "team_size"=>"hj", "onsite_offsite_mix"=>"jjhjh",
+                                   "engagement_model"=>"jhj", "location"=>"my rocke"},
         "metrics" => mandatory_metrics.inject({}){|hash, metric| hash[metric] = true; hash}
       }
     end
@@ -68,7 +74,7 @@ class DataFactory
           "cri_classification"=>"jhjh", "development_languages_used"=>"jhhj", "last_da_review"=>"04/22/2010",
            "project_start_date"=>"04/22/2010", "project_name"=>"& S&S", "team_size"=>"hj", "units_of_estimation"=>"jh",
             "onsite_offsite_mix"=>"jjhjh", "engagement_model"=>"jhj", "location"=>"jdsa", "delivery_status" => "Better",
-             "engagement_status" => "Steady", "cp" => "Julia", "dp" => "Don", "pm" => "Dan", "dm" => "hu", "client" => "Zee",
+             "cp" => "Julia", "dp" => "Don", "pm" => "Dan", "dm" => "hu", "client" => "Zee",
               "client_category" => "Harvest", "region" => "Oz"}
     end
 

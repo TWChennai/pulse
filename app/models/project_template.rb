@@ -24,10 +24,6 @@ class ProjectTemplate < CouchRest::ExtendedDocument
    filter_metrics_by("mandatory", true)
   end
 
-  def optional_metrics
-    filter_metrics_by("mandatory", false)
-  end
-
   def self.project_template
     get DESIGN_DOC
   end

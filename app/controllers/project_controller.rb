@@ -14,8 +14,7 @@ class ProjectController < ApplicationController
 
   def export_as_csv
     @project = Project.get(params[:id])
-    file_name = CSVAdapter::Project.new(@project).to_excel
-    send_file File.join(File.dirname(__FILE__), "../../#{file_name}")
+    send_file ExcelAdapter::Project.new(@project).to_excel
   end
 
   def new

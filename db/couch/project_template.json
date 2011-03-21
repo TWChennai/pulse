@@ -375,7 +375,7 @@
                 "mandatory":true,
                 "description":"Trend",
                 "key":"engagement_status",
-                "couchrest-type":"ProjectProperty"
+                "couchrest-type":"MetricData"
             }
         ]
     },

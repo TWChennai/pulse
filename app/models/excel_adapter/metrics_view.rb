@@ -1,5 +1,5 @@
 require 'csv'
-module CSVAdapter
+module ExcelAdapter
   class MetricsView
 
     def initialize(metric, project_metrics_data, week_range, projects_list, project_status)
