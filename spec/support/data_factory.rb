@@ -62,7 +62,9 @@ class DataFactory
                                  "cri_classification"=>"jhjh", "project_duration"=>"jhjh", "development_languages_used"=>"jhhj",
                                  "project_name"=>"& S&S", "project_start_date"=>"04/22/2010", "last_da_review"=>"04/22/2010",
                                   "units_of_estimation"=>"jh", "team_size"=>"hj", "onsite_offsite_mix"=>"jjhjh",
-                                   "engagement_model"=>"jhj", "location"=>"my rocke"},
+                                   "engagement_model"=>"jhj", "location"=>"my rocke", "delivery_status" => "Better",
+             "cp" => "Julia", "dp" => "Don", "pm" => "Dan", "dm" => "hu", "client" => "Zee",
+              "client_category" => "Harvest", "region" => "Oz"},
         "metrics" => mandatory_metrics.inject({}){|hash, metric| hash[metric] = true; hash}
       }
     end

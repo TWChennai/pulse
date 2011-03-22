@@ -15,7 +15,7 @@ class DashboardController < ApplicationController
     @projects_dashboard = Project.project_dashboard(@project_status,@week_ending_date)
     @location_filter=(params[:location].nil? ? "all": params[:location] )
 
-    send_file ExcelAdapter::ProjectDashboard.new(@projects_dashboard,@week_ending_date).to_excel
+    send_file ExcelAdapter::ProjectDashboardReport.new(@projects_dashboard,@week_ending_date).to_excel
   end
 
   def to_date(from_date)

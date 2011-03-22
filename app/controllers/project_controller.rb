@@ -14,7 +14,7 @@ class ProjectController < ApplicationController
 
   def export_as_csv
     @project = Project.get(params[:id])
-    send_file ExcelAdapter::Project.new(@project).to_excel
+    send_file ExcelAdapter::ProjectReport.new(@project).to_excel
   end
 
   def new
@@ -38,7 +38,8 @@ class ProjectController < ApplicationController
         redirect_to(@project)
     else
         flash[:errors] = @project.errors.full_messages
-        redirect_to(:action => "new")
+        @project_template = ProjectTemplate.project_template
+        render(:action => "new")
     end
   end
 
@@ -88,4 +89,3 @@ class ProjectController < ApplicationController
 
  
 end
-9

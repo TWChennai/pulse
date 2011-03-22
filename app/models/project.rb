@@ -71,9 +71,9 @@ class Project < CouchRest::ExtendedDocument
             if(doc.iterations[store].metrics) {
               for(metric in doc.iterations[store].metrics) {
                 var returnValue = [];
-                returnValue['comment'] = doc.iterations[store].metrics[metric].comment;
-                returnValue['value'] = doc.iterations[store].metrics[metric].value;
-                returnValue['dm_notes'] = doc.iterations[store].dm_notes;
+                returnValue.push(doc.iterations[store].metrics[metric].comment);
+                returnValue.push(doc.iterations[store].metrics[metric].value);
+                returnValue.push(doc.iterations[store].dm_notes);
                 emit([doc.isAlive, doc.iterations[store].metrics[metric].name,Date.parse(doc.iterations[store].date)/1000],[doc._id, returnValue])
               }
             }
@@ -160,15 +160,16 @@ class Project < CouchRest::ExtendedDocument
       if metric_view["key"] == [project_status, metric, week.to_time.to_i]
         if metric_view["id"] == self.id
           return {
-                  :comment => metric_view["value"][1]["comment"].downcase,
-                  :value => metric_view["value"][1]["value"].downcase,
-                  :dm_notes => metric_view["value"][1]["dm_notes"].downcase
+                  :comment => metric_view["value"][1][0].downcase,
+                  :value => metric_view["value"][1][1].downcase,
+                  :dm_notes => metric_view["value"][1][2].downcase
           }
         end
       end
     end
     return {
-            :comment => "No data found.",
+            :comment => "",
+            :dm_notes => "No data found.",
             :value => "undefined"
     }
   end
@@ -194,5 +195,13 @@ class Project < CouchRest::ExtendedDocument
     locations
   end
 
+  def get_data(name)
+      return {:value => send(name), :comment => ""} if respond_to?(name)
+      return {:value => project_properties[name], :comment => ""} if project_properties.has_key?(name)
+      return {:value => iterations.first.send(name), :comment => ""} if iterations.first.respond_to?(name)
+      metric = iterations.first.metrics.find {|metric| metric.name == name}
+      return {:value => metric.value, :comment => metric.comment} if metric
+      {:value => "", :comment => ""}
+  end
 end
     

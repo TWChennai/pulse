@@ -3,6 +3,7 @@ class MetricData < CouchRest::ExtendedDocument
   property :tracked
   property :order
   property :mandatory
+  property :dm_report
   property :description
   property :key
 

@@ -5,6 +5,7 @@ module ExcelAdapter
   class Excel
     ROOT_PATH = File.join File.dirname(__FILE__) + "/../../../"
     APACHE_POI_PATH = ROOT_PATH + "poi-3.7/poi-3.7-20110321.jar"
+    attr_reader :sheet
 
     def initialize
       Rjb::load(APACHE_POI_PATH, ['-Xms256M', '-Xmx512M'])
@@ -12,17 +13,16 @@ module ExcelAdapter
       workbook_class = Rjb::import('org.apache.poi.hssf.usermodel.HSSFWorkbook')
 
       @book = workbook_class.new
-      @sheet = @book.createSheet("Project Details")
+      @sheet = @book.createSheet("Details")
       @sheet.setDefaultColumnWidth(20)
-
     end
 
     def create_row_with_comments(values)
       row = @sheet.createRow(@sheet.getPhysicalNumberOfRows() + 1)
       values.each do |pair|
-        metric_col = row.createCell(row.getPhysicalNumberOfCells())
-        metric_col.setCellValue(pair[0])
-        metric_col.setCellComment(create_comment(row, metric_col, pair[1])) if !pair[1].blank?
+        column = row.createCell(row.getPhysicalNumberOfCells())
+        column.setCellValue(pair[0])
+        column.setCellComment(create_comment(row, column, pair[1])) if !pair[1].blank?
       end
     end
 

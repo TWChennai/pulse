@@ -7,4 +7,5 @@ class ProjectProperty <CouchRest::ExtendedDocument
   property :order
   property :key
   property :allowed_values
+  property :dm_report
 end

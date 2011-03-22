@@ -19,11 +19,18 @@ describe ProjectController do
   describe "create" do
     integrate_views
     it "should save notes when a new project is created" do
-      0 == Project.count()
-      post :create, :project => {"location" => "chennai", "project_properties" => {"notes" => "new note"}}
-      1 == Project.count()
-      "new note" == Project.first.project_properties["notes"]
+      initial_count =  Project.count()
+      post :create, :project => DataFactory.properties_post_info
+      Project.count().should == initial_count + 1
+    end
 
+    it "should render new again with errors if mandatory fields are missing" do
+      initial_count =  Project.count()
+      post :create, :project => {"location" => "chennai", "project_properties" => {"notes" => "new note"}}
+      Project.count().should == initial_count
+      "new note".should == assigns["project"].project_properties["notes"]
+      flash[:errors].should_not be_nil
+      response.should render_template("project/new")
     end
   end
 

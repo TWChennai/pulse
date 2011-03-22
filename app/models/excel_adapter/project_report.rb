@@ -1,5 +1,5 @@
 module ExcelAdapter
-  class Project
+  class ProjectReport
     attr_accessor :project
 
     def initialize(project)
