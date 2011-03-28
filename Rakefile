@@ -16,3 +16,7 @@ task :populate_metadata => :environment do
    ProjectTemplate.create
 end
 
+task :migrate_data => :environment do
+   ProjectTemplate.migrate_data
+end
+

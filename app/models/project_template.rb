@@ -10,8 +10,8 @@ class ProjectTemplate < CouchRest::ExtendedDocument
 
   def self.create
     document =  COUCHDB_SERVER.get(DESIGN_DOC)
-  rescue
     COUCHDB_SERVER.delete_doc(document) if (document)
+  ensure
     COUCHDB_SERVER.save_doc({
             "_id" => DESIGN_DOC,
             "properties_group" => properties_group_from_json,
@@ -21,7 +21,7 @@ class ProjectTemplate < CouchRest::ExtendedDocument
   end
 
   def self.mandatory_metrics
-   filter_metrics_by("mandatory", true)
+    filter_metrics_by("mandatory", true)
   end
 
   def self.project_template
@@ -72,5 +72,33 @@ class ProjectTemplate < CouchRest::ExtendedDocument
       }
     end.flatten
   end
-  
+
+  def self.migrate_data
+    COUCHDB_SERVER.documents(:include_docs => true)["rows"].each do |doc|
+      if doc['doc']['couchrest-type'] == 'Project'
+        doc['doc']["project_properties"] = doc['doc']["properties"]
+        doc['doc'].delete("properties")
+        COUCHDB_SERVER.save_doc(doc['doc'])
+      end
+    end
+
+    Project.view("by_location").each do |project|
+      project.iterations.each do |iteration|
+        if (!iteration.metrics.find { |metric| metric.name == "Engagement Status" })
+          iteration.metrics << Metric.new(:name => "Engagement Status", :value => "Green", :comment => "undefined")
+        end
+      end
+      ["engagement_model", "development_languages_used", "client", "pm", "dm", "cp", "dp", "region", "delivery_status", "client_category"].each do |property|
+        project.project_properties[property] = project.project_properties[property].blank? ? "to be filled" : project.project_properties[property]
+      end
+      if (project.filtered_metrics)
+        project.filtered_metrics.delete("Customer Satisfaction")
+        project.filtered_metrics.delete("Team Satisfaction")
+        project.filtered_metrics.delete("Engagement Status")
+        project.filtered_metrics << "Engagement Status"
+      end
+      project.save!      
+    end
+  end
+
 end

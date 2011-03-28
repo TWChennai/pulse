@@ -111,12 +111,6 @@ class Project < CouchRest::ExtendedDocument
       projects_group << DAL::ProjectsGroup.new(location, value.map { |project| Project.new(:_id => project['_id'], :name => project['name']) }.flatten)
     end
     return projects_group
-
-    # projects_group = []
-    # Project.view("by_location", :startkey => [true,""], :endkey => [true,{}], :reduce => true, :group => true, :group_level => 2)["rows"].each do |location_group|
-    #   projects_group << DAL::ProjectsGroup.new(location_group["key"][1], location_group["value"].map{|project| Project.new(:_id => project[0], :name => project[1])}.flatten)
-    # end
-    # return projects_group
   end
 
   def additional_metrics
