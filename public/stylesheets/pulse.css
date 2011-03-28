@@ -255,6 +255,10 @@ table td.project_column_header {
     background-color: #cc0000 !important;
 }
 
+.critical a{
+    color: black;
+}
+
 .amber, .high {
     background-color: orange !important;
 }
