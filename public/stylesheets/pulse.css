@@ -112,7 +112,7 @@ h4 {
 
 #left_area {
     border: 1px solid #999933;
-    margin: 10px 260px 10px 0;
+    margin: 10px 290px 10px 0;
     background-color: #FAFFE7;
 }
 
@@ -136,7 +136,7 @@ h4 {
     position: absolute;
     right: 10px;
     top: 135px;
-    width: 250px;
+    width: 280px;
 }
 
 #right_area .section {
@@ -251,6 +251,14 @@ table td.project_column_header {
     background-color: green !important;
 }
 
+.lightgreen {
+    background-color: lightgreen !important;
+}
+
+.orange {
+    background-color: orange !important;
+}
+
 .red, .critical{
     background-color: #cc0000 !important;
 }
@@ -260,7 +268,7 @@ table td.project_column_header {
 }
 
 .amber, .high {
-    background-color: orange !important;
+    background-color: yellow !important;
 }
 .medium {
   background-color:yellow !important;
