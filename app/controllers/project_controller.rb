@@ -49,8 +49,14 @@ class ProjectController < ApplicationController
       render :template  => 'public/404.html'
     else
       @project.merge!(project_hash_from_params)
-      @project.save
-      redirect_to(@project)
+      if @project.valid?
+        @project.save
+        redirect_to(@project)
+      else
+        flash[:errors] = @project.errors.full_messages
+        @project_template = ProjectTemplate.project_template
+        render(:action => "edit")
+      end
     end
   end
 
