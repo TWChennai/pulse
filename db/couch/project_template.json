@@ -234,12 +234,12 @@
         "couchrest-type":"ProjectProperty"
     },
     {
-        "name":"Region",
+        "name":"Sales Region",
         "tracked":"yes",
         "order":"29",
         "type":"list",
         "description":"Sales Region",
-        "key":"region",
+        "key":"sales_region",
         "allowed_values": ["Am E", "Am W", "Eu", "Oz"],
         "couchrest-type":"ProjectProperty"
     },

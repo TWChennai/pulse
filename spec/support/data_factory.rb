@@ -64,7 +64,7 @@ class DataFactory
                                   "units_of_estimation"=>"jh", "team_size"=>"hj", "onsite_offsite_mix"=>"jjhjh",
                                    "engagement_model"=>"jhj", "location"=>"my rocke", "delivery_status" => "Better",
              "cp" => "Julia", "dp" => "Don", "pm" => "Dan", "dm" => "hu", "client" => "Zee",
-              "client_category" => "Harvest", "region" => "Oz"},
+              "client_category" => "Harvest", "sales_region" => "Oz"},
         "metrics" => mandatory_metrics.inject({}){|hash, metric| hash[metric] = true; hash}
       }
     end
@@ -77,7 +77,7 @@ class DataFactory
            "project_start_date"=>"04/22/2010", "project_name"=>"& S&S", "team_size"=>"hj", "units_of_estimation"=>"jh",
             "onsite_offsite_mix"=>"jjhjh", "engagement_model"=>"jhj", "location"=>"jdsa", "delivery_status" => "Better",
              "cp" => "Julia", "dp" => "Don", "pm" => "Dan", "dm" => "hu", "client" => "Zee",
-              "client_category" => "Harvest", "region" => "Oz"}
+              "client_category" => "Harvest", "sales_region" => "Oz"}
     end
 
     def all_metrics

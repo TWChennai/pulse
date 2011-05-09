@@ -9,6 +9,8 @@
             Project Status:<%= select_tag "status", options_for_select(Project::TYPES, :selected => @project_status) %>
             Location
             Filter:<%= select_tag "location", options_for_select(Project.location_present, :selected =>@location_filter) %>
+            Region
+            Filter:<%= select_tag "region", options_for_select(Project.region_present, :selected =>@region_filter) %>
 
             <%= submit_tag "Go" %>
         <% end %>

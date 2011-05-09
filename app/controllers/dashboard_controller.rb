@@ -4,7 +4,8 @@ class DashboardController < ApplicationController
     @week_ending_date = (params[:date].nil? ? week_ending_date : params[:date])
     @project_status = (params[:status].nil? ? true : params[:status].to_bool)
     @location_filter=(params[:location].nil? ? "all": params[:location] )
-    
+    @region_filter=(params[:region].nil? ? "all": params[:region] )
+
     @projects_dashboard = Project.project_dashboard(@project_status,@week_ending_date)
     @mandatory_metrics = ProjectTemplate.mandatory_metrics
   end
@@ -14,6 +15,7 @@ class DashboardController < ApplicationController
     @project_status = (params[:status].nil? ? true : params[:status].to_bool) 
     @projects_dashboard = Project.project_dashboard(@project_status,@week_ending_date)
     @location_filter=(params[:location].nil? ? "all": params[:location] )
+    @region_filter=(params[:region].nil? ? "all": params[:region] )
 
     send_file ExcelAdapter::ProjectDashboardReport.new(@projects_dashboard,@week_ending_date).to_excel
   end

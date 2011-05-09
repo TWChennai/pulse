@@ -1,7 +1,7 @@
 module ExcelAdapter
   class ProjectDashboardReport
     REPORT_COLUMN_HEADERS = ["Off", "Reg", "Client", "Contr. Type", "Overall Status", "Delivery Status", "Engagement Status", "Action", "PM", "DM", "CP", "DP", "Practices", "DA Planned", "TA Planned", "Technology", "Client Category"]
-    REPORT_COLUMN_PROPERTIES = ["location", "region", "client","engagement_model", "Overall Status", "delivery_status", "Engagement Status", "dm_notes", "pm", "dm", "cp", "dp", "Agile Practices", "last_da_review", "last_ta_review", "development_languages_used", "client_category"]
+    REPORT_COLUMN_PROPERTIES = ["location", "sales_region", "client","engagement_model", "Overall Status", "delivery_status", "Engagement Status", "dm_notes", "pm", "dm", "cp", "dp", "Agile Practices", "last_da_review", "last_ta_review", "development_languages_used", "client_category"]
 
     def initialize(projects_dashboard, week_ending)
       @dashboard_data = projects_dashboard

@@ -88,7 +88,7 @@ class ProjectTemplate < CouchRest::ExtendedDocument
           iteration.metrics << Metric.new(:name => "Engagement Status", :value => "Green", :comment => "undefined")
         end
       end
-      ["engagement_model", "development_languages_used", "client", "pm", "dm", "cp", "dp", "region", "delivery_status", "client_category"].each do |property|
+      ["engagement_model", "development_languages_used", "client", "pm", "dm", "cp", "dp", "sales_region", "delivery_status", "client_category"].each do |property|
         project.project_properties[property] = project.project_properties[property].blank? ? "to be filled" : project.project_properties[property]
       end
       if (project.filtered_metrics)

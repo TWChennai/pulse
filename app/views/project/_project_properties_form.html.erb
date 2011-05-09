@@ -10,6 +10,12 @@
     </label>
     <%= text_field_tag "project[location]", @project.location %>
 </div>
+<div class='property_field'>
+    <label for="project_region">Project Region
+        <span class="description">Regions involved</span>
+    </label>
+    <%= text_field_tag "project[region]", @project.region %>
+</div>
 <% @project_template.properties_group.each do |property| %>
     <% if property.tracked == "yes" %>
         <div id="<%= property.key.gsub(/ +/, '_') %>" class="property_field">

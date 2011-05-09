@@ -7,7 +7,7 @@ class Project < CouchRest::ExtendedDocument
   end
 
   TYPES = [[Project::ISAlive::OPEN, true], [Project::ISAlive::CLOSED, false]]
-  MANDATORY_PROJECT_PROPERTIES = ["engagement_model", "development_languages_used", "client", "pm", "dm", "cp", "dp", "region", "delivery_status", "client_category"]
+  MANDATORY_PROJECT_PROPERTIES = ["engagement_model", "development_languages_used", "client", "pm", "dm", "cp", "dp", "sales_region", "delivery_status", "client_category"]
 
   property :metrics
   property :project_properties
@@ -19,6 +19,7 @@ class Project < CouchRest::ExtendedDocument
   property :name
   property :isAlive
   property :location
+  property :region
   property :filtered_metrics
   view_by :list,
           :map =>
@@ -33,6 +34,27 @@ class Project < CouchRest::ExtendedDocument
                   "function(doc) {
   if (doc['couchrest-type'] == 'Project') {
     emit([doc.isAlive, doc.location],  doc);
+  }
+  }",
+          :reduce =>
+                  "function(keys,values){
+  var returnDocs = [];
+  for(value in values)
+    {
+      var returnDoc = [];
+      var valueInUse = values[value];
+      if(valueInUse['_id'] && valueInUse['name']) {
+        returnDoc.push(valueInUse['_id'],valueInUse['name']);
+        returnDocs.push(returnDoc);}
+      }
+      return returnDocs;
+      }"
+
+  view_by :region,
+          :map =>
+                  "function(doc) {
+  if (doc['couchrest-type'] == 'Project') {
+    emit([doc.isAlive, doc.region],  doc);
   }
   }",
           :reduce =>
@@ -108,7 +130,17 @@ class Project < CouchRest::ExtendedDocument
     grouped_projects = @all_active_projects.group_by(& :location)
     projects_group = []
     grouped_projects.each do |location, value|
-      projects_group << DAL::ProjectsGroup.new(location, value.map { |project| Project.new(:_id => project['_id'], :name => project['name']) }.flatten)
+      projects_group << DAL::ProjectsGroupByLocation.new(location, value.map { |project| Project.new(:_id => project['_id'], :name => project['name']) }.flatten)
+    end
+    return projects_group
+  end
+
+  def self.projects_grouped_by_region
+    @all_active_projects = Project.view("by_list", :key => true, :include_docs => true)
+    grouped_projects = @all_active_projects.group_by(& :region)
+    projects_group = []
+    grouped_projects.each do |region, value|
+      projects_group << DAL::ProjectsGroupByRegion.new(region, value.map { |project| Project.new(:_id => project['_id'], :name => project['name']) }.flatten)
     end
     return projects_group
   end
@@ -187,6 +219,15 @@ class Project < CouchRest::ExtendedDocument
       locations<<[location_group.location, location_group.location]
     end
     locations
+  end
+
+  def self.region_present
+    regions=[]
+    regions<<["All", "all"]
+    Project.projects_grouped_by_region.each do |region_group|
+      regions<<[region_group.region, region_group.region]
+    end
+    regions
   end
 
   def get_data(name)
