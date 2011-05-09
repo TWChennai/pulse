@@ -30,7 +30,7 @@
             <tbody>
             <% @projects_dashboard.each do |project| %>
 
-                <% if @location_filter==project.location ||@location_filter=="all" %>
+                <% if (@location_filter == project.location || @location_filter=="all") and (@region_filter == project.region || @region_filter == "all") %>
 
                     <tr>
                         <td><%= link_to project.name, project %></td>
