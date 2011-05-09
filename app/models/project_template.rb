@@ -97,6 +97,7 @@ class ProjectTemplate < CouchRest::ExtendedDocument
         project.filtered_metrics.delete("Engagement Status")
         project.filtered_metrics << "Engagement Status"
       end
+      project.region = "NA"
       project.save!      
     end
   end
