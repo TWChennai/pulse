@@ -82,6 +82,7 @@ h4 {
 }
 
 #wrapper {
+    overflow: hidden;
     min-width: 918px;
     margin: 0 10px;
 }
@@ -112,7 +113,9 @@ h4 {
 
 #left_area {
     border: 1px solid #999933;
-    margin: 10px 290px 10px 0;
+    margin: 10px;
+    float: left;
+    width: 81%;
     background-color: #FAFFE7;
 }
 
@@ -132,10 +135,8 @@ h4 {
 }
 
 #right_area {
+    float: left;
     padding: 0;
-    position: absolute;
-    right: 10px;
-    top: 135px;
     width: 280px;
 }
 
@@ -303,7 +304,6 @@ table td.project_column_header {
 
 .legend td {
     padding-left: 5px;
-    cursor: pointer;
 }
 
 #additional_metrics, #add_new_metric {
