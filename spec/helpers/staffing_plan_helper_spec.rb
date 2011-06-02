@@ -45,6 +45,18 @@ describe StaffingPlanHelper do
       cumulative_onsite_amount_billed(plans, 1).should == 2100
     end
 
+    it "should calculate total cost" do
+      plans = [DataFactory.staffing_plan, DataFactory.staffing_plan]
+      total_cost(plans, 0).should == 1330
+      total_cost(plans, 1).should == 2660
+    end
+
+    it "should calculate total velocity" do
+      plans = [DataFactory.staffing_plan({"no_of_dev_offshore" => "12"}), DataFactory.staffing_plan({"no_of_dev_offshore" => "12"})]
+      total_velocity(plans, 0).should == 18
+      total_velocity(plans, 1).should == 36
+    end
+
     it "should calculate offshore_velocity" do
       offshore_velocity(DataFactory.staffing_plan({"no_of_dev_offshore" => "12"})).should == 18 
     end

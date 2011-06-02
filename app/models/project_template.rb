@@ -9,8 +9,10 @@ class ProjectTemplate < CouchRest::ExtendedDocument
   property :name
 
   def self.create
+    begin
     document =  COUCHDB_SERVER.get(DESIGN_DOC)
     COUCHDB_SERVER.delete_doc(document) if (document)
+    rescue RestClient::ResourceNotFound
   ensure
     COUCHDB_SERVER.save_doc({
             "_id" => DESIGN_DOC,
@@ -18,6 +20,7 @@ class ProjectTemplate < CouchRest::ExtendedDocument
             "metrics_group" => metrics_group_from_json,
             "couchrest-type" => name
     })
+  end
   end
 
   def self.mandatory_metrics
