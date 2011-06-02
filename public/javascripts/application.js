@@ -1,8 +1,9 @@
 $(document).ready(function(){
   $('.iteration').dataTable({"bAutoWidth": false, "aaSorting": [[ 0, "desc" ]]});
-  $(".datepicker").datepicker();	
+  $(".datepicker").datepicker();
   $(".indicator").tooltip();
 
+  $(".editable").editable("/staffing_plan/update");
   $("#project_properties_title").click(function(){
     $('#project_properties').toggle(400);
     return false;

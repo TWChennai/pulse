@@ -16,6 +16,7 @@ class Project < CouchRest::ExtendedDocument
 
   property :iterations, :cast_as => [Iteration]
   property :risks, :cast_as => [Risk]
+  property :staffing_plans, :cast_as => [StaffingPlan]
   property :name
   property :isAlive
   property :location

@@ -109,5 +109,35 @@ class DataFactory
       return projects
     end
 
+    def staffing_plan(options = {})
+      default_options = {
+        "week_start_date" => Date.today,
+        "week_end_date" => Date.today + 1.week,
+        "no_of_pm_onsite" => "1",
+        "no_of_pm_offshore" => "1",
+        "no_of_ba_onsite" => "1",
+        "no_of_ba_offshore" => "1",
+        "no_of_dev_onsite" => "1",
+        "no_of_dev_offshore" => "1",
+        "no_of_qa_onsite" => "1",
+        "no_of_qa_offshore" => "1",
+        "no_of_ux_onsite" => "1",
+        "no_of_ux_offshore" => "1",
+        "no_of_ui_onsite" => "1",
+        "no_of_ui_offshore" => "1",
+        "no_of_cp_onsite" => "1",
+        "no_of_cp_offshore" => "1",
+        "onsite_rate" => "150",
+        "onsite_velocity" => "0",
+        "onsite_currency" => "$",
+        "offshore_rate" => "40",
+        "offshore_velocity" => "3",
+        "offshore_currency" => "$"
+      }
+
+      options.reverse_merge!(default_options)
+      StaffingPlan.create! options
+    end
+
   end
 end

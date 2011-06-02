@@ -67,6 +67,7 @@
 }
 
 .dataTables_wrapper .iteration,
+.staffing_plan_table,
 .dataTables_wrapper .dm_notes_view {
 	clear: both;
 	width: 100%;
@@ -74,14 +75,17 @@
 }
 
 .dataTables_wrapper table.iteration thead tr,
+table.staffing_plan_table thead tr,
 .dataTables_wrapper table.dm_notes_view thead tr {
 }
 .dataTables_wrapper table.iteration thead tr th,
+table.staffing_plan_table thead tr th,
 .dataTables_wrapper table.dm_notes_view thead tr th {
 	background-color: #999933;
 	padding: 5px 20px 5px 5px;
 }
 .dataTables_wrapper table.iteration tbody tr td,
+table.staffing_plan_table tbody tr td,
 .dataTables_wrapper table.dm_notes_view tbody tr td {
 	padding: 5px;
 }

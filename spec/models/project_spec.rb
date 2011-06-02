@@ -31,7 +31,7 @@ describe Project do
       project.valid?.should be_false
       project.errors.full_messages.flatten.should include("Name must not be blank", "Engagement model must not be blank", "Development languages used must not be blank",
                                                           "Client must not be blank", "Pm must not be blank", "Dm must not be blank", "Cp must not be blank",
-                                                          "Dp must not be blank", "Sales Region must not be blank", "Delivery status must not be blank",
+                                                          "Dp must not be blank", "Sales region must not be blank", "Delivery status must not be blank",
                                                           "Client category must not be blank")
     end
   end

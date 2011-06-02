@@ -1,0 +1,234 @@
+<div class="content_wrapper">
+    <h1>Staffing Plan</h1>
+
+    <div class="staffing_plan_container">
+        <% form_tag '/staffing_plan', :method => :get do %>
+            Staffing plan for project :
+            <%= select_tag "project", options_for_select(@projects.map(& :name), :selected => @project.name) %>
+            <%= submit_tag "Go" %>
+        <% end %>
+        <div>Currency used : $</div>
+        <% if @project.staffing_plans.present? %>
+            <table class="staffing_plan_table">
+                <thead>
+                <tr>
+                    <th>Week</th>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <th><%= (Date.parse(week_plan.week_start_date.to_s)).strftime("%d/%m/%y") %>
+                            - <%= (Date.parse(week_plan.week_end_date.to_s)).strftime("%d/%m/%y") %></th>
+                    <% end %>
+                </tr>
+                </thead>
+                <tbody>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                <td class="heading_td" colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"> --
+                Offshore --
+                </td>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td>PM</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_pm_offshore|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_pm_offshore)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td>BA</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_ba_offshore|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_ba_offshore)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td>Dev</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_dev_offshore|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_dev_offshore)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td>QA</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_qa_offshore|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_qa_offshore)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td>UX</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_ux_offshore|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_ux_offshore)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td>UI</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_ui_offshore|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_ui_offshore)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td>CP</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_cp_offshore|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_cp_offshore)%></td>
+                    <% end %>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td> Velocity </td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|offshore_velocity|<%=week_plan.week_start_date%>" class="editable"><%=offshore_velocity(week_plan)%></td>
+                    <% end %>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td> Cumulative velocity </td>
+                    <% @project.staffing_plans.each_with_index do |week_plan, idx| %>
+                        <td><%=cumulative_offshore_velocity(@project.staffing_plans, idx)%></td>
+                    <% end %>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td> Cost </td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td><%=offshore_amount_billed(week_plan)%></td>
+                    <% end %>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td> Cumulative cost </td>
+                    <% @project.staffing_plans.each_with_index do |week_plan, idx| %>
+                        <td><%=cumulative_offshore_amount_billed(@project.staffing_plans, idx)%></td>
+                    <% end %>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td class="heading_td" colspan="<%= @project.staffing_plans.size + 1 %>"> --
+                        Onsite --
+                    </td>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td>PM</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_pm_onsite|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_pm_onsite)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td>BA</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_ba_onsite|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_ba_onsite)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td>Dev</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_dev_onsite|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_dev_onsite)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td>QA</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_qa_onsite|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_qa_onsite)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td>UX</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_ux_onsite|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_ux_onsite)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td>UI</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_ui_onsite|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_ui_onsite)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td>CP</td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|no_of_cp_onsite|<%=week_plan.week_start_date%>" class="editable"><%=populate(week_plan.no_of_cp_onsite)%></td>
+                    <% end %>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td> Velocity </td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td id="<%=@project.id%>|onsite_velocity|<%=week_plan.week_start_date%>" class="editable"><%=onsite_velocity(week_plan)%></td>
+                    <% end %>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td> Cumulative velocity </td>
+                    <% @project.staffing_plans.each_with_index do |week_plan, idx| %>
+                        <td><%=cumulative_onsite_velocity(@project.staffing_plans, idx)%></td>
+                    <% end %>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td> Cost </td>
+                    <% @project.staffing_plans.each do |week_plan| %>
+                        <td><%=onsite_amount_billed(week_plan)%></td>
+                    <% end %>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td> Cumulative cost </td>
+                    <% @project.staffing_plans.each_with_index do |week_plan, idx| %>
+                        <td><%=cumulative_onsite_amount_billed(@project.staffing_plans, idx)%></td>
+                    <% end %>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td class="heading_td" colspan="<%= @project.staffing_plans.size + 1 %>"> --
+                        Totals --
+                    </td>
+                </tr>
+                <tr><td colspan="<%= @project.project_properties["project_duration"].to_i + 1 %>"></td></tr>
+                <tr>
+                    <td> Velocity </td>
+                    <% @project.staffing_plans.each_with_index do |week_plan, idx| %>
+                        <td><%=total_velocity(@project.staffing_plans, idx)%></td>
+                    <% end %>
+                </tr>
+                <tr>
+                    <td> Cost </td>
+                    <% @project.staffing_plans.each_with_index do |week_plan, idx| %>
+                        <td><%=total_cost(@project.staffing_plans, idx)%></td>
+                    <% end %>
+                </tr>
+                </tbody>
+            </table>
+        <% else %>
+            <div class="update_staffing_plan">
+                <% form_tag '/staffing_plan/create', :method => :get do %>
+                    <%= hidden_field_tag "project_id", @project.id %>
+                    <div>
+                        <h4>Onsite : </h4>
+                        <div>Max. no. of PM : <%= text_field_tag "no_of_pm_onsite" %></div>
+                        <div>Max. no. of BA : <%= text_field_tag "no_of_ba_onsite" %></div>
+                        <div>Max. no. of Dev : <%= text_field_tag "no_of_dev_onsite" %></div>
+                        <div>Max. no. of QA : <%= text_field_tag "no_of_qa_onsite" %></div>
+                        <div>Max. no. of UX : <%= text_field_tag "no_of_ux_onsite" %></div>
+                        <div>Max. no. of UI : <%= text_field_tag "no_of_ui_onsite" %></div>
+                        <div>Max. no. of CP : <%= text_field_tag "no_of_cp_onsite" %></div>
+
+                        <div>Billing Rate : <%= text_field_tag "onsite_rate" %><%=select_tag "onsite_currency", options_for_select(["$"], :selected => "$")%></div>
+                        <div>Peak velocity per week per dev pair : <%= text_field_tag "onsite_velocity" %></div>
+                    </div>
+                    <div>
+                        <h4>Offshore : </h4>
+                        <div>Max. no. of PM : <%= text_field_tag "no_of_pm_offshore" %></div>
+                        <div>Max. no. of BA : <%= text_field_tag "no_of_ba_offshore" %></div>
+                        <div>Max. no. of Dev : <%= text_field_tag "no_of_dev_offshore" %></div>
+                        <div>Max. no. of QA : <%= text_field_tag "no_of_qa_offshore" %></div>
+                        <div>Max. no. of UX : <%= text_field_tag "no_of_ux_offshore" %></div>
+                        <div>Max. no. of UI : <%= text_field_tag "no_of_ui_offshore" %></div>
+                        <div>Max. no. of CP : <%= text_field_tag "no_of_cp_offshore" %></div>
+                        
+                        <div>Billing Rate : <%= text_field_tag "offshore_rate" %><%=select_tag "offshore_currency", options_for_select(["$"], :selected => "$")%></div>
+                        <div>Peak velocity per week per dev pair : <%= text_field_tag "offshore_velocity" %></div>
+                    </div>
+                    <%= submit_tag "Update" %>
+                <% end %>
+            </div>
+        <% end %>
+
+    </div>
+</div>

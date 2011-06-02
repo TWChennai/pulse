@@ -113,9 +113,9 @@ h4 {
 
 #left_area {
     border: 1px solid #999933;
-    margin: 10px;
+    margin: 0 10px;
     float: left;
-    width: 81%;
+    width: 80%;
     background-color: #FAFFE7;
 }
 
@@ -535,4 +535,30 @@ div.label {
 
 .date_filter {
     padding: 20px 0 5px;
+}
+
+ul.closed_projects li {
+    float: none;
+    padding: 2px;
+}
+
+div.staffing_plan_container {
+    overflow: auto;
+}
+
+.staffing_plan_table td.heading_td {
+    background-color: #999999;
+    font-weight: bold;
+}
+
+.staffing_plan_table td {
+    background-color: #eeeeee;
+}
+
+div.update_staffing_plan {
+   margin-top: 20px; 
+}
+
+.update_staffing_plan div {
+    padding: 5px 0px;
 }

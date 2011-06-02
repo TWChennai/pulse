@@ -26,6 +26,10 @@ ActionController::Routing::Routes.draw do |map|
   map.metric_view '/metric', :controller => :metrics, :action => :index 
   map.filter_notes_by_date '/project/:project_id/filter_notes_by_date', :controller => :iteration, :action => :filter_notes_by_date
 
+  map.staffing_plan '/staffing_plan', :controller => :staffing_plan, :action => :index
+  map.create_staffing_plan '/staffing_plan/create', :controller => :staffing_plan, :action => :create
+  map.update_staffing_plan '/staffing_plan/update', :controller => :staffing_plan, :action => :update
+
   map.root :controller => :dashboard, :action => :index
   
   map.connect ':controller/:action/:id'
