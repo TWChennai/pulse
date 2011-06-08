@@ -2,13 +2,19 @@ require "eycap/recipes"
 
 
 set :keep_releases, 5
-set :application,   'pulse'
-set :repository,    'git@chnigit01.thoughtworks.com:pulse.git'
+set :application,   'pulse-new'
+set :repository,    'http://chnisvn01.thoughtworks.com/git/pulse.git'
 set :deploy_to,     "/data/#{application}"
-set :deploy_via,    :remote_cache
 set :monit_group,   "#{application}"
 set :scm,           :git
 set :copy_exclude,  ".git/*"
+set :rails_env,     "production"
+set :user,          'express'
+set :password,      'rampup'
+set :runner,        'express'
+role :app,          "10.5.3.6"
+role :web,          "10.5.3.6"
+
 # This will execute the Git revision parsing on the *remote* server rather than locally
 # set :real_revision,       lambda { source.query_revision(revision) { |cmd| capture(cmd) } }
 # comment out if it gives you trouble. newest net/ssh needs this set.
@@ -17,12 +23,6 @@ ssh_options[:paranoid] = false
 
 
 task :production do
-  set :rails_env,     "production"
-  set :user,          'express'
-  set :password,      'rampup'
-  set :runner,        'express'
-  role :app,          "10.5.3.6"
-  role :web,          "10.5.3.6"
 end
 
 namespace :deploy do
@@ -33,6 +33,10 @@ namespace :deploy do
       ln -nfs #{shared_path}/config/couchdb.yml #{release_path}/config/couchdb.yml &&
       ln -nfs #{shared_path}/system/attachments #{release_path}/public/attachments
     CMD
+  end
+
+  task :restart, :roles => :app, :except => {:no_release => true} do
+    run "#{try_sudo} touch #{File.join(current_path, 'tmp', 'restart.txt')}"
   end
 end
 

@@ -137,7 +137,7 @@ h4 {
 #right_area {
     float: left;
     padding: 0;
-    width: 280px;
+    width: 15%;
 }
 
 #right_area .section {
@@ -556,9 +556,35 @@ div.staffing_plan_container {
 }
 
 div.update_staffing_plan {
-   margin-top: 20px; 
+    margin-top: 20px;
+}
+
+div.update_staffing_plan form {
+    overflow: hidden;    
+}
+
+div.update_staffing_plan .left_panel {
+    float: left;
+    width: 40%;
+}
+
+div.update_staffing_plan .right_panel {
+    float: left;
 }
 
 .update_staffing_plan div {
     padding: 5px 0px;
+}
+
+.staff_plan_input_div {
+    overflow: hidden;
+}
+
+.staff_plan_input_div span {
+    float: left;
+    width: 300px;
+}
+
+.staff_plan_input_div input {
+    float: left;
 }

@@ -199,32 +199,33 @@
             <div class="update_staffing_plan">
                 <% form_tag '/staffing_plan/create', :method => :get do %>
                     <%= hidden_field_tag "project_id", @project.id %>
-                    <div>
+                    <div class="left_panel">
                         <h4>Onsite : </h4>
-                        <div>Max. no. of PM : <%= text_field_tag "no_of_pm_onsite" %></div>
-                        <div>Max. no. of BA : <%= text_field_tag "no_of_ba_onsite" %></div>
-                        <div>Max. no. of Dev : <%= text_field_tag "no_of_dev_onsite" %></div>
-                        <div>Max. no. of QA : <%= text_field_tag "no_of_qa_onsite" %></div>
-                        <div>Max. no. of UX : <%= text_field_tag "no_of_ux_onsite" %></div>
-                        <div>Max. no. of UI : <%= text_field_tag "no_of_ui_onsite" %></div>
-                        <div>Max. no. of CP : <%= text_field_tag "no_of_cp_onsite" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of PM : </span><%= text_field_tag "no_of_pm_onsite" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of BA : </span><%= text_field_tag "no_of_ba_onsite" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of Dev :</span> <%= text_field_tag "no_of_dev_onsite" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of QA : </span><%= text_field_tag "no_of_qa_onsite" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of UX : </span><%= text_field_tag "no_of_ux_onsite" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of UI : </span><%= text_field_tag "no_of_ui_onsite" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of CP : </span><%= text_field_tag "no_of_cp_onsite" %></div>
 
-                        <div>Billing Rate : <%= text_field_tag "onsite_rate" %><%=select_tag "onsite_currency", options_for_select(["$"], :selected => "$")%></div>
-                        <div>Peak velocity per week per dev pair : <%= text_field_tag "onsite_velocity" %></div>
+                        <div class="staff_plan_input_div"><span>Billing Rate : </span><%= text_field_tag "onsite_rate" %><%=select_tag "onsite_currency", options_for_select(["$"], :selected => "$")%></div>
+                        <div class="staff_plan_input_div"><span>Peak velocity per week per dev pair : </span><%= text_field_tag "onsite_velocity" %></div>
                     </div>
-                    <div>
+                    <div class="right_panel">
                         <h4>Offshore : </h4>
-                        <div>Max. no. of PM : <%= text_field_tag "no_of_pm_offshore" %></div>
-                        <div>Max. no. of BA : <%= text_field_tag "no_of_ba_offshore" %></div>
-                        <div>Max. no. of Dev : <%= text_field_tag "no_of_dev_offshore" %></div>
-                        <div>Max. no. of QA : <%= text_field_tag "no_of_qa_offshore" %></div>
-                        <div>Max. no. of UX : <%= text_field_tag "no_of_ux_offshore" %></div>
-                        <div>Max. no. of UI : <%= text_field_tag "no_of_ui_offshore" %></div>
-                        <div>Max. no. of CP : <%= text_field_tag "no_of_cp_offshore" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of PM : </span><%= text_field_tag "no_of_pm_offshore" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of BA : </span><%= text_field_tag "no_of_ba_offshore" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of Dev :</span> <%= text_field_tag "no_of_dev_offshore" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of QA : </span><%= text_field_tag "no_of_qa_offshore" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of UX : </span><%= text_field_tag "no_of_ux_offshore" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of UI : </span><%= text_field_tag "no_of_ui_offshore" %></div>
+                        <div class="staff_plan_input_div"><span>Max. no. of CP : </span><%= text_field_tag "no_of_cp_offshore" %></div>
                         
-                        <div>Billing Rate : <%= text_field_tag "offshore_rate" %><%=select_tag "offshore_currency", options_for_select(["$"], :selected => "$")%></div>
-                        <div>Peak velocity per week per dev pair : <%= text_field_tag "offshore_velocity" %></div>
+                        <div class="staff_plan_input_div"><span>Billing Rate : </span><%= text_field_tag "offshore_rate" %><%=select_tag "offshore_currency", options_for_select(["$"], :selected => "$")%></div>
+                        <div class="staff_plan_input_div"><span>Peak velocity per week per dev pair : </span><%= text_field_tag "offshore_velocity" %></div>
                     </div>
+                    <div class="clear"></div>
                     <%= submit_tag "Update" %>
                 <% end %>
             </div>
