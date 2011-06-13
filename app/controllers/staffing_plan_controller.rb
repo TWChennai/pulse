@@ -3,14 +3,16 @@ class StaffingPlanController < ApplicationController
   def index
     @projects = Project.open_projects
     @project = params[:project].nil? ? @projects.first : Project.open_projects.find {|proj| proj.name == params[:project]}
+    @iteration_duration = /\d+/.match(@project.project_properties["iteration_duration"])[0].to_i
   end
 
   def create
     project = Project.get(params[:project_id])
     project.staffing_plans = []
-    (1..(project.project_properties["project_duration"].to_i)).each do |week|
-      week_start_date = Date.parse(project.project_properties["project_start_date"]) + (week - 1).weeks
-      week_end_date = Date.parse(project.project_properties["project_start_date"]) + week.weeks - 1.day
+    @iteration_duration = /\d+/.match(project.project_properties["iteration_duration"])[0].to_i
+    (1..(project.project_properties["project_duration"].to_i / @iteration_duration)).each do |week|
+      week_start_date = Date.parse(project.project_properties["project_start_date"]) + (week*@iteration_duration - @iteration_duration).weeks
+      week_end_date = Date.parse(project.project_properties["project_start_date"]) + (week*@iteration_duration).weeks - 1.day
       project.staffing_plans << StaffingPlan.create({:week_start_date => week_start_date, :week_end_date => week_end_date,
                                                      :no_of_pm_onsite => params[:no_of_pm_onsite],
                                                      :no_of_ba_onsite => params[:no_of_ba_onsite],
@@ -45,11 +47,8 @@ class StaffingPlanController < ApplicationController
     staffing_plan = project.staffing_plans.find {|plan| plan.week_start_date == week_start_date}
     staffing_plan.send(attr+"=", params[:value])
     staffing_plan.save
-    p "---------------"
-    p staffing_plan
     project.save
-    p "---------------"
-    p project.staffing_plans[0]
+    @iteration_duration = /\d+/.match(project.project_properties["iteration_duration"])[0].to_i
     @projects = Project.open_projects
     @project = project
     render :text => params[:value]

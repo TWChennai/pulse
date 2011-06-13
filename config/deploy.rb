@@ -2,7 +2,7 @@ require "eycap/recipes"
 
 
 set :keep_releases, 5
-set :application,   'pulse-new'
+set :application,   'pulse'
 set :repository,    'http://chnisvn01.thoughtworks.com/git/pulse.git'
 set :deploy_to,     "/data/#{application}"
 set :monit_group,   "#{application}"

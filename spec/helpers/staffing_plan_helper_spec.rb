@@ -14,17 +14,17 @@ describe StaffingPlanHelper do
     end
 
     it "should calculate offshore amount billed" do
-      offshore_amount_billed(DataFactory.staffing_plan).should == 280
+      offshore_amount_billed(DataFactory.staffing_plan, 1).should == 11200
     end
 
     it "should calculate onsite amount billed" do
-      onsite_amount_billed(DataFactory.staffing_plan).should == 1050
+      onsite_amount_billed(DataFactory.staffing_plan, 1).should == 42000
     end
 
     it "should calculate cumulative offshore amount" do
       plans = [DataFactory.staffing_plan, DataFactory.staffing_plan]
-      cumulative_offshore_amount_billed(plans, 0).should == 280
-      cumulative_offshore_amount_billed(plans, 1).should == 560
+      cumulative_offshore_amount_billed(plans, 0, 1).should == 11200
+      cumulative_offshore_amount_billed(plans, 1, 1).should == 22400
     end
 
     it "should calculate cumulative offshore velocity" do
@@ -41,14 +41,14 @@ describe StaffingPlanHelper do
 
     it "should calculate cumulative onsite amount" do
       plans = [DataFactory.staffing_plan, DataFactory.staffing_plan]
-      cumulative_onsite_amount_billed(plans, 0).should == 1050
-      cumulative_onsite_amount_billed(plans, 1).should == 2100
+      cumulative_onsite_amount_billed(plans, 0, 1).should == 42000
+      cumulative_onsite_amount_billed(plans, 1, 1).should == 84000
     end
 
     it "should calculate total cost" do
       plans = [DataFactory.staffing_plan, DataFactory.staffing_plan]
-      total_cost(plans, 0).should == 1330
-      total_cost(plans, 1).should == 2660
+      total_cumulative_cost(plans, 0, 1).should == 53200
+      total_cumulative_cost(plans, 1, 1).should == 106400
     end
 
     it "should calculate total velocity" do
