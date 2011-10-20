@@ -21,4 +21,11 @@ module ApplicationHelper
   def risk_data_with_date(object, object_type)
     "#{object[object_type]} <b>(#{object['date_modified']})</b>"
   end
+
+  def get_closest_iteration_by_date iterations, date
+    matched_iterations = iterations.select {|iteration| iteration.date <= date}
+    sorted_iterations = matched_iterations.sort { |x,y| y.date <=> x.date }
+    sorted_iterations.first
+  end
+
 end

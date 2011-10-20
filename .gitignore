@@ -6,3 +6,5 @@ nbproject
 *.orig
 public/attachments
 .idea/*
+.rvmrc
+tags

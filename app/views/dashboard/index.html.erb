@@ -1,56 +1,64 @@
 <div class="content_wrapper">
-    <h1>Portfolio Dashboard </h1>
-    <div class="left_property_area">
-        <h4>Week ending on  <%= @week_ending_date %></h4>
-    </div>
-    <div class="right_property_area">
-        <% form_tag '/dashboard/week_ending', :method => :get do %>
-            Week Ending: <%= text_field_tag "date", @week_ending_date, :class=>"datepicker" %>
-            Project Status:<%= select_tag "status", options_for_select(Project::TYPES, :selected => @project_status) %>
-            Location
-            Filter:<%= select_tag "location", options_for_select(Project.location_present, :selected =>@location_filter) %>
-            Region
-            Filter:<%= select_tag "region", options_for_select(Project.region_present, :selected =>@region_filter) %>
+  <h1>Portfolio Dashboard </h1>
 
-            <%= submit_tag "Go" %>
-        <% end %>
-    </div>
-    <div class="clear"></div>
-    <% if  @projects_dashboard.size > 0 %>
-        <%= link_to "Export DM Report as Excel", export_project_dashboard_as_csv_path(Time.parse(@week_ending_date).to_i, :status => @project_status) %>
-        <table class="iteration">
-            <thead>
-            <tr>
-                <th>Project Name</th>
-                <% @mandatory_metrics.each do |metric| %>
-                    <th><%= metric.name %></th>
-                <% end %>
-            </tr>
-            </thead>
-            <tbody>
-            <% @projects_dashboard.each do |project| %>
+  <div class="left_property_area">
+    <h4>Week ending on  <%= @week_ending_date %></h4>
+  </div>
 
-                <% if (@location_filter == project.location || @location_filter=="all") and (@region_filter == project.region || @region_filter == "all") %>
+  <div class="right_property_area">
+    <% form_tag '/dashboard/week_ending', :method => :get do %>
+      Week Ending: <%= text_field_tag "date", @week_ending_date, :class=>"datepicker" %>
+      Project Status:<%= select_tag "status", options_for_select(Project::TYPES, :selected => @project_status) %>
+      Location
+      Filter:<%= select_tag "location", options_for_select(Project.location_present, :selected =>@location_filter) %>
+      Region
+      Filter:<%= select_tag "region", options_for_select(Project.region_present, :selected =>@region_filter) %>
 
-                    <tr>
-                        <td><%= link_to project.name, project %></td>
-
-                        <% project.iterations.each do |iter| %>
-                            <% if iter.date==@week_ending_date %>
-                                <% iter.mandatory_metrics.each do |metric| %>
-                                    <td>
-                                        <div class="indicator circle <%= metric.value.downcase %>" title="<%= metric.comment %>"></div>
-                                    </td>
-                                <% end %>
-                            <% end %>
-                        <% end %>
-                    </tr>
-                <% end %>
-            <% end %>
-            </tbody>
-        </table>
-    <% else %>
-        <h1>No Records found</h1>
+      <%= submit_tag "Go" %>
     <% end %>
-    <div class="clear"></div>
+  </div>
+
+  <div class="clear"></div>
+
+  <% if  @projects_dashboard.size > 0 %>
+    <%= link_to "Export DM Report as Excel", export_project_dashboard_as_csv_path(Time.parse(@week_ending_date).to_i, :status => @project_status) %>
+
+    <table class="iteration">
+      <thead>
+        <tr>
+          <th>Project Name</th>
+          <th>Date</th>
+          <% @mandatory_metrics.each do |metric| %>
+            <th><%= metric.name %></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @projects_dashboard.each do |project| %>
+
+          <% if (@location_filter == project.location || @location_filter=="all") and (@region_filter == project.region || @region_filter == "all") %>
+            <tr>
+              <td><%= link_to project.name, project %></td>
+
+              <% iteration = get_closest_iteration_by_date(project.iterations, @week_ending_date) %>
+
+              <td><%= iteration.date%></td>
+              <% iteration.mandatory_metrics.each do |metric| %>
+                <td>
+                  <div class="indicator circle <%= metric.value.downcase %>" title="<%= metric.comment %>"></div>
+                </td>
+              <% end %>
+
+            </tr>
+          <% end %>
+
+        <% end %>
+      </tbody>
+    </table>
+
+  <% else %>
+    <h1>No Records found</h1>
+  <% end %>
+  <div class="clear"></div>
 </div>

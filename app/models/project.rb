@@ -210,7 +210,9 @@ class Project < CouchRest::ExtendedDocument
   end
 
   def self.project_dashboard(project_status, week_ending_date)
-    Project.view("by_dashboard", {:startkey => [project_status, week_ending_date], :endkey => [project_status, week_ending_date]})
+    two_month_earlier = Date.strptime("{#{week_ending_date}}","{%m/%d/%Y}") - 2.months
+    start_date = two_month_earlier.strftime("%m/%d/%y")
+    Project.view("by_dashboard", {:startkey => [project_status, start_date], :endkey => [project_status, week_ending_date]})
   end
 
   def self.location_present
@@ -232,12 +234,12 @@ class Project < CouchRest::ExtendedDocument
   end
 
   def get_data(name)
-      return {:value => send(name), :comment => ""} if respond_to?(name)
-      return {:value => project_properties[name], :comment => ""} if project_properties.has_key?(name)
-      return {:value => iterations.first.send(name), :comment => ""} if iterations.first.respond_to?(name)
-      metric = iterations.first.metrics.find {|metric| metric.name == name}
-      return {:value => metric.value, :comment => metric.comment} if metric
-      {:value => "", :comment => ""}
+    return {:value => send(name), :comment => ""} if respond_to?(name)
+    return {:value => project_properties[name], :comment => ""} if project_properties.has_key?(name)
+    return {:value => iterations.first.send(name), :comment => ""} if iterations.first.respond_to?(name)
+    metric = iterations.first.metrics.find {|metric| metric.name == name}
+    return {:value => metric.value, :comment => metric.comment} if metric
+    {:value => "", :comment => ""}
   end
+
 end
-    

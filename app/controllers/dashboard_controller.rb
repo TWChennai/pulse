@@ -6,13 +6,13 @@ class DashboardController < ApplicationController
     @location_filter=(params[:location].nil? ? "all": params[:location] )
     @region_filter=(params[:region].nil? ? "all": params[:region] )
 
-    @projects_dashboard = Project.project_dashboard(@project_status,@week_ending_date)
+    @projects_dashboard = Project.project_dashboard(@project_status,@week_ending_date).uniq
     @mandatory_metrics = ProjectTemplate.mandatory_metrics
   end
 
   def export_to_csv
     @week_ending_date = (params[:date].nil? ? week_ending_date : to_date(params[:date]))
-    @project_status = (params[:status].nil? ? true : params[:status].to_bool) 
+    @project_status = (params[:status].nil? ? true : params[:status].to_bool)
     @projects_dashboard = Project.project_dashboard(@project_status,@week_ending_date)
     @location_filter=(params[:location].nil? ? "all": params[:location] )
     @region_filter=(params[:region].nil? ? "all": params[:region] )
