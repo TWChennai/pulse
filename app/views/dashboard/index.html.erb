@@ -27,6 +27,7 @@
       <thead>
         <tr>
           <th>Project Name</th>
+          <th>Region</th>
           <th>Date</th>
           <% @mandatory_metrics.each do |metric| %>
             <th><%= metric.name %></th>
@@ -41,9 +42,11 @@
             <tr>
               <td><%= link_to project.name, project %></td>
 
-              <% iteration = get_closest_iteration_by_date(project.iterations, @week_ending_date) %>
+              <td><%= project.region %></td>
 
+              <% iteration = get_closest_iteration_by_date(project.iterations, @week_ending_date) %>
               <td><%= iteration.date%></td>
+
               <% iteration.mandatory_metrics.each do |metric| %>
                 <td>
                   <div class="indicator circle <%= metric.value.downcase %>" title="<%= metric.comment %>"></div>
