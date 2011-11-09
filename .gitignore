@@ -1,4 +1,4 @@
-log/*.log
+log
 .DS_Store
 tmp/*
 config/couchdb.yml
@@ -8,3 +8,4 @@ public/attachments
 .idea/*
 .rvmrc
 tags
+public/**/all.*
