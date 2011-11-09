@@ -6,8 +6,9 @@ class Metric < CouchRest::ExtendedDocument
     GREEN = "Green"
     AMBER = "Amber"
   end
-  VALUES = [Metric::Value::RED, Metric::Value::LIGHTGREEN, Metric::Value::ORANGE, Metric::Value::GREEN, Metric::Value::AMBER]
-  
+
+  VALUES = [Metric::Value::RED, Metric::Value::ORANGE, Metric::Value::AMBER, Metric::Value::LIGHTGREEN, Metric::Value::GREEN]
+
   property :name
   property :value
   property :comment
