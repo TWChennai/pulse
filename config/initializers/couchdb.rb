@@ -1,5 +1,4 @@
 require 'couchrest'
-require 'couchrest_extended_document'
 
 begin
   env = ENV['RAILS_ENV'] || 'development'
