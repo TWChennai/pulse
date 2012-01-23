@@ -36,15 +36,16 @@
       </thead>
 
       <tbody>
-        <% @projects_dashboard.each do |project| %>
-
-          <% if (@location_filter == project.location || @location_filter=="all") and (@region_filter == project.region || @region_filter == "all") %>
+        <% @projects_dashboard.each do |project|
+          iteration = get_closest_iteration_by_date(project.iterations, @week_ending_date)
+          
+		  	if (@location_filter == project.location || @location_filter=="all") and (@region_filter == project.region || @region_filter == "all") and !iteration.nil?
+		%>
             <tr>
               <td><%= link_to project.name, project %></td>
 
               <td><%= project.region %></td>
 
-              <% iteration = get_closest_iteration_by_date(project.iterations, @week_ending_date) %>
               <td><%= iteration.date%></td>
 
               <% iteration.mandatory_metrics.each do |metric| %>
