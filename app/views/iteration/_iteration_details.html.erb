@@ -1,28 +1,40 @@
 <table>
-    <tbody>
     <tr>
         <td  colspan="2">Week Ending Date</td>
         <td><%= text_field "iteration", "date", {:class => "datepicker margin_left_20px"} %></td>
     </tr>
-    <% metrics.each_with_index do |metric, index| %>
-        <tr>
-            <td><%= label metric["key"], metric["name"] %></td>
-            <td>
-                <%= hidden_field_tag "iteration[metrics][][name]", metric["name"] %>
-                <%= select_tag "iteration[metrics][][value]", options_for_select(Metric::VALUES, :selected =>  metric.value) %>
-            </td>
-            <td><%= text_area_tag "iteration[metrics][][comment]", metric.comment, :rows=>"1", :cols => "40", :class=>"margin_left_20px" %> </td>
-        </tr>
-    <% end %>
-    <tr>
-        <td colspan="2">Notes</td>
-        <td> <%= text_area_tag "notes", iteration.notes, :rows => 10, :cols => 40, :class=>"margin_left_20px"  %> </td>
-    </tr>
-    <tr>
-        <td colspan="2">DM Notes</td>
-        <td> <%= text_area_tag "dm_notes", iteration.dm_notes, :rows => 10, :cols => 40, :class=>"margin_left_20px"  %> </td>
-    </tr>
-    </tbody>
 </table>
+	
+    <%  all_metric_groups = metrics.group_by {|metric| metric["group_name"]}%>
+	<% all_metric_groups.each do |group_name, metrics_list|%>
+		<% if !metrics_list.empty? %>
+			<fieldset class="metric_group">
+			<legend><%=group_name%></legend>
+			<table>
+			<% metrics_list.each_with_index do |metric, index| %>
+        	<tr>
+            	<td><%= label metric["key"], metric["name"] %></td>
+            	<td>
+                	<%= hidden_field_tag "iteration[metrics][][name]", metric["name"] %>
+                	<%= select_tag "iteration[metrics][][value]", options_for_select(Metric::VALUES, :selected =>  metric.value) %>
+            	</td>
+            	<td><%= text_area_tag "iteration[metrics][][comment]", metric.comment, :rows=>"1", :cols => "40", :class=>"margin_left_20px" %> </td>
+        	</tr>
+    		<% end %>
+			</table>
+			</fieldset>
+			<br />
+		<% end %>
+	<% end %>
+	<table>
+    	<tr>
+        	<td colspan="2">Notes</td>
+        	<td> <%= text_area_tag "notes", iteration.notes, :rows => 10, :cols => 40, :class=>"margin_left_20px"  %> </td>
+    	</tr>
+    	<tr>
+			<td colspan="2">DM Notes</td>
+			<td> <%= text_area_tag "dm_notes", iteration.dm_notes, :rows => 10, :cols => 40, :class=>"margin_left_20px"  %> </td>
+    	</tr>
+	</table>
 
 

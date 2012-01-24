@@ -174,12 +174,24 @@ class Project < CouchRest::ExtendedDocument
   end
 
   def stuffed_metrics
-    ProjectTemplate.project_template.metrics_group.map do |metrics_group_from_template|
-      metrics_group = metrics_group_from_template.clone
-      metrics_group.data.select { |metric_hash|
-        metric_hash["mandatory"] || metrics.include?(metric_hash["key"])
-      }
-    end.flatten + self.additional_metrics.select { |a_m| a_m if self.metrics.include?(a_m.key) }
+    result_metrics = ProjectTemplate.project_template.metrics_group.map do |metrics_group_from_template|
+      															metrics_group = metrics_group_from_template.clone
+															    metrics_group.data.inject([]) do |valid_metrics, metric_hash|
+															        	if(metric_hash["mandatory"] || metrics.include?(metric_hash["key"]))
+																			metric_hash["group_name"] = metrics_group.name
+																			valid_metrics << metric_hash
+																		end
+															      	valid_metrics
+																	end
+    															end.flatten
+	additional_metrics =  self.additional_metrics.inject([]) do |arr, a_m| 
+								if self.metrics.include?(a_m.key)
+									a_m["group_name"]="Additional Metrics"
+									arr << a_m
+								end
+								arr
+						  end
+	result_metrics + additional_metrics
   end
 
   def metric_for_week(project_status, projects_metric_view, metric, week)

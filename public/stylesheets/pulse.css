@@ -349,8 +349,7 @@ table td.project_column_header {
 
 .metric_group {
     margin: 10px;
-    border: 0;
-    border-top: 1px solid #aaa;
+    border: 1px solid #aaa;
     padding: 0 15px 5px;
     overflow: hidden
 }
