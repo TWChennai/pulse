@@ -37,7 +37,7 @@
 
       <tbody>
         <% @projects_dashboard.each do |project|
-          iteration = get_closest_iteration_by_date(project.iterations, @week_ending_date)
+          iteration = project.get_closest_iteration_by_date(@week_ending_date)
           
 		  	if (@location_filter == project.location || @location_filter=="all") and (@region_filter == project.region || @region_filter == "all") and !iteration.nil?
 		%>

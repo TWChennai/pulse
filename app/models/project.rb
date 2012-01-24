@@ -242,4 +242,16 @@ class Project < CouchRest::ExtendedDocument
     {:value => "", :comment => ""}
   end
 
+  def latest_iteration_submitted_date
+	latest_iteration = get_closest_iteration_by_date((Date.today.end_of_week - 9.days).strftime("%m/%d/%Y"))
+	return latest_iteration.date if !latest_iteration.nil?
+  end
+
+  def get_closest_iteration_by_date date
+    should_be_before_date = Date.parse(date)
+    matched_iterations = iterations.select {|iteration| !iteration.date.blank? && Date.parse(iteration.date) <= should_be_before_date}
+    sorted_iterations = matched_iterations.sort { |x,y| Date.parse(y.date) <=> Date.parse(x.date) }
+    sorted_iterations.first
+  end
+
 end

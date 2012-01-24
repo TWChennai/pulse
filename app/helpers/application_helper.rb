@@ -22,11 +22,4 @@ module ApplicationHelper
     "#{object[object_type]} <b>(#{object['date_modified']})</b>"
   end
 
-  def get_closest_iteration_by_date iterations, date
-    should_be_before_date = Date.parse(date)
-    matched_iterations = iterations.select {|iteration| !iteration.date.blank? && Date.parse(iteration.date) <= should_be_before_date}
-    sorted_iterations = matched_iterations.sort { |x,y| Date.parse(y.date) <=> Date.parse(x.date) }
-    sorted_iterations.first
-  end
-
 end
