@@ -5,9 +5,12 @@
     </tr>
 </table>
 	
-    <%  all_metric_groups = metrics.group_by {|metric| metric["group_name"]}%>
+    <%  
+		all_metric_groups = metrics.group_by {|metric| metric["group_name"]}
+		global_indicator_metrics = all_metric_groups["Global Indicators"]
+	%>
 	<% all_metric_groups.each do |group_name, metrics_list|%>
-		<% if !metrics_list.empty? %>
+		<% if !metrics_list.empty? and group_name != "Global Indicators"%>
 			<fieldset class="metric_group">
 			<legend><%=group_name%></legend>
 			<table>
@@ -21,6 +24,23 @@
             	<td><%= text_area_tag "iteration[metrics][][comment]", metric.comment, :rows=>"1", :cols => "40", :class=>"margin_left_20px" %> </td>
         	</tr>
     		<% end %>
+			<% if(!global_indicator_metrics.nil?)
+				overall_metric = global_indicator_metrics.select{|metric|metric.name == group_name}.first
+					if(!overall_metric.nil?)
+			%>
+				<tr><td colspan="3"><hr/></td></tr>
+				<tr>
+					<td>Overall</td>
+					<td>
+						<%= hidden_field_tag "iteration[metrics][][name]", overall_metric["name"] %>
+                		<%= select_tag "iteration[metrics][][value]", options_for_select(Metric::VALUES, :selected =>  overall_metric.value)  %>
+					</td>
+            		<td><%= text_area_tag "iteration[metrics][][comment]", overall_metric.comment, :rows=>"1", :cols => "40", :class=>"margin_left_20px" %> </td>
+				</tr>
+			<%
+					end
+			   end
+			%>
 			</table>
 			</fieldset>
 			<br />
