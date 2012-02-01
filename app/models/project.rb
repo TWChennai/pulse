@@ -255,8 +255,12 @@ class Project < CouchRest::ExtendedDocument
   end
 
   def latest_iteration_submitted_date
-	latest_iteration = get_closest_iteration_by_date((Date.today.end_of_week - 9.days).strftime("%m/%d/%Y"))
+	latest_iteration = latest_iteration_submitted 
 	return latest_iteration.date if !latest_iteration.nil?
+  end
+
+  def latest_iteration_submitted
+  	get_closest_iteration_by_date((Date.today.end_of_week - 9.days).strftime("%m/%d/%Y"))
   end
 
   def get_closest_iteration_by_date date
