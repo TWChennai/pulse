@@ -1,6 +1,9 @@
 # Don't change this file!
 # Configure your app in config/environment.rb and config/environments/*.rb
 
+
+require 'yaml'
+
 RAILS_ROOT = "#{File.dirname(__FILE__)}/.." unless defined?(RAILS_ROOT)
 
 module Rails
