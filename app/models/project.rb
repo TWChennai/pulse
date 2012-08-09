@@ -7,7 +7,7 @@ class Project < CouchRest::ExtendedDocument
   end
 
   TYPES = [[Project::ISAlive::OPEN, true], [Project::ISAlive::CLOSED, false]]
-  MANDATORY_PROJECT_PROPERTIES = ["sales_region"]
+  MANDATORY_PROJECT_PROPERTIES = ["client", "sales_region"]
 
   property :metrics
   property :project_properties
@@ -78,16 +78,16 @@ class Project < CouchRest::ExtendedDocument
       if (doc['couchrest-type'] == 'Project') {
         if(doc.iterations) {
           for(store in doc.iterations) {
-            emit([doc.isAlive],doc.iterations[store]);
+            emit([doc.isAlive, doc.iterations[store].date],doc.iterations[store]);
           }
         }
       }
-    }"
-
+    }
+    "
   view_by :metric,
           :map => "
 
-    function(doc) { 
+    function(doc) {
       if (doc['couchrest-type'] == 'Project') {
         if(doc.iterations){
           for(store in doc.iterations) {
@@ -184,7 +184,7 @@ class Project < CouchRest::ExtendedDocument
 															      	valid_metrics
 																	end
     															end.flatten
-	additional_metrics =  self.additional_metrics.inject([]) do |arr, a_m| 
+	additional_metrics =  self.additional_metrics.inject([]) do |arr, a_m|
 								if self.metrics.include?(a_m.key)
 									a_m["group_name"]="Additional Metrics"
 									arr << a_m
@@ -222,9 +222,9 @@ class Project < CouchRest::ExtendedDocument
   end
 
   def self.project_dashboard(project_status, week_ending_date)
-    #two_month_earlier = Date.strptime("{#{week_ending_date}}","{%m/%d/%Y}") - 2.months
-    #start_date = two_month_earlier.strftime("%m/%d/%y")
-    Project.view("by_dashboard", {:key => [project_status]})
+    two_month_earlier = Date.strptime("{#{week_ending_date}}","{%m/%d/%Y}") - 1.months
+    start_date = two_month_earlier.strftime("%m/%d/%y")
+    Project.view("by_dashboard", {:startkey => [project_status, start_date], :endkey => [project_status, week_ending_date]})
   end
 
   def self.location_present
