@@ -41,6 +41,18 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+
+if Gem::VERSION >= "1.3.6"
+  module Rails
+    class GemDependency
+      def requirement
+        r = super
+        (r == Gem::Requirement.default) ? nil : r
+      end
+    end
+  end
+end
+
 end
 
  #Put the bundler related stuff here!
@@ -53,3 +65,4 @@ rescue LoadError
   require "bundler"
   Bundler.setup
 end
+
