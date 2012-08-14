@@ -74,16 +74,20 @@ class Project < CouchRest::ExtendedDocument
 
   view_by :dashboard,
           :map =>
-                  "function(doc) {
-      if (doc['couchrest-type'] == 'Project') {
-        if(doc.iterations) {
-          for(store in doc.iterations) {
-            emit([doc.isAlive, doc.iterations[store].date],doc.iterations[store]);
-          }
-        }
-      }
-    }
-    "
+                "function(doc) {
+                      if (doc['couchrest-type'] == 'Project') {
+                        if(doc.iterations) {
+                          var latest_iteration = doc.iterations[0];
+                          for(index in doc.iterations) {
+                            if(new Date(latest_iteration.date) <= new Date(doc.iterations[index].date)){
+                              latest_iteration = doc.iterations[index];
+                            }
+                          }
+                        emit([doc.isAlive, latest_iteration.date], latest_iteration);
+                      }
+                    }
+                }"
+
   view_by :metric,
           :map => "
 
@@ -222,9 +226,9 @@ class Project < CouchRest::ExtendedDocument
   end
 
   def self.project_dashboard(project_status, week_ending_date)
-    two_month_earlier = Date.strptime("{#{week_ending_date}}","{%m/%d/%Y}") - 1.months
-    start_date = two_month_earlier.strftime("%m/%d/%y")
-    Project.view("by_dashboard", {:startkey => [project_status, start_date], :endkey => [project_status, week_ending_date]})
+    # two_month_earlier = Date.strptime("{#{week_ending_date}}","{%m/%d/%Y}") - 1.months
+    # start_date = two_month_earlier.strftime("%m/%d/%y")
+    Project.view("by_dashboard")
   end
 
   def self.location_present
@@ -255,7 +259,7 @@ class Project < CouchRest::ExtendedDocument
   end
 
   def latest_iteration_submitted_date
-	latest_iteration = latest_iteration_submitted 
+	latest_iteration = latest_iteration_submitted
 	return latest_iteration.date if !latest_iteration.nil?
   end
 
