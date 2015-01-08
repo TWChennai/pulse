@@ -8,8 +8,8 @@ class AuthController < ApplicationController
     redirect_to (params[:RelayState] || '/')
   end
 
-  def clearsession
+  def logout
     session[:user_id] = nil
-    render nothing: true
+    redirect_to "https://thoughtworks.oktapreview.com"
   end
 end
