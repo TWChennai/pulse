@@ -12,6 +12,7 @@ gem 'daemon_controller'
 gem 'fastthread'
 gem 'json'
 gem 'timecop'
+gem 'omniauth-saml'
 
 group :development, :test do
   gem 'test-unit', '1.2.3'

@@ -30,6 +30,9 @@ ActionController::Routing::Routes.draw do |map|
   map.create_staffing_plan '/staffing_plan/create', :controller => :staffing_plan, :action => :create
   map.update_staffing_plan '/staffing_plan/update', :controller => :staffing_plan, :action => :update
 
+  map.okta_callback 'auth/saml/callback', :controller => :auth, :action => :saml_callback
+  map.clear_session 'clearsession', :controller => :auth, :action => :clearsession
+
   map.root :controller => :dashboard, :action => :index
   
   map.connect ':controller/:action/:id'
