@@ -7,7 +7,7 @@
 		<li>To Date: <%= text_field_tag 'to_date', @to_date.to_s, {:class=>"datepicker"} %></li>
 		<li>Project Status:<%= select_tag "status" , options_for_select(Project::TYPES, :selected => @project_status)%></li>
 		<li><%= submit_tag "Fetch" %></li>
-		<li><%= link_to "Export to Excel", export_metrics_view_to_csv_path(:metric => @metric, :from_date => @from_date.to_s, :to_date => @to_date.to_s, :status => @project_status)%></li>
+		<!-- <li><%= link_to "Export to Excel", export_metrics_view_to_csv_path(:metric => @metric, :from_date => @from_date.to_s, :to_date => @to_date.to_s, :status => @project_status)%></li> -->
 	</ul>
 	<%end%>
 	<table class="iteration">
