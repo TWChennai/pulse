@@ -1,7 +1,6 @@
 log
 .DS_Store
 tmp/*
-config/couchdb.yml
 nbproject
 *.orig
 public/attachments
