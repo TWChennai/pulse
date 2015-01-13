@@ -2,15 +2,20 @@
 <% database_suffix = RAILS_ENV %>
 
 base: &base
- database: <%= [database_prefix, "projects", database_suffix].compact.join("_") %>
- host: localhost
- port: 5984
+  database: <%= [database_prefix, "projects", database_suffix].compact.join("_") %>
 
 development:
   <<: *base
+  host: localhost
+  port: 5984
 
 test:
   <<: *base
+  ssl: true
+  host: shobana.cloudant.com
+  port: 443
+  username: thittenectimegrearedgass
+  password: 1An5mVlJjGHHRAXTAOodqwrb
 
 production:
   <<: *base
