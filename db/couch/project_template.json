@@ -240,7 +240,7 @@
         "type":"list",
         "description":"Sales Region",
         "key":"sales_region",
-        "allowed_values": ["Am E", "Am W", "Eu", "Oz"],
+        "allowed_values": ["India", "Am E", "Am W", "Eu", "Oz"],
         "couchrest-type":"ProjectProperty"
     },
     {
