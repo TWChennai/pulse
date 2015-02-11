@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'rake'
-gem 'rack'
-gem 'rails', '2.3.5'
+gem 'rack', '1.1.0'
+gem 'rails', '2.3.7'
 gem 'capistrano'
 gem 'highline'
 gem 'rjb', '1.4.3'
