@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rake'
 gem 'rack', '1.1.0'
-gem 'rails', '2.3.7'
+gem 'rails', '2.3.15'
 gem 'capistrano'
 gem 'highline'
 gem 'rjb', '1.4.3'

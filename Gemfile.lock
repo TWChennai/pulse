@@ -1,16 +1,16 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    actionmailer (2.3.7)
-      actionpack (= 2.3.7)
-    actionpack (2.3.7)
-      activesupport (= 2.3.7)
+    actionmailer (2.3.9)
+      actionpack (= 2.3.9)
+    actionpack (2.3.9)
+      activesupport (= 2.3.9)
       rack (~> 1.1.0)
-    activerecord (2.3.7)
-      activesupport (= 2.3.7)
-    activeresource (2.3.7)
-      activesupport (= 2.3.7)
-    activesupport (2.3.7)
+    activerecord (2.3.9)
+      activesupport (= 2.3.9)
+    activeresource (2.3.9)
+      activesupport (= 2.3.9)
+    activesupport (2.3.9)
     canonix (0.1.1)
     capistrano (2.9.0)
       highline
@@ -46,12 +46,12 @@ GEM
       omniauth (~> 1.2)
       ruby-saml (~> 0.7.3)
     rack (1.1.0)
-    rails (2.3.7)
-      actionmailer (= 2.3.7)
-      actionpack (= 2.3.7)
-      activerecord (= 2.3.7)
-      activeresource (= 2.3.7)
-      activesupport (= 2.3.7)
+    rails (2.3.9)
+      actionmailer (= 2.3.9)
+      actionpack (= 2.3.9)
+      activerecord (= 2.3.9)
+      activeresource (= 2.3.9)
+      activesupport (= 2.3.9)
       rake (>= 0.8.3)
     rake (10.4.2)
     rest-client (1.6.7)
@@ -85,7 +85,7 @@ DEPENDENCIES
   json
   omniauth-saml
   rack (= 1.1.0)
-  rails (= 2.3.7)
+  rails (= 2.3.9)
   rake
   rjb (= 1.4.3)
   rspec-rails (= 1.3)
