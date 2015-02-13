@@ -1,4 +1,11 @@
 class Project < CouchRest::ExtendedDocument
+    # TODO not sure if these 5 lines are required since the app is using couchDB, this has been put to resolve error on project that "'model_name' method undefined"
+    include ActiveModel::Conversion
+    extend  ActiveModel::Naming
+    def persisted?
+      false
+    end
+
   include CouchRest::Validation
   use_database COUCHDB_SERVER
   module ISAlive

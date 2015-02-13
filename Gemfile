@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rake'
+# gem 'rake', '0.8.7'
+gem 'acts-as-taggable-on'
+gem 'sqlite3-ruby'
 gem 'rack', '1.2.1'
 gem 'rails', '3.0.3'
 gem 'capistrano'
