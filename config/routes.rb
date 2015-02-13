@@ -43,7 +43,7 @@ Pulse::Application.routes.draw do
 
 
   
-  # match  connect ':controller/:action/:id'
-  # match  connect ':controller/:action/:id.:format'
+  # map.connect ':controller/:action/:id'
+  # map.connect ':controller/:action/:id.:format'
 end
 
