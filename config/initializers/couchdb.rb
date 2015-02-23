@@ -9,7 +9,7 @@ begin
     exit -1
   end
 
-  couchdb_config = YAML::load(ERB.new(IO.read(RAILS_ROOT + "/config/couchdb.yml")).result)[env]
+  couchdb_config = YAML::load(ERB.new(IO.read(Rails.root.to_s + "/config/couchdb.yml")).result)[env]
 
   host      = couchdb_config["host"]
   port      = couchdb_config["port"]

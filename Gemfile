@@ -18,5 +18,5 @@ gem 'omniauth-saml'
 
 group :development, :test do
   gem 'test-unit', '1.2.3'
-  gem 'rspec-rails', '1.3'
+  gem 'rspec-rails', '2.13.2'
 end
