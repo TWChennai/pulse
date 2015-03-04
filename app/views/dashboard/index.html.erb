@@ -6,7 +6,7 @@
   </div>
 
   <div class="right_property_area">
-    <% form_tag '/dashboard/week_ending', :method => :get do %>
+    <%= form_tag '/dashboard/week_ending', :method => :get do %>
       Week Ending: <%= text_field_tag "date", @week_ending_date, :class=>"datepicker" %>
       Project Status:<%= select_tag "status", options_for_select(Project::TYPES, :selected => @project_status) %>
       Location
@@ -42,7 +42,7 @@
           <% iteration = get_closest_iteration_by_date(project.iterations, @week_ending_date) %>
           <% if (@location_filter == project.location || @location_filter=="all") and (@region_filter == project.region || @region_filter == "all") and (iteration != nil) %>
             <tr>
-              <td><%= link_to project.name, project %></td>
+              <td><%= link_to project.name, project_url(project.id) %></td>
 
               <td><%= project.region %></td>
 

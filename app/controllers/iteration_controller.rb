@@ -3,7 +3,7 @@ class IterationController < ApplicationController
     @project = Project.get(params[:project_id])
     @project_template = ProjectTemplate.project_template
     @iteration = Iteration.new
-    render :template => false
+    render :layout => false
   end
 
   def save
@@ -14,13 +14,13 @@ class IterationController < ApplicationController
     iteration.dm_notes=params[:dm_notes]
     @project.iterations << iteration
     @project.save!
-    redirect_to(@project)
+    redirect_to(project_url(@project.id))
   end
 
   def edit
     @project = Project.get(params[:project_id])
     @iteration = @project.iterations[params[:index].to_i]
-    render :template => false
+    render :layout => false
   end
 
   def update
@@ -32,7 +32,7 @@ class IterationController < ApplicationController
     iteration.merge!(params[:iteration])
 
     @project.save!
-    redirect_to(@project)
+    redirect_to(project_url(@project.id))
   end
 
   def attachment
@@ -50,6 +50,6 @@ class IterationController < ApplicationController
     iteration["attachments"].delete(attachment)
     @project.save!
 
-    request.xhr? ? render(:text => "success") : redirect_to(@project)
+    request.xhr? ? render(:text => "success") : redirect_to(project_url(@project.id))
   end
 end

@@ -1,4 +1,4 @@
-<% form_tag update_risk_path(@project), :multipart => true do %>
+<%= form_tag update_risk_path(@project.id), :multipart => true do %>
   <%= render :partial => 'risk/form', :locals => {:title => "Edit Risk (Click to Expand/Collapse)"} %>
 <% end %>
 <%= render :partial => 'risk/history' %>

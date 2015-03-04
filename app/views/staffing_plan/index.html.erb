@@ -2,7 +2,7 @@
     <h1>Staffing Plan</h1>
 
     <div class="staffing_plan_container">
-        <% form_tag '/staffing_plan', :method => :get do %>
+        <%= form_tag '/staffing_plan', :method => :get do %>
             Staffing plan for project :
             <%= select_tag "project", options_for_select(@projects.map(& :name), :selected => @project.name) %>
             <%= submit_tag "Go" %>
@@ -201,7 +201,7 @@
             </table>
         <% else %>
             <div class="update_staffing_plan">
-                <% form_tag '/staffing_plan/create', :method => :get do %>
+                <%= form_tag '/staffing_plan/create', :method => :get do %>
                     <%= hidden_field_tag "project_id", @project.id %>
                     <div class="left_panel">
                         <h4>Onsite : </h4>

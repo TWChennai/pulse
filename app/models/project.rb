@@ -1,16 +1,21 @@
 class Project < CouchRest::ExtendedDocument
+  extend ActiveModel::Naming
+  include ActiveModel::Conversion
   include CouchRest::Validation
   use_database COUCHDB_SERVER
   module ISAlive
     OPEN = "Open"
     CLOSED = "Closed"
   end
+  def persisted?
+    false
+  end
 
   TYPES = [[Project::ISAlive::OPEN, true], [Project::ISAlive::CLOSED, false]]
   MANDATORY_PROJECT_PROPERTIES = ["client", "sales_region"]
 
-  property :metrics
-  property :project_properties
+  property :metrics, :default => []
+  property :project_properties, :default => {}
 
   property :additional_metrics, :cast_as => [MetricData]
 
@@ -18,7 +23,7 @@ class Project < CouchRest::ExtendedDocument
   property :risks, :cast_as => [Risk]
   property :staffing_plans, :cast_as => [StaffingPlan]
   property :name
-  property :isAlive
+  property :isAlive, :default => true
   property :location
   property :region
   property :filtered_metrics

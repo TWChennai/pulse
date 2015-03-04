@@ -1,4 +1,4 @@
-<% form_tag update_iteration_path(@project, params[:index]), :multipart => true do %>
+<%= form_tag update_iteration_path(@project.id, params[:index]), :multipart => true do %>
 
     <%= render :partial => "iteration_details", :locals => {:iteration => @iteration, :metrics => @iteration.metrics} %>
     <div id="attachments">

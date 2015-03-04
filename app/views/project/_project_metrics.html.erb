@@ -1,9 +1,9 @@
 <div>
 	<h3>Project Risks</h3>
-	<%= link_to_if @project.isAlive, "Add New Iteration Information", new_iteration_path(@project, :height => 400, :width => 700),
+	<%= link_to_if @project.isAlive, "Add New Iteration Information", new_iteration_url(@project.id, :height => 400, :width => 700),
 	:class => "thickbox", :title => "Add New Iteration Information" %>
         <div class="metrics_form">
-        <% form_tag filter_metrics_path(@project.id), :method => :post do %>
+        <%= form_tag filter_metrics_path(@project.id), :method => :post do %>
         <span>Metric Filter:</span><%= select_tag "metric_filter" , options_for_select(@project.all_metrics,:selected=>@project.filtered_metrics), :multiple=>true%>
         <%= submit_tag "Go"%>
         <%end%>
@@ -45,7 +45,7 @@
                                 <%else%>
                                 <td><div class="notes" title="No Notes To Display"></div> </td>
                                 <%end%>
-                                <td><%= link_to_if @project.isAlive, "Edit", edit_iteration_path(@project, index, :height => 400, :width => 700), :class => :thickbox, :title => "Edit Iteration Information" %>  </td>
+                                <td><%= link_to_if @project.isAlive, "Edit", edit_iteration_path(@project.id, index, :height => 400, :width => 700), :class => :thickbox, :title => "Edit Iteration Information" %>  </td>
                         </tr>
 			<% end %>
 		</tbody>

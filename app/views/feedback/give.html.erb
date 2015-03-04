@@ -7,7 +7,7 @@
 <% if flash[:error] %> <div class="error"> <%= flash[:error] %> </div> <%end%>
 
 
-<% form_tag submit_feedback_path, :method => :post do %>
+<%= form_tag submit_feedback_path, :method => :post do %>
 
 <div class="property_field">
   <label for="email">Thoughtworks Email ID:</label>

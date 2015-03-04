@@ -1,6 +1,6 @@
 <div class="content_wrapper">
 	<h1>Metrics View for <%= @metric %></h1>
-	<% form_tag 'metric', :method => :get  do%>
+	<%= form_tag 'metric', :method => :get  do%>
 	<ul class="metrics_options">
 		<li>Metric: <%= select_tag 'metric',options_for_select(@metrics_list, :selected => @metric) %></li>
 		<li>From Date: <%= text_field_tag 'from_date', @from_date.to_s, {:class=>"datepicker"} %></li>

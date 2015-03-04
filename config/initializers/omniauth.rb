@@ -1,4 +1,4 @@
-ActionController::Dispatcher.middleware.use OmniAuth::Builder do
+Rails.application.config.middleware.use OmniAuth::Builder do
     provider :saml,
       :issuer                             => "http://127.0.0.1:3000",
       :idp_sso_target_url                 => "https://thoughtworks.oktapreview.com/app/template_saml_2_0/k3709y0rSILKJJJLIBCZ/sso/saml",

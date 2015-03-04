@@ -35,7 +35,7 @@ class ProjectController < ApplicationController
     @project = Project.new(project_hash_from_params)
     if @project.valid?
         @project.save
-        redirect_to(@project)
+        redirect_to(project_url(@project.id))
     else
         flash[:errors] = @project.errors.full_messages
         @project_template = ProjectTemplate.project_template
@@ -51,7 +51,7 @@ class ProjectController < ApplicationController
       @project.merge!(project_hash_from_params)
       if @project.valid?
         @project.save
-        redirect_to(@project)
+        redirect_to(project_url(@project.id))
       else
         flash[:errors] = @project.errors.full_messages
         @project_template = ProjectTemplate.project_template
@@ -69,7 +69,7 @@ class ProjectController < ApplicationController
       @project.isAlive = false
       @project.save
     end
-    redirect_to(@project)
+    redirect_to(project_url(@project.id))
   end
 
   def reopen
@@ -81,7 +81,7 @@ class ProjectController < ApplicationController
       @project.save
       flash[:notice] = "Project has been successfully reopened."
     end
-    redirect_to(@project)
+    redirect_to(project_url(@project.id))
   end
 
   private

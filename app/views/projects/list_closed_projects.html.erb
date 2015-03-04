@@ -2,7 +2,7 @@
 	<h1>Closed Projects</h1>
 	<ul class="closed_projects">
 	<% @projects.each do |project| %>
-		<li><%= link_to project.name, project %></li>
+		<li><%= link_to project.name, project_url(project.id) %></li>
 	<% end %>
 	</ul>
 </div>

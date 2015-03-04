@@ -1,6 +1,6 @@
 <div class="project_risks">
     <h3>Project Risks</h3>
-    <%= link_to_if @project.isAlive, "Add New Risk", new_risk_path(@project, :height => "400", :width => "800"), :class => "thickbox", :title => "Add New Risk" %>
+    <%= link_to_if @project.isAlive, "Add New Risk", new_risk_path(@project.id, :height => "400", :width => "800"), :class => "thickbox", :title => "Add New Risk" %>
     <table class="iteration">
         <thead>
         <tr>

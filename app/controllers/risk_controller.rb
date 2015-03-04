@@ -19,7 +19,7 @@ class RiskController < ApplicationController
     risk.add_history(params[:risk].dup)
     @project.risks << risk
     @project.save!
-    redirect_to(@project)
+    redirect_to(project_url(@project.id))
   end
 
   def update
@@ -30,6 +30,6 @@ class RiskController < ApplicationController
     risk = risk.merge!(params[:risk])
     risk.add_history(risk_history)
     @project.save!
-    redirect_to(@project)
+    redirect_to(project_url(@project.id))
   end
 end

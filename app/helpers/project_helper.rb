@@ -3,7 +3,7 @@ module ProjectHelper
     if metric.mandatory
       check_box_tag "project[metrics[#{metric.key}]]", "yes", true, :disabled =>true
     else
-      check_box_tag "project[metrics[#{metric.key}]]", "yes", @project.metrics.include?(metric.key)
+      check_box_tag "project[metrics[#{metric.key}]]", "yes", !@project.metrics.nil? && @project.metrics.include?(metric.key)
     end
   end
 
@@ -11,7 +11,12 @@ module ProjectHelper
     options = {}
     options[:class] = "datepicker" if property.type == "date"
     name = "project[project_properties[#{property.key}]]"
-    value = @project.project_properties[property.key]
+
+    if @project.project_properties.nil?
+      value = ""
+    else
+      value = @project.project_properties[property.key]
+    end
 
     return text_area_tag name, value, :rows => "4", :cols => "20" if (property.type == "comment_string")
     return select_tag name, options_for_select([""] + property.allowed_values, value) if(property.type == "list")

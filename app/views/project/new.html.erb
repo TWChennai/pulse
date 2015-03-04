@@ -3,7 +3,7 @@
     <% if not flash[:errors].blank? %>
         <div class="error"><%= concatenate_errors(flash[:errors]) %></div>
     <% end %>
-    <% form_for @project, :url => "/project" do |f| %>
+    <%= form_for @project, :url => "/project" do |f| %>
         <%= render :partial => "project_properties_form", :locals => {:form => f} %>
         <%= render :partial => "project_metrics_form", :locals => {:form => f} %>
         <div class="clear"><%= f.submit "Create New Project" %></div>
