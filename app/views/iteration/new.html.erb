@@ -1,10 +1,15 @@
 <%= form_tag save_iteration_path(@project.id), :multipart => true do %>
     <%= render :partial => "iteration_details", :locals => {:iteration => @iteration, :metrics => @project.stuffed_metrics} %>
 
+   <!-- TODO: have to fix the Add attachment feature and uncomment the below code -->
+    <% 
+=begin %>
     <div id="attachments">
         <ul></ul>
         <a class="add" href="#">Add attachment</a>
     </div>
+    <% 
+=end %>
     <%= submit_tag "Add Iteration Information" %>
 <% end %>
 

@@ -1,7 +1,11 @@
 <%= form_tag update_iteration_path(@project.id, params[:index]), :multipart => true do %>
 
     <%= render :partial => "iteration_details", :locals => {:iteration => @iteration, :metrics => @iteration.metrics} %>
-    <div id="attachments">
+
+  <!-- TODO: have to fix the Add attachment feature and uncomment the below code -->
+  <% 
+=begin %>
+   <div id="attachments">
         <ul>
             <% @iteration.file_attachments.each do |attachment| %>
                 <li>
@@ -12,7 +16,10 @@
             <% end %>
         </ul>
         <a class="add" href="#">Add attachment</a>
-    </div>
+    </div> 
+
+    <% 
+=end %>
 
     <%= submit_tag "Update Iteration Information" %>
 <% end %>
