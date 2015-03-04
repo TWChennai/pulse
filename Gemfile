@@ -16,5 +16,6 @@ gem 'rdoc'
 gem 'couchrest_extended_document'
 group :development, :test do
   gem 'test-unit', '1.2.3'
-  gem 'rspec-rails', '1.3'
+  # gem 'rspec', '>= 2.8.0'
+  # gem 'rspec-rails', '2.8.1'
 end
