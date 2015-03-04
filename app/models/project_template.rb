@@ -75,34 +75,4 @@ class ProjectTemplate < CouchRest::ExtendedDocument
       }
     end.flatten
   end
-
-  def self.migrate_data
-    COUCHDB_SERVER.documents(:include_docs => true)["rows"].each do |doc|
-      if doc['doc']['couchrest-type'] == 'Project'
-        doc['doc']["project_properties"] = doc['doc']["properties"]
-        doc['doc'].delete("properties")
-        COUCHDB_SERVER.save_doc(doc['doc'])
-      end
-    end
-
-    Project.view("by_location").each do |project|
-      project.iterations.each do |iteration|
-        if (!iteration.metrics.find { |metric| metric.name == "Engagement Status" })
-          iteration.metrics << Metric.new(:name => "Engagement Status", :value => "Green", :comment => "undefined")
-        end
-      end
-      ["engagement_model", "development_languages_used", "client", "pm", "dm", "cp", "dp", "sales_region", "delivery_status", "client_category"].each do |property|
-        project.project_properties[property] = project.project_properties[property].blank? ? "to be filled" : project.project_properties[property]
-      end
-      if (project.filtered_metrics)
-        project.filtered_metrics.delete("Customer Satisfaction")
-        project.filtered_metrics.delete("Team Satisfaction")
-        project.filtered_metrics.delete("Engagement Status")
-        project.filtered_metrics << "Engagement Status"
-      end
-      project.region = "NA"
-      project.save!      
-    end
-  end
-
 end
