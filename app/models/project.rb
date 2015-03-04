@@ -11,7 +11,7 @@ class Project < CouchRest::ExtendedDocument
     false
   end
 
-  TYPES = [[Project::ISAlive::OPEN, true], [Project::ISAlive::CLOSED, false]]
+  TYPES = [[Project::ISAlive::CLOSED, false], [Project::ISAlive::OPEN, true]]
   MANDATORY_PROJECT_PROPERTIES = ["client", "sales_region"]
 
   property :metrics, :default => []

@@ -1,7 +1,7 @@
 <div class="content_wrapper">
     <h1>Create Project</h1>
     <% if not flash[:errors].blank? %>
-        <div class="error"><%= concatenate_errors(flash[:errors]) %></div>
+        <div class="error"><%= concatenate_errors(flash[:errors]).html_safe %></div>
     <% end %>
     <%= form_for @project, :url => "/project" do |f| %>
         <%= render :partial => "project_properties_form", :locals => {:form => f} %>
