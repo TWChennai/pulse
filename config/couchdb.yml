@@ -1,5 +1,5 @@
 <% database_prefix = nil %>
-<% database_suffix = RAILS_ENV %>
+<% database_suffix = Rails.env %>
 
 base: &base
   database: <%= [database_prefix, "projects", database_suffix].compact.join("_") %>
@@ -10,6 +10,11 @@ development:
   port: 5984
 
 test:
+  <<: *base
+  host: localhost
+  port: 5984
+
+preprod:
   <<: *base
   ssl: true
   host: shobana.cloudant.com

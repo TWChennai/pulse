@@ -26,8 +26,7 @@ Pulse::Application.configure do
 
 	# Enable threaded mode
 	# config.threadsafe!
-
-
+	
 	# Send deprecation notices to registered listeners
-	config.active_support.deprecation = :notify
+  	config.active_support.deprecation = :notify
 end
