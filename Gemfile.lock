@@ -106,7 +106,6 @@ GEM
     rest-client (1.6.8)
       mime-types (~> 1.16)
       rdoc (>= 2.4.2)
-    rjb (1.5.3)
     ruby-saml (0.8.2)
       nokogiri (>= 1.5.0)
       uuid (~> 2.3)
@@ -138,7 +137,6 @@ DEPENDENCIES
   rails (= 3.0.0)
   rake (= 0.8.7)
   rdoc
-  rjb
   rubygems-update (= 1.4.2)
   test-unit (= 1.2.3)
   timecop

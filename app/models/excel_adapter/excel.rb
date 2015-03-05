@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'rjb'
+# require 'rjb'
 
 module ExcelAdapter
   class Excel
@@ -8,13 +8,13 @@ module ExcelAdapter
     attr_reader :sheet
 
     def initialize
-      Rjb::load(APACHE_POI_PATH, ['-Xms256M', '-Xmx512M'])
-      @file_class = Rjb::import('java.io.FileOutputStream')
-      workbook_class = Rjb::import('org.apache.poi.hssf.usermodel.HSSFWorkbook')
+      # Rjb::load(APACHE_POI_PATH, ['-Xms256M', '-Xmx512M'])
+      # @file_class = Rjb::import('java.io.FileOutputStream')
+      # workbook_class = Rjb::import('org.apache.poi.hssf.usermodel.HSSFWorkbook')
 
-      @book = workbook_class.new
-      @sheet = @book.createSheet("Details")
-      @sheet.setDefaultColumnWidth(20)
+      # @book = workbook_class.new
+      # @sheet = @book.createSheet("Details")
+      # @sheet.setDefaultColumnWidth(20)
     end
 
     def create_row_with_comments(values)
