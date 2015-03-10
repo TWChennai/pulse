@@ -8,7 +8,7 @@ Pulse::Application.routes.draw do
   match '/feedback/submit' => 'feedback#submit', :as => :submit_feedback
   match '/project/:id/export' => 'project#export_as_csv', :as => :export_project_as_csv
   match '/dashboard/:date/export' => 'dashboard#export_to_csv', :as => :export_project_dashboard_as_csv
-  match '/metrics_view/:metric/:from_date/:to_date' => 'metrics#export_to_csv', :as => :export_metrics_view_to_csv
+  # match '/metrics_view/:metric/:from_date/:to_date' => 'metrics#export_to_csv', :as => :export_metrics_view_to_csv
   match '/project/:project_id/new_iteration' => 'iteration#new', :as => :new_iteration
   match '/project/:project_id/save_iteration' => 'iteration#save', :as => :save_iteration
   match '/project/:project_id/edit_iteration/:index' => 'iteration#edit', :as => :edit_iteration
@@ -21,7 +21,7 @@ Pulse::Application.routes.draw do
   match '/project/:project_id/edit_risk/:index' => 'risk#edit', :as => :edit_risk
   match '/project/:project_id/update_risk/:index' => 'risk#update', :as => :update_risk
   match '/dashboard/week_ending' => 'dashboard#index', :as => :dashboard_for_a_date
-  match '/metric' => 'metrics#index', :as => :metric_view
+  # match '/metric' => 'metrics#index', :as => :metric_view
   match '/project/:project_id/filter_notes_by_date' => 'iteration#filter_notes_by_date', :as => :filter_notes_by_date
   match '/staffing_plan' => 'staffing_plan#index', :as => :staffing_plan
   match '/staffing_plan/create' => 'staffing_plan#create', :as => :create_staffing_plan

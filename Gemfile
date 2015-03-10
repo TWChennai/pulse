@@ -14,6 +14,7 @@ gem 'timecop'
 gem 'omniauth-saml'
 gem 'rdoc'
 gem 'couchrest_extended_document'
+gem 'axlsx'
 group :development, :test do
   gem 'test-unit', '1.2.3'
   # gem 'rspec', '>= 2.8.0'

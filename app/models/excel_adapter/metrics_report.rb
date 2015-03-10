@@ -9,13 +9,26 @@ module ExcelAdapter
       @project_status = project_status
     end
 
+    # def to_excel
+    #   p = Excel.new
+    #   p.create_row_with ["Metrics View", @metric, @week_range.last.to_s, @week_range.first.to_s]
+    #   populate_metrics_view_header(p)
+    #   populate_metrics_view_data(p)
+    #   p.write_to_file("metric.xls")
+    #   p.path
+    # end
+
     def to_excel
-      excel = Excel.new
-      excel.create_row_with ["Metrics View", @metric, @week_range.last.to_s, @week_range.first.to_s]
-      populate_metrics_view_header(excel)
-      populate_metrics_view_data(excel)
-      excel.write_to_file("metric.xls")
-      excel.path
+      Axlsx::Package.new do |p|
+        p.workbook.add_worksheet(:name => "Details") do |sheet|
+          sheet.create_row_with ["Metrics View", @metric, @week_range.last.to_s, @week_range.first.to_s]
+          populate_metrics_view_header(sheet)
+          populate_metrics_view_data(sheet)
+          sheet.column_widths *([20]*sheet.column_info.count)
+        end
+        p.use_shared_strings = true
+        return p.to_stream
+      end
     end
 
     private
