@@ -9,16 +9,6 @@ module ExcelAdapter
       @week_ending = week_ending
     end
 
-    # def to_excel
-    #   excel = Excel.new
-    #   excel.create_row_with ["Week Ending", @week_ending]
-    #   excel.create_row_with ["Project Name"] + REPORT_COLUMN_HEADERS + ProjectTemplate.mandatory_metrics.collect { |metric| metric.name } + ["Notes"]
-    #
-    #   populate_dashboard_iteration_information(excel)
-    #   excel.write_to_file("#{@week_ending.gsub("/", "-")}.xls")
-    #   excel.path
-    # end
-
     def to_excel
       Axlsx::Package.new do |p|
         p.workbook.add_worksheet(:name => "Dashboard_Details") do |sheet|
@@ -38,21 +28,23 @@ module ExcelAdapter
       sheet.add_row ["Project Name"] + REPORT_COLUMN_HEADERS + ProjectTemplate.mandatory_metrics.collect { |metric| metric.name } + ["Notes"]
 
       @dashboard_data.each do |project|
-        project_data = REPORT_COLUMN_PROPERTIES.inject([[project.name]]) { |info, prop|
-          data = project.get_data(prop)
-          info << [data[:value]]
-          info
-        }
-
         latest_iteration = project.get_closest_iteration_by_date(Date.parse(@week_ending).strftime("%m/%d/%Y"))
         if (!latest_iteration.nil?)
-          latest_iteration.mandatory_metrics.each do |metric|
-            project_data << [metric.value, metric.comment]
+          project_data = REPORT_COLUMN_PROPERTIES.inject([project.name]) do |info, prop|
+            data = project.get_data(prop)
+            info << data[:value]
           end
-          project_data << [latest_iteration.notes]
-        end
-        sheet.add_row(project_data)
 
+          latest_iteration.mandatory_metrics.each do |metric|
+            metric_details = metric.value
+            if(!metric.comment.empty?)
+              metric_details += ", " + metric.comment
+            end
+            project_data << metric_details
+          end
+          project_data << latest_iteration.notes
+          sheet.add_row(project_data)
+        end
       end
     end
 

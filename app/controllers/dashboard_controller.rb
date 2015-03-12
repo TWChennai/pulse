@@ -16,7 +16,7 @@ class DashboardController < ApplicationController
     @projects_dashboard = fetch_projects_dashboard
     @location_filter=(params[:location].nil? ? "all": params[:location] )
     @region_filter=(params[:region].nil? ? "all": params[:region] )
-    send_data(ExcelAdapter::ProjectDashboardReport.new(@projects_dashboard,@week_ending_date).to_excel.string, :filename => "sample.xlsx")
+    send_data(ExcelAdapter::ProjectDashboardReport.new(@projects_dashboard,@week_ending_date).to_excel.string, :filename => "DM_Report.xlsx")
   end
 
   def to_date(from_date)
