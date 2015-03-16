@@ -21,7 +21,7 @@
   <div class="clear"></div>
 
   <% if  @projects_dashboard.size > 0 %>
-    <%= link_to "Export DM Report as Excel", export_project_dashboard_as_csv_path(Time.parse(@week_ending_date).to_i, :status => @project_status) %>
+    <%# link_to "Export DM Report as Excel", export_project_dashboard_as_csv_path(Time.parse(@week_ending_date).to_i, :status => @project_status) %>
     <table class="iteration">
       <thead>
         <tr>
